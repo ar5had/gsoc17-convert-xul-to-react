@@ -1,0 +1,20 @@
+.wrapper {
+  background: #fbfbfb;
+  box-shadow: 0 10px 30px 0 rgba(46,61,73,.35);
+  width: 500px;
+  margin: 10vh auto 0;
+}
+
+/*** Above styles are just to make the dialogs look good ***/
+
+.dialog-content-box {
+  padding: 10px;
+}
+
+.row {
+  display: flex;
+}
+
+.row #calendar-enabled-checkbox + label {
+  vertical-align: text-bottom;
+}
