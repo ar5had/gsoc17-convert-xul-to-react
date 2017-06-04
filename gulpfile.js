@@ -23,25 +23,25 @@ gulp.task('browser-sync', ['nodemon'], () => {
 });
 
 gulp.task('nodemon', cb => {
-	
-	const started = false;
-	
-	return nodemon({
-		script: 'server.js',
+
+  const started = false;
+
+  return nodemon({
+    script: 'server.js',
     watch: '*.js',
     env: { 'NODE_ENV': 'development' }
-	}).on('start', () => {
-		// to avoid nodemon being started multiple times
-		if (!started) {
-			cb();
-			started = true; 
-		} 
-	}).on(`restart`, () => {
+  }).on('start', () => {
+    // to avoid nodemon being started multiple times
+    if (!started) {
+      cb();
+      started = true;
+    }
+  }).on(`restart`, () => {
     console.log(`App restarted!`)
   });
 });
 
-gulp.task('js',  () => {
+gulp.task('js', () => {
   return gulp.src('src/**/*.js')
 });
 
@@ -55,12 +55,12 @@ gulp.task('bs-reload', () => {
 });
 
 gulp.task('copy-html-css', () => {
-  return gulp.src(["src/**/*.css","src/**/*.html"], {base:"src/."})
-        .pipe(gulp.dest("dist"));
+  return gulp.src(["src/**/*.css", "src/**/*.html"], { base: "src/." })
+    .pipe(gulp.dest("dist"));
 });
 
 gulp.task('default', ['browser-sync'], () => {
-  gulp.watch('src/**/*.js',   ['js', browserSync.reload]);
-  gulp.watch('src/**/*.css',  ['css']);
+  gulp.watch('src/**/*.js', ['js', browserSync.reload]);
+  gulp.watch('src/**/*.css', ['css']);
   gulp.watch('src/**/*.html', ['bs-reload']);
 });

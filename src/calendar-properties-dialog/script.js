@@ -3,7 +3,7 @@ class Wrapper extends React.Component {
     return (
       <div className="wrapper">
         <label htmlFor="">Enable</label>
-        <input type="radio" id=""/>
+        <input type="checkbox" id=""/>
       </div>
     );
   }
