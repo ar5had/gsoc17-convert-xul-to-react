@@ -9,7 +9,7 @@
     "transpile-jsx": "babel src -d dist",
     "pre-build": "npm run remove-dist",
     "build": "npm run transpile-jsx && gulp copy-html-css && npm run fix-lint-errors",
-    "serve": "node server"
+    "serve": "node server local-dist"
   },
   "author": "Arshad Khan <arshdkhn1@gmail.com>",
   "devDependencies": {

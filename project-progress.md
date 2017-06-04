@@ -44,3 +44,12 @@ Day-wise progress report of `convert-xul-to-html` project.
 ### **Jun 2, 2017**
 
 * Setup dev environment.
+
+### **Jun 3, 2017**
+
+* Added gulp to dev environment for live reloading.
+
+### **Jun 4, 2017**
+
+* Integrated babel and gulp so that they work nicely with each other.
+* Created most of the `calendar-properties-dialog` body.

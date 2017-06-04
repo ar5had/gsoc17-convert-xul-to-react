@@ -13,20 +13,11 @@
 
 /* ::::: XBL bindings ::::: */
 
-radio {
-  -moz-binding: url("chrome://global/skin/globalBindings.xml#radio-with-spacing");
-}
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
 
-menulist > menupopup {
-  -moz-binding: url("chrome://global/content/bindings/popup.xml#popup-scrollbars");
-}
-
-progressmeter[mode="undetermined"] {
-  -moz-binding: url("chrome://global/content/bindings/progressmeter.xml#progressmeter-undetermined");
-}
-
-toolbar[type="menubar"]:not([autohide="true"]):not(:-moz-lwtheme):-moz-system-metric(menubar-drag) {
-  -moz-binding: url("chrome://global/content/bindings/toolbar.xml#toolbar-drag");
+* {
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
 }
 
 /* ::::: Variables ::::: */

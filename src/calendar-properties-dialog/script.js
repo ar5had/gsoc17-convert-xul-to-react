@@ -1,4 +1,15 @@
+class Wrapper extends React.Component {
+  render() {
+    return (
+      <div className="wrapper">
+        <label htmlFor="">Enable</label>
+        <input type="radio" id=""/>
+      </div>
+    );
+  }
+}
+
 ReactDOM.render(
-  <div>Hello World!!</div>,
+  <Wrapper />,
   document.getElementById("root")
 );
