@@ -1,0 +1,29 @@
+{
+  "name": "gsoc-convert-xul-to-html",
+  "version": "1.0.0",
+  "description": "dev environment for using JSX in react",
+  "scripts": {
+    "start": "gulp",
+    "remove-dist": "rimraf dist",
+    "fix-lint-errors": "eslint --fix dist",
+    "transpile-jsx": "babel src -d dist",
+    "pre-build": "npm run remove-dist",
+    "build": "npm run transpile-jsx && gulp copy-html-css && npm run fix-lint-errors",
+    "serve": "node server"
+  },
+  "author": "Arshad Khan <arshdkhn1@gmail.com>",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "browser-sync": "^2.18.12",
+    "gulp": "^3.9.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-nodemon": "^2.2.1",
+    "nodemon": "^1.10.0",
+    "rimraf": "^2.6.1"
+  },
+  "dependencies": {
+    "express": "^4.15.3",
+    "path": "^0.12.7"
+  }
+}
