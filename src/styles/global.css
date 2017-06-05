@@ -21,6 +21,19 @@
   color: #333;
 }
 
+/* ::::: Important layout styles ::::*/
+input[type="checkbox"] + label {
+  vertical-align: text-bottom;
+}
+
+input {
+  /* 
+    input of type text has a default min-width
+    which breaks layout on small width 
+  */
+  min-width: 10px;
+}
+
 /* ::::: Variables ::::: */
 :root {
   --arrowpanel-padding: 10px;
