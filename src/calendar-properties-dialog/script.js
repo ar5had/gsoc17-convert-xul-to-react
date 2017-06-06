@@ -23,25 +23,25 @@ class Wrapper extends React.Component {
   handleCalendarSwitchChange(event) {
     const tabState = this.state.tabs;
     tabState.general.calendarSwitch = !tabState.general.calendarSwitch;
-    this.setState({tabs: tabState});
+    this.setState({ tabs: tabState });
   }
 
   handleCalendarNameChange(event) {
     const tabState = this.state.tabs;
     tabState.general.name = event.currentTarget.value;
-    this.setState({tabs: tabState});
+    this.setState({ tabs: tabState });
   }
 
   handleCalendarColorChange(event) {
     const tabState = this.state.tabs;
     tabState.general.color = event.currentTarget.value;
-    this.setState({tabs: tabState});
+    this.setState({ tabs: tabState });
   }
 
   handleCalendarUriChange(event) {
     const tabState = this.state.tabs;
     tabState.general.location = event.currentTarget.value;
-    this.setState({tabs: tabState});
+    this.setState({ tabs: tabState });
   }
 
   handleCalendarEmailChange(event) {
@@ -53,23 +53,23 @@ class Wrapper extends React.Component {
   handleReadOnlyChange(event) {
     const tabState = this.state.tabs;
     tabState.general.readOnly = !tabState.general.readOnly;
-    this.setState({tabs: tabState});
+    this.setState({ tabs: tabState });
   }
 
   handleSuppressAlarmsChange(event) {
     const tabState = this.state.tabs;
     tabState.general.showReminders = !tabState.general.showReminders;
-    this.setState({tabs: tabState});
+    this.setState({ tabs: tabState });
   }
 
   getEmailSelectOptions() {
-    const options = 
-      this.state.tabs.general.email.map((e,i) => 
+    const options =
+      this.state.tabs.general.email.map((e, i) =>
         <option value={i} key={i}>
           {e}
         </option>
       );
-      
+
     return options;
   }
 
@@ -83,37 +83,37 @@ class Wrapper extends React.Component {
       showReminders
     } = this.state.tabs.general;
 
-    const emails = this.getEmailSelectOptions(); 
+    const emails = this.getEmailSelectOptions();
 
-    const handleCalendarSwitch = 
+    const handleCalendarSwitch =
       this.handleCalendarSwitchChange.bind(this);
-    
-    const handleCalendarName = 
+
+    const handleCalendarName =
       this.handleCalendarNameChange.bind(this);
-    
-    const handleCalendarColor = 
+
+    const handleCalendarColor =
       this.handleCalendarColorChange.bind(this);
-    
-    const handleCalendarUri = 
+
+    const handleCalendarUri =
       this.handleCalendarUriChange.bind(this);
-    
-    const handleCalendarEmail = 
+
+    const handleCalendarEmail =
       this.handleCalendarEmailChange.bind(this);
-    
-    const handleReadOnly = 
+
+    const handleReadOnly =
       this.handleReadOnlyChange.bind(this);
-    
-    const handleSuppressAlarms = 
+
+    const handleSuppressAlarms =
       this.handleSuppressAlarmsChange.bind(this);
 
     return (
       <div className="wrapper dialog-content-box">
-        <div className="calendar-enabler-container"
+        <div id="calendar-enabler-container"
           className="row">
           <input type="checkbox"
             className="checkbox"
             id="calendar-enabled-checkbox"
-            value="calendarSwitch" 
+            value="calendarSwitch"
             checked={calendarSwitch}
             onChange={handleCalendarSwitch}
           />
@@ -121,9 +121,9 @@ class Wrapper extends React.Component {
             Switch this calendar on
           </label>
         </div>
-        <div 
+        <div
           id="calendar-properties-grid"
-          className={!calendarSwitch?"grid disabled":"grid"}
+          className={calendarSwitch ? "grid" : "grid disabled"}
         >
           <div id="calendar-name-row"
             className="row">
@@ -133,7 +133,7 @@ class Wrapper extends React.Component {
             <input
               type="text"
               id="calendar-name"
-              className="row-input" 
+              className="row-input"
               value={name}
               onChange={handleCalendarName}
               disabled={!calendarSwitch}

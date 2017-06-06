@@ -7,9 +7,10 @@
     "remove-dist": "rimraf dist",
     "fix-lint-errors": "eslint --fix dist",
     "transpile-jsx": "babel src -d dist",
-    "pre-build": "npm run remove-dist",
+    "prebuild": "npm run remove-dist",
     "build": "npm run transpile-jsx && gulp copy-html-css && npm run fix-lint-errors",
-    "serve": "node server local-dist"
+    "serve": "node server local-dist",
+    "start:heroku": "node server heroku-dist"
   },
   "author": "Arshad Khan <arshdkhn1@gmail.com>",
   "devDependencies": {
