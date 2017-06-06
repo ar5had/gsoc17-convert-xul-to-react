@@ -12,6 +12,12 @@
 
 /*** Above styles are just to make the dialogs look good ***/
 
+.disabled label,
+.disabled input,
+.disabled select {
+  color: rgb(167, 167, 167) !important;
+}
+
 .row {
   display: flex;
   padding: 3px 0;
@@ -27,7 +33,15 @@
 
 .row > .row-input {
   flex:1;
-  padding:2px 2px 3px;
+  padding: 2px 0;
+}
+
+.row > select.row-input {
+  padding: 1px 0;
+}
+
+.row > input.row-input {
+  padding: 2px 6px;
 }
 
 #calendar-readOnly-row > div,
@@ -40,6 +54,6 @@
 #calendar-color {
   flex: none;
   width: 50px;
-  padding: 2px 0;
+  padding: 2px 2px;
   height: 28px;
 }

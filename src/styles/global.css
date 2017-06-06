@@ -32,6 +32,12 @@ input {
     which breaks layout on small width 
   */
   min-width: 10px;
+  padding: 2px;
+}
+
+label {
+  -moz-user-select: none;
+  user-select: none;
 }
 
 /* ::::: Variables ::::: */

@@ -39,18 +39,20 @@ openCalendarProperties`([line#375](https://dxr.mozilla.horg/comm-central/source/
 2. **ondialogaccept event:** data from react/html sent sent through postMessage api to parent.
 
 ### Data format(postMessage)
-**Type:** Array of Objects
+**Type:** Object 
 ```js
-[{
-  calendarName: String,
-  color: String,
-  location: String,
-  email: Array,
-  readOnly: Boolean,
-  showReminders: Boolean,
-},
-...other tabs data
-]
+{
+  general: {
+    caledarSwitch: Boolean,
+    calendarName: String,
+    color: String,
+    location: String,
+    email: Array,
+    readOnly: Boolean,
+    showReminders: Boolean,
+  },
+  ...other tabs data
+}
 ```
 
 ### Returned data
