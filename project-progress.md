@@ -53,3 +53,17 @@ Day-wise progress report of `convert-xul-to-html` project.
 
 * Integrated babel and gulp so that they work nicely with each other.
 * Created most of the `calendar-properties-dialog` body.
+
+### **Jun 5, 2017**
+
+* Made whole UI of `calendar-properties-dialog`.
+
+### **Jun 6, 2017**
+
+* Added mozilla internal styling and removed extra styles.
+
+### **Jun 7, 2017**
+
+* Tested in iframe via postmessage api
+* Added methods to accept and pass data via post message api
+

@@ -8,7 +8,6 @@
 
 
 * {
-  font-size: 13.333px;
   font: message-box;
   color: -moz-DialogText;
   -moz-user-focus: ignore;
@@ -59,7 +58,6 @@ input[type="text"] {
 }
 
 /* ::::: root elements ::::: */
-
 .dialog-content-box {
   -moz-appearance: window;
   background-color: -moz-Dialog;

@@ -6,12 +6,11 @@ class Wrapper extends React.Component {
       tabs: {
         general: {
           calendarSwitch: true,
-          name: "My Calendar",
-          color: "#3f3f3f",
-          location: "moz-storage-calendar://",
+          name: "demo name",
+          color: "#fefefe",
+          location: "demo uri",
           email: [
-            "abc@gmail.com",
-            "def@gmail.com",
+            "NONE",
           ],
           readOnly: false,
           showReminders: true,
@@ -21,45 +20,45 @@ class Wrapper extends React.Component {
   }
 
   handleCalendarSwitchChange(event) {
-    const tabState = this.state.tabs;
-    tabState.general.calendarSwitch = !tabState.general.calendarSwitch;
-    this.setState({ tabs: tabState });
+    const tabsState = this.state.tabs;
+    tabsState.general.calendarSwitch = !tabsState.general.calendarSwitch;
+    this.setState({ tabs: tabsState });
   }
 
   handleCalendarNameChange(event) {
-    const tabState = this.state.tabs;
-    tabState.general.name = event.currentTarget.value;
-    this.setState({ tabs: tabState });
+    const tabsState = this.state.tabs;
+    tabsState.general.name = event.currentTarget.value;
+    this.setState({ tabs: tabsState });
   }
 
   handleCalendarColorChange(event) {
-    const tabState = this.state.tabs;
-    tabState.general.color = event.currentTarget.value;
-    this.setState({ tabs: tabState });
+    const tabsState = this.state.tabs;
+    tabsState.general.color = event.currentTarget.value;
+    this.setState({ tabs: tabsState });
   }
 
   handleCalendarUriChange(event) {
-    const tabState = this.state.tabs;
-    tabState.general.location = event.currentTarget.value;
-    this.setState({ tabs: tabState });
+    const tabsState = this.state.tabs;
+    tabsState.general.location = event.currentTarget.value;
+    this.setState({ tabs: tabsState });
   }
 
   handleCalendarEmailChange(event) {
-    const tabState = this.state.tabs;
-    // tabState.general.calendarSwitch = !tabState.general.calendarSwitch;
-    // this.setState({tabs: tabState});
+    const tabsState = this.state.tabs;
+    // tabsState.general.calendarSwitch = !tabsState.general.calendarSwitch;
+    // this.setState({tabs: tabsState});
   }
 
   handleReadOnlyChange(event) {
-    const tabState = this.state.tabs;
-    tabState.general.readOnly = !tabState.general.readOnly;
-    this.setState({ tabs: tabState });
+    const tabsState = this.state.tabs;
+    tabsState.general.readOnly = !tabsState.general.readOnly;
+    this.setState({ tabs: tabsState });
   }
 
   handleSuppressAlarmsChange(event) {
-    const tabState = this.state.tabs;
-    tabState.general.showReminders = !tabState.general.showReminders;
-    this.setState({ tabs: tabState });
+    const tabsState = this.state.tabs;
+    tabsState.general.showReminders = !tabsState.general.showReminders;
+    this.setState({ tabs: tabsState });
   }
 
   getEmailSelectOptions() {
@@ -226,6 +225,24 @@ class Wrapper extends React.Component {
         break;
     }
     return Tab;
+  }
+
+  componentDidMount() {
+    window.addEventListener("message", e => {
+      console.log("%c Data from Parent: Starts", "color: #333; font-size: 20px; font-weight: bold");
+      console.log(`%c ${e.data}`, "color: #ED4CBC; font-size: 16px");
+      console.log("%c Data from Parent: Ends", "color: #333; font-size: 20px; font-weight: bold");
+      const newState = this.state;
+      newState.tabs = JSON.parse(e.data);
+      this.setState({newState});
+    });
+
+    setTimeout(() => {
+      parent.postMessage(
+        JSON.stringify(this.state.tabs),
+        `http:localhost:8000/iframe-testing-ground`
+      );
+    }, 30000)
   }
 
   render() {

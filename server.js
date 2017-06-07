@@ -38,19 +38,37 @@ app.get('/', (req, res)=>{
       }
 
       h5>a {
-        transition: opacity .2s;
+        transition: opacity .1s;
         text-decoration: none;
         color: -moz-DialogText;
       }
 
-      h5>a:hover {
+      h5>a:hover, button:hover {
         opacity: .75;
         cursor: pointer;
+      }
+
+      .iframe-btn-wrapper {
+        padding-top: 35px;
+        border-top: solid 1px #bbb;
+        width: 80%;
+        max-width: 500px;
+      }
+
+      button {
+        padding: 10px;
       }
     </style>
     <h5>
       <a href="/calendar-properties-dialog">
         calendar properties dialog
+      </a>
+    </h5>
+    <h5 class="iframe-btn-wrapper">
+      <a href="/iframe-testing-ground">
+        <button>
+          iframe testing ground
+        </button>
       </a>
     </h5>
   `;
