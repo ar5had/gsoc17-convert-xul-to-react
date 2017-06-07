@@ -13,10 +13,11 @@ app.get('/', (req, res)=>{
   const markup = 
   `<style>
       html {
-        font-family: 'Roboto', sans-serif;
+        font: message-box;
         letter-spacing: 2px;
         word-spacing: 7px;
         height: 100%;
+        color: -moz-DialogText;
       }
 
       body {
@@ -39,7 +40,7 @@ app.get('/', (req, res)=>{
       h5>a {
         transition: opacity .2s;
         text-decoration: none;
-        color: #222;
+        color: -moz-DialogText;
       }
 
       h5>a:hover {

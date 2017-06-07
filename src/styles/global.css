@@ -2,26 +2,20 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-/* ===== global.css =====================================================
+/* ===== global.css for React/Html =====================================================
   == Styles that apply everywhere.
   ======================================================================= */
 
-/* all localizable skin settings shall live here */
-/*@import url("chrome://global/locale/intl.css");*/
-
-/*@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");*/
-
-/* ::::: XBL bindings ::::: */
-
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
 
 * {
-  font-family: 'Roboto', sans-serif;
-  font-size: 13px;
-  color: #333;
+  font-size: 13.333px;
+  font: message-box;
+  color: -moz-DialogText;
+  -moz-user-focus: ignore;
+  -moz-user-select: none;
+  box-sizing: border-box;
 }
 
-/* ::::: Important layout styles ::::*/
 input[type="checkbox"] + label {
   vertical-align: text-bottom;
 }
@@ -34,39 +28,43 @@ input {
   min-width: 10px;
   padding: 2px;
 }
-
+ 
 label {
   -moz-user-select: none;
   user-select: none;
 }
 
-/* ::::: Variables ::::: */
+/* ::::: Checkbox ::::: */
+input[type="checkbox"] {
+  -moz-box-align: center;
+  -moz-user-focus: normal;
+}
+
+/* ::::: Textbox ::::: */
+input[type="text"] {
+  -moz-appearance: textfield;
+  cursor: text;
+  -moz-border-top-colors: ThreeDShadow ThreeDDarkShadow;
+  -moz-border-right-colors: ThreeDHighlight ThreeDLightShadow;
+  -moz-border-bottom-colors: ThreeDHighlight ThreeDLightShadow;
+  -moz-border-left-colors: ThreeDShadow ThreeDDarkShadow;
+  padding-inline-start: 4px;
+  color: -moz-FieldText;
+}
+
+/* ::::: root ::::: */
 :root {
-  --arrowpanel-padding: 10px;
-  --arrowpanel-background: -moz-field;
-  --arrowpanel-color: -moz-fieldText;
-  --arrowpanel-border-color: ThreeDShadow;
+  text-rendering: optimizeLegibility;
+  -moz-control-character-visibility: visible;
 }
 
 /* ::::: root elements ::::: */
 
-window,
-page,
-dialog,
-wizard,
-prefwindow {
+.dialog-content-box {
   -moz-appearance: window;
   background-color: -moz-Dialog;
   color: -moz-DialogText;
   font: message-box;
-}
-
-/* deprecated */
-window.dialog {
-  padding-top: 8px;
-  padding-bottom: 10px;
-  padding-inline-start: 8px;
-  padding-inline-end: 10px;
 }
 
 /* ::::: alert icons :::::*/
