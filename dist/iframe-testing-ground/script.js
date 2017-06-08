@@ -1,6 +1,6 @@
 var _this = this;
 
-window.onload = () => {
+window.addEventListener("load", () => {
   let dialog;
 
   const selectbox = document.getElementById("component-selector");
@@ -29,6 +29,7 @@ window.onload = () => {
   };
 
   const passDataToIframe = name => {
+    console.log("dialog loaded");
     let obj;
     switch (name) {
       case "calendar-properties-dialog":
@@ -45,7 +46,10 @@ window.onload = () => {
           }
         };
 
-        dialog.postMessage(JSON.stringify(obj), `http:localhost:8000/${name}`);
+        dialog.postMessage(
+          JSON.stringify(obj),
+          `${window.location.origin}/${name}`
+        );
 
         break;
       default:
@@ -55,6 +59,9 @@ window.onload = () => {
   };
 
   const msgHandler = e => {
+    if (e.origin !== window.location.origin) {
+      return;
+    }
     console.log("%c Data from Dialog: Starts", "color: #333; font-size: 20px; font-weight: bold");
     console.log(`%c ${e.data}`, "color: #ED4CBC; font-size: 16px");
     console.log("%c Data from Dialog: Ends", "color: #333; font-size: 20px; font-weight: bold");
@@ -63,4 +70,4 @@ window.onload = () => {
   selectbox.addEventListener("change", componentFramer);
 
   window.addEventListener("message", msgHandler, false);
-};
+});

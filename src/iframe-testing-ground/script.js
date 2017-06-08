@@ -1,4 +1,4 @@
-window.onload = () => {
+window.addEventListener("load", () => {
   let dialog;
 
   const selectbox = document.getElementById("component-selector");
@@ -59,7 +59,7 @@ window.onload = () => {
   };
 
   const msgHandler = e => {
-    if (e.origin !== window.location.origin) { 
+    if (e.origin !== window.location.origin) {
       return;
     }
     console.log("%c Data from Dialog: Starts", "color: #333; font-size: 20px; font-weight: bold");
@@ -70,4 +70,4 @@ window.onload = () => {
   selectbox.addEventListener("change", componentFramer);
 
   window.addEventListener("message", msgHandler, false);
-};
+});

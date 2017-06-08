@@ -229,6 +229,7 @@ class Wrapper extends React.Component {
 
   componentDidMount() {
     window.addEventListener("message", e => {
+      console.log("parent",window.location.origin)
       if (e.origin !== window.location.origin) {
         return;
       }
