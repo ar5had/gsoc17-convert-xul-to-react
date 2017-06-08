@@ -23,7 +23,9 @@ window.addEventListener("load", () => {
       `;
 
       dialog = document.querySelector("iframe").contentWindow;
-      dialog.addEventListener("load", passDataToIframe.bind(this, component));
+      dialog.addEventListener("load", () => {
+        passDataToIframe(component);
+      });
     }
   };
 

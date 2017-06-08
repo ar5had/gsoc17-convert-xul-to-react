@@ -1,5 +1,3 @@
-var _this = this;
-
 window.addEventListener("load", () => {
   let dialog;
 
@@ -24,7 +22,9 @@ window.addEventListener("load", () => {
       `;
 
       dialog = document.querySelector("iframe").contentWindow;
-      dialog.addEventListener("load", passDataToIframe.bind(_this, component));
+      dialog.addEventListener("load", () => {
+        passDataToIframe(component);
+      });
     }
   };
 

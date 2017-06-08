@@ -14,7 +14,25 @@ class Wrapper extends React.Component {
           showReminders: true
         }
       }
-    };
+
+      // this.sendMessage.bind(this) gives new reference every time
+      // so declaring instance variable so that event can be removed
+      // in componentWillUnmount lifecycle
+    }; this.sendMessage = this.sendMessage.bind(this);
+  }
+
+  componentWillMount() {
+    window.addEventListener("message", this.sendMessage);
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      parent.postMessage(JSON.stringify(this.state.tabs), `${window.location.origin}/iframe-testing-ground`);
+    }, 20000);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("message", this.sendMessage);
   }
 
   handleCalendarSwitchChange(event) {
@@ -262,25 +280,16 @@ class Wrapper extends React.Component {
     return Tab;
   }
 
-  componentWillMount() {
-    window.addEventListener("message", e => {
-      console.log("parent", window.location.origin);
-      if (e.origin !== window.location.origin) {
-        return;
-      }
-      console.log("%c Data from Parent: Starts", "color: #333; font-size: 20px; font-weight: bold");
-      console.log(`%c ${e.data}`, "color: #ED4CBC; font-size: 16px");
-      console.log("%c Data from Parent: Ends", "color: #333; font-size: 20px; font-weight: bold");
-      const newState = this.state;
-      newState.tabs = JSON.parse(e.data);
-      this.setState({ newState });
-    });
-  }
-
-  componentDidMount() {
-    setTimeout(() => {
-      parent.postMessage(JSON.stringify(this.state.tabs), `${window.location.origin}/iframe-testing-ground`);
-    }, 20000);
+  sendMessage(e) {
+    if (e.origin !== window.location.origin) {
+      return;
+    }
+    console.log("%c Data from Parent: Starts", "color: #333; font-size: 20px; font-weight: bold");
+    console.log(`%c ${e.data}`, "color: #ED4CBC; font-size: 16px");
+    console.log("%c Data from Parent: Ends", "color: #333; font-size: 20px; font-weight: bold");
+    const newState = this.state;
+    newState.tabs = JSON.parse(e.data);
+    this.setState({ newState });
   }
 
   render() {
