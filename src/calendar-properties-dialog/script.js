@@ -242,7 +242,7 @@ class Wrapper extends React.Component {
         JSON.stringify(this.state.tabs),
         `http:localhost:8000/iframe-testing-ground`
       );
-    }, 30000)
+    }, 20000)
   }
 
   render() {
