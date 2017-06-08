@@ -48,7 +48,7 @@ window.onload = () => {
 
         dialog.postMessage(
           JSON.stringify(obj),
-          `http:localhost:8000/${name}`
+          `${window.location.origin}/${name}`
         );
 
         break;
@@ -59,6 +59,9 @@ window.onload = () => {
   };
 
   const msgHandler = e => {
+    if (e.origin !== window.location.origin) { 
+      return;
+    }
     console.log("%c Data from Dialog: Starts", "color: #333; font-size: 20px; font-weight: bold");
     console.log(`%c ${e.data}`, "color: #ED4CBC; font-size: 16px");
     console.log("%c Data from Dialog: Ends", "color: #333; font-size: 20px; font-weight: bold");

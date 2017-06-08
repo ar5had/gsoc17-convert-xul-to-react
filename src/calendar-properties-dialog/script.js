@@ -229,18 +229,21 @@ class Wrapper extends React.Component {
 
   componentDidMount() {
     window.addEventListener("message", e => {
+      if (e.origin !== window.location.origin) {
+        return;
+      }
       console.log("%c Data from Parent: Starts", "color: #333; font-size: 20px; font-weight: bold");
       console.log(`%c ${e.data}`, "color: #ED4CBC; font-size: 16px");
       console.log("%c Data from Parent: Ends", "color: #333; font-size: 20px; font-weight: bold");
       const newState = this.state;
       newState.tabs = JSON.parse(e.data);
-      this.setState({newState});
+      this.setState({ newState });
     });
 
     setTimeout(() => {
       parent.postMessage(
         JSON.stringify(this.state.tabs),
-        `http:localhost:8000/iframe-testing-ground`
+        `${window.location.origin}/iframe-testing-ground`
       );
     }, 20000)
   }
