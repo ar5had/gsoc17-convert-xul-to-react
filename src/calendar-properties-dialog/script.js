@@ -227,7 +227,7 @@ class Wrapper extends React.Component {
     return Tab;
   }
 
-  componentDidMount() {
+  componentWillMount() {
     window.addEventListener("message", e => {
       console.log("parent",window.location.origin)
       if (e.origin !== window.location.origin) {
@@ -240,7 +240,9 @@ class Wrapper extends React.Component {
       newState.tabs = JSON.parse(e.data);
       this.setState({ newState });
     });
+  }
 
+  componentDidMount() {
     setTimeout(() => {
       parent.postMessage(
         JSON.stringify(this.state.tabs),

@@ -29,7 +29,6 @@ window.addEventListener("load", () => {
   };
 
   const passDataToIframe = name => {
-    console.log("dialog loaded");
     let obj;
     switch (name) {
       case "calendar-properties-dialog":
@@ -46,10 +45,7 @@ window.addEventListener("load", () => {
           }
         };
 
-        dialog.postMessage(
-          JSON.stringify(obj),
-          `${window.location.origin}/${name}`
-        );
+        dialog.postMessage(JSON.stringify(obj), `${window.location.origin}/${name}`);
 
         break;
       default:
