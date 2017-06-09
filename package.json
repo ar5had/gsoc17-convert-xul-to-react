@@ -18,13 +18,10 @@
     "babel-preset-react": "^6.24.1",
     "browser-sync": "^2.18.12",
     "gulp": "^3.9.1",
-    "gulp-livereload": "^3.8.1",
     "gulp-nodemon": "^2.2.1",
-    "nodemon": "^1.10.0",
     "rimraf": "^2.6.1"
   },
   "dependencies": {
-    "eslint-plugin-react": "^7.0.1",
     "express": "^4.15.3",
     "path": "^0.12.7"
   }

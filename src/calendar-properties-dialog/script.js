@@ -16,8 +16,8 @@ class Wrapper extends React.Component {
           showReminders: true,
         },
       }
-    }
-    
+    };
+
     // this.sendMessage.bind(this) gives new reference every time
     // so declaring instance variable so that event can be removed
     // in componentWillUnmount lifecycle
@@ -34,7 +34,7 @@ class Wrapper extends React.Component {
         JSON.stringify(this.state.tabs),
         `${window.location.origin}/iframe-testing-ground`
       );
-    }, 20000)
+    }, 20000);
   }
 
   componentWillUnmount() {
