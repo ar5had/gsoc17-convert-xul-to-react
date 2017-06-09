@@ -128,7 +128,7 @@ class Wrapper extends React.Component {
       this.handleSuppressAlarmsChange.bind(this);
 
     return (
-      <div className="wrapper dialog-content-box">
+      <div className="tabWrapper">
         <div id="calendar-enabler-container"
           className="row">
           <input type="checkbox"
@@ -261,10 +261,31 @@ class Wrapper extends React.Component {
     this.setState({ newState });
   }
 
+  getTabStrip(activeTab) {
+    const tabs =
+      Object.keys(this.state.tabs)
+        .map(tabName =>
+          <div
+            className={`tab ${activeTab === tabName ? "selected" : ""}`}
+            id={`${tabName}tab`}
+            key={tabName}
+          >
+            {tabName}
+          </div>
+        );
+    return (
+      <div id="tabStripWrapper">
+        {tabs}
+      </div>
+    );
+  }
+
   render() {
     const Tab = this.getTab(this.state.activeTab);
+    const TabStrip = this.getTabStrip(this.state.activeTab);
     return (
-      <div className="tabWrapper">
+      <div className="wrapper" id="dialog-content-box">
+        {TabStrip}
         {Tab}
       </div>
     );
