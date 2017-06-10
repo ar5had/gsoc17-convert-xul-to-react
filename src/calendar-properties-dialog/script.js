@@ -9,9 +9,11 @@ class Wrapper extends React.Component {
           name: "demo name",
           color: "#fefefe",
           location: "demo uri",
-          email: [
+          emails: [
             "NONE",
+            "AnotherNONE"
           ],
+          selectedEmailIndex: 1,
           readOnly: false,
           showReminders: true,
         }
@@ -39,6 +41,20 @@ class Wrapper extends React.Component {
 
   componentWillUnmount() {
     window.removeEventListener("message", this.recieveMessage);
+  }
+
+  getSelectOptions(arr) {
+    const options =
+      arr.map((e, i) => (
+        <option
+          value={i}
+          key={i}
+        >
+          {e}
+        </option>
+      ));
+
+    return options;
   }
 
   handleCalendarSwitchChange(event) {
@@ -69,21 +85,22 @@ class Wrapper extends React.Component {
   }
 
   handleCalendarUriChange(event) {
-    const tabsState = Object.assign(
-      {},
-      this.state.tabs
-    );
-    tabsState.general.location = event.currentTarget.value;
-    this.setState({ tabs: tabsState });
+    this.setState({ tabs: this.state.tabs });
   }
 
   handleCalendarEmailChange(event) {
+    const generalTab = Object.assign(
+      {},
+      this.state.tabs.general,
+      { selectedEmailIndex: event.currentTarget.selectedIndex }
+    );
+
     const tabsState = Object.assign(
       {},
-      this.state.tabs
+      { general: generalTab }
     );
-    // tabsState.general.calendarSwitch = !tabsState.general.calendarSwitch;
-    // this.setState({tabs: tabsState});
+
+    this.setState({ tabs: tabsState });
   }
 
   handleReadOnlyChange(event) {
@@ -104,17 +121,6 @@ class Wrapper extends React.Component {
     this.setState({ tabs: tabsState });
   }
 
-  getEmailSelectOptions() {
-    const options =
-      this.state.tabs.general.email.map((e, i) => (
-        <option value={i} key={i}>
-          {e}
-        </option>
-      ));
-
-    return options;
-  }
-
   getGeneralTab() {
     const {
       calendarSwitch,
@@ -122,10 +128,13 @@ class Wrapper extends React.Component {
       color,
       location,
       readOnly,
-      showReminders
+      showReminders,
+      emails,
+      selectedEmailIndex
     } = this.state.tabs.general;
 
-    const emails = this.getEmailSelectOptions();
+    const emailOptions =
+      this.getSelectOptions(emails);
 
     const handleCalendarSwitch =
       this.handleCalendarSwitchChange.bind(this);
@@ -216,10 +225,12 @@ class Wrapper extends React.Component {
             <select
               type="text"
               id="email-identity-menulist"
-              className="row-input"
+              className="row-input hidden"
               disabled={!calendarSwitch}
+              onChange={handleCalendarEmail}
+              value={selectedEmailIndex}
             >
-              {emails}
+              {emailOptions}
             </select>
           </div>
           <div id="calendar-readOnly-row" className="row">
@@ -286,7 +297,6 @@ class Wrapper extends React.Component {
       {},
       JSON.parse(e.data)
     );
-    console.log(newTabState);
     this.setState({ tabs: newTabState });
   }
 

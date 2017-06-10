@@ -40,9 +40,12 @@ window.addEventListener("load", () => {
             name: "Calendar 121",
             color: "#666666",
             location: "moz-storage-calendar://",
-            email: [
+            emails: [
               "email@gmail.com",
+              "asd@gmail.com",
+              "another one"
             ],
+            selectedEmailIndex: 2,
             readOnly: true,
             showReminders: true,
           },
