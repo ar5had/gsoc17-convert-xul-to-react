@@ -64,9 +64,12 @@ window.addEventListener("load", () => {
     if (e.origin !== window.location.origin) {
       return;
     }
-    console.log("%c Data from Dialog: Starts", "color: #333; font-size: 20px; font-weight: bold");
-    console.log(`%c ${e.data}`, "color: #ED4CBC; font-size: 16px");
-    console.log("%c Data from Dialog: Ends", "color: #333; font-size: 20px; font-weight: bold");
+    console.log("%c Data from Dialog: Starts",
+      "color: #333; font-size: 20px; font-weight: bold");
+    console.log(`%c ${e.data}`,
+      "color: #ED4CBC; font-size: 16px");
+    console.log("%c Data from Dialog: Ends",
+      "color: #333; font-size: 20px; font-weight: bold");
   };
 
   selectbox.addEventListener("change", componentFramer);

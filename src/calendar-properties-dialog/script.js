@@ -14,18 +14,18 @@ class Wrapper extends React.Component {
           ],
           readOnly: false,
           showReminders: true,
-        },
+        }
       }
     };
 
-    // this.sendMessage.bind(this) gives new reference every time
+    // this.recieveMessage.bind(this) gives new reference every time
     // so declaring instance variable so that event can be removed
     // in componentWillUnmount lifecycle
-    this.sendMessage = this.sendMessage.bind(this);
+    this.recieveMessage = this.recieveMessage.bind(this);
   }
 
   componentWillMount() {
-    window.addEventListener("message", this.sendMessage);
+    window.addEventListener("message", this.recieveMessage);
   }
 
   componentDidMount() {
@@ -38,58 +38,79 @@ class Wrapper extends React.Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener("message", this.sendMessage);
+    window.removeEventListener("message", this.recieveMessage);
   }
 
   handleCalendarSwitchChange(event) {
-    const tabsState = this.state.tabs;
+    const tabsState = Object.assign(
+      {},
+      this.state.tabs
+    );
     tabsState.general.calendarSwitch = !tabsState.general.calendarSwitch;
     this.setState({ tabs: tabsState });
   }
 
   handleCalendarNameChange(event) {
-    const tabsState = this.state.tabs;
+    const tabsState = Object.assign(
+      {},
+      this.state.tabs
+    );
     tabsState.general.name = event.currentTarget.value;
     this.setState({ tabs: tabsState });
   }
 
   handleCalendarColorChange(event) {
-    const tabsState = this.state.tabs;
+    const tabsState = Object.assign(
+      {},
+      this.state.tabs
+    );
     tabsState.general.color = event.currentTarget.value;
     this.setState({ tabs: tabsState });
   }
 
   handleCalendarUriChange(event) {
-    const tabsState = this.state.tabs;
+    const tabsState = Object.assign(
+      {},
+      this.state.tabs
+    );
     tabsState.general.location = event.currentTarget.value;
     this.setState({ tabs: tabsState });
   }
 
   handleCalendarEmailChange(event) {
-    const tabsState = this.state.tabs;
+    const tabsState = Object.assign(
+      {},
+      this.state.tabs
+    );
     // tabsState.general.calendarSwitch = !tabsState.general.calendarSwitch;
     // this.setState({tabs: tabsState});
   }
 
   handleReadOnlyChange(event) {
-    const tabsState = this.state.tabs;
+    const tabsState = Object.assign(
+      {},
+      this.state.tabs
+    );
     tabsState.general.readOnly = !tabsState.general.readOnly;
     this.setState({ tabs: tabsState });
   }
 
   handleSuppressAlarmsChange(event) {
-    const tabsState = this.state.tabs;
+    const tabsState = Object.assign(
+      {},
+      this.state.tabs
+    );
     tabsState.general.showReminders = !tabsState.general.showReminders;
     this.setState({ tabs: tabsState });
   }
 
   getEmailSelectOptions() {
     const options =
-      this.state.tabs.general.email.map((e, i) =>
+      this.state.tabs.general.email.map((e, i) => (
         <option value={i} key={i}>
           {e}
         </option>
-      );
+      ));
 
     return options;
   }
@@ -249,35 +270,56 @@ class Wrapper extends React.Component {
     return Tab;
   }
 
-  sendMessage(e) {
+  recieveMessage(e) {
     if (e.origin !== window.location.origin) {
       return;
     }
-    console.log("%c Data from Parent: Starts", "color: #333; font-size: 20px; font-weight: bold");
-    console.log(`%c ${e.data}`, "color: #ED4CBC; font-size: 16px");
-    console.log("%c Data from Parent: Ends", "color: #333; font-size: 20px; font-weight: bold");
-    const newState = this.state;
-    newState.tabs = JSON.parse(e.data);
-    this.setState({ newState });
+
+    console.log("%c Data from Parent: Starts",
+      "color: #333; font-size: 20px; font-weight: bold");
+    console.log(`%c ${e.data}`,
+      "color: #ED4CBC; font-size: 16px");
+    console.log("%c Data from Parent: Ends",
+      "color: #333; font-size: 20px; font-weight: bold");
+
+    const newTabState = Object.assign(
+      {},
+      JSON.parse(e.data)
+    );
+    console.log(newTabState);
+    this.setState({ tabs: newTabState });
+  }
+
+  changeTab(tabName) {
+    this.setState({ activeTab: tabName });
   }
 
   getTabStrip(activeTab) {
     const tabs =
       Object.keys(this.state.tabs)
-        .map(tabName =>
+        .map(tabName => (
           <div
+            onClick={() => {
+              console.log("tab Clicked");
+              this.changeTab(tabName);
+            }}
             className={`tab ${activeTab === tabName ? "selected" : ""}`}
             id={`${tabName}tab`}
             key={tabName}
           >
             {tabName}
           </div>
-        );
-    return (
-      <div id="tabStripWrapper">
-        {tabs}
-      </div>
-    );
+        ));
+
+    if (tabs.length > 1) {
+      return (
+        <div className="tabStrip">
+          {tabs}
+        </div>
+      );
+    } else {
+      return "";
+    }
   }
 
   render() {
@@ -290,7 +332,6 @@ class Wrapper extends React.Component {
       </div>
     );
   }
-
 }
 
 ReactDOM.render(

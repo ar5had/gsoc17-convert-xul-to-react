@@ -56,6 +56,8 @@ input[type="text"] {
   -moz-border-left-colors: ThreeDShadow ThreeDDarkShadow;
   padding-inline-start: 4px;
   color: -moz-FieldText;
+  -moz-user-select: text;
+  user-select: text;
 }
 
 /* ::::: root ::::: */
@@ -73,15 +75,6 @@ input[type="text"] {
 }
 
 /* ::::: Tab elements ::::: */
-.tab.selected {
-  z-index: 1;
-  margin-top: 0;
-  margin-bottom: -2px;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-  padding-top: 4px;
-  padding-bottom: 6px;
-}
 
 .tab {
   position: relative;
@@ -105,10 +98,26 @@ input[type="text"] {
   padding-bottom: 3px;
   background-color: -moz-Dialog;
   color: -moz-DialogText;
+  text-transform: capitalize;
 }
 
-.tabsPanel {
+.tab.selected {
+  z-index: 1;
+  /*margin-top: 0;
+  margin-bottom: -2px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;*/
+  /*padding-top: 4px;*/
+  /*padding-bottom: 6px;*/
+}
+
+.tabStrip {
   -moz-appearance: tabpanels;
+  display: flex;
+}
+
+.tab + .tab {
+    margin-inline-start: -2px;
 }
 
 /* ::::: alert icons :::::*/
