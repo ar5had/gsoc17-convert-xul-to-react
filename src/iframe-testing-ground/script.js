@@ -49,6 +49,20 @@ window.addEventListener("load", () => {
             readOnly: true,
             showReminders: true,
           },
+          advanced: {
+            calendarSwitch: true,
+            name: "Advanced Calendar",
+            color: "#220000",
+            location: "moz-storage-calendar://",
+            emails: [
+              "advemail@gmail.com",
+              "advasd@gmail.com",
+              "another one"
+            ],
+            selectedEmailIndex: 0,
+            readOnly: true,
+            showReminders: true,
+          }
         };
 
         dialog.postMessage(

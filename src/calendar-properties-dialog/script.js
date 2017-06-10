@@ -121,7 +121,8 @@ class Wrapper extends React.Component {
     this.setState({ tabs: tabsState });
   }
 
-  getGeneralTab() {
+// remove this tabName arguemnt when tabStrip is done
+  getGeneralTab(tabName) {
     const {
       calendarSwitch,
       name,
@@ -131,7 +132,7 @@ class Wrapper extends React.Component {
       showReminders,
       emails,
       selectedEmailIndex
-    } = this.state.tabs.general;
+    } = this.state.tabs[tabName];
 
     const emailOptions =
       this.getSelectOptions(emails);
@@ -272,10 +273,10 @@ class Wrapper extends React.Component {
     let Tab;
     switch (tabName) {
       case "general":
-        Tab = this.getGeneralTab();
+        Tab = this.getGeneralTab(tabName);
         break;
       default:
-        Tab = this.getGeneralTab();
+        Tab = this.getGeneralTab(tabName);
         break;
     }
     return Tab;
@@ -310,10 +311,10 @@ class Wrapper extends React.Component {
         .map(tabName => (
           <div
             onClick={() => {
-              console.log("tab Clicked");
               this.changeTab(tabName);
             }}
             className={`tab ${activeTab === tabName ? "selected" : ""}`}
+            selected={activeTab === tabName}
             id={`${tabName}tab`}
             key={tabName}
           >
@@ -323,7 +324,7 @@ class Wrapper extends React.Component {
 
     if (tabs.length > 1) {
       return (
-        <div className="tabStrip">
+        <div className="tabStrip" id="tabStripWrapper">
           {tabs}
         </div>
       );
@@ -337,8 +338,10 @@ class Wrapper extends React.Component {
     const TabStrip = this.getTabStrip(this.state.activeTab);
     return (
       <div className="wrapper" id="dialog-content-box">
-        {TabStrip}
-        {Tab}
+        <div className="tabWrapper">
+          {TabStrip}
+          {Tab}
+        </div>
       </div>
     );
   }
