@@ -75,7 +75,61 @@ input[type="text"] {
   font: message-box;
 }
 
-/* ::::: Tab elements ::::: */
+/* ::::: Tab Styles ::::: */
+
+.tabWrapper {
+  -moz-box-orient: vertical; 
+}
+
+.tabStrip {
+  display: flex;
+}
+
+.tab {
+  position: relative;
+  -moz-appearance: tab;
+  margin-top: 2px;
+  border: 2px solid;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: currentcolor;
+  -moz-border-top-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-left-colors: none;
+  border-bottom: none;
+  -moz-border-top-colors: ThreeDHighlight ThreeDLightShadow;
+  -moz-border-right-colors: ThreeDDarkShadow ThreeDShadow;
+  -moz-border-left-colors: ThreeDHighlight ThreeDLightShadow;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  padding: 3px 4px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  background-color: -moz-Dialog;
+  color: -moz-DialogText;
+  text-transform: capitalize;
+}
+
+.tab.selected {
+  z-index: 1;
+  margin-top: 0;
+  margin-bottom: -2px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  padding-top: 4px;
+  padding-bottom: 6px;
+
+  /* adding background and border color */
+}
+/*
+.tab + .tab {
+    margin-inline-start: -2px;
+}*/
+ 
+.tabContentWrapper {
+  -moz-appearance: tabpanels;
+  padding: 18px 10px 10px;
+}
 
 /* ::::: alert icons :::::*/
 

@@ -16,6 +16,19 @@ class Wrapper extends React.Component {
           selectedEmailIndex: 1,
           readOnly: false,
           showReminders: true,
+        },
+        aeneral: {
+          calendarSwitch: true,
+          name: "demo name",
+          color: "#fefefe",
+          location: "demo uri",
+          emails: [
+            "NONE",
+            "AnotherNONE"
+          ],
+          selectedEmailIndex: 1,
+          readOnly: false,
+          showReminders: true,
         }
       }
     };
@@ -31,6 +44,9 @@ class Wrapper extends React.Component {
   }
 
   componentDidMount() {
+    // set the visuallyselected attribute of first tab to true
+    document.querySelector(".tab")
+      .setAttribute("visuallyselected", "true");
     setTimeout(() => {
       parent.postMessage(
         JSON.stringify(this.state.tabs),
@@ -121,7 +137,7 @@ class Wrapper extends React.Component {
     this.setState({ tabs: tabsState });
   }
 
-// remove this tabName arguemnt when tabStrip is done
+  // remove this tabName arguemnt when tabStrip is done
   getGeneralTab(tabName) {
     const {
       calendarSwitch,
@@ -159,7 +175,7 @@ class Wrapper extends React.Component {
       this.handleSuppressAlarmsChange.bind(this);
 
     return (
-      <div className="tabWrapper">
+      <div className="tabContentWrapper">
         <div id="calendar-enabler-container"
           className="row">
           <input type="checkbox"
@@ -310,8 +326,17 @@ class Wrapper extends React.Component {
       Object.keys(this.state.tabs)
         .map(tabName => (
           <div
-            onClick={() => {
+            onClick={(e) => {
               this.changeTab(tabName);
+              const tabNodes =
+                document.querySelectorAll(".tab");
+              Array.prototype.forEach.call(
+                tabNodes,
+                tab => {
+                  tab.removeAttribute("visuallyselected");
+                });
+              e.currentTarget
+                .setAttribute("visuallyselected", "true");
             }}
             className={`tab ${activeTab === tabName ? "selected" : ""}`}
             selected={activeTab === tabName}
@@ -324,7 +349,7 @@ class Wrapper extends React.Component {
 
     if (tabs.length > 1) {
       return (
-        <div className="tabStrip" id="tabStripWrapper">
+        <div className="tabStrip">
           {tabs}
         </div>
       );
