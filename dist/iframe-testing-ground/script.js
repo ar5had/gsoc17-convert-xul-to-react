@@ -8,8 +8,7 @@ window.addEventListener("load", () => {
   selectbox.selectedIndex = 0;
 
   const componentFramer = e => {
-    const component =
-      selectbox.options[selectbox.selectedIndex].value;
+    const component = selectbox.options[selectbox.selectedIndex].value;
 
     if (component === "NONE") {
       container.innerHTML = `
@@ -40,36 +39,25 @@ window.addEventListener("load", () => {
             name: "Calendar 121",
             color: "#666666",
             location: "moz-storage-calendar://",
-            emails: [
-              "email@gmail.com",
-              "asd@gmail.com",
-              "another one"
-            ],
+            emails: ["email@gmail.com", "asd@gmail.com", "another one"],
             selectedEmailIndex: 2,
             readOnly: true,
-            showReminders: true,
+            showReminders: true
           },
           advanced: {
             calendarSwitch: true,
             name: "Advanced Calendar",
             color: "#220000",
             location: "moz-storage-calendar://",
-            emails: [
-              "advemail@gmail.com",
-              "advasd@gmail.com",
-              "another one"
-            ],
+            emails: ["advemail@gmail.com", "advasd@gmail.com", "another one"],
             selectedEmailIndex: 0,
             readOnly: true,
-            showReminders: true,
+            showReminders: true
           }
         };
 
         postMessageInterval = setInterval(() => {
-          dialog.postMessage(
-            JSON.stringify(obj),
-            `${window.location.origin}/${name}`
-          );
+          dialog.postMessage(JSON.stringify(obj), `${window.location.origin}/${name}`);
         }, 100);
 
         break;
@@ -87,12 +75,9 @@ window.addEventListener("load", () => {
     if (JSON.parse(e.data).dialogReady) {
       clearInterval(postMessageInterval);
     } else {
-      console.log("%c Data from Dialog: Starts",
-        "color: #333; font-size: 20px; font-weight: bold");
-      console.log(`%c ${e.data}`,
-        "color: #ED4CBC; font-size: 16px");
-      console.log("%c Data from Dialog: Ends",
-        "color: #333; font-size: 20px; font-weight: bold");
+      console.log("%c Data from Dialog: Starts", "color: #333; font-size: 20px; font-weight: bold");
+      console.log(`%c ${e.data}`, "color: #ED4CBC; font-size: 16px");
+      console.log("%c Data from Dialog: Ends", "color: #333; font-size: 20px; font-weight: bold");
     }
   };
 

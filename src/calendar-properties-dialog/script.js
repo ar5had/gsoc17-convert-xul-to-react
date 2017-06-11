@@ -16,19 +16,6 @@ class Wrapper extends React.Component {
           selectedEmailIndex: 1,
           readOnly: false,
           showReminders: true,
-        },
-        aeneral: {
-          calendarSwitch: true,
-          name: "demo name",
-          color: "#fefefe",
-          location: "demo uri",
-          emails: [
-            "NONE",
-            "AnotherNONE"
-          ],
-          selectedEmailIndex: 1,
-          readOnly: false,
-          showReminders: true,
         }
       }
     };
@@ -44,19 +31,40 @@ class Wrapper extends React.Component {
   }
 
   componentDidMount() {
-    // set the visuallyselected attribute of first tab to true
-    document.querySelector(".tab")
-      .setAttribute("visuallyselected", "true");
     setTimeout(() => {
       parent.postMessage(
         JSON.stringify(this.state.tabs),
         `${window.location.origin}/iframe-testing-ground`
       );
     }, 20000);
+
+    // set the visuallyselected attribute of first tab to true
+    const firstTabNode = document.querySelector(".tab");
+    if (firstTabNode) {
+      this.selectTabVisually(firstTabNode);
+    } else {
+      this.tabInterval = setInterval(() => {
+        const firstTab = document.querySelector(".tab");
+        if (firstTab) {
+          this.selectTabVisually(firstTab);
+          clearInterval(this.tabInterval);
+        }
+      }, 50);
+    }
   }
 
   componentWillUnmount() {
     window.removeEventListener("message", this.recieveMessage);
+  }
+
+  selectTabVisually(node) {
+    node.setAttribute("visuallyselected", "true");
+    node.setAttribute("selected", "true");
+  }
+
+  deselectTabVisually(node) {
+    node.removeAttribute("visuallyselected");
+    node.removeAttribute("selected");
   }
 
   getSelectOptions(arr) {
@@ -113,6 +121,7 @@ class Wrapper extends React.Component {
 
     const tabsState = Object.assign(
       {},
+      this.state.tabs,
       { general: generalTab }
     );
 
@@ -303,6 +312,11 @@ class Wrapper extends React.Component {
       return;
     }
 
+    parent.postMessage(
+      JSON.stringify({ dialogReady: true }),
+      `${window.location.origin}/iframe-testing-ground`
+    );
+
     console.log("%c Data from Parent: Starts",
       "color: #333; font-size: 20px; font-weight: bold");
     console.log(`%c ${e.data}`,
@@ -326,17 +340,18 @@ class Wrapper extends React.Component {
       Object.keys(this.state.tabs)
         .map(tabName => (
           <div
-            onClick={(e) => {
-              this.changeTab(tabName);
+            onClick={(event) => {
               const tabNodes =
                 document.querySelectorAll(".tab");
+
               Array.prototype.forEach.call(
                 tabNodes,
                 tab => {
-                  tab.removeAttribute("visuallyselected");
+                  this.deselectTabVisually(tab);
                 });
-              e.currentTarget
-                .setAttribute("visuallyselected", "true");
+
+              this.selectTabVisually(event.target);
+              this.changeTab(tabName);
             }}
             className={`tab ${activeTab === tabName ? "selected" : ""}`}
             selected={activeTab === tabName}
