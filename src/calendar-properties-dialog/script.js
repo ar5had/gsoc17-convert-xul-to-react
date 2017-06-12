@@ -31,7 +31,7 @@ class Wrapper extends React.Component {
     setTimeout(() => {
       parent.postMessage(
         JSON.stringify(this.state.tabs),
-        `${window.location.origin}/iframe-testing-ground`
+        `${window.location.origin}`
       );
     }, 20000);
 

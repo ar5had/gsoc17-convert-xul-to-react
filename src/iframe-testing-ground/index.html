@@ -1,24 +1,34 @@
 <!Doctype html>
 <html>
-  <head>
-    <title>Iframe Testing Ground</title>
-    <link rel="stylesheet" href="../styles/global.css">
-    <link rel="stylesheet" href="./styles.css">
-  </head>
-  <body>
-    <select id="component-selector">
-      <option value="NONE" selected>
-        Select Component...
-      </option>
-      <option value="calendar-properties-dialog">
-        Calendar Properties Dialog
-      </option>
-    </select>
-    <div class="container">
-      <h3>
-        Select component from the select box to test it out.
-      </h3>
+
+<head>
+  <title>Iframe Testing Ground</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+  <form class="controls" onsubmit="return handleFormSubmit()">
+    <h2>Iframe Testing Ground</h2>
+    <div class="wrapper">
+      <label for="component-selector">Dialog:</label>
+      <select name="dialog" id="component-selector" required>
+        <option value="">
+          Select Component...
+        </option>
+        <option value="calendar-properties-dialog">
+          Calendar Properties Dialog
+        </option>
+      </select>
     </div>
-    <script src="./script.js"></script> 
-  </body>
+    <div class="wrapper">
+      <label for="ta">State Object:</label>
+      <textarea name="state" id="ta" placeholder="Select Dialog first!" required></textarea>
+    </div>
+    <input type="submit" value="Load Dialog" />
+  </form>
+  <div class="container">
+  </div>
+  <script src="./script.js"></script>
+</body>
+
 </html>
