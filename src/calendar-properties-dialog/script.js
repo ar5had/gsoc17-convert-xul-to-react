@@ -281,7 +281,6 @@ class Wrapper extends React.Component {
 
   postMessage(msg, origin) {
     // parent and window are same thing if the current page is not in any frame
-    console.log(window !== parent);
     if (window !== parent) {
       parent.postMessage(msg, origin);
     }
