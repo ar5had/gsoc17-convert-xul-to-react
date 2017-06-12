@@ -8,25 +8,25 @@ class MenuList extends React.Component {
   }
 
   getSelectOptions() {
-    const options = this.props.options.map((e, i) => React.createElement(
-      "option",
-      { value: i, key: i },
-      e
-    ));
+    const options = this.props.options.map((e, i) =>
+      React.createElement("option", { value: i, key: i }, e)
+    );
 
     return options;
   }
 
   getMenuOptions() {
-    const options = this.props.options.map((e, i) => React.createElement(
-      "div",
-      {
-        "data-value": i,
-        "key": i,
-        "className": "menuItem"
-      },
-      e
-    ));
+    const options = this.props.options.map((e, i) =>
+      React.createElement(
+        "div",
+        {
+          "data-value": i,
+          "key": i,
+          "className": "menuItem"
+        },
+        e
+      )
+    );
 
     return options;
   }
@@ -60,11 +60,7 @@ class MenuList extends React.Component {
           },
           this.state.selectedOptionText
         ),
-        React.createElement(
-          "div",
-          { className: "menuOptions" },
-          menuOptions
-        )
+        React.createElement("div", { className: "menuOptions" }, menuOptions)
       )
     );
   }

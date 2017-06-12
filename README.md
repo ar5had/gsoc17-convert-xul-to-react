@@ -10,3 +10,4 @@ Lightning(Thunderbird calendar addon) has traditionally been using XUL for its u
 3. **Start server:** `yarn start`
 4. **Convert components to vanilla js(no-jsx):** `yarn build`. 
 All the components following `src` directory structure will be present in `dist` directory. These components will be using vanilla js instead of jsx.
+5. **Write/Change Code:** Install prettier and eslint globally before making changes and running build commands - `npm install prettier eslint -g`

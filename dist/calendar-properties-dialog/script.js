@@ -29,7 +29,10 @@ class Wrapper extends React.Component {
 
   componentDidMount() {
     setTimeout(() => {
-      parent.postMessage(JSON.stringify(this.state.tabs), `${window.location.origin}/iframe-testing-ground`);
+      parent.postMessage(
+        JSON.stringify(this.state.tabs),
+        `${window.location.origin}/iframe-testing-ground`
+      );
     }, 20000);
 
     // set the visuallyselected attribute of first tab to true
@@ -62,14 +65,7 @@ class Wrapper extends React.Component {
   }
 
   getSelectOptions(arr) {
-    const options = arr.map((e, i) => React.createElement(
-      "option",
-      {
-        value: i,
-        key: i
-      },
-      e
-    ));
+    const options = arr.map((e, i) => React.createElement("option", { value: i, key: i }, e));
 
     return options;
   }
@@ -97,9 +93,13 @@ class Wrapper extends React.Component {
   }
 
   handleCalendarEmailChange(event) {
-    const generalTab = Object.assign({}, this.state.tabs.general, { selectedEmailIndex: event.currentTarget.selectedIndex });
+    const generalTab = Object.assign({}, this.state.tabs.general, {
+      selectedEmailIndex: event.currentTarget.selectedIndex
+    });
 
-    const tabsState = Object.assign({}, this.state.tabs, { general: generalTab });
+    const tabsState = Object.assign({}, this.state.tabs, {
+      general: generalTab
+    });
 
     this.setState({ tabs: tabsState });
   }
@@ -150,10 +150,7 @@ class Wrapper extends React.Component {
       { className: "tabContentWrapper" },
       React.createElement(
         "div",
-        {
-          id: "calendar-enabler-container",
-          className: "row"
-        },
+        { id: "calendar-enabler-container", className: "row" },
         React.createElement("input", {
           type: "checkbox",
           className: "checkbox",
@@ -176,10 +173,7 @@ class Wrapper extends React.Component {
         },
         React.createElement(
           "div",
-          {
-            id: "calendar-name-row",
-            className: "row"
-          },
+          { id: "calendar-name-row", className: "row" },
           React.createElement(
             "label",
             { htmlFor: "calendar-name", className: "row-label" },
@@ -196,10 +190,7 @@ class Wrapper extends React.Component {
         ),
         React.createElement(
           "div",
-          {
-            id: "calendar-color-row",
-            className: "row"
-          },
+          { id: "calendar-color-row", className: "row" },
           React.createElement(
             "label",
             { htmlFor: "calendar-color", className: "row-label" },
@@ -216,10 +207,7 @@ class Wrapper extends React.Component {
         ),
         React.createElement(
           "div",
-          {
-            id: "calendar-uri-row",
-            className: "row"
-          },
+          { id: "calendar-uri-row", className: "row" },
           React.createElement(
             "label",
             { htmlFor: "calendar-uri", className: "row-label" },
@@ -269,11 +257,7 @@ class Wrapper extends React.Component {
               onChange: handleReadOnly,
               disabled: !calendarSwitch
             }),
-            React.createElement(
-              "label",
-              { htmlFor: "readOnly" },
-              "Read Only"
-            )
+            React.createElement("label", { htmlFor: "readOnly" }, "Read Only")
           )
         ),
         React.createElement(
@@ -290,11 +274,7 @@ class Wrapper extends React.Component {
               onChange: handleSuppressAlarms,
               disabled: !calendarSwitch
             }),
-            React.createElement(
-              "label",
-              { htmlFor: "fire-alarms" },
-              "Show Reminders"
-            )
+            React.createElement("label", { htmlFor: "fire-alarms" }, "Show Reminders")
           )
         )
       )
@@ -319,7 +299,10 @@ class Wrapper extends React.Component {
       return;
     }
 
-    parent.postMessage(JSON.stringify({ dialogReady: true }), `${window.location.origin}/iframe-testing-ground`);
+    parent.postMessage(
+      JSON.stringify({ dialogReady: true }),
+      `${window.location.origin}/iframe-testing-ground`
+    );
 
     console.log("%c Data from Parent: Starts", "color: #333; font-size: 20px; font-weight: bold");
     console.log(`%c ${e.data}`, "color: #ED4CBC; font-size: 16px");
@@ -334,33 +317,31 @@ class Wrapper extends React.Component {
   }
 
   getTabStrip(activeTab) {
-    const tabs = Object.keys(this.state.tabs).map(tabName => React.createElement(
-      "div",
-      {
-        onClick: event => {
-          const tabNodes = document.querySelectorAll(".tab");
+    const tabs = Object.keys(this.state.tabs).map(tabName =>
+      React.createElement(
+        "div",
+        {
+          onClick: event => {
+            const tabNodes = document.querySelectorAll(".tab");
 
-          Array.prototype.forEach.call(tabNodes, tab => {
-            this.deselectTabVisually(tab);
-          });
+            Array.prototype.forEach.call(tabNodes, tab => {
+              this.deselectTabVisually(tab);
+            });
 
-          this.selectTabVisually(event.target);
-          this.changeTab(tabName);
+            this.selectTabVisually(event.target);
+            this.changeTab(tabName);
+          },
+          className: `tab ${activeTab === tabName ? "selected" : ""}`,
+          selected: activeTab === tabName,
+          id: `${tabName}tab`,
+          key: tabName
         },
-        className: `tab ${activeTab === tabName ? "selected" : ""}`,
-        selected: activeTab === tabName,
-        id: `${tabName}tab`,
-        key: tabName
-      },
-      tabName
-    ));
+        tabName
+      )
+    );
 
     if (tabs.length > 1) {
-      return React.createElement(
-        "div",
-        { className: "tabStrip" },
-        tabs
-      );
+      return React.createElement("div", { className: "tabStrip" }, tabs);
     } else {
       return "";
     }
@@ -372,12 +353,7 @@ class Wrapper extends React.Component {
     return React.createElement(
       "div",
       { className: "wrapper", id: "dialog-content-box" },
-      React.createElement(
-        "div",
-        { className: "tabWrapper" },
-        TabStrip,
-        Tab
-      )
+      React.createElement("div", { className: "tabWrapper" }, TabStrip, Tab)
     );
   }
 }

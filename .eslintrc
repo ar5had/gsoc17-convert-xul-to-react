@@ -436,12 +436,13 @@
       }
     ],
     // Enforce consistent line breaks inside braces
-    "object-curly-newline": [
-      2,
-      {
-        "multiline": true
-      }
-    ],
+    // Creates problem with Object.assign
+    // "object-curly-newline": [
+    //   2,
+    //   {
+    //     "multiline": true
+    //   }
+    // ],
     // Disallow whitespace before properties
     "no-whitespace-before-property": 2,
     // Disallow unnecessary escape usage

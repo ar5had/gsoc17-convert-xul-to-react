@@ -9,13 +9,10 @@ class Wrapper extends React.Component {
           name: "demo name",
           color: "#fefefe",
           location: "demo uri",
-          emails: [
-            "NONE",
-            "AnotherNONE"
-          ],
+          emails: ["NONE", "AnotherNONE"],
           selectedEmailIndex: 1,
           readOnly: false,
-          showReminders: true,
+          showReminders: true
         }
       }
     };
@@ -68,42 +65,29 @@ class Wrapper extends React.Component {
   }
 
   getSelectOptions(arr) {
-    const options =
-      arr.map((e, i) => (
-        <option
-          value={i}
-          key={i}
-        >
-          {e}
-        </option>
-      ));
+    const options = arr.map((e, i) =>
+      <option value={i} key={i}>
+        {e}
+      </option>
+    );
 
     return options;
   }
 
   handleCalendarSwitchChange(event) {
-    const tabsState = Object.assign(
-      {},
-      this.state.tabs
-    );
+    const tabsState = Object.assign({}, this.state.tabs);
     tabsState.general.calendarSwitch = !tabsState.general.calendarSwitch;
     this.setState({ tabs: tabsState });
   }
 
   handleCalendarNameChange(event) {
-    const tabsState = Object.assign(
-      {},
-      this.state.tabs
-    );
+    const tabsState = Object.assign({}, this.state.tabs);
     tabsState.general.name = event.currentTarget.value;
     this.setState({ tabs: tabsState });
   }
 
   handleCalendarColorChange(event) {
-    const tabsState = Object.assign(
-      {},
-      this.state.tabs
-    );
+    const tabsState = Object.assign({}, this.state.tabs);
     tabsState.general.color = event.currentTarget.value;
     this.setState({ tabs: tabsState });
   }
@@ -113,35 +97,25 @@ class Wrapper extends React.Component {
   }
 
   handleCalendarEmailChange(event) {
-    const generalTab = Object.assign(
-      {},
-      this.state.tabs.general,
-      { selectedEmailIndex: event.currentTarget.selectedIndex }
-    );
+    const generalTab = Object.assign({}, this.state.tabs.general, {
+      selectedEmailIndex: event.currentTarget.selectedIndex
+    });
 
-    const tabsState = Object.assign(
-      {},
-      this.state.tabs,
-      { general: generalTab }
-    );
+    const tabsState = Object.assign({}, this.state.tabs, {
+      general: generalTab
+    });
 
     this.setState({ tabs: tabsState });
   }
 
   handleReadOnlyChange(event) {
-    const tabsState = Object.assign(
-      {},
-      this.state.tabs
-    );
+    const tabsState = Object.assign({}, this.state.tabs);
     tabsState.general.readOnly = !tabsState.general.readOnly;
     this.setState({ tabs: tabsState });
   }
 
   handleSuppressAlarmsChange(event) {
-    const tabsState = Object.assign(
-      {},
-      this.state.tabs
-    );
+    const tabsState = Object.assign({}, this.state.tabs);
     tabsState.general.showReminders = !tabsState.general.showReminders;
     this.setState({ tabs: tabsState });
   }
@@ -159,35 +133,27 @@ class Wrapper extends React.Component {
       selectedEmailIndex
     } = this.state.tabs[tabName];
 
-    const emailOptions =
-      this.getSelectOptions(emails);
+    const emailOptions = this.getSelectOptions(emails);
 
-    const handleCalendarSwitch =
-      this.handleCalendarSwitchChange.bind(this);
+    const handleCalendarSwitch = this.handleCalendarSwitchChange.bind(this);
 
-    const handleCalendarName =
-      this.handleCalendarNameChange.bind(this);
+    const handleCalendarName = this.handleCalendarNameChange.bind(this);
 
-    const handleCalendarColor =
-      this.handleCalendarColorChange.bind(this);
+    const handleCalendarColor = this.handleCalendarColorChange.bind(this);
 
-    const handleCalendarUri =
-      this.handleCalendarUriChange.bind(this);
+    const handleCalendarUri = this.handleCalendarUriChange.bind(this);
 
-    const handleCalendarEmail =
-      this.handleCalendarEmailChange.bind(this);
+    const handleCalendarEmail = this.handleCalendarEmailChange.bind(this);
 
-    const handleReadOnly =
-      this.handleReadOnlyChange.bind(this);
+    const handleReadOnly = this.handleReadOnlyChange.bind(this);
 
-    const handleSuppressAlarms =
-      this.handleSuppressAlarmsChange.bind(this);
+    const handleSuppressAlarms = this.handleSuppressAlarmsChange.bind(this);
 
     return (
       <div className="tabContentWrapper">
-        <div id="calendar-enabler-container"
-          className="row">
-          <input type="checkbox"
+        <div id="calendar-enabler-container" className="row">
+          <input
+            type="checkbox"
             className="checkbox"
             id="calendar-enabled-checkbox"
             value="calendarSwitch"
@@ -202,8 +168,7 @@ class Wrapper extends React.Component {
           id="calendar-properties-grid"
           className={calendarSwitch ? "grid" : "grid disabled"}
         >
-          <div id="calendar-name-row"
-            className="row">
+          <div id="calendar-name-row" className="row">
             <label htmlFor="calendar-name" className="row-label">
               Calendar Name:
             </label>
@@ -216,8 +181,7 @@ class Wrapper extends React.Component {
               disabled={!calendarSwitch}
             />
           </div>
-          <div id="calendar-color-row"
-            className="row">
+          <div id="calendar-color-row" className="row">
             <label htmlFor="calendar-color" className="row-label">
               Color:
             </label>
@@ -230,8 +194,7 @@ class Wrapper extends React.Component {
               disabled={!calendarSwitch}
             />
           </div>
-          <div id="calendar-uri-row"
-            className="row">
+          <div id="calendar-uri-row" className="row">
             <label htmlFor="calendar-uri" className="row-label">
               Location:
             </label>
@@ -317,17 +280,17 @@ class Wrapper extends React.Component {
       `${window.location.origin}/iframe-testing-ground`
     );
 
-    console.log("%c Data from Parent: Starts",
-      "color: #333; font-size: 20px; font-weight: bold");
-    console.log(`%c ${e.data}`,
-      "color: #ED4CBC; font-size: 16px");
-    console.log("%c Data from Parent: Ends",
-      "color: #333; font-size: 20px; font-weight: bold");
-
-    const newTabState = Object.assign(
-      {},
-      JSON.parse(e.data)
+    console.log(
+      "%c Data from Parent: Starts",
+      "color: #333; font-size: 20px; font-weight: bold"
     );
+    console.log(`%c ${e.data}`, "color: #ED4CBC; font-size: 16px");
+    console.log(
+      "%c Data from Parent: Ends",
+      "color: #333; font-size: 20px; font-weight: bold"
+    );
+
+    const newTabState = Object.assign({}, JSON.parse(e.data));
     this.setState({ tabs: newTabState });
   }
 
@@ -336,31 +299,26 @@ class Wrapper extends React.Component {
   }
 
   getTabStrip(activeTab) {
-    const tabs =
-      Object.keys(this.state.tabs)
-        .map(tabName => (
-          <div
-            onClick={(event) => {
-              const tabNodes =
-                document.querySelectorAll(".tab");
+    const tabs = Object.keys(this.state.tabs).map(tabName =>
+      <div
+        onClick={event => {
+          const tabNodes = document.querySelectorAll(".tab");
 
-              Array.prototype.forEach.call(
-                tabNodes,
-                tab => {
-                  this.deselectTabVisually(tab);
-                });
+          Array.prototype.forEach.call(tabNodes, tab => {
+            this.deselectTabVisually(tab);
+          });
 
-              this.selectTabVisually(event.target);
-              this.changeTab(tabName);
-            }}
-            className={`tab ${activeTab === tabName ? "selected" : ""}`}
-            selected={activeTab === tabName}
-            id={`${tabName}tab`}
-            key={tabName}
-          >
-            {tabName}
-          </div>
-        ));
+          this.selectTabVisually(event.target);
+          this.changeTab(tabName);
+        }}
+        className={`tab ${activeTab === tabName ? "selected" : ""}`}
+        selected={activeTab === tabName}
+        id={`${tabName}tab`}
+        key={tabName}
+      >
+        {tabName}
+      </div>
+    );
 
     if (tabs.length > 1) {
       return (
@@ -387,7 +345,4 @@ class Wrapper extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <Wrapper />,
-  document.getElementById("root")
-);
+ReactDOM.render(<Wrapper />, document.getElementById("root"));

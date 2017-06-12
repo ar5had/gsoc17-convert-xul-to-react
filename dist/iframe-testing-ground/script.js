@@ -32,7 +32,6 @@ window.addEventListener("load", () => {
     let obj;
     switch (name) {
       case "calendar-properties-dialog":
-
         obj = {
           general: {
             calendarSwitch: true,
