@@ -8,24 +8,28 @@ window.addEventListener("load", () => {
   const DIALOG_STATES = {
     "calendar-properties-dialog": {
       general: {
-        calendarSwitch: true,
-        name: "Calendar 121",
-        color: "#666666",
-        location: "moz-storage-calendar://",
-        emails: ["email@gmail.com", "asd@gmail.com", "another one"],
-        selectedEmailIndex: 2,
+        disabled: false,
+        forceDisabled: false,
+        autoEnabled: false,
+        color: "#deadbf",
+        name: "Calendar",
+        uri: "moz-storage-calendar://",
         readOnly: true,
-        showReminders: true
-      },
-      advanced: {
-        calendarSwitch: true,
-        name: "Advanced Calendar",
-        color: "#220000",
-        location: "moz-storage-calendar://",
-        emails: ["advemail@gmail.com", "advasd@gmail.com", "another one"],
-        selectedEmailIndex: 0,
-        readOnly: true,
-        showReminders: true
+        supressAlarms: false,
+        canRefresh: false,
+        refreshInterval: 30,
+        cache: {
+          supported: false,
+          enabled: false,
+          always: false
+        },
+        capabilities: {
+          alarms: {
+            popup: {
+              supported: true
+            }
+          }
+        }
       }
     }
   };
@@ -65,7 +69,7 @@ window.addEventListener("load", () => {
       return;
     }
 
-    if (JSON.parse(e.data).dialogReady) {
+    if (JSON.parse(e.data).messageRecieved) {
       clearInterval(postMessageInterval);
     } else {
       console.log("%c Data from Dialog: Starts", "color: #333; font-size: 20px; font-weight: bold");

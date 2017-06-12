@@ -67,3 +67,16 @@ Day-wise progress report of `convert-xul-to-html` project.
 * Tested in iframe via postmessage api
 * Added methods to accept and pass data via post message api
 
+### **Jun 8-12, 2017**
+
+* Completed dialog
+* Corrected styles
+* Added tabStrip
+* Removed some old bugs
+
+### **Jun 13, 2017**
+
+* Added new features to testing ground
+* Updated state logic
+
+

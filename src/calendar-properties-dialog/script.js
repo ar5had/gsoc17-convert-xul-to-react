@@ -5,14 +5,28 @@ class Wrapper extends React.Component {
       activeTab: "general",
       tabs: {
         general: {
-          calendarSwitch: true,
-          name: "demo name",
-          color: "#fefefe",
-          location: "demo uri",
-          emails: ["NONE", "AnotherNONE"],
-          selectedEmailIndex: 1,
-          readOnly: false,
-          showReminders: true
+          disabled: false,
+          forceDisabled: false,
+          autoEnabled: false,
+          color: "#deadbf",
+          name: "Calendar",
+          uri: "moz-storage-calendar://",
+          readOnly: true,
+          supressAlarms: false,
+          canRefresh: false,
+          refreshInterval: 30,
+          cache: {
+            supported: false,
+            enabled: false,
+            always: false
+          },
+          capabilities: {
+            alarms: {
+              popup: {
+                supported: true
+              }
+            }
+          }
         }
       }
     };
@@ -29,10 +43,7 @@ class Wrapper extends React.Component {
 
   componentDidMount() {
     setTimeout(() => {
-      parent.postMessage(
-        JSON.stringify(this.state.tabs),
-        `${window.location.origin}`
-      );
+      this.postMessage(JSON.stringify(this.state.tabs, null, 2), `${window.location.origin}`);
     }, 20000);
 
     // set the visuallyselected attribute of first tab to true
@@ -65,6 +76,7 @@ class Wrapper extends React.Component {
   }
 
   getSelectOptions(arr) {
+    arr = arr ? arr : ["NONE"];
     const options = arr.map((e, i) =>
       <option value={i} key={i}>
         {e}
@@ -74,9 +86,9 @@ class Wrapper extends React.Component {
     return options;
   }
 
-  handleCalendarSwitchChange(event) {
+  handleCalendarToggleChange(event) {
     const tabsState = Object.assign({}, this.state.tabs);
-    tabsState.general.calendarSwitch = !tabsState.general.calendarSwitch;
+    tabsState.general.disabled = !tabsState.general.disabled;
     this.setState({ tabs: tabsState });
   }
 
@@ -116,26 +128,26 @@ class Wrapper extends React.Component {
 
   handleSuppressAlarmsChange(event) {
     const tabsState = Object.assign({}, this.state.tabs);
-    tabsState.general.showReminders = !tabsState.general.showReminders;
+    tabsState.general.supressAlarms = !tabsState.general.supressAlarms;
     this.setState({ tabs: tabsState });
   }
 
   // remove this tabName arguemnt when tabStrip is done
   getGeneralTab(tabName) {
     const {
-      calendarSwitch,
+      disabled,
       name,
       color,
-      location,
+      uri,
       readOnly,
-      showReminders,
+      supressAlarms,
       emails,
       selectedEmailIndex
     } = this.state.tabs[tabName];
 
     const emailOptions = this.getSelectOptions(emails);
 
-    const handleCalendarSwitch = this.handleCalendarSwitchChange.bind(this);
+    const handleCalendarToggle = this.handleCalendarToggleChange.bind(this);
 
     const handleCalendarName = this.handleCalendarNameChange.bind(this);
 
@@ -156,18 +168,15 @@ class Wrapper extends React.Component {
             type="checkbox"
             className="checkbox"
             id="calendar-enabled-checkbox"
-            value="calendarSwitch"
-            checked={calendarSwitch}
-            onChange={handleCalendarSwitch}
+            value="disabled"
+            checked={!disabled}
+            onChange={handleCalendarToggle}
           />
           <label htmlFor="calendar-enabled-checkbox">
             Switch this calendar on
           </label>
         </div>
-        <div
-          id="calendar-properties-grid"
-          className={calendarSwitch ? "grid" : "grid disabled"}
-        >
+        <div id="calendar-properties-grid" className={disabled ? "grid disabled" : "grid"}>
           <div id="calendar-name-row" className="row">
             <label htmlFor="calendar-name" className="row-label">
               Calendar Name:
@@ -178,7 +187,7 @@ class Wrapper extends React.Component {
               className="row-input"
               value={name}
               onChange={handleCalendarName}
-              disabled={!calendarSwitch}
+              disabled={disabled}
             />
           </div>
           <div id="calendar-color-row" className="row">
@@ -191,7 +200,7 @@ class Wrapper extends React.Component {
               className="row-input"
               value={color}
               onChange={handleCalendarColor}
-              disabled={!calendarSwitch}
+              disabled={disabled}
             />
           </div>
           <div id="calendar-uri-row" className="row">
@@ -202,9 +211,9 @@ class Wrapper extends React.Component {
               type="text"
               id="calendar-uri"
               className="row-input"
-              value={location}
+              value={uri}
               onChange={handleCalendarUri}
-              disabled={!calendarSwitch}
+              disabled={disabled}
             />
           </div>
           <div id="calendar-email-identity-row" className="row">
@@ -215,7 +224,7 @@ class Wrapper extends React.Component {
               type="text"
               id="email-identity-menulist"
               className="row-input hidden"
-              disabled={!calendarSwitch}
+              disabled={disabled}
               onChange={handleCalendarEmail}
               value={selectedEmailIndex}
             >
@@ -230,7 +239,7 @@ class Wrapper extends React.Component {
                 id="readOnly"
                 checked={readOnly}
                 onChange={handleReadOnly}
-                disabled={!calendarSwitch}
+                disabled={disabled}
               />
               <label htmlFor="readOnly">
                 Read Only
@@ -243,9 +252,9 @@ class Wrapper extends React.Component {
                 type="checkbox"
                 className="checkbox"
                 id="fire-alarms"
-                checked={showReminders}
+                checked={supressAlarms}
                 onChange={handleSuppressAlarms}
-                disabled={!calendarSwitch}
+                disabled={disabled}
               />
               <label htmlFor="fire-alarms">
                 Show Reminders
@@ -270,25 +279,27 @@ class Wrapper extends React.Component {
     return Tab;
   }
 
+  postMessage(msg, origin) {
+    // parent and window are same thing if the current page is not in any frame
+    console.log(window !== parent);
+    if (window !== parent) {
+      parent.postMessage(msg, origin);
+    }
+  }
+
   recieveMessage(e) {
     if (e.origin !== window.location.origin) {
       return;
     }
 
-    parent.postMessage(
-      JSON.stringify({ dialogReady: true }),
+    this.postMessage(
+      JSON.stringify({ messageRecieved: true }),
       `${window.location.origin}/iframe-testing-ground`
     );
 
-    console.log(
-      "%c Data from Parent: Starts",
-      "color: #333; font-size: 20px; font-weight: bold"
-    );
+    console.log("%c Data from Parent: Starts", "color: #333; font-size: 20px; font-weight: bold");
     console.log(`%c ${e.data}`, "color: #ED4CBC; font-size: 16px");
-    console.log(
-      "%c Data from Parent: Ends",
-      "color: #333; font-size: 20px; font-weight: bold"
-    );
+    console.log("%c Data from Parent: Ends", "color: #333; font-size: 20px; font-weight: bold");
 
     const newTabState = Object.assign({}, JSON.parse(e.data));
     this.setState({ tabs: newTabState });
