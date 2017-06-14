@@ -82,11 +82,147 @@ TabStrip.propTypes = {
   tabs: PropTypes.array.isRequired
 };
 
-// TabBox Component
+// TabPanel Component
 
-// const TabBox = (props) => {
+const TabPanel = ({
+  data,
+  calendarColorChange,
+  calendarEmailChange,
+  calendarNameChange,
+  calendarToggleChange,
+  calendarUriChange,
+  readOnlyChange,
+  suppressAlarmsChange
+}) => {
+  const getSelectOptions = arr => {
+    arr = arr ? arr : ["NONE"];
+    const options = arr.map((e, i) =>
+      <option value={i} key={i}>
+        {e}
+      </option>
+    );
+    return options;
+  };
 
-// };
+  const { disabled, name, color, uri, readOnly, supressAlarms, emails, selectedEmailIndex } = data;
+
+  const emailOptions = getSelectOptions(emails);
+
+  return (
+    <div className="tabContentWrapper">
+      <div id="calendar-enabler-container" className="row">
+        <input
+          type="checkbox"
+          className="checkbox"
+          id="calendar-enabled-checkbox"
+          value="disabled"
+          checked={!disabled}
+          onChange={calendarToggleChange}
+        />
+        <label htmlFor="calendar-enabled-checkbox">
+          Switch this calendar on
+        </label>
+      </div>
+      <div id="calendar-properties-grid" className={disabled ? "grid disabled" : "grid"}>
+        <div id="calendar-name-row" className="row">
+          <label htmlFor="calendar-name" className="row-label">
+            Calendar Name:
+          </label>
+          <input
+            type="text"
+            id="calendar-name"
+            className="row-input"
+            value={name}
+            onChange={calendarNameChange}
+            disabled={disabled}
+          />
+        </div>
+        <div id="calendar-color-row" className="row">
+          <label htmlFor="calendar-color" className="row-label">
+            Color:
+          </label>
+          <input
+            type="color"
+            id="calendar-color"
+            className="row-input"
+            value={color}
+            onChange={calendarColorChange}
+            disabled={disabled}
+          />
+        </div>
+        <div id="calendar-uri-row" className="row">
+          <label htmlFor="calendar-uri" className="row-label">
+            Location:
+          </label>
+          <input
+            type="text"
+            id="calendar-uri"
+            className="row-input"
+            value={uri}
+            onChange={calendarUriChange}
+            disabled={disabled}
+          />
+        </div>
+        <div id="calendar-email-identity-row" className="row">
+          <label htmlFor="email-identity-menulist" className="row-label">
+            E-Mail:
+          </label>
+          <select
+            type="text"
+            id="email-identity-menulist"
+            className="row-input hidden"
+            disabled={disabled}
+            onChange={calendarEmailChange}
+            value={selectedEmailIndex}
+          >
+            {emailOptions}
+          </select>
+        </div>
+        <div id="calendar-readOnly-row" className="row">
+          <div>
+            <input
+              type="checkbox"
+              className="checkbox"
+              id="readOnly"
+              checked={readOnly}
+              onChange={readOnlyChange}
+              disabled={disabled}
+            />
+            <label htmlFor="readOnly">
+              Read Only
+            </label>
+          </div>
+        </div>
+        <div id="calendar-suppressAlarms-row" className="row">
+          <div>
+            <input
+              type="checkbox"
+              className="checkbox"
+              id="fire-alarms"
+              checked={supressAlarms}
+              onChange={suppressAlarmsChange}
+              disabled={disabled}
+            />
+            <label htmlFor="fire-alarms">
+              Show Reminders
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+TabPanel.propTypes = {
+  data: PropTypes.object,
+  calendarColorChange: PropTypes.func,
+  calendarEmailChange: PropTypes.func,
+  calendarNameChange: PropTypes.func,
+  calendarToggleChange: PropTypes.func,
+  calendarUriChange: PropTypes.func,
+  readOnlyChange: PropTypes.func,
+  suppressAlarmsChange: PropTypes.func
+};
 
 // DialogContentBox Component
 
@@ -143,17 +279,6 @@ class DialogContentBox extends React.Component {
     window.removeEventListener("message", this.recieveMessage);
   }
 
-  getSelectOptions(arr) {
-    arr = arr ? arr : ["NONE"];
-    const options = arr.map((e, i) =>
-      <option value={i} key={i}>
-        {e}
-      </option>
-    );
-
-    return options;
-  }
-
   handleCalendarToggleChange(event) {
     const tabsState = Object.assign({}, this.state.tabs);
     tabsState.general.disabled = !tabsState.general.disabled;
@@ -200,153 +325,6 @@ class DialogContentBox extends React.Component {
     this.setState({ tabs: tabsState });
   }
 
-  // remove this tabName arguemnt when tabStrip is done
-  getGeneralTab(tabName) {
-    const {
-      disabled,
-      name,
-      color,
-      uri,
-      readOnly,
-      supressAlarms,
-      emails,
-      selectedEmailIndex
-    } = this.state.tabs[tabName];
-
-    const emailOptions = this.getSelectOptions(emails);
-
-    const handleCalendarToggle = this.handleCalendarToggleChange.bind(this);
-
-    const handleCalendarName = this.handleCalendarNameChange.bind(this);
-
-    const handleCalendarColor = this.handleCalendarColorChange.bind(this);
-
-    const handleCalendarUri = this.handleCalendarUriChange.bind(this);
-
-    const handleCalendarEmail = this.handleCalendarEmailChange.bind(this);
-
-    const handleReadOnly = this.handleReadOnlyChange.bind(this);
-
-    const handleSuppressAlarms = this.handleSuppressAlarmsChange.bind(this);
-
-    return (
-      <div className="tabContentWrapper">
-        <div id="calendar-enabler-container" className="row">
-          <input
-            type="checkbox"
-            className="checkbox"
-            id="calendar-enabled-checkbox"
-            value="disabled"
-            checked={!disabled}
-            onChange={handleCalendarToggle}
-          />
-          <label htmlFor="calendar-enabled-checkbox">
-            Switch this calendar on
-          </label>
-        </div>
-        <div id="calendar-properties-grid" className={disabled ? "grid disabled" : "grid"}>
-          <div id="calendar-name-row" className="row">
-            <label htmlFor="calendar-name" className="row-label">
-              Calendar Name:
-            </label>
-            <input
-              type="text"
-              id="calendar-name"
-              className="row-input"
-              value={name}
-              onChange={handleCalendarName}
-              disabled={disabled}
-            />
-          </div>
-          <div id="calendar-color-row" className="row">
-            <label htmlFor="calendar-color" className="row-label">
-              Color:
-            </label>
-            <input
-              type="color"
-              id="calendar-color"
-              className="row-input"
-              value={color}
-              onChange={handleCalendarColor}
-              disabled={disabled}
-            />
-          </div>
-          <div id="calendar-uri-row" className="row">
-            <label htmlFor="calendar-uri" className="row-label">
-              Location:
-            </label>
-            <input
-              type="text"
-              id="calendar-uri"
-              className="row-input"
-              value={uri}
-              onChange={handleCalendarUri}
-              disabled={disabled}
-            />
-          </div>
-          <div id="calendar-email-identity-row" className="row">
-            <label htmlFor="email-identity-menulist" className="row-label">
-              E-Mail:
-            </label>
-            <select
-              type="text"
-              id="email-identity-menulist"
-              className="row-input hidden"
-              disabled={disabled}
-              onChange={handleCalendarEmail}
-              value={selectedEmailIndex}
-            >
-              {emailOptions}
-            </select>
-          </div>
-          <div id="calendar-readOnly-row" className="row">
-            <div>
-              <input
-                type="checkbox"
-                className="checkbox"
-                id="readOnly"
-                checked={readOnly}
-                onChange={handleReadOnly}
-                disabled={disabled}
-              />
-              <label htmlFor="readOnly">
-                Read Only
-              </label>
-            </div>
-          </div>
-          <div id="calendar-suppressAlarms-row" className="row">
-            <div>
-              <input
-                type="checkbox"
-                className="checkbox"
-                id="fire-alarms"
-                checked={supressAlarms}
-                onChange={handleSuppressAlarms}
-                disabled={disabled}
-              />
-              <label htmlFor="fire-alarms">
-                Show Reminders
-              </label>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  getTab(tabName) {
-    let TabPanel;
-    switch (tabName) {
-      case "general":
-        TabPanel = this.getGeneralTab(tabName);
-        break;
-      default:
-        TabPanel = this.getGeneralTab(tabName);
-        break;
-    }
-    return TabPanel;
-  }
-
   postMessage(msg, origin) {
     // parent and window are same thing if the current page is not in any frame
     if (window !== parent) {
@@ -355,20 +333,19 @@ class DialogContentBox extends React.Component {
   }
 
   recieveMessage(e) {
-    if (e.origin !== window.location.origin) {
+    // react-devtools sends message events whenever you open it so blocking such event is necessary
+    if (e.origin !== window.location.origin || /react-devtools/gi.test(e.data.source)) {
+      console.log(`Blocked request from ${e.origin} with data -`, e.data);
       return;
     }
 
-    this.postMessage(
-      JSON.stringify({ messageRecieved: true }),
-      `${window.location.origin}/iframe-testing-ground`
-    );
+    this.postMessage({ messageRecieved: true }, `${window.location.origin}/iframe-testing-ground`);
 
     console.log("%c Data from Parent: Starts", "color: #333; font-size: 20px; font-weight: bold");
-    console.log(`%c ${e.data}`, "color: #ED4CBC; font-size: 16px");
+    console.log(e.data);
     console.log("%c Data from Parent: Ends", "color: #333; font-size: 20px; font-weight: bold");
 
-    const newTabState = Object.assign({}, JSON.parse(e.data));
+    const newTabState = Object.assign({}, e.data);
     this.setState({ tabs: newTabState });
   }
 
@@ -377,18 +354,34 @@ class DialogContentBox extends React.Component {
   }
 
   render() {
-    // const currentStateData = this.state.tabs[this.state.activeTab];
-    const tabPanels = this.getTab(this.state.activeTab);
+    const currentStateData = this.state.tabs[this.state.activeTab];
     const allTabsName = Object.keys(this.state.tabs);
     const handleTabChange = this.changeTab.bind(this);
     const activeTab = this.state.activeTab;
     const showTabStrip = allTabsName.length > 1;
+    const calendarToggleChange = this.handleCalendarToggleChange.bind(this);
+    const calendarNameChange = this.handleCalendarNameChange.bind(this);
+    const calendarColorChange = this.handleCalendarColorChange.bind(this);
+    const calendarUriChange = this.handleCalendarUriChange.bind(this);
+    const calendarEmailChange = this.handleCalendarEmailChange.bind(this);
+    const readOnlyChange = this.handleReadOnlyChange.bind(this);
+    const suppressAlarmsChange = this.handleSuppressAlarmsChange.bind(this);
+
     return (
       <div className="wrapper" id="dialog-content-box">
         <div className="tabPanel">
           {showTabStrip &&
             <TabStrip tabs={allTabsName} handleTabChange={handleTabChange} activeTab={activeTab} />}
-          {tabPanels}
+          <TabPanel
+            data={currentStateData}
+            calendarColorChange={calendarColorChange}
+            calendarNameChange={calendarNameChange}
+            calendarToggleChange={calendarToggleChange}
+            calendarUriChange={calendarUriChange}
+            calendarEmailChange={calendarEmailChange}
+            readOnlyChange={readOnlyChange}
+            suppressAlarmsChange={suppressAlarmsChange}
+          />
         </div>
       </div>
     );
