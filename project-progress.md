@@ -84,6 +84,7 @@ Day-wise progress report of `convert-xul-to-html` project.
 
 * Refactored main component into sub components
 * Started working on react version of dialog element
+* Removed bugs
 
 
 
