@@ -30,6 +30,30 @@ window.addEventListener("load", () => {
             }
           }
         }
+      },
+      advanced: {
+        disabled: true,
+        forceDisabled: false,
+        autoEnabled: false,
+        color: "#deadbf",
+        name: "ADV Calendar",
+        uri: "moz-storage-calendar://",
+        readOnly: true,
+        supressAlarms: false,
+        canRefresh: false,
+        refreshInterval: 30,
+        cache: {
+          supported: false,
+          enabled: false,
+          always: false
+        },
+        capabilities: {
+          alarms: {
+            popup: {
+              supported: true
+            }
+          }
+        }
       }
     }
   };
@@ -69,11 +93,11 @@ window.addEventListener("load", () => {
       return;
     }
 
-    if (JSON.parse(e.data).messageRecieved) {
+    if (e.data.messageRecieved) {
       clearInterval(postMessageInterval);
     } else {
       console.log("%c Data from Dialog: Starts", "color: #333; font-size: 20px; font-weight: bold");
-      console.log(`%c ${e.data}`, "color: #ED4CBC; font-size: 16px");
+      console.log(JSON.parse(e.data));
       console.log("%c Data from Dialog: Ends", "color: #333; font-size: 20px; font-weight: bold");
     }
   };
@@ -81,7 +105,7 @@ window.addEventListener("load", () => {
   handleFormSubmit = event => {
     const dialogName = selectbox.options[selectbox.selectedIndex].value;
     const object = textarea.value;
-    loadIframe(dialogName, object);
+    loadIframe(dialogName, JSON.parse(object));
     document.querySelector(".container").scrollIntoView({ behavior: "smooth" });
     return false;
   };
