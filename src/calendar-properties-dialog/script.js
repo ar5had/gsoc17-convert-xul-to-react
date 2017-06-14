@@ -1,4 +1,96 @@
-class Wrapper extends React.Component {
+// Tab Component
+
+class Tab extends React.Component {
+  componentDidMount() {
+    if (this.props.active) {
+      this.selectTabVisually(this.tab);
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.deselectTabVisually(this.tab);
+    if (nextProps.active) {
+      this.selectTabVisually(this.tab);
+    }
+  }
+
+  selectTabVisually(node) {
+    node.setAttribute("visuallyselected", "true");
+    node.setAttribute("selected", "true");
+  }
+
+  deselectTabVisually(node) {
+    node.removeAttribute("visuallyselected");
+    node.removeAttribute("selected");
+  }
+
+  handleTabClick(event) {
+    const { handleTabChange, tabName } = this.props;
+    handleTabChange(tabName);
+  }
+
+  render() {
+    const handleTabClick = this.handleTabClick.bind(this);
+    const { tabName, active } = this.props;
+    return (
+      <div
+        onClick={handleTabClick}
+        className={`tab ${active ? "selected" : ""}`}
+        id={`${tabName}tab`}
+        key={tabName}
+        ref={node => (this.tab = node)}
+      >
+        {tabName}
+      </div>
+    );
+  }
+}
+
+Tab.propTypes = {
+  handleTabChange: PropTypes.func.isRequired,
+  active: PropTypes.bool.isRequired,
+  tabName: PropTypes.string.isRequired
+};
+
+// TabStrip Component
+
+const TabStrip = ({ tabs, handleTabChange, activeTab }) => {
+  const getTabStripContent = () => {
+    const allTabs = tabs.map(tabName =>
+      <Tab
+        active={tabName === activeTab}
+        tabName={tabName}
+        key={tabName}
+        handleTabChange={handleTabChange}
+      />
+    );
+    return allTabs;
+  };
+
+  const tabStripContent = getTabStripContent();
+
+  return (
+    <div className="tabStrip">
+      {tabStripContent}
+    </div>
+  );
+};
+
+TabStrip.propTypes = {
+  handleTabChange: PropTypes.func.isRequired,
+  activeTab: PropTypes.string.isRequired,
+  tabs: PropTypes.array.isRequired
+};
+
+// TabBox Component
+
+// const TabBox = (props) => {
+
+// };
+
+// DialogContentBox Component
+
+class DialogContentBox extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -45,34 +137,10 @@ class Wrapper extends React.Component {
     setTimeout(() => {
       this.postMessage(JSON.stringify(this.state.tabs, null, 2), `${window.location.origin}`);
     }, 20000);
-
-    // set the visuallyselected attribute of first tab to true
-    const firstTabNode = document.querySelector(".tab");
-    if (firstTabNode) {
-      this.selectTabVisually(firstTabNode);
-    } else {
-      this.tabInterval = setInterval(() => {
-        const firstTab = document.querySelector(".tab");
-        if (firstTab) {
-          this.selectTabVisually(firstTab);
-          clearInterval(this.tabInterval);
-        }
-      }, 50);
-    }
   }
 
   componentWillUnmount() {
     window.removeEventListener("message", this.recieveMessage);
-  }
-
-  selectTabVisually(node) {
-    node.setAttribute("visuallyselected", "true");
-    node.setAttribute("selected", "true");
-  }
-
-  deselectTabVisually(node) {
-    node.removeAttribute("visuallyselected");
-    node.removeAttribute("selected");
   }
 
   getSelectOptions(arr) {
@@ -267,16 +335,16 @@ class Wrapper extends React.Component {
   }
 
   getTab(tabName) {
-    let Tab;
+    let TabPanel;
     switch (tabName) {
       case "general":
-        Tab = this.getGeneralTab(tabName);
+        TabPanel = this.getGeneralTab(tabName);
         break;
       default:
-        Tab = this.getGeneralTab(tabName);
+        TabPanel = this.getGeneralTab(tabName);
         break;
     }
-    return Tab;
+    return TabPanel;
   }
 
   postMessage(msg, origin) {
@@ -308,51 +376,23 @@ class Wrapper extends React.Component {
     this.setState({ activeTab: tabName });
   }
 
-  getTabStrip(activeTab) {
-    const tabs = Object.keys(this.state.tabs).map(tabName =>
-      <div
-        onClick={event => {
-          const tabNodes = document.querySelectorAll(".tab");
-
-          Array.prototype.forEach.call(tabNodes, tab => {
-            this.deselectTabVisually(tab);
-          });
-
-          this.selectTabVisually(event.target);
-          this.changeTab(tabName);
-        }}
-        className={`tab ${activeTab === tabName ? "selected" : ""}`}
-        selected={activeTab === tabName}
-        id={`${tabName}tab`}
-        key={tabName}
-      >
-        {tabName}
-      </div>
-    );
-
-    if (tabs.length > 1) {
-      return (
-        <div className="tabStrip">
-          {tabs}
-        </div>
-      );
-    } else {
-      return "";
-    }
-  }
-
   render() {
-    const Tab = this.getTab(this.state.activeTab);
-    const TabStrip = this.getTabStrip(this.state.activeTab);
+    // const currentStateData = this.state.tabs[this.state.activeTab];
+    const tabPanels = this.getTab(this.state.activeTab);
+    const allTabsName = Object.keys(this.state.tabs);
+    const handleTabChange = this.changeTab.bind(this);
+    const activeTab = this.state.activeTab;
+    const showTabStrip = allTabsName.length > 1;
     return (
       <div className="wrapper" id="dialog-content-box">
-        <div className="tabWrapper">
-          {TabStrip}
-          {Tab}
+        <div className="tabPanel">
+          {showTabStrip &&
+            <TabStrip tabs={allTabsName} handleTabChange={handleTabChange} activeTab={activeTab} />}
+          {tabPanels}
         </div>
       </div>
     );
   }
 }
 
-ReactDOM.render(<Wrapper />, document.getElementById("root"));
+ReactDOM.render(<DialogContentBox />, document.getElementById("root"));

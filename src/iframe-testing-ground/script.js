@@ -30,6 +30,30 @@ window.addEventListener("load", () => {
             }
           }
         }
+      },
+      advanced: {
+        disabled: true,
+        forceDisabled: false,
+        autoEnabled: false,
+        color: "#deadbf",
+        name: "ADV Calendar",
+        uri: "moz-storage-calendar://",
+        readOnly: true,
+        supressAlarms: false,
+        canRefresh: false,
+        refreshInterval: 30,
+        cache: {
+          supported: false,
+          enabled: false,
+          always: false
+        },
+        capabilities: {
+          alarms: {
+            popup: {
+              supported: true
+            }
+          }
+        }
       }
     }
   };

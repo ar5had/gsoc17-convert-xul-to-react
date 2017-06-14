@@ -77,7 +77,7 @@ input[type="text"] {
 
 /* ::::: Tab Styles ::::: */
 
-.tabWrapper {
+.tabBox {
   -moz-box-orient: vertical; 
 }
 
