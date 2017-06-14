@@ -1,17 +1,12 @@
 const TabStrip = ({ tabs, handleTabChange, activeTab }) => {
-  const getTabStripContent = () => {
-    const allTabs = tabs.map(tabName =>
-      <Tab
-        active={tabName === activeTab}
-        tabName={tabName}
-        key={tabName}
-        handleTabChange={handleTabChange}
-      />
-    );
-    return allTabs;
-  };
-
-  const tabStripContent = getTabStripContent();
+  const tabStripContent = tabs.map(tabName =>
+    <Tab
+      active={tabName === activeTab}
+      tabName={tabName}
+      key={tabName}
+      handleTabChange={handleTabChange}
+    />
+  );
 
   return (
     <div className="tabStrip">
