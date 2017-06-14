@@ -49,3 +49,5 @@ Tab.propTypes = {
   active: PropTypes.bool.isRequired,
   tabName: PropTypes.string.isRequired
 };
+
+window.Tab = Tab;
