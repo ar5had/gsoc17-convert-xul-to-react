@@ -53,6 +53,7 @@ app.get('/', (req, res)=>{
         border-top: solid 1px #bbb;
         width: 80%;
         max-width: 500px;
+        margin-top: 25px;
       }
 
       button {
@@ -62,6 +63,11 @@ app.get('/', (req, res)=>{
     <h5>
       <a href="/calendar-properties-dialog">
         calendar properties dialog
+      </a>
+    </h5>
+    <h5>
+      <a href="/dialog">
+        React Dialog Element   
       </a>
     </h5>
     <h5 class="iframe-btn-wrapper">
