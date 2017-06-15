@@ -11,7 +11,8 @@ const alignOptions = ["start", "center", "end", "baseline", "stretch"];
 const buttondirOptions = ["normal", "reverse"];
 const buttonOrientOptions = ["horizontal", "vertical"];
 const buttonPackOptions = ["start", "center", "end"];
-// this is something different as buttons attribute is string separated by commas having multiple values
+// this is something different as buttons attribute is string
+// separated by commas having multiple values
 // ',' for empty
 const buttonOptions = ["accept", "cancel", "help", "disclosure", "extra1", "extra2"];
 
@@ -26,7 +27,24 @@ class Dialog extends React.Component {
 
   // moveToAlertPosition() {}
 
-  render() {}
+  getAllButtons() {
+    const buttonsList = this.props.buttons
+      .split(",")
+      .map(btn => btn.trim())
+      .filter(btn => buttonOptions.includes(btn))
+      .sort();
+    return buttonsList.map((btn, i) =>
+      <button className={`${btn}Btn`} key={i}>{this.props[`buttonlabel${btn}`]}</button>
+    );
+  }
+
+  render() {
+    return (
+      <div className="dialog">
+        {this.getAllButtons()}
+      </div>
+    );
+  }
 }
 
 Dialog.propTypes = {
@@ -69,8 +87,8 @@ Dialog.defaultProps = {
   buttonaccesskeyhelp: null,
   buttonalign: "right",
   buttondir: "normal",
-  buttondisabledaccept: "false",
-  buttonlabelaccept: "Accept",
+  buttondisabledaccept: false,
+  buttonlabelaccept: "Ok",
   buttonlabelcancel: "Cancel",
   buttonlabeldisclosure: "Disclosure",
   buttonlabelextra1: "extra1",
