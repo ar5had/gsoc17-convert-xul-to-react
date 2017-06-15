@@ -26,7 +26,59 @@ class DialogContentBox extends React.Component {
                 supported: true
               }
             }
-          }
+          },
+          imip: {
+            identity: {
+              disabled: false,
+              selected: "key1"
+            }
+          },
+          identities: [
+            {
+              name: "Arshad <kewisch@exmaple.com>",
+              key: "key2"
+            },
+            {
+              name: "Philipp <kewisch@exmaple.com>",
+              key: "key1"
+            }
+          ]
+        },
+        advanced: {
+          disabled: true,
+          forceDisabled: false,
+          autoEnabled: false,
+          color: "#deadbf",
+          name: "Another Calendar",
+          uri: "moz-storage-calendar://",
+          readOnly: true,
+          supressAlarms: false,
+          canRefresh: false,
+          refreshInterval: 30,
+          cache: {
+            supported: false,
+            enabled: false,
+            always: false
+          },
+          capabilities: {
+            alarms: {
+              popup: {
+                supported: true
+              }
+            }
+          },
+          imip: {
+            identity: {
+              disabled: false,
+              selected: "key1"
+            }
+          },
+          identities: [
+            {
+              name: "Philipp <kewisch@exmaple.com>",
+              key: "key1"
+            }
+          ]
         }
       }
     };
@@ -49,52 +101,6 @@ class DialogContentBox extends React.Component {
 
   componentWillUnmount() {
     window.removeEventListener("message", this.recieveMessage);
-  }
-
-  handleCalendarToggleChange(event) {
-    const tabsState = Object.assign({}, this.state.tabs);
-    tabsState.general.disabled = !tabsState.general.disabled;
-    this.setState({ tabs: tabsState });
-  }
-
-  handleCalendarNameChange(event) {
-    const tabsState = Object.assign({}, this.state.tabs);
-    tabsState.general.name = event.currentTarget.value;
-    this.setState({ tabs: tabsState });
-  }
-
-  handleCalendarColorChange(event) {
-    const tabsState = Object.assign({}, this.state.tabs);
-    tabsState.general.color = event.currentTarget.value;
-    this.setState({ tabs: tabsState });
-  }
-
-  handleCalendarUriChange(event) {
-    this.setState({ tabs: this.state.tabs });
-  }
-
-  handleCalendarEmailChange(event) {
-    const generalTab = Object.assign({}, this.state.tabs.general, {
-      selectedEmailIndex: event.currentTarget.selectedIndex
-    });
-
-    const tabsState = Object.assign({}, this.state.tabs, {
-      general: generalTab
-    });
-
-    this.setState({ tabs: tabsState });
-  }
-
-  handleReadOnlyChange(event) {
-    const tabsState = Object.assign({}, this.state.tabs);
-    tabsState.general.readOnly = !tabsState.general.readOnly;
-    this.setState({ tabs: tabsState });
-  }
-
-  handleSuppressAlarmsChange(event) {
-    const tabsState = Object.assign({}, this.state.tabs);
-    tabsState.general.supressAlarms = !tabsState.general.supressAlarms;
-    this.setState({ tabs: tabsState });
   }
 
   postMessage(msg, origin) {
@@ -125,36 +131,29 @@ class DialogContentBox extends React.Component {
     this.setState({ activeTab: tabName });
   }
 
+  changeState(tabState) {
+    const activeTab = this.state.activeTab;
+    const newActiveTabState = {};
+    newActiveTabState[activeTab] = tabState;
+    const newTabsState = Object.assign({}, this.state.tabs, newActiveTabState);
+    this.setState({ tabs: newTabsState });
+  }
+
   render() {
-    const currentStateData = this.state.tabs[this.state.activeTab];
+    const activeTabData = this.state.tabs[this.state.activeTab];
     const allTabsName = Object.keys(this.state.tabs);
     const handleTabChange = this.changeTab.bind(this);
     const activeTab = this.state.activeTab;
     const showTabStrip = allTabsName.length > 1;
-    const calendarToggleChange = this.handleCalendarToggleChange.bind(this);
-    const calendarNameChange = this.handleCalendarNameChange.bind(this);
-    const calendarColorChange = this.handleCalendarColorChange.bind(this);
-    const calendarUriChange = this.handleCalendarUriChange.bind(this);
-    const calendarEmailChange = this.handleCalendarEmailChange.bind(this);
-    const readOnlyChange = this.handleReadOnlyChange.bind(this);
-    const suppressAlarmsChange = this.handleSuppressAlarmsChange.bind(this);
+    const changeState = this.changeState.bind(this);
 
     return (
       <div className="wrapper" id="dialog-content-box">
-        <div className="tabPanel">
+        <TabBox>
           {showTabStrip &&
             <TabStrip tabs={allTabsName} handleTabChange={handleTabChange} activeTab={activeTab} />}
-          <TabPanel
-            data={currentStateData}
-            calendarColorChange={calendarColorChange}
-            calendarNameChange={calendarNameChange}
-            calendarToggleChange={calendarToggleChange}
-            calendarUriChange={calendarUriChange}
-            calendarEmailChange={calendarEmailChange}
-            readOnlyChange={readOnlyChange}
-            suppressAlarmsChange={suppressAlarmsChange}
-          />
-        </div>
+          <TabPanel activeTab={activeTab} activeTabData={activeTabData} changeState={changeState} />
+        </TabBox>
       </div>
     );
   }

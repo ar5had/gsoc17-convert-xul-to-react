@@ -1,26 +1,57 @@
-const TabPanel = ({
-  data,
-  calendarColorChange,
-  calendarEmailChange,
-  calendarNameChange,
-  calendarToggleChange,
-  calendarUriChange,
-  readOnlyChange,
-  suppressAlarmsChange
-}) => {
+const TabPanel = ({ activeTab, activeTabData, changeState }) => {
   const getSelectOptions = arr => {
     arr = arr ? arr : ["NONE"];
     const options = arr.map((e, i) =>
-      <option value={i} key={i}>
-        {e}
+      <option value={e.key} key={i}>
+        {e.name}
       </option>
     );
     return options;
   };
 
-  const { disabled, name, color, uri, readOnly, supressAlarms, emails, selectedEmailIndex } = data;
+  const calendarToggleChange = event => {
+    const tabState = Object.assign({}, activeTabData, { disabled: !activeTabData.disabled });
+    changeState(tabState);
+  };
 
-  const emailOptions = getSelectOptions(emails);
+  const calendarNameChange = event => {
+    const tabState = Object.assign({}, activeTabData, { name: event.target.value });
+    changeState(tabState);
+  };
+
+  const calendarColorChange = event => {
+    const tabState = Object.assign({}, activeTabData, { name: event.target.value });
+    changeState(tabState);
+  };
+
+  const calendarUriChange = event => {
+    changeState(activeTabData);
+  };
+
+  const calendarEmailChange = event => {
+    let newImipState = JSON.stringify(activeTabData.imip);
+    newImipState = JSON.parse(newImipState);
+    newImipState.identity.selected = event.target.value;
+    const tabState = Object.assign({}, activeTabData, { imip: newImipState });
+    changeState(tabState);
+  };
+
+  const readOnlyChange = event => {
+    const tabState = Object.assign({}, activeTabData, { readOnly: !activeTabData.readOnly });
+    changeState(tabState);
+  };
+
+  const suppressAlarmsChange = event => {
+    const tabState = Object.assign({}, activeTabData, {
+      supressAlarms: !activeTabData.supressAlarms
+    });
+    changeState(tabState);
+  };
+
+  const { disabled, name, color, uri, readOnly, supressAlarms, identities, imip } = activeTabData;
+
+  const emailOptions = getSelectOptions(identities);
+  const selectedEmailKey = imip.identity.selected;
 
   return (
     <div className="tabContentWrapper">
@@ -87,7 +118,7 @@ const TabPanel = ({
             className="row-input hidden"
             disabled={disabled}
             onChange={calendarEmailChange}
-            value={selectedEmailIndex}
+            value={selectedEmailKey}
           >
             {emailOptions}
           </select>
@@ -128,14 +159,9 @@ const TabPanel = ({
 };
 
 TabPanel.propTypes = {
-  data: PropTypes.object,
-  calendarColorChange: PropTypes.func,
-  calendarEmailChange: PropTypes.func,
-  calendarNameChange: PropTypes.func,
-  calendarToggleChange: PropTypes.func,
-  calendarUriChange: PropTypes.func,
-  readOnlyChange: PropTypes.func,
-  suppressAlarmsChange: PropTypes.func
+  activeTabData: PropTypes.object.isRequired,
+  activeTab: PropTypes.string.isRequired,
+  changeState: PropTypes.func.isRequired
 };
 
 window.TabPanel = TabPanel;

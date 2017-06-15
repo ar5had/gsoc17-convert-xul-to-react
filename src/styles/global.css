@@ -67,7 +67,7 @@ input[type="text"] {
 }
 
 /* ::::: root elements ::::: */
-#dialog-content-box {
+#tabBox {
   padding: 15px;
   -moz-appearance: dialog;
   background-color: -moz-Dialog;
