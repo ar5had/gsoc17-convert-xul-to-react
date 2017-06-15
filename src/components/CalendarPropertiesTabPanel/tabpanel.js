@@ -1,13 +1,4 @@
-const TabPanel = ({
-  data,
-  calendarColorChange,
-  calendarEmailChange,
-  calendarNameChange,
-  calendarToggleChange,
-  calendarUriChange,
-  readOnlyChange,
-  suppressAlarmsChange
-}) => {
+const TabPanel = ({ activeTab, activeTabData, changeState }) => {
   const getSelectOptions = arr => {
     arr = arr ? arr : ["NONE"];
     const options = arr.map((e, i) =>
@@ -18,7 +9,52 @@ const TabPanel = ({
     return options;
   };
 
-  const { disabled, name, color, uri, readOnly, supressAlarms, emails, selectedEmailIndex } = data;
+  const calendarToggleChange = event => {
+    const tabState = Object.assign({}, activeTabData, { disabled: !activeTabData.disabled });
+    changeState(tabState);
+  };
+
+  const calendarNameChange = event => {
+    const tabState = Object.assign({}, activeTabData, { name: event.target.value });
+    changeState(tabState);
+  };
+
+  const calendarColorChange = event => {
+    const tabState = Object.assign({}, activeTabData, { name: event.target.value });
+    changeState(tabState);
+  };
+
+  const calendarUriChange = event => {
+    changeState(activeTabData);
+  };
+
+  // todo
+  const calendarEmailChange = event => {
+    changeState(tabState);
+  };
+
+  const readOnlyChange = event => {
+    const tabState = Object.assign({}, activeTabData, { readOnly: !activeTabData.readOnly });
+    changeState(tabState);
+  };
+
+  const suppressAlarmsChange = event => {
+    const tabState = Object.assign({}, activeTabData, {
+      supressAlarms: !activeTabData.supressAlarms
+    });
+    changeState(tabState);
+  };
+
+  const {
+    disabled,
+    name,
+    color,
+    uri,
+    readOnly,
+    supressAlarms,
+    emails,
+    selectedEmailIndex
+  } = activeTabData;
 
   const emailOptions = getSelectOptions(emails);
 
@@ -128,14 +164,9 @@ const TabPanel = ({
 };
 
 TabPanel.propTypes = {
-  data: PropTypes.object,
-  calendarColorChange: PropTypes.func,
-  calendarEmailChange: PropTypes.func,
-  calendarNameChange: PropTypes.func,
-  calendarToggleChange: PropTypes.func,
-  calendarUriChange: PropTypes.func,
-  readOnlyChange: PropTypes.func,
-  suppressAlarmsChange: PropTypes.func
+  activeTabData: PropTypes.object.isRequired,
+  activeTab: PropTypes.string.isRequired,
+  changeState: PropTypes.func.isRequired
 };
 
 window.TabPanel = TabPanel;
