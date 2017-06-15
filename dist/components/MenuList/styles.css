@@ -1,0 +1,53 @@
+/* ::::: MenuList Styles ::::: */
+.menulistWrapper {
+  flex: 1;
+}
+
+.menulist {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.menuSelect {
+  -moz-appearance: menulist;
+  padding: 2px 3px;
+}
+
+.menuOptions {
+  position: absolute;
+  top: 28px;
+  left: 0;
+  width: 100%;
+  display: -moz-popup;
+  z-index: 2147483647;
+  text-shadow: none;
+  -moz-appearance: menupopup;
+  box-shadow: 0 10px 20px 0 rgba(46,61,73,.35);
+  overflow: auto;
+  visibility: hidden;
+  -moz-transform: scale(.98);
+  transform: scale(.98);
+  transition: visibility 70ms linear, transform 70ms linear;
+}
+
+.menuItem {
+  -moz-appearance: menuitem;
+  -moz-box-align: center;
+  max-width: 42em;
+  color: MenuText;
+  font: menu;
+  /*list-style-image: none;
+  -moz-image-region: auto;*/
+}
+
+.menuSelect:focus {
+  outline: none;
+}
+
+.menuSelect:focus + .menuOptions {
+	visibility:visible;
+	opacity:1;
+	-moz-transform:scale(1);
+	transform:scale(1)
+}

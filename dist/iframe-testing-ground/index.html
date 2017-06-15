@@ -1,0 +1,35 @@
+<!Doctype html>
+<html>
+
+<head>
+  <title>Iframe Testing Ground</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+  <form class="controls" onsubmit="return handleFormSubmit()">
+    <h2>Iframe Testing Ground</h2>
+    <div class="wrapper">
+      <label for="component-selector">Dialog:</label>
+      <select name="dialog" id="component-selector" required>
+        <option value="">
+          Select Component...
+        </option>
+        <option value="calendar-properties-dialog">
+          Calendar Properties Dialog
+        </option>
+      </select>
+    </div>
+    <div class="wrapper">
+      <label for="ta">State Object:</label>
+      <textarea spellcheck="false" name="state" id="ta"
+        placeholder="Select Dialog first!" required></textarea>
+    </div>
+    <input type="submit" value="Load Dialog" />
+  </form>
+  <div class="container">
+  </div>
+  <script src="./script.js"></script>
+</body>
+
+</html>
