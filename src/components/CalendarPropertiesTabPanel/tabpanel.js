@@ -2,8 +2,8 @@ const TabPanel = ({ activeTab, activeTabData, changeState }) => {
   const getSelectOptions = arr => {
     arr = arr ? arr : ["NONE"];
     const options = arr.map((e, i) =>
-      <option value={i} key={i}>
-        {e}
+      <option value={e.key} key={i}>
+        {e.name}
       </option>
     );
     return options;
@@ -28,8 +28,11 @@ const TabPanel = ({ activeTab, activeTabData, changeState }) => {
     changeState(activeTabData);
   };
 
-  // todo
   const calendarEmailChange = event => {
+    let newImipState = JSON.stringify(activeTabData.imip);
+    newImipState = JSON.parse(newImipState);
+    newImipState.identity.selected = event.target.value;
+    const tabState = Object.assign({}, activeTabData, { imip: newImipState });
     changeState(tabState);
   };
 
@@ -45,18 +48,10 @@ const TabPanel = ({ activeTab, activeTabData, changeState }) => {
     changeState(tabState);
   };
 
-  const {
-    disabled,
-    name,
-    color,
-    uri,
-    readOnly,
-    supressAlarms,
-    emails,
-    selectedEmailIndex
-  } = activeTabData;
+  const { disabled, name, color, uri, readOnly, supressAlarms, identities, imip } = activeTabData;
 
-  const emailOptions = getSelectOptions(emails);
+  const emailOptions = getSelectOptions(identities);
+  const selectedEmailKey = imip.identity.selected;
 
   return (
     <div className="tabContentWrapper">
@@ -123,7 +118,7 @@ const TabPanel = ({ activeTab, activeTabData, changeState }) => {
             className="row-input hidden"
             disabled={disabled}
             onChange={calendarEmailChange}
-            value={selectedEmailIndex}
+            value={selectedEmailKey}
           >
             {emailOptions}
           </select>

@@ -29,7 +29,23 @@ window.addEventListener("load", () => {
               supported: true
             }
           }
-        }
+        },
+        imip: {
+          identity: {
+            disabled: false,
+            selected: "key1"
+          }
+        },
+        identities: [
+          {
+            name: "Arshad <arshad@exmaple.com>",
+            key: "key2"
+          },
+          {
+            name: "Philipp <kewisch@exmaple.com>",
+            key: "key1"
+          }
+        ]
       },
       advanced: {
         disabled: true,
@@ -53,7 +69,23 @@ window.addEventListener("load", () => {
               supported: true
             }
           }
-        }
+        },
+        imip: {
+          identity: {
+            disabled: false,
+            selected: "key1"
+          }
+        },
+        identities: [
+          {
+            name: "Arshad <arshad@exmaple.com>",
+            key: "key2"
+          },
+          {
+            name: "Philipp <kewisch@exmaple.com>",
+            key: "key1"
+          }
+        ]
       }
     }
   };

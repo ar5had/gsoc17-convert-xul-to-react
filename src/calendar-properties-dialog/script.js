@@ -26,7 +26,23 @@ class DialogContentBox extends React.Component {
                 supported: true
               }
             }
-          }
+          },
+          imip: {
+            identity: {
+              disabled: false,
+              selected: "key1"
+            }
+          },
+          identities: [
+            {
+              name: "Arshad <kewisch@exmaple.com>",
+              key: "key2"
+            },
+            {
+              name: "Philipp <kewisch@exmaple.com>",
+              key: "key1"
+            }
+          ]
         },
         advanced: {
           disabled: true,
@@ -50,7 +66,19 @@ class DialogContentBox extends React.Component {
                 supported: true
               }
             }
-          }
+          },
+          imip: {
+            identity: {
+              disabled: false,
+              selected: "key1"
+            }
+          },
+          identities: [
+            {
+              name: "Philipp <kewisch@exmaple.com>",
+              key: "key1"
+            }
+          ]
         }
       }
     };
