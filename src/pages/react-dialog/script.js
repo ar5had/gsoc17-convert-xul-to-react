@@ -1,47 +1,81 @@
-const defaultButtons = [
-  { name: "disclosure", hidden: true },
-  { name: "help", hidden: true },
-  { name: "extra2", hidden: true },
-  { name: "extra1", hidden: true },
-  { name: "cancel", hidden: false },
-  { name: "accept", hidden: false }
-];
-
-const alignOptions = ["start", "center", "end", "baseline", "stretch"];
-const buttondirOptions = ["normal", "reverse"];
-const buttonOrientOptions = ["horizontal", "vertical"];
-const buttonPackOptions = ["start", "center", "end"];
 // this is something different as buttons attribute is string
 // separated by commas having multiple values
 // ',' for empty
-const buttonOptions = ["accept", "cancel", "help", "disclosure", "extra1", "extra2"];
 
 class Dialog extends React.Component {
-  // acceptDialog() {}
+  constructor(props) {
+    super(props);
+    this.buttonOptions = ["accept", "cancel", "help", "disclosure", "extra1", "extra2"];
+    this.alignOptions = ["start", "center", "end", "baseline", "stretch"];
+    this.buttondirOptions = ["normal", "reverse"];
+    this.buttonOrientOptions = ["horizontal", "vertical"];
+    this.buttonPackOptions = ["start", "center", "end"];
+    this.addKeyListeners = this.addKeyListeners.bind(this);
+  }
 
-  // cancelDialog() {}
+  componentDidMount() {
+    window.addEventListener("keyup", this.addKeyListeners);
+  }
 
-  // centerWindowOnScreen() {}
+  componentWillUnmount() {
+    window.removeEventListener("keyup", this.addKeyListeners);
+  }
 
-  // getButton() {}
+  addKeyListeners() {
+    switch (e.keyCode) {
+      case 13:
+        this.acceptDialog();
+        break;
+      case 27:
+        this.cancelDialog();
+        break;
+      default:
+        break;
+    }
+  }
 
-  // moveToAlertPosition() {}
+  // centerWindowOnScreen and moveToAlertPosition
+  // can't be implmented without any parent xul wrapper help
+
+  acceptDialog() {
+    console.log("acceptDialog");
+  }
+
+  cancelDialog() {
+    console.log("cancelDialog");
+  }
+
+  getButton() {
+    console.log("getButton");
+  }
 
   getAllButtons() {
-    const buttonsList = this.props.buttons
+    const props = this.props;
+    const buttonsList = props.buttons
       .split(",")
       .map(btn => btn.trim())
-      .filter(btn => buttonOptions.includes(btn))
-      .sort();
-    return buttonsList.map((btn, i) =>
-      <button className={`${btn}Btn`} key={i}>{this.props[`buttonlabel${btn}`]}</button>
-    );
+      .filter(btn => this.buttonOptions.includes(btn));
+
+    return buttonsList
+      .map((btn, i) =>
+        <button
+          className={`${btn}-btn dialog-button`}
+          key={i}
+          accessKey={props[`buttonaccesskey${btn}`]}
+          dangerouslySetInnerHTML={{
+            __html: underlineAccessKey(props[`buttonlabel${btn}`], props[`buttonaccesskey${btn}`])
+          }}
+        />
+      )
+      .concat([<div className="dialog-button-spacer" key="spacer" />]);
   }
 
   render() {
     return (
       <div className="dialog">
-        {this.getAllButtons()}
+        <div className="dialog-button-box">
+          {this.getAllButtons()}
+        </div>
       </div>
     );
   }
@@ -79,23 +113,23 @@ Dialog.propTypes = {
 };
 
 Dialog.defaultProps = {
-  buttonaccesskeyaccept: null,
-  buttonaccesskeycancel: null,
-  buttonaccesskeydisclosure: null,
-  buttonaccesskeyextra1: null,
-  buttonaccesskeyextra2: null,
-  buttonaccesskeyhelp: null,
   buttonalign: "right",
   buttondir: "normal",
   buttondisabledaccept: false,
-  buttonlabelaccept: "Ok",
-  buttonlabelcancel: "Cancel",
-  buttonlabeldisclosure: "Disclosure",
-  buttonlabelextra1: "extra1",
-  buttonlabelextra2: "extra2",
-  buttonlabelhelp: "Help",
   buttonorient: "horizontal",
   buttonpack: "end",
+  buttonaccesskeyaccept: null,
+  buttonaccesskeycancel: null,
+  buttonaccesskeydisclosure: "I",
+  buttonaccesskeyextra1: null,
+  buttonaccesskeyextra2: null,
+  buttonaccesskeyhelp: "H",
+  buttonlabelaccept: "Ok",
+  buttonlabelcancel: "Cancel",
+  buttonlabeldisclosure: "More Info",
+  buttonlabelextra1: "&nbsp;",
+  buttonlabelextra2: "&nbsp;",
+  buttonlabelhelp: "Help",
   buttons: "accept, cancel",
   defaultButton: "accept",
   ondialogaccept: () => true,
@@ -109,4 +143,7 @@ Dialog.defaultProps = {
   inactivetitlebarcolor: null
 };
 
-ReactDOM.render(<Dialog />, document.getElementById("root"));
+ReactDOM.render(
+  <Dialog buttons="accept,cancel, extra1,extra2,help, disclosure, soemramd" />,
+  document.getElementById("root")
+);
