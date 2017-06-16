@@ -21,15 +21,38 @@ class Dialog extends React.Component {
     window.removeEventListener("keyup", this.addKeyListeners);
   }
 
-  addKeyListeners() {
+  callDefaultButtonHandler(defaultButton) {
+    switch (defaultButton) {
+      case "accept":
+        this.acceptDialog();
+        break;
+      case "cancel":
+        this.cancelDialog();
+        break;
+      case "disclosure":
+        this.props.ondialogdisclosure();
+        break;
+      case "help":
+        this.props.ondialoghelp();
+        break;
+      case "extra1":
+        this.props.ondialogextra1();
+        break;
+      case "extra2":
+        this.props.ondialogextra2();
+        break;
+    }
+  }
+
+  addKeyListeners(e) {
     switch (e.keyCode) {
       case 13:
-        this.acceptDialog();
+        if (document.activeElement === document.querySelector("body")) {
+          this.callDefaultButtonHandler(this.props.defaultButton);
+        }
         break;
       case 27:
         this.cancelDialog();
-        break;
-      default:
         break;
     }
   }
@@ -39,14 +62,35 @@ class Dialog extends React.Component {
 
   acceptDialog() {
     console.log("acceptDialog");
+    this.props.ondialogaccept();
   }
 
   cancelDialog() {
     console.log("cancelDialog");
+    this.props.ondialogcancel();
   }
 
   getButton() {
     console.log("getButton");
+  }
+
+  assignClickHandler(btn) {
+    switch (btn) {
+      case "accept":
+        return this.acceptDialog.bind(this);
+      case "cancel":
+        return this.cancelDialog.bind(this);
+      case "disclosure":
+        return this.props.ondialogdisclosure.bind(this);
+      case "help":
+        return this.props.ondialoghelp.bind(this);
+      case "extra1":
+        return this.props.ondialogextra1.bind(this);
+      case "extra2":
+        return this.props.ondialogextra2.bind(this);
+      default:
+        return null;
+    }
   }
 
   getAllButtons() {
@@ -62,6 +106,7 @@ class Dialog extends React.Component {
           className={`${btn}-btn dialog-button`}
           key={i}
           accessKey={props[`buttonaccesskey${btn}`]}
+          onClick={this.assignClickHandler(btn)}
           dangerouslySetInnerHTML={{
             __html: underlineAccessKey(props[`buttonlabel${btn}`], props[`buttonaccesskey${btn}`])
           }}
@@ -115,9 +160,9 @@ Dialog.propTypes = {
 Dialog.defaultProps = {
   buttonalign: "right",
   buttondir: "normal",
-  buttondisabledaccept: false,
   buttonorient: "horizontal",
   buttonpack: "end",
+  buttondisabledaccept: false,
   buttonaccesskeyaccept: null,
   buttonaccesskeycancel: null,
   buttonaccesskeydisclosure: "I",
@@ -144,6 +189,21 @@ Dialog.defaultProps = {
 };
 
 ReactDOM.render(
-  <Dialog buttons="accept,cancel, extra1,extra2,help, disclosure, soemramd" />,
+  <Dialog
+    buttons="accept,cancel, extra1,extra2,help, disclosure, soemramd"
+    ondialogdisclosure={() => console.log("disclosure")}
+    ondialoghelp={() => console.log("help")}
+    ondialogextra1={() => console.log("Extra1")}
+    ondialogextra2={() => console.log("Extra2")}
+    ondialogcancel={() => console.log("props:cancel")}
+    ondialogaccept={() => console.log("props:accept")}
+    buttonaccesskeyextra1="F"
+    buttonaccesskeyextra2="S"
+    buttonaccesskeyaccept="O"
+    buttonaccesskeycancel="C"
+    buttonlabelextra1="Fancy"
+    buttonlabelextra2="Super Fancy"
+    defaultButton="extra1"
+  />,
   document.getElementById("root")
 );
