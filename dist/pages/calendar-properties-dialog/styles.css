@@ -1,0 +1,54 @@
+.wrapper {
+  box-shadow: 0 10px 30px 0 rgba(46,61,73,.35);
+  max-width: 500px;
+  margin: 10vh auto 0;
+  width: calc(100% - 50px);
+}
+
+/*** Above styles are just to make the dialogs look good ***/
+
+.disabled label,
+.disabled input,
+.disabled select {
+  color: rgb(167, 167, 167) !important;
+}
+
+.row {
+  display: flex;
+  padding: 3px 0;
+}
+
+.row label, .row input[type="checkbox"] {  
+  margin: auto 5px auto 0
+}
+
+.row > .row-label {
+  width: 95px;
+}
+
+.row > .row-input {
+  flex:1;
+  padding: 2px 0;
+}
+
+.row > select.row-input {
+  padding: 1px 0;
+}
+
+.row > input.row-input {
+  padding: 2px 6px;
+}
+
+#calendar-readOnly-row > div,
+#calendar-suppressAlarms-row > div {
+  /** label width + label margin **/
+  margin-left: 100px;
+  display: flex;
+} 
+
+#calendar-color {
+  flex: none;
+  width: 50px;
+  padding: 2px 2px;
+  height: 28px;
+}

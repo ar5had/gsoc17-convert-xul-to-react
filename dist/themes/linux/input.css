@@ -1,0 +1,12 @@
+input[type="text"] {
+  -moz-appearance: textfield;
+  cursor: text;
+  -moz-border-top-colors: ThreeDShadow ThreeDDarkShadow;
+  -moz-border-right-colors: ThreeDHighlight ThreeDLightShadow;
+  -moz-border-bottom-colors: ThreeDHighlight ThreeDLightShadow;
+  -moz-border-left-colors: ThreeDShadow ThreeDDarkShadow;
+  padding-inline-start: 4px;
+  color: -moz-FieldText;
+  -moz-user-select: text;
+  user-select: text;
+}
