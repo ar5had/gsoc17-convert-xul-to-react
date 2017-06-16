@@ -17,8 +17,8 @@ gulp.task('browser-sync', ['nodemon'], () => {
     // informs browser-sync to use the following port for the proxied app
     port: 8000,
 
-    // open the proxied app in chrome
-    browser: ['firefox']
+    // open the proxied app in firefox
+    // browser: ['firefox']
   });
 });
 
