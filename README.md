@@ -6,8 +6,9 @@ Lightning(Thunderbird calendar addon) has traditionally been using XUL for its u
 
 ## Get Started
 1. **Clone the repository:** `https://github.com/arshdkhn1/gsoc17-convert-xul-to-html.git`
-2. **Install dependencies:** `yarn install`
-3. **Start server:** `yarn start`
-4. **Convert components to vanilla js(no-jsx):** `yarn build`. 
+2. **Install Yarn globally:** `npm install -g yarn`
+3. **Install dependencies:** `yarn install`
+4. **Start server:** `yarn start`
+5. **Convert components to vanilla js(no-jsx):** `yarn build`. 
 All the components following `src` directory structure will be present in `dist` directory. These components will be using vanilla js instead of jsx.
-5. **Write/Change Code:** Install prettier and eslint globally before making changes and running build commands - `npm install prettier eslint -g`
+6. **Write/Change Code:** Install prettier and eslint globally before making changes and running build commands - `npm install prettier eslint -g`
