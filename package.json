@@ -10,7 +10,7 @@
     "prettier": "prettier --print-width 100 --write \"dist/**/*.js\"",
     "transpile-jsx": "babel src -d dist",
     "prebuild": "npm run remove-dist",
-    "build": "npm run transpile-jsx && gulp copy-html-css && npm run fix-lint-errs && npm run rbfd",
+    "build": "npm run transpile-jsx && gulp copy-html-css && npm run rbfd && npm run fix-lint-errs",
     "serve": "node server local-dist",
     "start:heroku": "node server heroku-dist"
   },
