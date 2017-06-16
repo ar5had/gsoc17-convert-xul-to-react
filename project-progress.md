@@ -86,5 +86,16 @@ Day-wise progress report of `convert-xul-to-html` project.
 * Started working on react version of dialog element
 * Removed bugs
 
+### **Jun 15, 2017**
+
+* Refactored main component again into XUL like TABBOX
+* Refactored css code into os specific file categories
+* Nearly completed react version of dialog element
+
+### **Jun 16, 2017**
+
+* Finalised react version of dialog element
+
+
 
 
