@@ -94,8 +94,10 @@ class DialogContentBox extends React.Component {
   }
 
   componentDidMount() {
+    const stateData = JSON.parse(JSON.stringify(this.state.tabs));
+    stateData.source = "dialog-message";
     setTimeout(() => {
-      this.postMessage(JSON.stringify(this.state.tabs, null, 2), `${window.location.origin}`);
+      this.postMessage(stateData, `${window.location.origin}`);
     }, 20000);
   }
 
@@ -111,8 +113,14 @@ class DialogContentBox extends React.Component {
   }
 
   recieveMessage(e) {
-    // react-devtools sends message events whenever you open it so blocking such event is necessary
-    if (e.origin !== window.location.origin || /react-devtools/gi.test(e.data.source)) {
+    // extentions talk via postMeessage api(same orgin)
+    // so it is very important to filter those events
+    if (
+      e.origin !== window.location.origin ||
+      e.source !== window ||
+      !e.data ||
+      e.data.source !== "dialog-message"
+    ) {
       console.log(`Blocked message event from ${e.origin} with data -`, e.data);
       return;
     }
@@ -141,7 +149,7 @@ class DialogContentBox extends React.Component {
 
   render() {
     const activeTabData = this.state.tabs[this.state.activeTab];
-    const allTabsName = Object.keys(this.state.tabs);
+    const allTabsName = Object.keys(this.state.tabs).filter(elem => elem !== "source");
     const handleTabChange = this.changeTab.bind(this);
     const activeTab = this.state.activeTab;
     const showTabStrip = allTabsName.length > 1;

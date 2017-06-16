@@ -54,7 +54,7 @@ const TabPanel = ({ activeTab, activeTabData, changeState }) => {
   const selectedEmailKey = imip.identity.selected;
 
   return (
-    <div className="tabContentWrapper">
+    <div className="tabPanel">
       <div id="calendar-enabler-container" className="row">
         <input
           type="checkbox"

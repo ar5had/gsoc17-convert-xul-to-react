@@ -16,10 +16,6 @@
   box-sizing: border-box;
 }
 
-input[type="checkbox"] + label {
-  vertical-align: text-bottom;
-}
-
 input {
   /* 
     input of type text has a default min-width
@@ -29,106 +25,10 @@ input {
   padding: 2px;
 }
  
-label {
-  -moz-user-select: none;
-  user-select: none;
-}
-
-/* ::::: Checkbox ::::: */
-input[type="checkbox"] {
-  -moz-box-align: center;
-  -moz-user-focus: normal;
-}
-
-input[type="checkbox"]:hover:not([disabled="true"]) {
-  color: -moz-buttonhovertext;
-  text-shadow: none;
-}
-
-
-/* ::::: Textbox ::::: */
-input[type="text"] {
-  -moz-appearance: textfield;
-  cursor: text;
-  -moz-border-top-colors: ThreeDShadow ThreeDDarkShadow;
-  -moz-border-right-colors: ThreeDHighlight ThreeDLightShadow;
-  -moz-border-bottom-colors: ThreeDHighlight ThreeDLightShadow;
-  -moz-border-left-colors: ThreeDShadow ThreeDDarkShadow;
-  padding-inline-start: 4px;
-  color: -moz-FieldText;
-  -moz-user-select: text;
-  user-select: text;
-}
-
 /* ::::: root ::::: */
 :root {
   text-rendering: optimizeLegibility;
   -moz-control-character-visibility: visible;
-}
-
-/* ::::: root elements ::::: */
-#tabBox {
-  padding: 15px;
-  -moz-appearance: dialog;
-  background-color: -moz-Dialog;
-  color: -moz-DialogText;
-  font: message-box;
-}
-
-/* ::::: Tab Styles ::::: */
-
-.tabBox {
-  -moz-box-orient: vertical; 
-}
-
-.tabStrip {
-  display: flex;
-}
-
-.tab {
-  position: relative;
-  -moz-appearance: tab;
-  margin-top: 2px;
-  border: 2px solid;
-  border-bottom-width: 2px;
-  border-bottom-style: solid;
-  border-bottom-color: currentcolor;
-  -moz-border-top-colors: none;
-  -moz-border-right-colors: none;
-  -moz-border-left-colors: none;
-  border-bottom: none;
-  -moz-border-top-colors: ThreeDHighlight ThreeDLightShadow;
-  -moz-border-right-colors: ThreeDDarkShadow ThreeDShadow;
-  -moz-border-left-colors: ThreeDHighlight ThreeDLightShadow;
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
-  padding: 3px 4px;
-  padding-top: 3px;
-  padding-bottom: 3px;
-  background-color: -moz-Dialog;
-  color: -moz-DialogText;
-  text-transform: capitalize;
-}
-
-.tab.selected {
-  z-index: 1;
-  margin-top: 0;
-  margin-bottom: -2px;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-  padding-top: 4px;
-  padding-bottom: 6px;
-
-  /* adding background and border color */
-}
-/*
-.tab + .tab {
-    margin-inline-start: -2px;
-}*/
- 
-.tabContentWrapper {
-  -moz-appearance: tabpanels;
-  padding: 18px 10px 10px;
 }
 
 /* ::::: alert icons :::::*/

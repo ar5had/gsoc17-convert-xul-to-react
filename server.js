@@ -61,17 +61,17 @@ app.get('/', (req, res)=>{
       }
     </style>
     <h5>
-      <a href="/calendar-properties-dialog">
+      <a href="/pages/calendar-properties-dialog">
         calendar properties dialog
       </a>
     </h5>
     <h5>
-      <a href="/dialog">
+      <a href="/pages/react-dialog">
         React Dialog Element   
       </a>
     </h5>
     <h5 class="iframe-btn-wrapper">
-      <a href="/iframe-testing-ground">
+      <a href="/pages/iframe-testing-ground">
         <button>
           iframe testing ground
         </button>

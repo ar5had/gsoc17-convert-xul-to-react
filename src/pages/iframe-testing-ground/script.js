@@ -86,7 +86,8 @@ window.addEventListener("load", () => {
             key: "key1"
           }
         ]
-      }
+      },
+      source: "dialog-message"
     }
   };
 
@@ -121,7 +122,12 @@ window.addEventListener("load", () => {
   };
 
   const msgHandler = e => {
-    if (e.origin !== window.location.origin) {
+    if (
+      e.origin !== window.location.origin ||
+      e.source !== window ||
+      !e.data ||
+      e.data.source !== "dialog-message"
+    ) {
       return;
     }
 
@@ -129,7 +135,7 @@ window.addEventListener("load", () => {
       clearInterval(postMessageInterval);
     } else {
       console.log("%c Data from Dialog: Starts", "color: #333; font-size: 20px; font-weight: bold");
-      console.log(JSON.parse(e.data));
+      console.log(e.data);
       console.log("%c Data from Dialog: Ends", "color: #333; font-size: 20px; font-weight: bold");
     }
   };
