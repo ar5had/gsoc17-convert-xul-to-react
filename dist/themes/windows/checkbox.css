@@ -1,0 +1,17 @@
+input[type="checkbox"] {
+  -moz-box-align: center;
+  -moz-user-focus: normal;
+}
+
+input[type="checkbox"]:hover:not([disabled="true"]) {
+  color: -moz-buttonhovertext;
+  text-shadow: none;
+}
+
+input[type="checkbox"] + label {
+  vertical-align: text-bottom;
+}
+
+input[type="checkbox"][disabled] {
+  color: GrayText !important;
+}

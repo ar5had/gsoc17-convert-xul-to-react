@@ -1,0 +1,18 @@
+input[type="text"] {
+  -moz-appearance: textfield;
+  cursor: text;
+  -moz-border-top-colors: ThreeDShadow ThreeDDarkShadow;
+  -moz-border-right-colors: ThreeDHighlight ThreeDLightShadow;
+  -moz-border-bottom-colors: ThreeDHighlight ThreeDLightShadow;
+  -moz-border-left-colors: ThreeDShadow ThreeDDarkShadow;
+  color: -moz-FieldText;
+  -moz-user-select: text;
+  user-select: text;
+}
+
+input[type="color"]#calendar-color {
+  padding: 2px 0;
+  flex: none;
+  width: 50px;
+  height: 28px;
+}
