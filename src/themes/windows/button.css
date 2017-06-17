@@ -6,7 +6,6 @@
   == Styles used by the React/HTML button element.
   ======================================================================= */
 
-/* :::::::::: button :::::::::: */
 button {
   -moz-appearance: button;
   margin: 1px 5px 2px;

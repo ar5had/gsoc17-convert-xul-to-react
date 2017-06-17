@@ -19,6 +19,6 @@ input[type="color"]#calendar-color {
 
 input[type="text"][disabled] {
   cursor: default;
-  background-color: -moz-Dialog;
+  /*background-color: -moz-Dialog;*/
   color: GrayText;
 }

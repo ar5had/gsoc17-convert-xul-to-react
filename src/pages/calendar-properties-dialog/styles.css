@@ -18,6 +18,16 @@
   padding: 3px 0;
 }
 
+.row:not(.no-left-padding):before {
+  content: '';
+  -moz-appearance: checkbox;
+  flex: none;
+  margin-right: 5px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+
 .row label, .row input[type="checkbox"] {  
   margin: auto 5px auto 0
 }
