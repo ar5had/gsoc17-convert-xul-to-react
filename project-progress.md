@@ -95,6 +95,8 @@ Day-wise progress report of `convert-xul-to-html` project.
 ### **Jun 16, 2017**
 
 * Finalised react version of dialog element
+* Created windows and mac styles for cal-prop-dialog
+* Created structured theme for different os
 
 
 

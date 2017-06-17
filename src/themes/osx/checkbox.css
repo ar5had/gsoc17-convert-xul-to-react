@@ -1,31 +1,17 @@
-.checkbox {
-  -moz-appearance: checkbox-container;
+input[type="checkbox"] {
   -moz-box-align: center;
-  margin: 4px 2px;
+  -moz-user-focus: normal;
 }
 
-.checkbox-icon {
-  margin-right: 2px;
+input[type="checkbox"]:hover:not([disabled="true"]) {
+  color: -moz-buttonhovertext;
+  text-shadow: none;
 }
 
-.checkbox-label {
-  margin: 1px 0 !important;
+input[type="checkbox"] + label {
+  vertical-align: text-bottom;
 }
-
-/* ..... disabled state ..... */
 
 input[type="checkbox"][disabled] {
   color: GrayText !important;
-}
-
-/* ::::: checkmark image ::::: */
-
-.checkbox-check {
-  -moz-appearance: checkbox;
-  margin: 1px 1px 0;
-  /* vertical-align tells native theming where to snap to. However, this doesn't
-   * always work reliably because of bug 503833. */
-  vertical-align: top;
-  width: 1.3em;
-  height: 1.3em;
 }
