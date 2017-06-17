@@ -1,4 +1,5 @@
 label {
   -moz-user-select: none;
   user-select: none;
+  white-space: nowrap;
 }
