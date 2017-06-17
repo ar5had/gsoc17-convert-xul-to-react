@@ -11,9 +11,8 @@ input[type="text"] {
 }
 
 input[type="color"]#calendar-color {
-  padding: 2px 0;
+  padding: 2px;
   flex: none;
-  width: 50px;
-  padding: 1px;
+  width: 45px;
   -moz-appearance: textfield;
 }
