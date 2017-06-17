@@ -31,6 +31,14 @@ input {
   padding: 2px;
 }
 
+.row > input.row-input {
+  padding: 2px 4px;
+}
+
+.row:not(.no-left-padding) {
+  padding-left: 21px;
+}
+
 /* ::::: root ::::: */
 :root {
   text-rendering: optimizeLegibility;

@@ -1,4 +1,3 @@
-
 .tab {
   position: relative;
   -moz-appearance: tab;
@@ -30,13 +29,21 @@
   margin-bottom: -2px;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
-  padding-top: 4px;
-  padding-bottom: 6px;
 }
 
-
-/*
-.tab + .tab {
-    margin-inline-start: -2px;
-}*/
+.tabBox {
+  padding: 15px;
+  -moz-appearance: dialog;
+  background-color: -moz-Dialog;
+  color: -moz-DialogText;
+  font: message-box;
+}
  
+.tabPanel {
+  -moz-appearance: tabpanels;
+  padding: 18px 10px 10px;
+}
+
+.tabStrip {
+  display: flex;
+}

@@ -28,15 +28,11 @@
 
 .row > .row-input {
   flex:1;
-  padding: 2px 0;
+  padding: 0px 4px;
 }
 
 .row > select.row-input {
   padding: 1px 0;
-}
-
-.row > input.row-input {
-  padding: 2px 6px;
 }
 
 #calendar-readOnly-row > div,
@@ -44,11 +40,9 @@
   /** label width + label margin **/
   margin-left: 100px;
   display: flex;
-} 
+}
 
-#calendar-color {
-  flex: none;
-  width: 50px;
-  padding: 2px 2px;
-  height: 28px;
+.tab {
+  text-transform: capitalize;
+  text-align: center;
 }

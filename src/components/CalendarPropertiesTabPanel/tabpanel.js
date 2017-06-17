@@ -55,7 +55,7 @@ const TabPanel = ({ activeTab, activeTabData, changeState }) => {
 
   return (
     <div className="tabPanel">
-      <div id="calendar-enabler-container" className="row">
+      <div id="calendar-enabler-container" className="row no-left-padding">
         <input
           type="checkbox"
           className="checkbox"

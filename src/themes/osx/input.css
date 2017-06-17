@@ -1,0 +1,26 @@
+input {
+  -moz-appearance: textfield;
+  cursor: text;
+  padding: 0px;
+  background-color: -moz-Field;
+  color: -moz-FieldText;
+  -moz-user-select: text;
+  user-select: text;
+}
+
+input[type="color"]#calendar-color {
+  border: 1px solid #a7a7a7;
+  background-color: #fff;
+  padding: 4px;
+  -moz-appearance: button-bevel;
+  flex: none;
+  width: 50px;
+  height: 28px;
+  border-radius: 3px;
+}
+
+input[type="text"][disabled] {
+  cursor: default;
+  background-color: -moz-Dialog;
+  color: GrayText;
+}
