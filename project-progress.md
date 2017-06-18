@@ -64,40 +64,46 @@ Day-wise progress report of `convert-xul-to-html` project.
 
 ### **Jun 7, 2017**
 
-* Tested in iframe via postmessage api
-* Added methods to accept and pass data via post message api
+* Tested in iframe via postmessage api.
+* Added methods to accept and pass data via post message api/
 
 ### **Jun 8-12, 2017**
 
-* Completed dialog
-* Corrected styles
-* Added tabStrip
-* Removed some old bugs
+* Completed dialog.
+* Corrected styles.
+* Added tabStrip.
+* Removed some old bugs.
 
 ### **Jun 13, 2017**
 
-* Added new features to testing ground
-* Updated state logic
-* Wrote Blog
+* Added new features to testing ground.
+* Updated state logic.
+* Wrote Blog.
 
 ### **Jun 14, 2017**
 
-* Refactored main component into sub components
-* Started working on react version of dialog element
-* Removed bugs
+* Refactored main component into sub components.
+* Started working on react version of dialog element.
+* Removed bugs.
 
 ### **Jun 15, 2017**
 
-* Refactored main component again into XUL like TABBOX
-* Refactored css code into os specific file categories
-* Nearly completed react version of dialog element
+* Refactored main component again into XUL like TABBOX.
+* Refactored css code into os specific file categories.
+* Nearly completed react version of dialog element.
 
 ### **Jun 16, 2017**
 
-* Finalised react version of dialog element
-* Created windows and mac styles for cal-prop-dialog
-* Created structured theme for different os
+* Finalised react version of dialog element.
+* Created windows and mac styles for cal-prop-dialog.
+* Created structured theme for different os.
 
+### **Jun 17-18, 2017**
+
+* Finalised all the cross platform css.
+* Checked the component in all major OS and and FX versions.
+* Done with `React-dialog` component. Can't move forward without having a talk with mentor.
+* Done with cross platform css of `React-dialog` component.
 
 
 

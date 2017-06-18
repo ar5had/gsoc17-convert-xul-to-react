@@ -16,3 +16,19 @@ input[type="color"]#calendar-color {
   padding: 2px;
   -moz-appearance: textfield;
 }
+
+/* ..... readonly state ..... */
+
+input[type="text"][readonly="true"] {
+  background-color: -moz-Dialog;
+  color: -moz-DialogText;
+}
+
+/* ..... disabled state ..... */
+
+input[type="text"][disabled="true"] {
+  cursor: default;
+  background-color: -moz-Dialog;
+  color: GrayText;
+}
+

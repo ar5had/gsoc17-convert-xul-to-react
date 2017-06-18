@@ -34,16 +34,6 @@ button[default="true"]:not(:hover):active {
   color: ButtonText;
 }
 
-.button-text {
-  margin: 1px 0 !important;
-  margin-inline-start: 3px !important;
-  margin-inline-end: 2px !important;
-  text-align: center;
-}
-
-.button-icon {
-  margin-inline-start: 1px;
-}
 
 button[type="default"] {
   font: menu;
@@ -62,24 +52,6 @@ button[type="menu-button"] {
   border: none;
 }
 
-.button-menu-dropmarker,
-.button-menubutton-dropmarker {
-  -moz-appearance: none !important;
-  border: none;
-  background-color: transparent !important;
-  margin: 1px;
-}
-
-.button-menu-dropmarker {
-  display: none;
-}
-
-/* ::::: plain buttons ::::: */
-
-button.plain {
-  margin: 0 !important;
-  padding: 0 !important;
-}
 
 /* ::::: help button ::::: */
 

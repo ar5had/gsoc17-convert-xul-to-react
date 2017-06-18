@@ -1,7 +1,3 @@
-// this is something different as buttons attribute is string
-// separated by commas having multiple values
-// ',' for empty
-
 class Dialog extends React.Component {
   constructor(props) {
     super(props);
@@ -102,14 +98,13 @@ class Dialog extends React.Component {
 
     return buttonsList
       .map((btn, i) =>
-        <button
+        <DialogButton
           className={`${btn}-btn dialog-button`}
           key={i}
           accessKey={props[`buttonaccesskey${btn}`]}
+          dlgtype={btn}
           onClick={this.assignClickHandler(btn)}
-          dangerouslySetInnerHTML={{
-            __html: underlineAccessKey(props[`buttonlabel${btn}`], props[`buttonaccesskey${btn}`])
-          }}
+          html={underlineAccessKey(props[`buttonlabel${btn}`], props[`buttonaccesskey${btn}`])}
         />
       )
       .concat([<div className="dialog-button-spacer" key="spacer" />]);

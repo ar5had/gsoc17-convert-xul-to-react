@@ -13,6 +13,7 @@ button {
   margin: 1px 5px 2px;
   min-width: 6.3em;
   color: ButtonText;
+  text-align: center;
   text-shadow: none;
 }
 
@@ -20,18 +21,10 @@ button {
   -moz-appearance: button-focus;
 }
 
-.button-icon {
-  margin-inline-end: 2px;
-}
-
-.button-text {
-  margin: 0 !important;
-  text-align: center;
-}
 
 /* .......... hover state .......... */
 
-button:hover:not(:-moz-any(:active, [disabled="true"], [open="true"], [checked="true"])) {
+button:hover:not(:-moz-any(:active, [disabled], [open], [checked])) {
   color: -moz-buttonhovertext;
 }
 
@@ -47,32 +40,15 @@ button[type="menu-button"] {
   -moz-appearance: dualbutton;
 }
 
-.button-menubutton-button {
-  margin: 0;
-}
-
-.button-menu-dropmarker, .button-menubutton-dropmarker {
-  -moz-appearance: toolbarbutton-dropdown !important;
-}
-
-.button-menubutton-dropmarker {
-  margin-inline-end: 3px;
-}
-
 /* ::::: plain buttons ::::: */
-
-button.plain {
-  margin: 0 !important;
-  padding: 0 !important;
-}
 
 button[type="disclosure"] {
   margin: 0;
   -moz-appearance: none;
-  /*list-style-image: url("chrome://global/skin/tree/twisty-clsd.png");*/
+  list-style-image: url("chrome://global/skin/tree/twisty-clsd.png");
   min-width: 0;
 }
 
 button[type="disclosure"][open="true"] {
-  /*list-style-image: url("chrome://global/skin/tree/twisty-open.png"); */
+  list-style-image: url("chrome://global/skin/tree/twisty-open.png"); 
 }
