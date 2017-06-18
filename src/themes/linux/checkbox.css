@@ -1,5 +1,6 @@
 input[type="checkbox"] {
   -moz-box-align: center;
+  -moz-appearance: checkbox;
   -moz-user-focus: normal;
 }
 

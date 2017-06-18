@@ -22,7 +22,7 @@
   font: message-box;
 }
 
-input {
+input[type="text"] {
   /* 
     input of type text has a default min-width
     which breaks layout on small width 
@@ -31,8 +31,12 @@ input {
   padding: 2px;
 }
 
-.row > input.row-input {
+.row > input[type="text"].row-input {
   padding: 2px 4px;
+}
+
+#calendar-properties-grid {
+  padding-left: 21px;
 }
 
 /* ::::: root ::::: */

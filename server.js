@@ -90,7 +90,7 @@ app.get('/scripts/:name', (req, res)=>{
   res.sendFile(filePath);
 });
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8888;
 app.listen(port,  function () {
   if(serverType) {
     console.log(`${serverType} server started on port ${port}!`);

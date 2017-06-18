@@ -1,6 +1,7 @@
 input[type="checkbox"] {
   -moz-box-align: center;
   -moz-user-focus: normal;
+  -moz-appearance: checkbox;
 }
 
 input[type="checkbox"]:hover:not([disabled="true"]) {

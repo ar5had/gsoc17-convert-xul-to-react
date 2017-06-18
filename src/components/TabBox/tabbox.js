@@ -1,6 +1,6 @@
 const TabBox = ({ children }) => {
   return (
-    <div className="tabBox">
+    <div className="tabbox">
       {children}
     </div>
   );

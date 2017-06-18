@@ -9,7 +9,7 @@ const TabStrip = ({ tabs, handleTabChange, activeTab }) => {
   );
 
   return (
-    <div className="tabStrip">
+    <div className="tabstrip">
       {tabStripContent}
     </div>
   );

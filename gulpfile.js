@@ -12,7 +12,7 @@ gulp.task('browser-sync', ['nodemon'], () => {
   browserSync({
 
     // informs browser-sync to proxy our expressjs app which would run at the following location
-    proxy: 'http://localhost:8080',
+    proxy: 'http://localhost:8888',
 
     // informs browser-sync to use the following port for the proxied app
     port: 8000,
