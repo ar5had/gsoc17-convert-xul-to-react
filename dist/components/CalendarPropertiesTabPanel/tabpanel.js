@@ -53,15 +53,14 @@ const TabPanel = ({ activeTab, activeTabData, changeState }) => {
 
   return React.createElement(
     "div",
-    { className: "tabPanel" },
+    { className: "tabpanel" },
     React.createElement(
       "div",
-      { id: "calendar-enabler-container", className: "row no-left-padding" },
+      { id: "calendar-enabler-container" },
       React.createElement("input", {
         type: "checkbox",
         className: "checkbox",
         id: "calendar-enabled-checkbox",
-        value: "disabled",
         checked: !disabled,
         onChange: calendarToggleChange
       }),

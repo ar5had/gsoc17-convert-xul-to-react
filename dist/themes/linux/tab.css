@@ -31,7 +31,7 @@
   border-bottom-right-radius: 3px;
 }
 
-.tabBox {
+.tabbox {
   padding: 15px;
   -moz-appearance: dialog;
   background-color: -moz-Dialog;
@@ -39,11 +39,11 @@
   font: message-box;
 }
  
-.tabPanel {
+.tabpanel {
   -moz-appearance: tabpanels;
   padding: 18px 10px 10px;
 }
 
-.tabStrip {
+.tabstrip {
   display: flex;
 }

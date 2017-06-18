@@ -26,13 +26,20 @@
   font: message-box;
 }
 
+input[type="text"]{
+  /* 
+    input of type text has a default min-width
+    which breaks layout on small width 
+  */
+  min-width: 10px;
+}
 
-.row > input.row-input {
+.row > input[type="text"].row-input {
   padding: 0px 2px;
 }
 
 
-.row:not(.no-left-padding) {
+#calendar-properties-grid {
   padding-left: 19px;
 }
 

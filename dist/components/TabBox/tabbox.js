@@ -1,5 +1,5 @@
 const TabBox = ({ children }) => {
-  return React.createElement("div", { className: "tabBox" }, children);
+  return React.createElement("div", { className: "tabbox" }, children);
 };
 
 TabBox.propTypes = {

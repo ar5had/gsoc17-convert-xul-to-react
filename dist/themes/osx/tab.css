@@ -29,13 +29,13 @@
   padding-inline-end: 2px;
 }*/
 
-.tabStrip {
+.tabstrip {
   display: flex;
   justify-content: center;
   margin-bottom: -12px;
 }
 
-.tabBox {
+.tabbox {
   padding: 15px;
   -moz-appearance: dialog;
   background-color: -moz-Dialog;
@@ -43,7 +43,7 @@
   font: message-box;
 }
  
-.tabPanel {
+.tabpanel {
   -moz-appearance: tabpanels;
   padding: 33px 15px 15px;
 }

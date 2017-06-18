@@ -8,7 +8,7 @@ const TabStrip = ({ tabs, handleTabChange, activeTab }) => {
     })
   );
 
-  return React.createElement("div", { className: "tabStrip" }, tabStripContent);
+  return React.createElement("div", { className: "tabstrip" }, tabStripContent);
 };
 
 TabStrip.propTypes = {

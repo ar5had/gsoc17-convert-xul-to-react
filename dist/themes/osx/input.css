@@ -1,4 +1,4 @@
-input {
+input[type="text"] {
   -moz-appearance: textfield;
   cursor: text;
   padding: 0px;
@@ -19,6 +19,6 @@ input[type="color"]#calendar-color {
 
 input[type="text"][disabled] {
   cursor: default;
-  background-color: -moz-Dialog;
+  /*background-color: -moz-Dialog;*/
   color: GrayText;
 }
