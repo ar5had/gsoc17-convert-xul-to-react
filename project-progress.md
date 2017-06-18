@@ -103,6 +103,7 @@ Day-wise progress report of `convert-xul-to-html` project.
 * Finalised all the cross platform css.
 * Checked the component in all major OS and and FX versions.
 * Done with `React-dialog` component. Can't move forward without having a talk with mentor.
+* Added logic to pick OS type and show css accordingly in heroku app.
 * Done with cross platform css of `React-dialog` component.
 
 

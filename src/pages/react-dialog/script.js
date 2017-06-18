@@ -91,7 +91,7 @@ class Dialog extends React.Component {
 
   getAllButtons() {
     const props = this.props;
-    const buttonsList = props.buttons
+    const buttonsList = this.props.buttons
       .split(",")
       .map(btn => btn.trim())
       .filter(btn => this.buttonOptions.includes(btn));
@@ -121,6 +121,7 @@ class Dialog extends React.Component {
   }
 }
 
+/* eslint-disable react/no-unused-prop-types */
 Dialog.propTypes = {
   buttonaccesskeyaccept: PropTypes.string,
   buttonaccesskeycancel: PropTypes.string,
@@ -128,8 +129,8 @@ Dialog.propTypes = {
   buttonaccesskeyextra1: PropTypes.string,
   buttonaccesskeyextra2: PropTypes.string,
   buttonaccesskeyhelp: PropTypes.string,
-  buttonalign: PropTypes.string,
-  buttondir: PropTypes.string,
+  // buttonalign: PropTypes.string,
+  // buttondir: PropTypes.string,
   buttondisabledaccept: PropTypes.bool,
   buttonlabelaccept: PropTypes.string,
   buttonlabelcancel: PropTypes.string,
@@ -137,8 +138,8 @@ Dialog.propTypes = {
   buttonlabelextra1: PropTypes.string,
   buttonlabelextra2: PropTypes.string,
   buttonlabelhelp: PropTypes.string,
-  buttonorient: PropTypes.string,
-  buttonpack: PropTypes.string,
+  // buttonorient: PropTypes.string,
+  // buttonpack: PropTypes.string,
   buttons: PropTypes.string,
   defaultButton: PropTypes.string,
   ondialogaccept: PropTypes.func,
@@ -146,17 +147,17 @@ Dialog.propTypes = {
   ondialogdisclosure: PropTypes.func,
   ondialogextra1: PropTypes.func,
   ondialogextra2: PropTypes.func,
-  ondialoghelp: PropTypes.func,
-  title: PropTypes.string,
-  activetitlebarcolor: PropTypes.string,
-  inactivetitlebarcolor: PropTypes.string
+  ondialoghelp: PropTypes.func
+  // title: PropTypes.string,
+  // activetitlebarcolor: PropTypes.string,
+  // inactivetitlebarcolor: PropTypes.string
 };
 
 Dialog.defaultProps = {
-  buttonalign: "right",
-  buttondir: "normal",
-  buttonorient: "horizontal",
-  buttonpack: "end",
+  // buttonalign: "right",
+  // buttondir: "normal",
+  // buttonorient: "horizontal",
+  // buttonpack: "end",
   buttondisabledaccept: false,
   buttonaccesskeyaccept: null,
   buttonaccesskeycancel: null,
@@ -177,10 +178,10 @@ Dialog.defaultProps = {
   ondialogdisclosure: () => true,
   ondialogextra1: () => true,
   ondialogextra2: () => true,
-  ondialoghelp: () => true,
-  title: "New Dialog",
-  activetitlebarcolor: null,
-  inactivetitlebarcolor: null
+  ondialoghelp: () => true
+  // title: "New Dialog",
+  // activetitlebarcolor: null,
+  // inactivetitlebarcolor: null
 };
 
 ReactDOM.render(

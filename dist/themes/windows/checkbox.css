@@ -16,3 +16,14 @@ input[type="checkbox"] + label {
 input[type="checkbox"][disabled] {
   color: GrayText !important;
 }
+
+/* ..... disabled state ..... */
+
+input[type="checkbox"][disabled] {
+  color: GrayText;
+}
+
+input[type="checkbox"][disabled]:-moz-system-metric(windows-classic) {
+  color: ThreeDShadow;
+  text-shadow: 1px 1px ThreeDHighlight;
+}

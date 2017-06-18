@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 function underlineAccessKey(str, key) {
   const index = str.indexOf(key);
   if (index < 0 || key.length > 1) {
