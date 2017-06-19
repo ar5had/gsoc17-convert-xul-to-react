@@ -124,7 +124,6 @@ window.addEventListener("load", () => {
   const msgHandler = e => {
     if (
       e.origin !== window.location.origin ||
-      e.source !== window ||
       !e.data ||
       e.data.source !== "dialog-message"
     ) {
