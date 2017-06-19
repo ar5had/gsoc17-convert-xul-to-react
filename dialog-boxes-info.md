@@ -43,15 +43,47 @@ openCalendarProperties`([line#375](https://dxr.mozilla.horg/comm-central/source/
 ```js
 {
   general: {
-    caledarSwitch: Boolean,
-    calendarName: String,
-    color: String,
-    location: String,
-    email: Array,
-    readOnly: Boolean,
-    showReminders: Boolean,
+    disabled: false,
+    forceDisabled: false,
+    autoEnabled: false,
+    color: "#deadbf",
+    name: "Calendar",
+    uri: "moz-storage-calendar://",
+    readOnly: true,
+    supressAlarms: false,
+    canRefresh: false,
+    refreshInterval: 30,
+    cache: {
+      supported: false,
+      enabled: false,
+      always: false
+    },
+    capabilities: {
+      alarms: {
+        popup: {
+          supported: true
+        }
+      }
+    },
+    imip: {
+      identity: {
+        disabled: false,
+        selected: "key1"
+      }
+    },
+    identities: [
+      {
+        name: "Arshad <arshad@exmaple.com>",
+        key: "key2"
+      },
+      {
+        name: "Philipp <kewisch@exmaple.com>",
+        key: "key1"
+      }
+    ]
   },
-  ...other tabs data
+  ...other tabs data,
+  source: "dialog-message"
 }
 ```
 
