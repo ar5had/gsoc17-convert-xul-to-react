@@ -30,7 +30,7 @@
 }
 
 .row > .row-label {
-  width: 100px;
+  width: 110px;
 }
 
 .row > .row-input {
@@ -44,7 +44,7 @@
 
 #calendar-readOnly-row > div, #calendar-suppressAlarms-row > div, #calendar-cache-row > div {
   /** label width + label margin **/
-  margin-left: 105px;
+  margin-left: 115px;
   display: flex;
 }
 

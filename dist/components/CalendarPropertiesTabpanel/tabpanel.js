@@ -268,7 +268,7 @@ class TabPanel extends React.Component {
                 htmlFor: "calendar-refreshInterval-menulist",
                 className: `row-label ${disabled ? "disabled" : ""}`
               },
-              "Refresh interval:"
+              "Refresh Calendar:"
             ),
             React.createElement(
               "select",
