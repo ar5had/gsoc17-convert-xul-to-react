@@ -7,16 +7,15 @@ class DialogContentBox extends React.Component {
         general: {
           disabled: false,
           forceDisabled: false,
-          autoEnabled: false,
           color: "#deadbf",
           name: "Calendar",
           uri: "moz-storage-calendar://",
           readOnly: true,
           supressAlarms: false,
-          canRefresh: false,
-          refreshInterval: 30,
+          canRefresh: true,
+          refreshInterval: 60,
           cache: {
-            supported: false,
+            supported: true,
             enabled: false,
             always: false
           },

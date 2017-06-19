@@ -10,7 +10,6 @@ window.addEventListener("load", () => {
       general: {
         disabled: false,
         forceDisabled: false,
-        autoEnabled: false,
         color: "#deadbf",
         name: "Calendar",
         uri: "moz-storage-calendar://",

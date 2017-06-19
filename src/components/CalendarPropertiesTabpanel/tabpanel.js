@@ -81,6 +81,28 @@ class TabPanel extends React.Component {
     changeState(tabState);
   }
 
+  cacheOptionsChange(event) {
+    const { changeState, activeTabData } = this.props;
+    const newCacheData = Object.assign({}, activeTabData.cache, {
+      enabled: !activeTabData.cache.enabled
+    });
+    const tabState = Object.assign({}, activeTabData, { cache: newCacheData });
+    changeState(tabState);
+  }
+
+  refreshIntervalChange(event) {
+    const { changeState, activeTabData } = this.props;
+    console.log(parseInt(event.target.value, 10) + 2);
+    const tabState = Object.assign({}, activeTabData, {
+      refreshInterval: parseInt(event.target.value, 10)
+    });
+    changeState(tabState);
+  }
+
+  getRefreshIntervalValues() {
+    return [1, 5, 15, 30, 60].map(e => ({ name: e, key: e }));
+  }
+
   render() {
     const {
       forceDisabled,
@@ -91,10 +113,37 @@ class TabPanel extends React.Component {
       readOnly,
       supressAlarms,
       identities,
-      imip
+      imip,
+      cache,
+      capabilities,
+      canRefresh,
+      refreshInterval
     } = this.props.activeTabData;
 
+    // Set up the cache field
+    const canCache = cache.supported;
+    const alwaysCache = cache.always;
+    let cacheDisabled = false;
+    let showCacheBox = true;
+    let cacheBoxChecked;
+
+    if (!canCache || alwaysCache) {
+      // doesn't seem like there is any need to set this attribute
+      // since cachebox will not present in DOM
+      // cacheBox.setAttribute("disable-capability", "true");
+      showCacheBox = false;
+      cacheDisabled = true;
+    }
+
+    cacheBoxChecked = alwaysCache || (canCache && cache.enabled);
+
+    // Set up the show alarms row and checkbox
+    const showSuppressAlarmsRow = capabilities.alarms.popup.supported;
+
+    // get options for email and refresh interval
     const emailOptions = this.getSelectOptions(identities);
+    const refreshIntervalOptions = this.getSelectOptions(this.getRefreshIntervalValues());
+
     const selectedEmailKey = imip.identity.selected;
     const calendarToggleChange = this.calendarToggleChange.bind(this);
     const calendarNameChange = this.calendarNameChange.bind(this);
@@ -102,6 +151,8 @@ class TabPanel extends React.Component {
     const calendarColorChange = this.calendarColorChange.bind(this);
     const readOnlyChange = this.readOnlyChange.bind(this);
     const suppressAlarmsChange = this.suppressAlarmsChange.bind(this);
+    const cacheOptionsChange = this.cacheOptionsChange.bind(this);
+    const refreshIntervalChange = this.refreshIntervalChange.bind(this);
 
     return (
       <div className={`tabpanel ${this.props.isSingleTab ? "single-tab" : ""}`}>
@@ -119,13 +170,16 @@ class TabPanel extends React.Component {
             onChange={calendarToggleChange}
             ref={node => (this.calendarEnablerCheckbox = node)}
           />
-          <label htmlFor="calendar-enabled-checkbox">
+          <label
+            htmlFor="calendar-enabled-checkbox"
+            className={`${forceDisabled ? "disabled" : ""}`}
+          >
             Switch this calendar on
           </label>
         </div>
         <div id="calendar-properties-grid" className={disabled ? "grid disabled" : "grid"}>
           <div id="calendar-name-row" className="row">
-            <label htmlFor="calendar-name" className="row-label">
+            <label htmlFor="calendar-name" className={`row-label ${disabled ? "disabled" : ""}`}>
               Calendar Name:
             </label>
             <input
@@ -139,7 +193,7 @@ class TabPanel extends React.Component {
             />
           </div>
           <div id="calendar-color-row" className="row">
-            <label htmlFor="calendar-color" className="row-label">
+            <label htmlFor="calendar-color" className={`row-label ${disabled ? "disabled" : ""}`}>
               Color:
             </label>
             <input
@@ -152,7 +206,7 @@ class TabPanel extends React.Component {
             />
           </div>
           <div id="calendar-uri-row" className="row">
-            <label htmlFor="calendar-uri" className="row-label">
+            <label htmlFor="calendar-uri" className={`row-label ${disabled ? "disabled" : ""}`}>
               Location:
             </label>
             <input
@@ -165,13 +219,15 @@ class TabPanel extends React.Component {
             />
           </div>
           <div id="calendar-email-identity-row" className="row">
-            <label htmlFor="email-identity-menulist" className="row-label">
+            <label
+              htmlFor="email-identity-menulist"
+              className={`row-label ${disabled ? "disabled" : ""}`}
+            >
               E-Mail:
             </label>
             <select
-              type="text"
               id="email-identity-menulist"
-              className="row-input hidden"
+              className="row-input"
               disabled={disabled}
               onChange={calendarEmailChange}
               value={selectedEmailKey}
@@ -179,6 +235,24 @@ class TabPanel extends React.Component {
               {emailOptions}
             </select>
           </div>
+          {canRefresh &&
+            <div id="calendar-refreshInterval-row" className="row">
+              <label
+                htmlFor="calendar-refreshInterval-menulist"
+                className={`row-label ${disabled ? "disabled" : ""}`}
+              >
+                Refresh interval:
+              </label>
+              <select
+                id="calendar-refreshInterval-menulist"
+                className="row-input"
+                disabled={disabled}
+                onChange={refreshIntervalChange}
+                value={refreshInterval}
+              >
+                {refreshIntervalOptions}
+              </select>
+            </div>}
           <div id="calendar-readOnly-row" className="row">
             <div>
               <input
@@ -189,26 +263,43 @@ class TabPanel extends React.Component {
                 onChange={readOnlyChange}
                 disabled={disabled}
               />
-              <label htmlFor="readOnly">
+              <label htmlFor="readOnly" className={`${disabled ? "disabled" : ""}`}>
                 Read Only
               </label>
             </div>
           </div>
-          <div id="calendar-suppressAlarms-row" className="row">
-            <div>
-              <input
-                type="checkbox"
-                className="checkbox"
-                id="fire-alarms"
-                checked={supressAlarms}
-                onChange={suppressAlarmsChange}
-                disabled={disabled}
-              />
-              <label htmlFor="fire-alarms">
-                Show Reminders
-              </label>
-            </div>
-          </div>
+          {showSuppressAlarmsRow &&
+            <div id="calendar-suppressAlarms-row" className="row">
+              <div>
+                <input
+                  type="checkbox"
+                  className="checkbox"
+                  id="fire-alarms"
+                  checked={supressAlarms}
+                  onChange={suppressAlarmsChange}
+                  disabled={disabled}
+                />
+                <label htmlFor="fire-alarms" className={`row-label ${disabled ? "disabled" : ""}`}>
+                  Show Reminders
+                </label>
+              </div>
+            </div>}
+          {showCacheBox &&
+            <div id="calendar-cache-row" className="row">
+              <div>
+                <input
+                  type="checkbox"
+                  className="checkbox"
+                  id="cache"
+                  checked={cacheBoxChecked}
+                  onChange={cacheOptionsChange}
+                  disabled={cacheDisabled}
+                />
+                <label htmlFor="cache" className={`row-label ${cacheDisabled ? "disabled" : ""}`}>
+                  Offline Support
+                </label>
+              </div>
+            </div>}
         </div>
       </div>
     );
