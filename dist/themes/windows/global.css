@@ -47,7 +47,7 @@ input[type="text"]{
   padding-left: 19px;
 }
 
-label[disabled="true"] {
+label.disabled {
   color: GrayText;
 }
 

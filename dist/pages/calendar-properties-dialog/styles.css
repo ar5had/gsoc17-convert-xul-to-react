@@ -6,10 +6,10 @@
 }
 
 /*** Above styles are just to make the dialogs look good ***/
-
+/*
 .disabled label, .disabled input, .disabled select {
   color: rgb(167, 167, 167) !important;
-}
+}*/
 
 .row {
   display: flex;
@@ -42,7 +42,7 @@
   padding: 1px 0;
 }
 
-#calendar-readOnly-row > div, #calendar-suppressAlarms-row > div {
+#calendar-readOnly-row > div, #calendar-suppressAlarms-row > div, #calendar-cache-row > div {
   /** label width + label margin **/
   margin-left: 105px;
   display: flex;
@@ -51,4 +51,8 @@
 .tab {
   text-transform: capitalize;
   text-align: center;
+}
+
+p#force-disabled-description {
+  margin: 0 0 10px;
 }

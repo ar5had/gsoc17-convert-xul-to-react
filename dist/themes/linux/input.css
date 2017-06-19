@@ -16,3 +16,9 @@ input[type="color"]#calendar-color {
   width: 45px;
   -moz-appearance: textfield;
 }
+
+input[type="text"][disabled] {
+  cursor: default;
+  /*background-color: -moz-Dialog;*/
+  color: GrayText;
+}

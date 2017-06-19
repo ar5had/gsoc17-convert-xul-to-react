@@ -7,16 +7,15 @@ class DialogContentBox extends React.Component {
         general: {
           disabled: false,
           forceDisabled: false,
-          autoEnabled: false,
           color: "#deadbf",
           name: "Calendar",
           uri: "moz-storage-calendar://",
           readOnly: true,
           supressAlarms: false,
-          canRefresh: false,
-          refreshInterval: 30,
+          canRefresh: true,
+          refreshInterval: 60,
           cache: {
-            supported: false,
+            supported: true,
             enabled: false,
             always: false
           },
@@ -38,42 +37,6 @@ class DialogContentBox extends React.Component {
               name: "Arshad <kewisch@exmaple.com>",
               key: "key2"
             },
-            {
-              name: "Philipp <kewisch@exmaple.com>",
-              key: "key1"
-            }
-          ]
-        },
-        advanced: {
-          disabled: true,
-          forceDisabled: false,
-          autoEnabled: false,
-          color: "#deadbf",
-          name: "Another Calendar",
-          uri: "moz-storage-calendar://",
-          readOnly: true,
-          supressAlarms: false,
-          canRefresh: false,
-          refreshInterval: 30,
-          cache: {
-            supported: false,
-            enabled: false,
-            always: false
-          },
-          capabilities: {
-            alarms: {
-              popup: {
-                supported: true
-              }
-            }
-          },
-          imip: {
-            identity: {
-              disabled: false,
-              selected: "key1"
-            }
-          },
-          identities: [
             {
               name: "Philipp <kewisch@exmaple.com>",
               key: "key1"
@@ -115,17 +78,15 @@ class DialogContentBox extends React.Component {
   recieveMessage(e) {
     // extentions talk via postMeessage api(same orgin)
     // so it is very important to filter those events
-    if (
-      e.origin !== window.location.origin ||
-      e.source !== window ||
-      !e.data ||
-      e.data.source !== "dialog-message"
-    ) {
+    if (e.origin !== window.location.origin || !e.data || e.data.source !== "dialog-message") {
       console.log(`Blocked message event from ${e.origin} with data -`, e.data);
       return;
     }
 
-    this.postMessage({ messageRecieved: true }, `${window.location.origin}/iframe-testing-ground`);
+    this.postMessage(
+      { messageRecieved: true, source: "dialog-message" },
+      `${window.location.origin}/iframe-testing-ground`
+    );
 
     console.log("%c Data from Parent: Starts", "color: #333; font-size: 20px; font-weight: bold");
     console.log(e.data);
@@ -168,9 +129,10 @@ class DialogContentBox extends React.Component {
             activeTab: activeTab
           }),
         React.createElement(TabPanel, {
-          activeTab: activeTab,
+          isSingleTab: !showTabStrip,
           activeTabData: activeTabData,
-          changeState: changeState
+          changeState: changeState,
+          source: this.state.tabs.source
         })
       )
     );
