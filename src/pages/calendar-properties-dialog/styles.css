@@ -52,3 +52,7 @@
   text-transform: capitalize;
   text-align: center;
 }
+
+p#force-disabled-description {
+  margin: 0 0 10px;
+}

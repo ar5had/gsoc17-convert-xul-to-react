@@ -122,7 +122,12 @@ class DialogContentBox extends React.Component {
         <TabBox>
           {showTabStrip &&
             <TabStrip tabs={allTabsName} handleTabChange={handleTabChange} activeTab={activeTab} />}
-          <TabPanel activeTab={activeTab} activeTabData={activeTabData} changeState={changeState} />
+          <TabPanel
+            isSingleTab={!showTabStrip}
+            activeTabData={activeTabData}
+            changeState={changeState}
+            source={this.state.tabs.source}
+          />
         </TabBox>
       </div>
     );
