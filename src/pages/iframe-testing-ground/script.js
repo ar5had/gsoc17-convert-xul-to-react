@@ -15,50 +15,10 @@ window.addEventListener("load", () => {
         uri: "moz-storage-calendar://",
         readOnly: true,
         supressAlarms: false,
-        canRefresh: false,
+        canRefresh: true,
         refreshInterval: 30,
         cache: {
-          supported: false,
-          enabled: false,
-          always: false
-        },
-        capabilities: {
-          alarms: {
-            popup: {
-              supported: true
-            }
-          }
-        },
-        imip: {
-          identity: {
-            disabled: false,
-            selected: "key1"
-          }
-        },
-        identities: [
-          {
-            name: "Arshad <arshad@exmaple.com>",
-            key: "key2"
-          },
-          {
-            name: "Philipp <kewisch@exmaple.com>",
-            key: "key1"
-          }
-        ]
-      },
-      advanced: {
-        disabled: true,
-        forceDisabled: false,
-        autoEnabled: false,
-        color: "#deadbf",
-        name: "ADV Calendar",
-        uri: "moz-storage-calendar://",
-        readOnly: true,
-        supressAlarms: false,
-        canRefresh: false,
-        refreshInterval: 30,
-        cache: {
-          supported: false,
+          supported: true,
           enabled: false,
           always: false
         },

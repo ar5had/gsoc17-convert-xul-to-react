@@ -54,7 +54,6 @@ class TabPanel extends React.Component {
 
   // calendarUriChange(event) {
   //   const { changeState, activeTabData } = this.props;
-
   //   changeState(activeTabData);
   // }
 
@@ -92,15 +91,15 @@ class TabPanel extends React.Component {
 
   refreshIntervalChange(event) {
     const { changeState, activeTabData } = this.props;
-    console.log(parseInt(event.target.value, 10) + 2);
+    const value = event.target.value;
     const tabState = Object.assign({}, activeTabData, {
-      refreshInterval: parseInt(event.target.value, 10)
+      refreshInterval: value === "Manually" ? value : parseInt(value, 10)
     });
     changeState(tabState);
   }
 
   getRefreshIntervalValues() {
-    return [1, 5, 15, 30, 60].map(e => ({ name: e, key: e }));
+    return [1, 5, 15, 30, 60, "Manually"].map(e => ({ name: e, key: e }));
   }
 
   render() {
@@ -121,7 +120,7 @@ class TabPanel extends React.Component {
     } = this.props.activeTabData;
 
     // Set up the cache field
-    const canCache = cache.supported;
+    const canCache = cache.supported !== false;
     const alwaysCache = cache.always;
     let cacheDisabled = false;
     let showCacheBox = true;
@@ -138,7 +137,7 @@ class TabPanel extends React.Component {
     cacheBoxChecked = alwaysCache || (canCache && cache.enabled);
 
     // Set up the show alarms row and checkbox
-    const showSuppressAlarmsRow = capabilities.alarms.popup.supported;
+    const showSuppressAlarmsRow = capabilities.alarms.popup.supported === true;
 
     // get options for email and refresh interval
     const emailOptions = this.getSelectOptions(identities);
