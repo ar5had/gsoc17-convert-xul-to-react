@@ -9,16 +9,25 @@ input[type="text"] {
 
 input[type="color"]#calendar-color {
   border: 1px solid #a7a7a7;
-  background-color: #fff;
+  background-color: -moz-field;
   padding: 2px;
-  -moz-appearance: textfield;
+  -moz-appearance: button;
   flex: none;
   width: 45px;
   border-radius: 3px;
+}
+
+input[type="color"][disabled]#calendar-color {
+  background: Buttonface;
 }
 
 input[type="text"][disabled] {
   cursor: default;
   /*background-color: -moz-Dialog;*/
   color: GrayText;
+}
+
+input[readonly] {
+  /*background-color: -moz-Dialog;*/
+  color: -moz-DialogText;
 }

@@ -19,16 +19,15 @@ input[type="color"]#calendar-color {
 
 /* ..... readonly state ..... */
 
-input[type="text"][readonly="true"] {
-  background-color: -moz-Dialog;
+input[type="text"][readonly] {
+  /*background-color: -moz-Dialog;*/
   color: -moz-DialogText;
 }
 
 /* ..... disabled state ..... */
 
-input[type="text"][disabled="true"] {
+input[type="text"][disabled] {
   cursor: default;
   /*background-color: -moz-Dialog;*/
   color: GrayText;
 }
-
