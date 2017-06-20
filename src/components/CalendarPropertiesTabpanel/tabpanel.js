@@ -292,9 +292,12 @@ class TabPanel extends React.Component {
                   id="cache"
                   checked={cacheBoxChecked}
                   onChange={cacheOptionsChange}
-                  disabled={cacheDisabled}
+                  disabled={cacheDisabled || disabled}
                 />
-                <label htmlFor="cache" className={`row-label ${cacheDisabled ? "disabled" : ""}`}>
+                <label
+                  htmlFor="cache"
+                  className={`row-label ${cacheDisabled || disabled ? "disabled" : ""}`}
+                >
                   Offline Support
                 </label>
               </div>
