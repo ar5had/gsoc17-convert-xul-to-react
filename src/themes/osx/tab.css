@@ -43,9 +43,9 @@
   font: message-box;
 }
  
-.tabpanel {
+.tabpanel:not(.single-tab) {
   -moz-appearance: tabpanels;
-  padding: 33px 15px 15px;
+  padding: 18px 10px 10px;
 }
 
 .tab-middle {
