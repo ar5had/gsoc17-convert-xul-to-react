@@ -18,4 +18,4 @@ All the components following `src` directory structure will be present in `dist`
 
 Thanks to [BrowserStack](https://www.browserstack.com/) for providing free open source plans.
 
-![BrowserStack](bslogo.eps?raw=true)
+![BrowserStack](bslogo.png?raw=true)
