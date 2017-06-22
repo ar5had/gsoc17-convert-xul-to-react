@@ -14,7 +14,7 @@
 
 <body>
   <script>
-    const styles = ["global", "tab", "input", "checkbox", "label", "select"];
+    const styles = ["global", "dialog", "button", "tab", "input", "checkbox", "label", "select"];
     const os = navigator.appVersion;
     const addStyles = (os) => {
       styles.forEach(file => {
@@ -44,6 +44,9 @@
       If you can see this, React is still loading or is not working right.
     </p>
   </div>
+  <script src="/utils/utils.js"></script>
+  <script type="text/babel" src="/components/DialogButton/DialogButton.js"></script>
+  <script type="text/babel" src="/components/Dialog/dialog.js"></script>
   <script type="text/babel" src="/components/Tab/tab.js"></script>
   <script type="text/babel" src="/components/Tabstrip/tabstrip.js"></script>
   <script type="text/babel" src="/components/CalendarPropertiesTabpanel/tabpanel.js"></script>

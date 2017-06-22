@@ -9,10 +9,7 @@
 /* ::::: dialog ::::: */
 
 .dialog { 
-  padding-top: 8px;
-  padding-bottom: 10px;
-  padding-inline-start: 8px;
-  padding-inline-end: 10px;
+  padding: 15px;
 }
 
 /* ::::: dialog buttons ::::: */
@@ -69,4 +66,44 @@
 
 .header-large > .dialogheader-description {
   margin-inline-start: 12px !important;
+}
+
+.dialog-button-box {
+  display: flex;
+  margin-right: -5px;
+  margin-left: -5px;
+}
+
+.dialog-button {
+  white-space: nowrap;
+}
+
+.accept-btn {
+  order: 5;
+}
+
+.cancel-btn {
+  order: 6;
+}
+
+.dialog-button-spacer {
+  order: 4;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.extra1-btn {
+  order: 3;
+}
+
+.extra2-btn {
+  order: 2;
+}
+
+.help-btn {
+  order: 1;
+}
+
+.discourse-btn {
+  order: 0;
 }

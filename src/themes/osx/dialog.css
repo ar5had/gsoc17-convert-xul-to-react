@@ -11,9 +11,9 @@
   margin-inline-start: 80px;
 }*/
 
-.dialog { 
+.dialog {
   -moz-appearance: dialog;
-  padding: 14px;
+  padding: 15px;
 }
 
 /* ::::: dialog buttons ::::: */
@@ -61,4 +61,44 @@ dialogheader {
 
 .dialogheader-title {
   font-weight: bold !important;
+}
+
+.dialog-button-box {
+  display: flex;
+  margin-right: -5px;
+  margin-left: -5px;
+}
+
+.dialog-button {
+  white-space: nowrap;
+}
+
+.accept-btn {
+  order: 6;
+}
+
+.cancel-btn {
+  order: 5;
+}
+
+.dialog-button-spacer {
+  order: 4;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.extra1-btn {
+  order: 3;
+}
+
+.extra2-btn {
+  order: 2;
+}
+
+.help-btn {
+  order: 1;
+}
+
+.discourse-btn {
+  order: 0;
 }

@@ -29,11 +29,11 @@ class DialogButton extends React.Component {
 }
 
 DialogButton.propTypes = {
-  dlgtype: PropTypes.string.isRequired,
-  accessKey: PropTypes.string.isRequired,
-  className: PropTypes.string.isRequired,
-  html: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired
+  dlgtype: PropTypes.string,
+  accessKey: PropTypes.string,
+  className: PropTypes.string,
+  html: PropTypes.string,
+  onClick: PropTypes.func
 };
 
 window.DialogButton = DialogButton;
