@@ -106,5 +106,10 @@ Day-wise progress report of `convert-xul-to-html` project.
 * Added logic to pick OS type and show css accordingly in heroku app.
 * Done with cross platform css of `React-dialog` component.
 
+### **Jun 19-22, 2017**
 
+* Integrated `calendar-properties-dialog` into `react-dialog` element.
+* Started integration into Thunderbird.
+* Setup a window instance on cloud to work with cross-os specific styling and other TB issues.
+* Looking for mac solution.
 
