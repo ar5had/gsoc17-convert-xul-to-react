@@ -78,7 +78,11 @@ class DialogContentBox extends React.Component {
   recieveMessage(e) {
     // extentions talk via postMeessage api(same orgin)
     // so it is very important to filter those events
-    if (e.origin !== window.location.origin || !e.data || e.data.source !== "dialog-message") {
+    if (
+      e.origin !== window.location.origin ||
+      !e.data ||
+      e.data.source !== "dialog-message"
+    ) {
       console.log(`Blocked message event from ${e.origin} with data -`, e.data);
       return;
     }
@@ -88,9 +92,15 @@ class DialogContentBox extends React.Component {
       `${window.location.origin}/iframe-testing-ground`
     );
 
-    console.log("%c Data from Parent: Starts", "color: #333; font-size: 20px; font-weight: bold");
+    console.log(
+      "%c Data from Parent: Starts",
+      "color: #333; font-size: 20px; font-weight: bold"
+    );
     console.log(e.data);
-    console.log("%c Data from Parent: Ends", "color: #333; font-size: 20px; font-weight: bold");
+    console.log(
+      "%c Data from Parent: Ends",
+      "color: #333; font-size: 20px; font-weight: bold"
+    );
 
     const newTabState = Object.assign({}, e.data);
     this.setState({ tabs: newTabState });
@@ -110,7 +120,9 @@ class DialogContentBox extends React.Component {
 
   render() {
     const activeTabData = this.state.tabs[this.state.activeTab];
-    const allTabsName = Object.keys(this.state.tabs).filter(elem => elem !== "source");
+    const allTabsName = Object.keys(this.state.tabs).filter(
+      elem => elem !== "source"
+    );
     const handleTabChange = this.changeTab.bind(this);
     const activeTab = this.state.activeTab;
     const showTabStrip = allTabsName.length > 1;
@@ -120,7 +132,11 @@ class DialogContentBox extends React.Component {
       <div className="wrapper" id="dialog-content-box">
         <TabBox>
           {showTabStrip &&
-            <TabStrip tabs={allTabsName} handleTabChange={handleTabChange} activeTab={activeTab} />}
+            <TabStrip
+              tabs={allTabsName}
+              handleTabChange={handleTabChange}
+              activeTab={activeTab}
+            />}
           <TabPanel
             isSingleTab={!showTabStrip}
             activeTabData={activeTabData}
