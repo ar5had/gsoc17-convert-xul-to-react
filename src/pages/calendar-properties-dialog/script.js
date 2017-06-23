@@ -101,11 +101,17 @@ class CalendarPropertiesDialog extends React.Component {
   }
 
   acceptDialog() {
-
+    console.log("accpting dialog");
+    const stateData = JSON.parse(JSON.stringify(this.state.tabs));
+    stateData.source = "dialog-message";
+    stateData.action = "ACCEPT";
+    this.postMessage(stateData, `${window.location.origin}`);
   }
 
   cancelDialog() {
-
+    console.log("cancelling dialog");
+    const message = { source: "dialog-message", action: "CANCEL" };
+    this.postMessage(message, `${window.location.origin}`);
   }
 
   render() {
@@ -115,9 +121,11 @@ class CalendarPropertiesDialog extends React.Component {
     const activeTab = this.state.activeTab;
     const showTabStrip = allTabsName.length > 1;
     const changeState = this.changeState.bind(this);
+    const acceptDialog = this.acceptDialog.bind(this);
+    const cancelDialog = this.cancelDialog.bind(this);
 
     return (
-      <Dialog>
+      <Dialog ondialogaccept={acceptDialog} ondialogcancel={cancelDialog}>
         <TabBox>
           {showTabStrip &&
             <TabStrip tabs={allTabsName} handleTabChange={handleTabChange} activeTab={activeTab} />}
