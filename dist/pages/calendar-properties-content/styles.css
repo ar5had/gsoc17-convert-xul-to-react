@@ -5,6 +5,10 @@
   width: calc(100% - 50px);
 }
 
+.tabbox {
+  padding: 15px !important;
+}
+
 /*** Above styles are just to make the dialogs look good ***/
 /*
 .disabled label, .disabled input, .disabled select {
