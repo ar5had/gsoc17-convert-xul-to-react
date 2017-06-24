@@ -32,6 +32,13 @@
       addStyles('linux');
     }
   </script>
+  <h3 align="center" style="margin: 50px auto;">
+    <!-- window.location and anchor will send iframe back to root -->
+    <button onclick="parent.location='/'">
+      <span style="vertical-align:middle;display:inline-block;-moz-appearance: button-arrow-previous;"></span>
+      Back to home
+    </button>
+  </h3>
   <div id="root">
     <p align="center">
       If you can see this, React is still loading or is not working right.
