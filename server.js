@@ -66,6 +66,11 @@ app.get('/', (req, res)=>{
       </a>
     </h5>
     <h5>
+      <a href="/pages/calendar-properties-content">
+        calendar properties content
+      </a>
+    </h5>
+    <h5>
       <a href="/pages/react-dialog">
         React Dialog Element   
       </a>
