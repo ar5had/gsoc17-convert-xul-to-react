@@ -101,7 +101,6 @@ class CalendarPropertiesDialog extends React.Component {
   }
 
   acceptDialog() {
-    console.log("accpting dialog");
     const stateData = JSON.parse(JSON.stringify(this.state.tabs));
     stateData.source = "dialog-message";
     stateData.action = "ACCEPT";
@@ -109,7 +108,6 @@ class CalendarPropertiesDialog extends React.Component {
   }
 
   cancelDialog() {
-    console.log("cancelling dialog");
     const message = { source: "dialog-message", action: "CANCEL" };
     this.postMessage(message, `${window.location.origin}`);
   }

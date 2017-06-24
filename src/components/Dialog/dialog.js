@@ -12,8 +12,7 @@ class Dialog extends React.Component {
   getChildContext() {
     return {
       acceptDialog: this.acceptDialog.bind(this),
-      cancelDialog: this.cancelDialog.bind(this),
-      getButton: this.getButton.bind(this)
+      cancelDialog: this.cancelDialog.bind(this)
     };
   }
 
@@ -72,25 +71,8 @@ class Dialog extends React.Component {
     this.props.ondialogcancel();
   }
 
-  getButton(btn) {
-    console.log("getButton called");
-    // switch (btn) {
-    //   case "accept":
-    //     return this.acceptDialog.bind(this);
-    //   case "cancel":
-    //     return this.cancelDialog.bind(this);
-    //   case "disclosure":
-    //     return this.props.ondialogdisclosure.bind(this);
-    //   case "help":
-    //     return this.props.ondialoghelp.bind(this);
-    //   case "extra1":
-    //     return this.props.ondialogextra1.bind(this);
-    //   case "extra2":
-    //     return this.props.ondialogextra2.bind(this);
-    //   default:
-    //     return null;
-    // }
-  }
+  // getButton(btn) {
+  // }
 
   assignClickHandler(btn) {
     switch (btn) {
@@ -212,8 +194,8 @@ Dialog.defaultProps = {
 
 Dialog.childContextTypes = {
   acceptDialog: PropTypes.func,
-  cancelDialog: PropTypes.func,
-  getButton: PropTypes.func
+  cancelDialog: PropTypes.func
+  // getButton: PropTypes.func
 };
 
 window.Dialog = Dialog;
