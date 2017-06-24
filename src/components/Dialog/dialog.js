@@ -3,10 +3,18 @@ class Dialog extends React.Component {
     super(props);
     this.buttonOptions = ["accept", "cancel", "help", "disclosure", "extra1", "extra2"];
     this.alignOptions = ["start", "center", "end", "baseline", "stretch"];
-    this.buttondirOptions = ["normal", "reverse"];
-    this.buttonOrientOptions = ["horizontal", "vertical"];
-    this.buttonPackOptions = ["start", "center", "end"];
+    // this.buttondirOptions = ["normal", "reverse"];
+    // this.buttonOrientOptions = ["horizontal", "vertical"];
+    // this.buttonPackOptions = ["start", "center", "end"];
     this.addKeyListeners = this.addKeyListeners.bind(this);
+  }
+
+  getChildContext() {
+    return {
+      acceptDialog: this.acceptDialog.bind(this),
+      cancelDialog: this.cancelDialog.bind(this),
+      getButton: this.getButton.bind(this)
+    };
   }
 
   componentDidMount() {
@@ -64,8 +72,24 @@ class Dialog extends React.Component {
     this.props.ondialogcancel();
   }
 
-  getButton() {
-    console.log("getButton");
+  getButton(btn) {
+    console.log("getButton called");
+    // switch (btn) {
+    //   case "accept":
+    //     return this.acceptDialog.bind(this);
+    //   case "cancel":
+    //     return this.cancelDialog.bind(this);
+    //   case "disclosure":
+    //     return this.props.ondialogdisclosure.bind(this);
+    //   case "help":
+    //     return this.props.ondialoghelp.bind(this);
+    //   case "extra1":
+    //     return this.props.ondialogextra1.bind(this);
+    //   case "extra2":
+    //     return this.props.ondialogextra2.bind(this);
+    //   default:
+    //     return null;
+    // }
   }
 
   assignClickHandler(btn) {
@@ -184,6 +208,12 @@ Dialog.defaultProps = {
   // title: "New Dialog",
   // activetitlebarcolor: null,
   // inactivetitlebarcolor: null
+};
+
+Dialog.childContextTypes = {
+  acceptDialog: PropTypes.func,
+  cancelDialog: PropTypes.func,
+  getButton: PropTypes.func
 };
 
 window.Dialog = Dialog;
