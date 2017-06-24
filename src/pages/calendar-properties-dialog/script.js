@@ -1,4 +1,4 @@
-class DialogContentBox extends React.Component {
+class CalendarPropertiesDialog extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -56,14 +56,6 @@ class DialogContentBox extends React.Component {
     window.addEventListener("message", this.recieveMessage);
   }
 
-  componentDidMount() {
-    const stateData = JSON.parse(JSON.stringify(this.state.tabs));
-    stateData.source = "dialog-message";
-    setTimeout(() => {
-      this.postMessage(stateData, `${window.location.origin}`);
-    }, 20000);
-  }
-
   componentWillUnmount() {
     window.removeEventListener("message", this.recieveMessage);
   }
@@ -78,11 +70,7 @@ class DialogContentBox extends React.Component {
   recieveMessage(e) {
     // extentions talk via postMeessage api(same orgin)
     // so it is very important to filter those events
-    if (
-      e.origin !== window.location.origin ||
-      !e.data ||
-      e.data.source !== "dialog-message"
-    ) {
+    if (e.origin !== window.location.origin || !e.data || e.data.source !== "dialog-message") {
       console.log(`Blocked message event from ${e.origin} with data -`, e.data);
       return;
     }
@@ -92,15 +80,9 @@ class DialogContentBox extends React.Component {
       `${window.location.origin}/iframe-testing-ground`
     );
 
-    console.log(
-      "%c Data from Parent: Starts",
-      "color: #333; font-size: 20px; font-weight: bold"
-    );
+    console.log("%c Data from Parent: Starts", "color: #333; font-size: 20px; font-weight: bold");
     console.log(e.data);
-    console.log(
-      "%c Data from Parent: Ends",
-      "color: #333; font-size: 20px; font-weight: bold"
-    );
+    console.log("%c Data from Parent: Ends", "color: #333; font-size: 20px; font-weight: bold");
 
     const newTabState = Object.assign({}, e.data);
     this.setState({ tabs: newTabState });
@@ -118,25 +100,33 @@ class DialogContentBox extends React.Component {
     this.setState({ tabs: newTabsState });
   }
 
+  acceptDialog() {
+    const stateData = JSON.parse(JSON.stringify(this.state.tabs));
+    stateData.source = "dialog-message";
+    stateData.action = "ACCEPT";
+    this.postMessage(stateData, `${window.location.origin}`);
+  }
+
+  cancelDialog() {
+    const message = { source: "dialog-message", action: "CANCEL" };
+    this.postMessage(message, `${window.location.origin}`);
+  }
+
   render() {
     const activeTabData = this.state.tabs[this.state.activeTab];
-    const allTabsName = Object.keys(this.state.tabs).filter(
-      elem => elem !== "source"
-    );
+    const allTabsName = Object.keys(this.state.tabs).filter(elem => elem !== "source");
     const handleTabChange = this.changeTab.bind(this);
     const activeTab = this.state.activeTab;
     const showTabStrip = allTabsName.length > 1;
     const changeState = this.changeState.bind(this);
+    const acceptDialog = this.acceptDialog.bind(this);
+    const cancelDialog = this.cancelDialog.bind(this);
 
     return (
-      <div className="wrapper" id="dialog-content-box">
+      <Dialog ondialogaccept={acceptDialog} ondialogcancel={cancelDialog}>
         <TabBox>
           {showTabStrip &&
-            <TabStrip
-              tabs={allTabsName}
-              handleTabChange={handleTabChange}
-              activeTab={activeTab}
-            />}
+            <TabStrip tabs={allTabsName} handleTabChange={handleTabChange} activeTab={activeTab} />}
           <TabPanel
             isSingleTab={!showTabStrip}
             activeTabData={activeTabData}
@@ -144,9 +134,9 @@ class DialogContentBox extends React.Component {
             source={this.state.tabs.source}
           />
         </TabBox>
-      </div>
+      </Dialog>
     );
   }
 }
 
-ReactDOM.render(<DialogContentBox />, document.getElementById("root"));
+ReactDOM.render(<CalendarPropertiesDialog />, document.getElementById("root"));

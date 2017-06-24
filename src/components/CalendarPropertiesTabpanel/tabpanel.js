@@ -48,7 +48,7 @@ class TabPanel extends React.Component {
 
   calendarColorChange(event) {
     const { changeState, activeTabData } = this.props;
-    const tabState = Object.assign({}, activeTabData, { name: event.target.value });
+    const tabState = Object.assign({}, activeTabData, { color: event.target.value });
     changeState(tabState);
   }
 
