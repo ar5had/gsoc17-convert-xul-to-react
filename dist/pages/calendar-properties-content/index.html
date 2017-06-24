@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>calendar-propterties-dialog</title>
+  <title>calendar-propterties-content</title>
   <link rel="stylesheet" href="./styles.css" />
   <script src="/scripts/react.js"></script>
   <script src="/scripts/react-dom.js"></script>
@@ -14,7 +14,7 @@
 
 <body>
   <script>
-    const styles = ["global", "dialog", "button", "tab", "input", "checkbox", "label", "select"];
+    const styles = ["global", "tab", "input", "checkbox", "label", "select"];
     const os = navigator.appVersion;
     const addStyles = (os) => {
       styles.forEach(file => {
@@ -32,21 +32,11 @@
       addStyles('linux');
     }
   </script>
-  <h3 align="center" style="margin: 50px auto;">
-    <!-- window.location and anchor will send iframe back to root -->
-    <button onclick="parent.location='/'">
-      <span style="vertical-align:middle;display:inline-block;-moz-appearance: button-arrow-previous;"></span>
-      Back to home
-    </button>
-  </h3>
   <div id="root">
     <p align="center">
       If you can see this, React is still loading or is not working right.
     </p>
   </div>
-  <script src="/utils/utils.js"></script>
-  <script src="/components/DialogButton/DialogButton.js"></script>
-  <script src="/components/Dialog/dialog.js"></script>
   <script src="/components/Tab/tab.js"></script>
   <script src="/components/Tabstrip/tabstrip.js"></script>
   <script src="/components/CalendarPropertiesTabpanel/tabpanel.js"></script>

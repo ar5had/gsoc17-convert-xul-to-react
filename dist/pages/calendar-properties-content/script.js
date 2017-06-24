@@ -1,4 +1,4 @@
-class CalendarPropertiesDialog extends React.Component {
+class DialogContentBox extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -56,6 +56,14 @@ class CalendarPropertiesDialog extends React.Component {
     window.addEventListener("message", this.recieveMessage);
   }
 
+  componentDidMount() {
+    const stateData = JSON.parse(JSON.stringify(this.state.tabs));
+    stateData.source = "dialog-message";
+    setTimeout(() => {
+      this.postMessage(stateData, `${window.location.origin}`);
+    }, 20000);
+  }
+
   componentWillUnmount() {
     window.removeEventListener("message", this.recieveMessage);
   }
@@ -100,18 +108,6 @@ class CalendarPropertiesDialog extends React.Component {
     this.setState({ tabs: newTabsState });
   }
 
-  acceptDialog() {
-    const stateData = JSON.parse(JSON.stringify(this.state.tabs));
-    stateData.source = "dialog-message";
-    stateData.action = "ACCEPT";
-    this.postMessage(stateData, `${window.location.origin}`);
-  }
-
-  cancelDialog() {
-    const message = { source: "dialog-message", action: "CANCEL" };
-    this.postMessage(message, `${window.location.origin}`);
-  }
-
   render() {
     const activeTabData = this.state.tabs[this.state.activeTab];
     const allTabsName = Object.keys(this.state.tabs).filter(elem => elem !== "source");
@@ -119,12 +115,10 @@ class CalendarPropertiesDialog extends React.Component {
     const activeTab = this.state.activeTab;
     const showTabStrip = allTabsName.length > 1;
     const changeState = this.changeState.bind(this);
-    const acceptDialog = this.acceptDialog.bind(this);
-    const cancelDialog = this.cancelDialog.bind(this);
 
     return React.createElement(
-      Dialog,
-      { ondialogaccept: acceptDialog, ondialogcancel: cancelDialog },
+      "div",
+      { className: "wrapper", id: "dialog-content-box" },
       React.createElement(
         TabBox,
         null,
@@ -145,7 +139,4 @@ class CalendarPropertiesDialog extends React.Component {
   }
 }
 
-ReactDOM.render(
-  React.createElement(CalendarPropertiesDialog, null),
-  document.getElementById("root")
-);
+ReactDOM.render(React.createElement(DialogContentBox, null), document.getElementById("root"));

@@ -1,4 +1,4 @@
-class CalendarPropertiesDialog extends React.Component {
+class DialogContentBox extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -56,6 +56,14 @@ class CalendarPropertiesDialog extends React.Component {
     window.addEventListener("message", this.recieveMessage);
   }
 
+  componentDidMount() {
+    const stateData = JSON.parse(JSON.stringify(this.state.tabs));
+    stateData.source = "dialog-message";
+    setTimeout(() => {
+      this.postMessage(stateData, `${window.location.origin}`);
+    }, 20000);
+  }
+
   componentWillUnmount() {
     window.removeEventListener("message", this.recieveMessage);
   }
@@ -100,18 +108,6 @@ class CalendarPropertiesDialog extends React.Component {
     this.setState({ tabs: newTabsState });
   }
 
-  acceptDialog() {
-    const stateData = JSON.parse(JSON.stringify(this.state.tabs));
-    stateData.source = "dialog-message";
-    stateData.action = "ACCEPT";
-    this.postMessage(stateData, `${window.location.origin}`);
-  }
-
-  cancelDialog() {
-    const message = { source: "dialog-message", action: "CANCEL" };
-    this.postMessage(message, `${window.location.origin}`);
-  }
-
   render() {
     const activeTabData = this.state.tabs[this.state.activeTab];
     const allTabsName = Object.keys(this.state.tabs).filter(elem => elem !== "source");
@@ -119,11 +115,9 @@ class CalendarPropertiesDialog extends React.Component {
     const activeTab = this.state.activeTab;
     const showTabStrip = allTabsName.length > 1;
     const changeState = this.changeState.bind(this);
-    const acceptDialog = this.acceptDialog.bind(this);
-    const cancelDialog = this.cancelDialog.bind(this);
 
     return (
-      <Dialog ondialogaccept={acceptDialog} ondialogcancel={cancelDialog}>
+      <div className="wrapper" id="dialog-content-box">
         <TabBox>
           {showTabStrip &&
             <TabStrip tabs={allTabsName} handleTabChange={handleTabChange} activeTab={activeTab} />}
@@ -134,9 +128,9 @@ class CalendarPropertiesDialog extends React.Component {
             source={this.state.tabs.source}
           />
         </TabBox>
-      </Dialog>
+      </div>
     );
   }
 }
 
-ReactDOM.render(<CalendarPropertiesDialog />, document.getElementById("root"));
+ReactDOM.render(<DialogContentBox />, document.getElementById("root"));
