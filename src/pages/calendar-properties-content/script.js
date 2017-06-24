@@ -122,30 +122,21 @@ class CalendarPropertiesDialog extends React.Component {
     const acceptDialog = this.acceptDialog.bind(this);
     const cancelDialog = this.cancelDialog.bind(this);
 
-    return React.createElement(
-      Dialog,
-      { ondialogaccept: acceptDialog, ondialogcancel: cancelDialog },
-      React.createElement(
-        TabBox,
-        null,
-        showTabStrip &&
-          React.createElement(TabStrip, {
-            tabs: allTabsName,
-            handleTabChange: handleTabChange,
-            activeTab: activeTab
-          }),
-        React.createElement(TabPanel, {
-          isSingleTab: !showTabStrip,
-          activeTabData: activeTabData,
-          changeState: changeState,
-          source: this.state.tabs.source
-        })
-      )
+    return (
+      <Dialog ondialogaccept={acceptDialog} ondialogcancel={cancelDialog}>
+        <TabBox>
+          {showTabStrip &&
+            <TabStrip tabs={allTabsName} handleTabChange={handleTabChange} activeTab={activeTab} />}
+          <TabPanel
+            isSingleTab={!showTabStrip}
+            activeTabData={activeTabData}
+            changeState={changeState}
+            source={this.state.tabs.source}
+          />
+        </TabBox>
+      </Dialog>
     );
   }
 }
 
-ReactDOM.render(
-  React.createElement(CalendarPropertiesDialog, null),
-  document.getElementById("root")
-);
+ReactDOM.render(<CalendarPropertiesDialog />, document.getElementById("root"));
