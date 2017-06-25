@@ -4,7 +4,7 @@
   "description": "dev environment for using JSX in react",
   "scripts": {
     "start": "gulp",
-    "rbfd": "chmod +x removeBabelFromHtml.sh && removeBabelFromHtml.sh",
+    "rbfd": "chmod +x ./removeBabelFromHtml.sh && ./removeBabelFromHtml.sh",
     "remove-dist": "rimraf dist",
     "fix-lint-errs": "npm run prettier && eslint --fix dist",
     "prettier": "prettier --print-width 100 --write \"dist/**/*.js\"",
