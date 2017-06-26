@@ -13,6 +13,10 @@ button {
   color: ButtonText;
   text-shadow: none;
   text-align: center;
+  padding-top: 2px;
+  padding-bottom: 3px;
+  padding-inline-start: 3px;
+  padding-inline-end: 4px;
 }
 /* .......... focused state .......... */
 
@@ -31,22 +35,22 @@ button:-moz-focusring {
        default, hovered or focused state. However, if these states overlap with
        the active, disabled, open or checked state, the appearance reverts back
        to the default background. */
-    button:-moz-any([default="true"],:hover,:focus):not(:-moz-any(:active,[disabled="true"],[open="true"],[checked="true"])) {
+    /*button:-moz-any([default],:hover,:focus):not(:-moz-any(:active,[disabled],[checked])) {
       color: HighlightText;
-    }
+    }*/
   }
 }
 
 /* .......... active/open/checked state .......... */
 
-@media (-moz-windows-classic) {
+/*@media (-moz-windows-classic) {
   button:-moz-any(:hover:active,[open="true"],[checked="true"]):not([disabled="true"]) > .button-box {
     padding-top: 3px;
     padding-bottom: 2px;
     padding-inline-start: 5px;
     padding-inline-end: 4px;
   }
-}
+}*/
 
 /* .......... disabled state .......... */
 
@@ -55,7 +59,7 @@ button[disabled="true"] {
 }
 
 @media (-moz-windows-classic) {
-  button[disabled="true"] {
+  button[disabled] {
     color: ThreeDShadow;
     text-shadow: 1px 1px ThreeDHighlight;
   }
@@ -67,7 +71,6 @@ button[type="menu-button"] {
   margin: 0;
 }
 
-
 button[type="disclosure"] {
   margin: 0;
   -moz-appearance: none;
@@ -75,6 +78,6 @@ button[type="disclosure"] {
   min-width: 0;
 }
 
-button[type="disclosure"][open] {
-  /*list-style-image: url("chrome://global/skin/tree/twisty.svg#open");*/
-}
+/*button[type="disclosure"][open] {
+  list-style-image: url("chrome://global/skin/tree/twisty.svg#open");
+}*/

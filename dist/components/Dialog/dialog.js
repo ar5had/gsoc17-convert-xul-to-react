@@ -174,7 +174,7 @@ Dialog.defaultProps = {
   buttonaccesskeyextra1: null,
   buttonaccesskeyextra2: null,
   buttonaccesskeyhelp: "H",
-  buttonlabelaccept: "Ok",
+  buttonlabelaccept: "OK",
   buttonlabelcancel: "Cancel",
   buttonlabeldisclosure: "More Info",
   buttonlabelextra1: "&nbsp;",
