@@ -10,10 +10,6 @@
 }
 
 /*** Above styles are just to make the dialogs look good ***/
-/*
-.disabled label, .disabled input, .disabled select {
-  color: rgb(167, 167, 167) !important;
-}*/
 
 .row {
   display: flex;

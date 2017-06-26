@@ -1,0 +1,13 @@
+#root {
+  max-width: 600px;
+  margin: auto;
+}
+
+.dialog {
+  box-shadow: 0 10px 30px 0 rgba(46, 61, 73, .35);
+  margin: 10vh 25px 0;
+  min-width: calc(100% - 50px);
+}
+
+/*** Above styles are just to make the dialogs look good ***/
+

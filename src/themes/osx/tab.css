@@ -11,6 +11,9 @@
   padding: 2px 15px 4px 15px;
   font: -moz-dialog;
   -moz-appearance: tab;
+  cursor: default;
+  -moz-user-select: none;
+  user-select: none;
 }
 
 .tab:-moz-focusring {

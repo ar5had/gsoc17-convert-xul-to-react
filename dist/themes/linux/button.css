@@ -17,6 +17,11 @@ button {
   text-shadow: none;
 }
 
+button > u {
+  color: inherit;
+  font: inherit;
+}
+
 .button-box {
   -moz-appearance: button-focus;
 }

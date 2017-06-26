@@ -66,8 +66,8 @@ app.get('/', (req, res)=>{
       </a>
     </h5>
     <h5>
-      <a href="/pages/calendar-properties-content">
-        calendar properties content
+      <a href="/pages/print-dialog">
+        Print Dialog   
       </a>
     </h5>
     <h5>

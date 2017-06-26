@@ -23,6 +23,7 @@
   text-transform: capitalize;
   -moz-user-select: none;
   user-select: none;
+  cursor: default;
 }
 
 .tab.selected {

@@ -18,6 +18,12 @@ button {
   padding-inline-start: 3px;
   padding-inline-end: 4px;
 }
+
+button > u {
+  color: inherit;
+  font: inherit;
+}
+
 /* .......... focused state .......... */
 
 button:-moz-focusring {

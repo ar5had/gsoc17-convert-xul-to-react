@@ -21,6 +21,9 @@
   background-color: -moz-Dialog;
   color: -moz-DialogText;
   text-transform: capitalize;
+  cursor: default;
+  -moz-user-select: none;
+  user-select: none;
 }
 
 .tab.selected {
@@ -38,7 +41,7 @@
   color: -moz-DialogText;
   font: message-box;
 }
- 
+
 .tabpanel:not(.single-tab) {
   -moz-appearance: tabpanels;
   padding: 18px 10px 10px;
