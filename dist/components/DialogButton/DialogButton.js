@@ -10,6 +10,9 @@ class DialogButton extends React.Component {
   addAttributes() {
     this.button.setAttribute("dlgtype", this.props.dlgtype);
     this.button.setAttribute("icon", this.props.dlgtype);
+    if (this.props.isDefaultButton) {
+      this.button.setAttribute("default", "true");
+    }
   }
 
   render() {
@@ -31,7 +34,8 @@ DialogButton.propTypes = {
   accessKey: PropTypes.string,
   className: PropTypes.string,
   html: PropTypes.string,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  isDefaultButton: PropTypes.bool
 };
 
 window.DialogButton = DialogButton;

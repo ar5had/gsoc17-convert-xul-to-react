@@ -105,6 +105,7 @@ class Dialog extends React.Component {
         React.createElement(DialogButton, {
           className: `${btn}-btn dialog-button`,
           key: i,
+          isDefaultButton: this.props.defaultButton.toLowerCase() === btn,
           accessKey: props[`buttonaccesskey${btn}`],
           dlgtype: btn,
           onClick: this.assignClickHandler(btn),
