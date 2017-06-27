@@ -1,0 +1,105 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/*
+#commonDialog > img {
+  margin-inline-end: 14px !important;
+}
+
+#commonDialog > .dialog-button-box {
+  margin-inline-start: 80px;
+}*/
+
+.dialog {
+  -moz-appearance: dialog;
+  padding: 15px;
+}
+
+/* ::::: dialog buttons ::::: */
+
+.dialog-button {
+  font: menu;
+}
+
+/* ::::: dialog header ::::: */
+
+dialogheader {
+  margin: 0 5px 5px;
+  padding: 5px 8px;
+}
+
+.dialogheader-title {
+  margin: 0 !important;
+  font-size: larger;
+  font-weight: bold;
+  display: none;
+}
+
+/* ::::: large dialog header ::::: */
+
+.header-large {
+  -moz-box-orient: vertical;
+  margin: -14px -14px 0;
+  padding: 12px;
+  padding-inline-end: 5px;
+  padding-inline-start: 25px;
+}
+
+.header-large > .dialogheader-title {
+  font: inherit;
+  font-weight: bold;
+}
+
+.header-large > .dialogheader-description {
+  margin-left: 12px !important;
+}
+
+.dialogheader-description {
+  font-weight: bold !important;
+}
+
+.dialogheader-title {
+  font-weight: bold !important;
+}
+
+.dialog-button-box {
+  display: flex;
+  margin-right: -5px;
+  margin-left: -5px;
+  margin-top: 10px;
+}
+
+.dialog-button {
+  white-space: nowrap;
+}
+
+.accept-btn {
+  order: 6;
+}
+
+.cancel-btn {
+  order: 5;
+}
+
+.dialog-button-spacer {
+  order: 4;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.extra1-btn {
+  order: 3;
+}
+
+.extra2-btn {
+  order: 2;
+}
+
+.help-btn {
+  order: 1;
+}
+
+.discourse-btn {
+  order: 0;
+}

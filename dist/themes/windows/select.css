@@ -1,0 +1,20 @@
+select[disabled] {
+  cursor: default;
+  color: GrayText;
+}
+
+
+select {
+  -moz-appearance: menulist;
+  -moz-border-top-colors: ThreeDShadow ThreeDDarkShadow;
+  -moz-border-right-colors: ThreeDHighlight ThreeDLightShadow;
+  -moz-border-bottom-colors: ThreeDHighlight ThreeDLightShadow;
+  -moz-border-left-colors: ThreeDShadow ThreeDDarkShadow;
+  color: -moz-FieldText;
+  text-shadow: none;
+}
+
+select[disabled] {
+  /*background-color: -moz-Dialog;*/
+  color: GrayText;
+}

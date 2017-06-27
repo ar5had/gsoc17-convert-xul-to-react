@@ -1,0 +1,77 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/* ===== global.css for React/Html =====================================================
+  == Styles that apply everywhere.
+  ======================================================================= */
+
+/* ::::: Variables ::::: */
+:root {
+  --arrowpanel-padding: 10px;
+  --arrowpanel-background: -moz-field;
+  --arrowpanel-color: -moz-fieldText;
+  --arrowpanel-border-color: ThreeDShadow;
+}
+
+* {
+  font: message-box;
+  color: -moz-DialogText;
+  -moz-user-focus: ignore;
+  -moz-user-select: none;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.dialog {
+  -moz-appearance: window;
+  background-color: -moz-Dialog;
+  color: -moz-DialogText;
+  font: message-box;
+}
+
+input[type="text"]{
+  /* 
+    input of type text has a default min-width
+    which breaks layout on small width 
+  */
+  min-width: 10px;
+  padding: 2px;
+}
+
+.row > input[type="text"].row-input {
+  padding: 2px 4px;
+}
+
+#calendar-properties-grid {
+  padding-left: 19px;
+}
+
+label.disabled {
+  color: GrayText;
+}
+
+label.disabled:-moz-system-metric(windows-classic) {
+  color: ThreeDShadow;
+  text-shadow: 1px 1px ThreeDHighlight;
+}
+
+/* ::::: root ::::: */
+:root {
+  text-rendering: optimizeLegibility;
+  -moz-control-character-visibility: visible;
+}
+
+
+:root:-moz-lwtheme, statusbarpanel:-moz-lwtheme {
+  -moz-appearance: none;
+}
+
+
+:root:-moz-lwtheme-darktext {
+  text-shadow: 0 -0.5px 1.5px white;
+}
+
+:root:-moz-lwtheme-brighttext {
+  text-shadow: 1px 1px 1.5px black;
+}
