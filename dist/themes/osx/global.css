@@ -9,14 +9,46 @@
   box-sizing: border-box;
 }
 
-.dialog{
+.dialog {
   -moz-appearance: dialog;
   background-color: #FFFFFF;
   color: -moz-DialogText;
   font: message-box;
 }
 
-input[type="text"]{
+.vgrid {
+  display: flex;
+}
+
+.row {
+  display: flex;
+  padding: 3px 0;
+  align-items: flex-start;
+}
+
+.row label, .row input[type="checkbox"], .row input[type="radio"] {
+  margin: auto 5px auto 0;
+}
+
+.row > .row-input {
+  flex: 1;
+  padding: 0px 4px;
+}
+
+.row > select.row-input {
+  padding: 1px 0;
+}
+
+.row.row-label-expanded .row-input, .row-align-content .row-input {
+  flex: none;
+}
+
+.row.row-label-expanded > label {
+  flex:1;
+  margin-right: 0;
+}
+
+input[type="text"], .row input[type="date"] {
   /* 
     input of type text has a default min-width
     which breaks layout on small width 
@@ -28,7 +60,6 @@ input[type="text"]{
   padding: 0px 2px;
 }
 
-
 #calendar-properties-grid {
   padding-left: 19px;
 }
@@ -37,6 +68,25 @@ label.disabled {
   color: GrayText;
 }
 
+fieldset {
+  -moz-appearance: groupbox;
+  border: 2px groove ThreeDFace;
+  border-radius: 3px;
+  margin: 3px 3px 5px 0;
+  padding: 4px 6px;
+}
+
+legend {
+  padding: 0;
+}
+
+.mar-right-15 {
+  margin-right: 15px !important;
+}
+
+input[type="radio"]:focus + label, input[type="checkbox"]:focus + label {
+  outline: 1px dotted;
+}
 
 %ifndef MOZ_PHOTON_THEME
 @media (-moz-mac-yosemite-theme) {

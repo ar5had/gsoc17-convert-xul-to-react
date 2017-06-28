@@ -14,7 +14,17 @@
 
 <body>
   <script>
-    const styles = ["global", "dialog", "button", "tab", "input", "checkbox", "label", "select"];
+    const styles = [
+      "global", 
+      "dialog", 
+      "button", 
+      "tab", 
+      "input", 
+      "checkbox", 
+      "label", 
+      "select", 
+      "splitter"
+    ];
     const os = navigator.appVersion;
     const addStyles = (os) => {
       styles.forEach(file => {
@@ -47,10 +57,8 @@
   <script src="/utils/utils.js"></script>
   <script src="/components/DialogButton/dialogbutton.js"></script>
   <script src="/components/Dialog/dialog.js"></script>
-  <script src="/components/Tab/tab.js"></script>
-  <script src="/components/Tabstrip/tabstrip.js"></script>
-  <script src="/components/CalendarPropertiesTabpanel/tabpanel.js"></script>
-  <script src="/components/Tabbox/tabbox.js"></script>
+  <script src="/components/Fieldset/fieldset.js"></script>
+  <script src="/components/PrintDialogGroupBox/printdialoggroupbox.js"></script>
   <script src="./script.js"></script>
 </body>
 

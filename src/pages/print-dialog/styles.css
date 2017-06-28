@@ -23,6 +23,14 @@ iframe#content {
   flex: 1;
 }
 
+.fieldset-content-wrapper {
+  padding: 0 1px;
+}
+
 #settingsGroup .row > label {
   min-width: 45px;
+}
+
+#what-to-print-group .row:not(.row-align-content) > .row-label {
+  min-width: 37px;
 }

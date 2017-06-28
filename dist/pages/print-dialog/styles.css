@@ -1,5 +1,5 @@
 #root {
-  max-width: 600px;
+  max-width: 650px;
   margin: auto;
 }
 
@@ -11,3 +11,26 @@
 
 /*** Above styles are just to make the dialogs look good ***/
 
+#groupboxVbox {
+  min-width: 195px;
+}
+
+iframe#content {
+  background: white;
+  border: 2px solid #3c3c3c;
+  /*min-width: 30em;
+  min-height: 30em;*/
+  flex: 1;
+}
+
+.fieldset-content-wrapper {
+  padding: 0 1px;
+}
+
+#settingsGroup .row > label {
+  min-width: 45px;
+}
+
+#what-to-print-group .row:not(.row-align-content) > .row-label {
+  min-width: 37px;
+}

@@ -61,12 +61,22 @@ class PrintDialog extends React.Component {
     const acceptDialog = this.acceptDialog.bind(this);
     const cancelDialog = this.cancelDialog.bind(this);
 
-    return React.createElement(Dialog, {
-      ondialogaccept: acceptDialog,
-      ondialogcancel: cancelDialog,
-      buttonlabelaccept: "Print",
-      buttonaccesskeyaccept: "P"
-    });
+    return React.createElement(
+      Dialog,
+      {
+        ondialogaccept: acceptDialog,
+        ondialogcancel: cancelDialog,
+        buttonlabelaccept: "Print",
+        buttonaccesskeyaccept: "P"
+      },
+      React.createElement(
+        "div",
+        { className: "vgrid" },
+        React.createElement(PrintDialogGroupBox, null),
+        React.createElement("div", { className: "splitter" }),
+        React.createElement("iframe", { src: "about:blank", frameBorder: "0", id: "content" })
+      )
+    );
   }
 }
 

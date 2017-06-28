@@ -24,6 +24,8 @@
   -moz-user-select: none;
   user-select: none;
   cursor: default;
+  text-transform: capitalize;
+  text-align: center;
 }
 
 .tab.selected {

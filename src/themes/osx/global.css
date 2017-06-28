@@ -26,7 +26,7 @@
   align-items: flex-start;
 }
 
-.row label, .row input[type="checkbox"] {
+.row label, .row input[type="checkbox"], .row input[type="radio"] {
   margin: auto 5px auto 0;
 }
 
@@ -39,7 +39,16 @@
   padding: 1px 0;
 }
 
-input[type="text"] {
+.row.row-label-expanded .row-input, .row-align-content .row-input {
+  flex: none;
+}
+
+.row.row-label-expanded > label {
+  flex:1;
+  margin-right: 0;
+}
+
+input[type="text"], .row input[type="date"] {
   /* 
     input of type text has a default min-width
     which breaks layout on small width 
@@ -69,6 +78,14 @@ fieldset {
 
 legend {
   padding: 0;
+}
+
+.mar-right-15 {
+  margin-right: 15px !important;
+}
+
+input[type="radio"]:focus + label, input[type="checkbox"]:focus + label {
+  outline: 1px dotted;
 }
 
 %ifndef MOZ_PHOTON_THEME
