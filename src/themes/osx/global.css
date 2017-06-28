@@ -16,6 +16,30 @@
   font: message-box;
 }
 
+.vgrid {
+  display: flex;
+}
+
+.row {
+  display: flex;
+  padding: 3px 0;
+  align-items: flex-start;
+}
+
+.row label,
+.row input[type="checkbox"]{
+  margin: auto 5px auto 0;
+}
+
+.row > .row-input {
+  flex: 1;
+  padding: 0px 4px;
+}
+
+.row > select.row-input {
+  padding: 1px 0;
+}
+
 input[type="text"]{
   /* 
     input of type text has a default min-width

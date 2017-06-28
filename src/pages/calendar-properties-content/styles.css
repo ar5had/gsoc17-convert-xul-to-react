@@ -15,14 +15,6 @@
   color: rgb(167, 167, 167) !important;
 }*/
 
-.row {
-  display: flex;
-  padding: 3px 0;
-  align-items: flex-start;
-}
-
-.row label,
-.row input[type="checkbox"],
 #calendar-enabler-container > input,
 #calendar-enabler-container > label {
   margin: auto 5px auto 0;
@@ -35,15 +27,6 @@
 
 .row > .row-label {
   width: 110px;
-}
-
-.row > .row-input {
-  flex: 1;
-  padding: 0px 4px;
-}
-
-.row > select.row-input {
-  padding: 1px 0;
 }
 
 #calendar-readOnly-row > div, #calendar-suppressAlarms-row > div, #calendar-cache-row > div {

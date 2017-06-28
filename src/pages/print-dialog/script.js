@@ -77,7 +77,13 @@ class PrintDialog extends React.Component {
         ondialogcancel={cancelDialog}
         buttonlabelaccept="Print"
         buttonaccesskeyaccept="P"
-      />
+      >
+        <div className="vgrid">
+          <PrintDialogGroupBox />
+          <div className="splitter" />
+          <iframe src="about:blank" frameBorder="0" id="content" />
+        </div>
+      </Dialog>
     );
   }
 }
