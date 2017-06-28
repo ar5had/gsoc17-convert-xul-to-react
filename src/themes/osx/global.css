@@ -9,7 +9,7 @@
   box-sizing: border-box;
 }
 
-.dialog{
+.dialog {
   -moz-appearance: dialog;
   background-color: #FFFFFF;
   color: -moz-DialogText;
@@ -26,8 +26,7 @@
   align-items: flex-start;
 }
 
-.row label,
-.row input[type="checkbox"]{
+.row label, .row input[type="checkbox"] {
   margin: auto 5px auto 0;
 }
 
@@ -40,7 +39,7 @@
   padding: 1px 0;
 }
 
-input[type="text"]{
+input[type="text"] {
   /* 
     input of type text has a default min-width
     which breaks layout on small width 
@@ -52,7 +51,6 @@ input[type="text"]{
   padding: 0px 2px;
 }
 
-
 #calendar-properties-grid {
   padding-left: 19px;
 }
@@ -61,6 +59,17 @@ label.disabled {
   color: GrayText;
 }
 
+fieldset {
+  -moz-appearance: groupbox;
+  border: 2px groove ThreeDFace;
+  border-radius: 3px;
+  margin: 3px 3px 5px 0;
+  padding: 4px 6px;
+}
+
+legend {
+  padding: 0;
+}
 
 %ifndef MOZ_PHOTON_THEME
 @media (-moz-mac-yosemite-theme) {

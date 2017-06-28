@@ -32,8 +32,7 @@
   align-items: flex-start;
 }
 
-.row label,
-.row input[type="checkbox"]{
+.row label, .row input[type="checkbox"] {
   margin: auto 5px auto 0;
 }
 
@@ -67,10 +66,20 @@ label.disabled {
   color: GrayText;
 }
 
+fieldset {
+  -moz-appearance: groupbox;
+  border: 2px groove ThreeDFace;
+  border-radius: 3px;
+  margin: 3px 3px 5px 0;
+  padding: 4px 6px;
+}
+
+legend {
+  padding: 0;
+}
+
 /* ::::: root ::::: */
 :root {
   text-rendering: optimizeLegibility;
   -moz-control-character-visibility: visible;
 }
-
-

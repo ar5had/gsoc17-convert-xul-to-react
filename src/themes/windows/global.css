@@ -51,7 +51,7 @@
 }
 
 .row > select.row-input {
-  padding: 1px 0;
+  padding: 2px 0;
 }
 
 input[type="text"]{
@@ -78,6 +78,18 @@ label.disabled {
 label.disabled:-moz-system-metric(windows-classic) {
   color: ThreeDShadow;
   text-shadow: 1px 1px ThreeDHighlight;
+}
+
+fieldset {
+  -moz-appearance: groupbox;
+  border: 2px groove ThreeDFace;
+  border-radius: 3px;
+  margin: 3px 3px 5px 0;
+  padding: 4px 6px;
+}
+
+legend {
+  padding: 0;
 }
 
 /* ::::: root ::::: */
