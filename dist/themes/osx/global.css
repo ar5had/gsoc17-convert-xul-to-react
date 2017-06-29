@@ -44,7 +44,7 @@
 }
 
 .row.row-label-expanded > label {
-  flex:1;
+  flex: 1 0 10px;
   margin-right: 0;
 }
 
