@@ -10,6 +10,10 @@
   background-color: ThreeDFace;
 }
 
+.splitter.vertical {
+  margin-right: 5px;
+}
+
 .splitter-cursor {
   cursor: ew-resize;
 }

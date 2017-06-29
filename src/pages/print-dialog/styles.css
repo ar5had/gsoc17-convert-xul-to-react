@@ -12,9 +12,11 @@
 /*** Above styles are just to make the dialogs look good ***/
 
 #groupboxVbox {
-  min-width: 195px;
+  min-width: 200px;
   max-width: calc(100% - 20px);
-  padding-right: 5px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 /*important to make sure each fieldset takes same width */

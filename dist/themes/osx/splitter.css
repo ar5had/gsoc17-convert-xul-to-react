@@ -7,6 +7,10 @@
   background: url("chrome://global/skin/splitter/dimple.png") transparent no-repeat center;  
 }
 
+.splitter.vertical {
+  margin-right: 5px;
+}
+
 .splitter[state="collapsed"][collapse="before"],
 .splitter[state="collapsed"][substate="before"],
 .splitter[state="collapsed"][collapse="after"]:-moz-locale-dir(rtl),

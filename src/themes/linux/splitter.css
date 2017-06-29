@@ -7,6 +7,10 @@
   cursor: ew-resize;
 }
 
+.splitter.vertical {
+  margin-right: 5px;
+}
+
 .splitter[state="collapsed"][collapse="before"],
 .splitter[state="collapsed"][substate="before"],
 .splitter[state="collapsed"][collapse="after"]:-moz-locale-dir(rtl),
