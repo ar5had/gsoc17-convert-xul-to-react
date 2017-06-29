@@ -71,6 +71,21 @@ app.get('/', (req, res)=>{
       </a>
     </h5>
     <h5>
+      <a href="/pages/calendar-alarm-dialog">
+        Calendar Alarm Dialog   
+      </a>
+    </h5>
+    <h5>
+      <a href="/pages/event-dialog">
+        Event Dialog   
+      </a>
+    </h5>
+    <h5>
+      <a href="/pages/task-dialog">
+        Task Dialog   
+      </a>
+    </h5>
+    <h5>
       <a href="/pages/react-dialog">
         React Dialog Element   
       </a>
