@@ -13,13 +13,18 @@
 
 #groupboxVbox {
   min-width: 195px;
+  max-width: calc(100% - 20px);
+}
+
+/*important to make sure each fieldset takes same width */
+fieldset {
+  width: auto;
 }
 
 iframe#content {
   background: white;
   border: 2px solid #3c3c3c;
-  /*min-width: 30em;
-  min-height: 30em;*/
+  min-width: 10px;
   flex: 1;
 }
 
@@ -33,4 +38,8 @@ iframe#content {
 
 #what-to-print-group .row:not(.row-align-content) > .row-label {
   min-width: 37px;
+}
+
+iframe {
+  pointer-events: none;
 }
