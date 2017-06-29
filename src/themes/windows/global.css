@@ -45,7 +45,7 @@
 }
 
 .row > .row-input {
-  flex: 1;
+  flex: 1 0 10px;
   padding: 0px 4px;
 }
 
