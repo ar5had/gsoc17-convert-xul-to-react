@@ -14,6 +14,7 @@
 #groupboxVbox {
   min-width: 195px;
   max-width: calc(100% - 20px);
+  padding-right: 5px;
 }
 
 /*important to make sure each fieldset takes same width */

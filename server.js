@@ -61,8 +61,8 @@ app.get('/', (req, res)=>{
       }
     </style>
     <h5>
-      <a href="/pages/calendar-properties-dialog">
-        calendar properties dialog
+      <a href="/pages/react-dialog">
+        React Dialog Element   
       </a>
     </h5>
     <h5>
@@ -86,8 +86,8 @@ app.get('/', (req, res)=>{
       </a>
     </h5>
     <h5>
-      <a href="/pages/react-dialog">
-        React Dialog Element   
+      <a href="/pages/calendar-properties-dialog">
+        calendar properties dialog
       </a>
     </h5>
     <h5 class="iframe-btn-wrapper">
