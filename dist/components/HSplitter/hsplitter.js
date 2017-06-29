@@ -10,7 +10,7 @@ class HSplitter extends React.Component {
 
     this.boxDefaultWidth = +window
       .getComputedStyle(this.box)
-      .getPropertyValue("width")
+      .getPropertyValue("min-width")
       .slice(0, -2);
 
     this.splitter.addEventListener("mousedown", e => {
