@@ -9,7 +9,7 @@
   box-sizing: border-box;
 }
 
-.dialog {
+.dialog, .window {
   -moz-appearance: dialog;
   background-color: #FFFFFF;
   color: -moz-DialogText;

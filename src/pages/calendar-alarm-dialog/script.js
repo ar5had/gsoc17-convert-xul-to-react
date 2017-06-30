@@ -55,35 +55,31 @@ class CalendarAlarmDialog extends React.Component {
     this.setState({ tabs: newTabState });
   }
 
-  acceptDialog() {
+  snoozeAll() {
     const stateData = JSON.parse(JSON.stringify(this.state.tabs));
     stateData.source = "dialog-message";
-    stateData.action = "ACCEPT";
+    stateData.action = "SNOOZE_ALL";
     this.postMessage(stateData, `${window.location.origin}`);
   }
 
-  cancelDialog() {
-    const message = { source: "dialog-message", action: "CANCEL" };
+  dismissAll() {
+    const message = { source: "dialog-message", action: "DISMISS_ALL" };
     this.postMessage(message, `${window.location.origin}`);
   }
 
   render() {
-    const acceptDialog = this.acceptDialog.bind(this);
-    const cancelDialog = this.cancelDialog.bind(this);
+    const snoozeAll = this.snoozeAll.bind(this);
+    const dismissAll = this.dismissAll.bind(this);
 
     return (
-      <Dialog
-        ondialogaccept={acceptDialog}
-        ondialogcancel={cancelDialog}
-        buttonlabelaccept="Print"
-        buttonaccesskeyaccept="P"
-      >
-        <div className="vgrid">
-          <PrintDialogGroupBox />
-          <HSplitter boxId="groupboxVbox" boxWindowId="dialog-content-box" />
-          <iframe src="about:blank" frameBorder="0" id="content" />
-        </div>
-      </Dialog>
+      <div id="alarm-dialog-content-box" className="wrapper window">
+        <RichListBox cssClasses="alarm-dialog-richlistbox" />
+        <AlarmDialogButtonBox
+          cssClasses="alarm-dialog-buttonbox"
+          snoozeAll={snoozeAll}
+          dismissAll={dismissAll}
+        />
+      </div>
     );
   }
 }
