@@ -41,10 +41,7 @@ class HSplitter extends React.Component {
   splitterDrag(e) {
     if (this.isMouseButtonDown(e)) {
       const disp = e.clientX - this.prevX;
-      const newWidth = Math.max(
-        this.boxDefaultWidth,
-        this.box.offsetWidth + disp
-      );
+      const newWidth = Math.max(this.boxDefaultWidth, this.box.offsetWidth + disp);
       this.box.style.width = `${newWidth}px`;
       this.prevX = Math.max(
         this.box.getBoundingClientRect().left + this.boxDefaultWidth,
@@ -57,7 +54,10 @@ class HSplitter extends React.Component {
   }
 
   render() {
-    return <div className="splitter vertical" ref={node => (this.splitter = node)} />;
+    return React.createElement("div", {
+      className: "splitter vertical",
+      ref: node => (this.splitter = node)
+    });
   }
 }
 

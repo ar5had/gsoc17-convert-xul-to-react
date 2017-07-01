@@ -1,0 +1,50 @@
+/*These .dialog and #root styles have to go when used into thunderbird*/
+#root {
+  max-width: 800px;
+  margin: auto;
+}
+
+.dialog {
+  box-shadow: 0 10px 30px 0 rgba(46, 61, 73, .35);
+  margin: 10vh 25px 0;
+  display: inline-block;
+  min-width: calc(100% - 50px);
+}
+
+.dialog-button-box {
+  display: flex;
+}
+
+.dialog-button {
+  white-space: nowrap;
+}
+
+.accept-btn {
+  order: 6;
+}
+
+.cancel-btn {
+  order: 5;
+}
+
+.dialog-button-spacer {
+  order: 4;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.extra1-btn {
+  order: 3;
+}
+
+.extra2-btn {
+  order: 2;
+}
+
+.help-btn {
+  order: 1;
+}
+
+.discourse-btn {
+  order: 0;
+}

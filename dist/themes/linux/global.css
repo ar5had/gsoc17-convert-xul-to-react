@@ -1,0 +1,106 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/* ===== global.css for React/Html =====================================================
+  == Styles that apply everywhere.
+  ======================================================================= */
+
+* {
+  font: message-box;
+  color: -moz-DialogText;
+  -moz-user-focus: ignore;
+  -moz-user-select: none;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.dialog, .window {
+  -moz-appearance: window;
+  background-color: -moz-Dialog;
+  color: -moz-DialogText;
+  font: message-box;
+}
+
+.vgrid {
+  display: flex;
+}
+
+.row {
+  display: flex;
+  padding: 3px 0;
+  align-items: flex-start;
+}
+
+.row label, .row input[type="checkbox"], .row input[type="radio"] {
+  margin: auto 5px auto 0;
+}
+
+.row > .row-input {
+  flex: 1 1 10px;
+  padding: 0px 4px;
+}
+
+.row > select.row-input {
+  padding: 1px 0;
+}
+
+.row.row-label-expanded .row-input, .row-align-content .row-input {
+  flex: none;
+}
+
+.row.row-label-expanded > label {
+  flex: 1;
+  margin-right: 0;
+}
+
+input[type="text"], .row input[type="date"] {
+  /* 
+    input of type text has a default min-width
+    which breaks layout on small width 
+  */
+  min-width: 10px;
+  padding: 2px;
+}
+
+.row > input[type="text"].row-input {
+  padding: 2px 4px;
+}
+
+#calendar-properties-grid {
+  padding-left: 21px;
+}
+
+label.disabled {
+  color: GrayText;
+}
+
+fieldset {
+  -moz-appearance: groupbox;
+  border: 2px groove ThreeDFace;
+  border-radius: 3px;
+  margin: 3px 0 5px 0;
+  padding: 4px 6px;
+}
+
+legend {
+  padding: 0;
+}
+
+.mar-right-15 {
+  margin-right: 15px !important;
+}
+
+input[type="radio"]:focus + label, input[type="checkbox"]:focus + label {
+  outline: 1px dotted;
+}
+
+/* ::::: root ::::: */
+:root {
+  text-rendering: optimizeLegibility;
+  -moz-control-character-visibility: visible;
+}
+
+.mar-right-15 {
+  margin-right: 15px;
+}
