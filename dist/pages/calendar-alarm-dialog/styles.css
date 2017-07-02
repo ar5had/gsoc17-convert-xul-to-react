@@ -1,0 +1,29 @@
+.wrapper {
+  box-shadow: 0 10px 30px 0 rgba(46, 61, 73, .35);
+  max-width: 500px;
+  margin: 10vh auto 0;
+  width: calc(100% - 50px);
+  padding: 15px;
+  height: 200px;
+}
+
+/*** Above styles are just to make the dialogs look good ***/
+
+#alarm-dialog-content-box {
+    display: flex;
+    flex-direction: column;
+}
+
+#alarm-action-box {
+    padding-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.alarm-dialog-richlistbox {
+    flex: 1;
+}
+
+.calendar-alarm-widget {
+
+}

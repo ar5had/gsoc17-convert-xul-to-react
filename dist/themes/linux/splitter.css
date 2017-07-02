@@ -1,0 +1,63 @@
+/* ::::: splitter (vertical) ::::: */
+
+.splitter {
+  -moz-appearance: splitter;
+  cursor: ew-resize;
+  border-width: 0 2px;
+  border-style: solid;
+  -moz-border-left-colors: ThreeDShadow ThreeDHighlight;
+  -moz-border-right-colors: ThreeDDarkShadow ThreeDFace;
+  min-width: 6px;
+  background-color: ThreeDFace;
+}
+
+.splitter.vertical {
+  margin-left: 5px;
+}
+
+.splitter[state="collapsed"][collapse="before"],
+.splitter[state="collapsed"][substate="before"],
+.splitter[state="collapsed"][collapse="after"]:-moz-locale-dir(rtl),
+.splitter[state="collapsed"][substate="after"]:-moz-locale-dir(rtl) {
+  cursor: e-resize;
+}
+
+.splitter[state="collapsed"][collapse="after"],
+.splitter[state="collapsed"][substate="after"],
+.splitter[state="collapsed"][collapse="before"]:-moz-locale-dir(rtl),
+.splitter[state="collapsed"][substate="before"]:-moz-locale-dir(rtl) {
+  cursor: w-resize;
+}
+
+/* ::::: splitter (horizontal) ::::: */
+
+.splitter[orient="vertical"] {
+  cursor: ns-resize;
+}
+
+.splitter[orient="vertical"][state="collapsed"][collapse="before"],
+.splitter[orient="vertical"][state="collapsed"][substate="before"] {
+  cursor: s-resize;
+}
+
+.splitter[orient="vertical"][state="collapsed"][collapse="after"],
+.splitter[orient="vertical"][state="collapsed"][substate="after"] {
+  cursor: n-resize;
+}
+
+.splitter[disabled="true"] {
+  cursor: default !important;
+}
+
+/* ::::: splitter grippy ::::: */
+
+.grippy {
+  cursor: pointer;
+  min-width: 4px;
+  min-height: 115px;
+}
+
+.splitter[orient="vertical"] > .grippy {
+  min-width: 115px;
+  min-height: 4px;
+}

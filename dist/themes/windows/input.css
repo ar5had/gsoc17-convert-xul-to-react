@@ -1,0 +1,33 @@
+input[type="text"] {
+  -moz-appearance: textfield;
+  cursor: text;
+  -moz-border-top-colors: ThreeDShadow ThreeDDarkShadow;
+  -moz-border-right-colors: ThreeDHighlight ThreeDLightShadow;
+  -moz-border-bottom-colors: ThreeDHighlight ThreeDLightShadow;
+  -moz-border-left-colors: ThreeDShadow ThreeDDarkShadow;
+  color: -moz-FieldText;
+  -moz-user-select: text;
+  user-select: text;
+}
+
+input[type="color"]#calendar-color {
+  flex: none;
+  width: 45px;
+  padding: 2px;
+  -moz-appearance: textfield;
+}
+
+/* ..... readonly state ..... */
+
+input[type="text"][readonly] {
+  /*background-color: -moz-Dialog;*/
+  color: -moz-DialogText;
+}
+
+/* ..... disabled state ..... */
+
+input[type="text"][disabled] {
+  cursor: default;
+  /*background-color: -moz-Dialog;*/
+  color: GrayText;
+}
