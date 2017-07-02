@@ -2,9 +2,13 @@
 
 .splitter {
   -moz-appearance: splitter;
-  -moz-box-align: center;
-  -moz-box-pack: center;
   cursor: ew-resize;
+  border-width: 0 2px;
+  border-style: solid;
+  -moz-border-left-colors: ThreeDShadow ThreeDHighlight;
+  -moz-border-right-colors: ThreeDDarkShadow ThreeDFace;
+  min-width: 6px;
+  background-color: ThreeDFace;
 }
 
 .splitter.vertical {

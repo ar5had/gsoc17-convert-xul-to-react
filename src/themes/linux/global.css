@@ -77,23 +77,24 @@ label.disabled {
 
 fieldset {
   -moz-appearance: groupbox;
-  border: 2px groove ThreeDFace;
-  border-radius: 3px;
-  margin: 3px 0 5px 0;
-  padding: 4px 6px;
+  border: none;
+  margin: 0 0 10px 0;
+  padding: 2px 2px 2px 13px;
 }
 
 legend {
+  font-weight: bold;
   padding: 0;
+  margin-left: -13px;
 }
 
 .mar-right-15 {
   margin-right: 15px !important;
 }
 
-input[type="radio"]:focus + label, input[type="checkbox"]:focus + label {
+/*input[type="radio"]:focus + label, input[type="checkbox"]:focus + label {
   outline: 1px dotted;
-}
+}*/
 
 /* ::::: root ::::: */
 :root {

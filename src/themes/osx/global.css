@@ -84,9 +84,9 @@ legend {
   margin-right: 15px !important;
 }
 
-input[type="radio"]:focus + label, input[type="checkbox"]:focus + label {
+/*input[type="radio"]:focus + label, input[type="checkbox"]:focus + label {
   outline: 1px dotted;
-}
+}*/
 
 %ifndef MOZ_PHOTON_THEME
 @media (-moz-mac-yosemite-theme) {

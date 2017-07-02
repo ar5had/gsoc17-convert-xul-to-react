@@ -2,7 +2,7 @@ class PrintDialogGroupBox extends React.Component {
   render() {
     return (
       <div id="groupboxVbox">
-        <Fieldset title="Settings" id="settingsGroup">
+        <Fieldset title="Print Settings" id="settingsGroup">
           <div className="fieldset-content-wrapper">
             <div className="row">
               <label htmlFor="title-field" className="row-label">Title:</label>
