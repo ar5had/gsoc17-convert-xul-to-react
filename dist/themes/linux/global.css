@@ -37,7 +37,7 @@
 }
 
 .row > .row-input {
-  flex: 1 1 10px;
+  flex: 1;
   padding: 0px 4px;
 }
 
@@ -80,6 +80,8 @@ fieldset {
   border: none;
   margin: 0 0 10px 0;
   padding: 2px 2px 2px 13px;
+  /* important because fieldset is one those tags which somehow has default min-width in some os */
+  min-width: 0;
 }
 
 legend {

@@ -1,18 +1,25 @@
 /* ::::: splitter (vertical) ::::: */
 
 .splitter {
-  -moz-appearance: splitter;
   cursor: ew-resize;
   border-width: 0 2px;
   border-style: solid;
-  -moz-border-left-colors: ThreeDShadow ThreeDHighlight;
-  -moz-border-right-colors: ThreeDDarkShadow ThreeDFace;
+  -moz-border-left-colors: transparent;
+  -moz-border-right-colors: transparent;
   min-width: 6px;
   background-color: ThreeDFace;
 }
 
 .splitter.vertical {
   margin-left: 5px;
+}
+
+.splitter-cursor:hover {
+  cursor: ew-resize !important;
+}
+
+.splitter-cursor * {
+  cursor: ew-resize !important;
 }
 
 .splitter[state="collapsed"][collapse="before"],

@@ -11,6 +11,14 @@
   margin-left: 5px;
 }
 
+.splitter-cursor {
+  cursor: ew-resize;
+}
+
+.splitter-cursor * {
+  cursor: ew-resize;
+}
+
 .splitter[state="collapsed"][collapse="before"],
 .splitter[state="collapsed"][substate="before"],
 .splitter[state="collapsed"][collapse="after"]:-moz-locale-dir(rtl),

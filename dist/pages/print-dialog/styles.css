@@ -12,16 +12,14 @@
 /*** Above styles are just to make the dialogs look good ***/
 
 #groupboxVbox {
-  min-width: 200px;
+  width: 200px;
   max-width: calc(100% - 20px);
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
 }
 
-/*important to make sure each fieldset takes same width */
-fieldset {
-  width: auto;
+#groupboxVbox > fieldset {
+  width: 100%;
 }
 
 iframe#content {
