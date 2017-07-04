@@ -1,4 +1,5 @@
 class CalendarAlarmWidget extends React.Component {
+
   render() {
     return (
       <div className="calendar-alarm-widget">
