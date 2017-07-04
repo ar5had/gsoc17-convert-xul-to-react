@@ -1,8 +1,17 @@
 class CalendarAlarmWidget extends React.Component {
+  componentDidMount() {
+    if (this.isWidgetSelected()) {
+      this.widget.setAttribute("selected", "true");
+    }
+  }
+
+  isWidgetSelected() {
+    return true;
+  }
 
   render() {
     return (
-      <div className="calendar-alarm-widget">
+      <div className="calendar-alarm-widget" ref={node => (this.widget = node)}>
         <div className="alarm-calendar-image-wrapper">
           <img src="" alt="" className="alarm-calendar-image" />
         </div>

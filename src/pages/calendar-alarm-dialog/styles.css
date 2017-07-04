@@ -32,8 +32,11 @@
 
 .calendar-alarm-widget[selected="true"] {
   background-color: Highlight;
-  color: HighlightText;
   padding: 0 5px;
+}
+
+.calendar-alarm-widget[selected="true"] p {
+  color: HighlightText;
 }
 
 .calendar-alarm-widget[selected="true"] .alarm-title-label {
@@ -41,7 +44,7 @@
 }
 
 .calendar-alarm-widget[selected="true"] .alarm-action-buttons {
-  display: -moz-box;
+    display: flex;
 }
 
 .calendar-alarm-widget[selected="true"] > hbox {
@@ -53,11 +56,11 @@
 .alarm-action-buttons {
   display: none;
 }
-
+/*
 .calendar-alarm-widget[selected="true"] .additional-information-box,
 .calendar-alarm-widget[selected="true"] .action-buttons-box {
   display: -moz-box;
-}
+}*/
 
 .alarm-details-label {
   color: HighlightText;
@@ -65,5 +68,5 @@
 }
 
 .calendar-alarm-widget[selected="true"] .alarm-calendar-image {
-  list-style-image: url(chrome://calendar/skin/cal-icon32.png);
+  background: url(chrome://calendar/skin/cal-icon32.png);
 }

@@ -14,10 +14,11 @@
 
 .alarm-description p {
     line-height: 1;
-    margin: 0;
+    margin: 5px 2px;
 }
 
 .alarm-action-buttons {
     display: flex;
     flex-direction: column;
+    align-self: center;
 }

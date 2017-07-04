@@ -26,7 +26,7 @@
         const link = document.createElement("link");
         link.rel = "stylesheet";
         link.href = `/themes/${os}/${file}.css`;
-        document.head.appendChild(link);
+        document.head.insertBefore(link, document.head.childNodes[0]);
       });
     }
     if (os.includes("Win")) {
