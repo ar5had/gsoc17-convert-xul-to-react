@@ -4,7 +4,7 @@
   margin: 10vh auto 0;
   width: calc(100% - 50px);
   padding: 15px;
-  height: 200px;
+  height: 300px;
 }
 
 /*** Above styles are just to make the dialogs look good ***/
@@ -23,6 +23,31 @@
 .alarm-dialog-richlistbox {
   flex: 1;
 }
+
+.calendar-alarm-widget {
+  display: flex;
+}
+
+.alarm-calendar-image {
+  width: 40px;
+  height: 40px;
+}
+
+.alarm-description {
+  flex: 1;
+}
+
+.calendar-alarm-widget p {
+  line-height: 1;
+  margin: 5px 2px;
+}
+
+.alarm-action-buttons {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
 
 /* Alarm widget specific styles */
 .calendar-alarm-widget {
@@ -44,7 +69,7 @@
 }
 
 .calendar-alarm-widget[selected="true"] .alarm-action-buttons {
-    display: flex;
+  display: flex;
 }
 
 .calendar-alarm-widget[selected="true"] > hbox {
@@ -53,20 +78,31 @@
 
 .calendar-alarm-widget[selected="true"] .alarm-relative-date-label,
 .additional-information-box,
-.alarm-action-buttons {
+.alarm-action-buttons, .alarm-calendar-image-wrapper {
   display: none;
 }
-/*
-.calendar-alarm-widget[selected="true"] .additional-information-box,
+
+.calendar-alarm-widget[selected="true"] .alarm-calendar-image-wrapper {
+  display: block;
+}
+
+.calendar-alarm-widget[selected="true"] .additional-information-box {
+  display: block;
+}
+
 .calendar-alarm-widget[selected="true"] .action-buttons-box {
-  display: -moz-box;
-}*/
+  display: flex;
+}
 
 .alarm-details-label {
   color: HighlightText;
   text-decoration: underline;
 }
 
-.calendar-alarm-widget[selected="true"] .alarm-calendar-image {
-  background: url(chrome://calendar/skin/cal-icon32.png);
+.calendar-alarm-widget .alarm-details-label {
+  display: none
+}
+
+.calendar-alarm-widget p:empty {
+  display: none
 }

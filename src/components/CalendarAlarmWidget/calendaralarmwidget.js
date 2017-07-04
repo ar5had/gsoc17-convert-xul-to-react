@@ -1,17 +1,36 @@
 class CalendarAlarmWidget extends React.Component {
   componentDidMount() {
+    this.addAttributes();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps.isSelected);
+    // need to call removeAttributes first so that previous render attributes are removed
+    this.removeAttributes();
+    this.addAttributes();
+  }
+
+  addAttributes() {
     if (this.isWidgetSelected()) {
       this.widget.setAttribute("selected", "true");
     }
   }
 
+  removeAttributes() {
+    this.widget.removeAttribute("selected");
+  }
+
   isWidgetSelected() {
-    return true;
+    return this.props.isSelected;
   }
 
   render() {
     return (
-      <div className="calendar-alarm-widget" ref={node => (this.widget = node)}>
+      <div
+        className="calendar-alarm-widget"
+        ref={node => (this.widget = node)}
+        onClick={this.props.onClick}
+      >
         <div className="alarm-calendar-image-wrapper">
           <img src="" alt="" className="alarm-calendar-image" />
         </div>
@@ -20,10 +39,11 @@ class CalendarAlarmWidget extends React.Component {
           <div className="additional-information-box">
             <p className="alarm-date-label">23 apr,2017</p>
           </div>
-          <p className="location-label">Location</p>
-          <p className="alarm-location-description">New Delhi, India</p>
+          <p className="location-label" />
+          <p className="alarm-location-description" />
           <p className="text-link alarm-details-label">Details...</p>
         </div>
+        <p className="alarm-relative-date-label">22 Jun, 2am , 2015</p>
         <div className="alarm-action-buttons">
           <button className="alarm-snooze-button">Snooze for</button>
           <button className="alarm-dismiss-button">Dismiss</button>
@@ -33,6 +53,9 @@ class CalendarAlarmWidget extends React.Component {
   }
 }
 
-CalendarAlarmWidget.propTypes = {};
+CalendarAlarmWidget.propTypes = {
+  isSelected: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired
+};
 
 window.CalendarAlarmWidget = CalendarAlarmWidget;

@@ -1,7 +1,9 @@
 class CalendarAlarmDialog extends React.Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      widgetData: [1, 2]
+    };
 
     // this.recieveMessage.bind(this) gives new reference every time
     // so declaring instance variable so that event can be removed
@@ -27,11 +29,7 @@ class CalendarAlarmDialog extends React.Component {
   recieveMessage(e) {
     // extentions talk via postMeessage api(same orgin)
     // so it is very important to filter those events
-    if (
-      e.origin !== window.location.origin ||
-      !e.data ||
-      e.data.source !== "dialog-message"
-    ) {
+    if (e.origin !== window.location.origin || !e.data || e.data.source !== "dialog-message") {
       console.log(`Blocked message event from ${e.origin} with data -`, e.data);
       return;
     }
@@ -41,15 +39,9 @@ class CalendarAlarmDialog extends React.Component {
       `${window.location.origin}/iframe-testing-ground`
     );
 
-    console.log(
-      "%c Data from Parent: Starts",
-      "color: #333; font-size: 20px; font-weight: bold"
-    );
+    console.log("%c Data from Parent: Starts", "color: #333; font-size: 20px; font-weight: bold");
     console.log(e.data);
-    console.log(
-      "%c Data from Parent: Ends",
-      "color: #333; font-size: 20px; font-weight: bold"
-    );
+    console.log("%c Data from Parent: Ends", "color: #333; font-size: 20px; font-weight: bold");
 
     const newTabState = Object.assign({}, e.data);
     this.setState({ tabs: newTabState });
@@ -73,7 +65,7 @@ class CalendarAlarmDialog extends React.Component {
 
     return (
       <div id="alarm-dialog-content-box" className="wrapper window">
-        <RichListBox cssClasses="alarm-dialog-richlistbox" />
+        <RichListBox cssClasses="alarm-dialog-richlistbox" widgetData={this.state.widgetData} />
         <AlarmDialogButtonBox
           cssClasses="alarm-dialog-buttonbox"
           snoozeAll={snoozeAll}
