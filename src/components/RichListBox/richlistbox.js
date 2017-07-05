@@ -28,7 +28,7 @@ class RichListBox extends React.Component {
     const cssClasses = this.props.cssClasses;
 
     return (
-      <div className={`rich-list-box ${cssClasses}`}>
+      <div className={`richlistbox ${cssClasses}`}>
         {allCalendarWidgets}
       </div>
     );

@@ -1,25 +1,24 @@
-.rich-list-box {
+.richlistbox {
   -moz-appearance: listbox;
   margin: 2px 4px;
   background-color: -moz-Field;
   color: -moz-FieldText;
-  border: solid 1px ThreeDShadow;
-  overflow: auto;
 }
 
-.rich-list-box.disabled {
+.richlistbox[disabled="true"] {
   color: GrayText;
 }
 
-.rich-list-item.select {
+.richlistbox > *[selected="true"] {
   background-color: -moz-cellhighlight;
   color: -moz-cellhighlighttext;
 }
-
-.rich-list-box:focus > .rich-list-item.select {
+/*
+.richlistbox:focus > .richlistbox > *[selected="true"] {
   background-color: Highlight;
   color: HighlightText;
-}
+}*/
+
 /*
 .rich-list-box[seltype="multiple"]:focus > .rich-list-item[current="true"] {
   outline: 1px dotted Highlight;
