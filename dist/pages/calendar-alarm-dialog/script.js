@@ -1,7 +1,9 @@
 class CalendarAlarmDialog extends React.Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      widgetData: [1, 2]
+    };
 
     // this.recieveMessage.bind(this) gives new reference every time
     // so declaring instance variable so that event can be removed
@@ -64,7 +66,10 @@ class CalendarAlarmDialog extends React.Component {
     return React.createElement(
       "div",
       { id: "alarm-dialog-content-box", className: "wrapper window" },
-      React.createElement(RichListBox, { cssClasses: "alarm-dialog-richlistbox" }),
+      React.createElement(RichListBox, {
+        cssClasses: "alarm-dialog-richlistbox",
+        widgetData: this.state.widgetData
+      }),
       React.createElement(AlarmDialogButtonBox, {
         cssClasses: "alarm-dialog-buttonbox",
         snoozeAll: snoozeAll,

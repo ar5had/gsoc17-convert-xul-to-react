@@ -1,4 +1,4 @@
-.rich-list-box {
+.richlistbox {
   -moz-appearance: listbox;
   margin: 2px 4px;
   background-color: -moz-Field;
@@ -7,16 +7,16 @@
   overflow: auto;
 }
 
-.rich-list-box.disabled {
+.richlistbox > *[disabled] {
   color: GrayText;
 }
 
-.rich-list-item.selected {
+.richlistbox > *[selected="true"] {
   background-color: -moz-Dialog;
   color: -moz-DialogText;
 }
-
-.rich-list-box:focus > .rich-list-item.selected {
+/*
+.richlistbox:focus > .richlistbox > *[selected="true"] {
   background-color: Highlight;
   color: HighlightText;
-}
+}*/

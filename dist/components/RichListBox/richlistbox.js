@@ -1,13 +1,43 @@
-const RichListBox = ({ cssClasses }) => {
-  return React.createElement(
-    "div",
-    { className: `rich-list-box ${cssClasses}` },
-    React.createElement(CalendarAlarmWidget, null)
-  );
-};
+class RichListBox extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedWidget: 0
+    };
+  }
+
+  changeSelectedWidget(i) {
+    this.setState({ selectedWidget: i });
+  }
+
+  getAllCalendarWidgets() {
+    console.log("calleing getAllWidg");
+    return this.props.widgetData.map((widget, i) =>
+      React.createElement(CalendarAlarmWidget, {
+        key: i,
+        isSelected: i === this.state.selectedWidget,
+        onClick: () => {
+          this.changeSelectedWidget(i);
+        }
+      })
+    );
+  }
+
+  render() {
+    const allCalendarWidgets = this.getAllCalendarWidgets();
+    const cssClasses = this.props.cssClasses;
+
+    return React.createElement(
+      "div",
+      { className: `richlistbox ${cssClasses}` },
+      allCalendarWidgets
+    );
+  }
+}
 
 RichListBox.propTypes = {
-  cssClasses: PropTypes.string
+  cssClasses: PropTypes.string,
+  widgetData: PropTypes.array
 };
 
 window.RichListBox = RichListBox;

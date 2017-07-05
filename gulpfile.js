@@ -54,7 +54,7 @@ gulp.task('bs-reload', () => {
 });
 
 gulp.task('copy-html-css', () => {
-  return gulp.src(["src/**/*.css", "src/**/*.html"], { base: "src/." })
+  return gulp.src(["src/**/*.css", "src/**/*.html", "src/**/*.png", "src/**/*.jpg", "src/**/*.gif"], { base: "src/." })
     .pipe(gulp.dest("dist"));
 });
 
