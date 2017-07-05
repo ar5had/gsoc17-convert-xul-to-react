@@ -1,27 +1,24 @@
 class CalendarAlarmWidget extends React.Component {
   componentDidMount() {
-    this.addAttributes();
+    this.addAttributes(this.props.isSelected);
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps.isSelected);
     // need to call removeAttributes first so that previous render attributes are removed
     this.removeAttributes();
-    this.addAttributes();
+    this.addAttributes(nextProps.isSelected);
   }
 
-  addAttributes() {
-    if (this.isWidgetSelected()) {
+  addAttributes(isWidgetSelected) {
+    if (isWidgetSelected) {
       this.widget.setAttribute("selected", "true");
     }
   }
 
   removeAttributes() {
+    console.log(this.widget.getAttribute("selected"));
     this.widget.removeAttribute("selected");
-  }
-
-  isWidgetSelected() {
-    return this.props.isSelected;
+    console.log(this.widget.getAttribute("selected"));
   }
 
   render() {

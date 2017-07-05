@@ -11,7 +11,6 @@ class RichListBox extends React.Component {
   }
 
   getAllCalendarWidgets() {
-    console.log("calleing getAllWidg");
     return this.props.widgetData.map((widget, i) =>
       <CalendarAlarmWidget
         key={i}
