@@ -16,9 +16,7 @@ class CalendarAlarmWidget extends React.Component {
   }
 
   removeAttributes() {
-    console.log(this.widget.getAttribute("selected"));
-    this.widget.removeAttribute("selected");
-    console.log(this.widget.getAttribute("selected"));    
+    this.widget.removeAttribute("selected");  
   }
 
   render() {

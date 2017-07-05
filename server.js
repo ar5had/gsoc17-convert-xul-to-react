@@ -63,7 +63,7 @@ app.get("/", (req, res) => {
         content: attr(data-status);
         border: solid 1px;
         border-radius: 5px;
-        font-size: 12px;      
+        font-size: 10px;      
         white-space: nowrap;
         padding: 2px 5px;
         color: #999;
@@ -71,9 +71,14 @@ app.get("/", (req, res) => {
       }
 
     </style>
-    <h5>
+    <!-- <h5>
       <a class="sl" href="/pages/react-dialog" data-status="done">
         React Dialog Element   
+      </a>
+    </h5> -->
+    <h5>
+      <a class="sl" href="/pages/calendar-properties-dialog" data-status="done">
+        calendar properties dialog
       </a>
     </h5>
     <h5>
@@ -86,7 +91,7 @@ app.get("/", (req, res) => {
         Calendar Alarm Dialog   
       </a>
     </h5>
-    <h5>
+    <!-- <h5>
       <a class="sl" href="/pages/event-dialog" data-status="in progress">
         Event Dialog   
       </a>
@@ -95,12 +100,7 @@ app.get("/", (req, res) => {
       <a class="sl" href="/pages/task-dialog" data-status="in progress">
         Task Dialog   
       </a>
-    </h5>
-    <h5>
-      <a class="sl" href="/pages/calendar-properties-dialog" data-status="done">
-        calendar properties dialog
-      </a>
-    </h5>
+    </h5> -->
     <h5 class="iframe-btn-wrapper">
       <a href="/pages/iframe-testing-ground">
         <button>
