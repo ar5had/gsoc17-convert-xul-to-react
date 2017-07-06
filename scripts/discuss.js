@@ -6,7 +6,6 @@ if (defaultOrigins.includes(origin)) {
 }
 
 const path = window.location.pathname.replace(".html", "");
-console.log(origin + path, path.slice(1));
 var disqus_config = function() {
   this.page.url = origin + path;
   this.page.identifier = path.slice(1);

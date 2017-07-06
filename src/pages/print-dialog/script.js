@@ -81,7 +81,7 @@ class PrintDialog extends React.Component {
         <div className="vgrid">
           <PrintDialogGroupBox />
           <HSplitter boxId="groupboxVbox" boxWindowId="dialog-content-box" />
-          <iframe src="about:blank" frameBorder="0" id="content" />
+          <iframe src="about:blank" frameBorder="0" id="content"/>
         </div>
       </Dialog>
     );

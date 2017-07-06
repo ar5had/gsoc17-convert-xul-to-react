@@ -1,16 +1,16 @@
 class DialogButton extends React.Component {
   componentDidMount() {
-    this.addAttributes();
+    this.addAttributes(this.props);
   }
 
   componentWillReceiveProps(nextProps) {
-    this.addAttributes();
+    this.addAttributes(nextProps);
   }
 
-  addAttributes() {
-    this.button.setAttribute("dlgtype", this.props.dlgtype);
-    this.button.setAttribute("icon", this.props.dlgtype);
-    if (this.props.isDefaultButton) {
+  addAttributes(props) {
+    this.button.setAttribute("dlgtype", props.dlgtype);
+    this.button.setAttribute("icon", props.dlgtype);
+    if (props.isDefaultButton) {
       this.button.setAttribute("default", "true");
     }
   }
@@ -29,6 +29,7 @@ class DialogButton extends React.Component {
   }
 }
 
+/* eslint-disable react/no-unused-prop-types */
 DialogButton.propTypes = {
   dlgtype: PropTypes.string,
   accessKey: PropTypes.string,

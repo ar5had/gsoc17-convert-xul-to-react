@@ -40,7 +40,7 @@ iframe#content {
 #what-to-print-group .row:not(.row-align-content) > .row-label {
   min-width: 37px;
 }
-/*
-iframe {
+
+iframe#content {
   pointer-events: none;
-}*/
+}
