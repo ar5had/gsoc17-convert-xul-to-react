@@ -1,3 +1,5 @@
+const { Provider } = ReactRedux;
+
 class PrintDialog extends React.Component {
   constructor() {
     super();
@@ -27,12 +29,7 @@ class PrintDialog extends React.Component {
   recieveMessage(e) {
     // extentions talk via postMeessage api(same orgin)
     // so it is very important to filter those events
-    if (
-      e.origin !== window.location.origin ||
-      !e.data ||
-      e.data.source !== "dialog-message"
-    ) {
-      console.log(`Blocked message event from ${e.origin} with data -`, e.data);
+    if (e.origin !== window.location.origin || !e.data || e.data.source !== "dialog-message") {
       return;
     }
 
@@ -41,15 +38,9 @@ class PrintDialog extends React.Component {
       `${window.location.origin}/iframe-testing-ground`
     );
 
-    console.log(
-      "%c Data from Parent: Starts",
-      "color: #333; font-size: 20px; font-weight: bold"
-    );
+    console.log("%c Data from Parent: Starts", "color: #333; font-size: 20px; font-weight: bold");
     console.log(e.data);
-    console.log(
-      "%c Data from Parent: Ends",
-      "color: #333; font-size: 20px; font-weight: bold"
-    );
+    console.log("%c Data from Parent: Ends", "color: #333; font-size: 20px; font-weight: bold");
 
     const newTabState = Object.assign({}, e.data);
     this.setState({ tabs: newTabState });
@@ -81,11 +72,16 @@ class PrintDialog extends React.Component {
         <div className="vgrid">
           <PrintDialogGroupBox />
           <HSplitter boxId="groupboxVbox" boxWindowId="dialog-content-box" />
-          <iframe src="about:blank" frameBorder="0" id="content"/>
+          <iframe src="about:blank" frameBorder="0" id="content" />
         </div>
       </Dialog>
     );
   }
 }
 
-ReactDOM.render(<PrintDialog />, document.getElementById("root"));
+ReactDOM.render(
+  <Provider store={window.redux_store}>
+    <PrintDialog />
+  </Provider>,
+  document.getElementById("root")
+);

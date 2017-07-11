@@ -1,21 +1,45 @@
+const { connect } = ReactRedux;
+const { bindActionCreators } = Redux;
+
 class PrintDialogGroupBox extends React.Component {
+  componentDidMount() {}
+
   render() {
+    const {
+      title,
+      layout,
+      printTasks,
+      printEvents,
+      view,
+      showCompletedTasks,
+      showTasksWithNoDueDate,
+      dateRange
+    } = this.props.state;
+
+    const { changeTitle } = this.props.actions;
+
     return (
       <div id="groupboxVbox">
         <Fieldset title="Print Settings" id="settingsGroup">
           <div className="fieldset-content-wrapper">
             <div className="row">
               <label htmlFor="title-field" className="row-label">Title:</label>
-              <input className="row-input" type="text" id="title-field" />
+              <input
+                className="row-input"
+                type="text"
+                id="title-field"
+                value={title}
+                onChange={changeTitle}
+              />
             </div>
             <div className="row">
               <label htmlFor="layout-field" className="row-label">
                 Layout:
               </label>
-              <select className="row-input" id="layout-field">
-                <option value="list">List</option>
-                <option value="monthly-grid">Monthly Grid</option>
-                <option value="weekly-planner">Weekly Planner</option>
+              <select className="row-input" id="layout-field" value={layout}>
+                <option value="LIST">List</option>
+                <option value="MONTHLY_GRID">Monthly Grid</option>
+                <option value="WEEKLY_PLANNER">Weekly Planner</option>
               </select>
             </div>
           </div>
@@ -27,6 +51,7 @@ class PrintDialogGroupBox extends React.Component {
                 className="row-input checkbox"
                 type="checkbox"
                 id="events"
+                checked={printEvents}
               />
               <label htmlFor="events" className="row-label mar-right-15">
                 Events
@@ -35,6 +60,7 @@ class PrintDialogGroupBox extends React.Component {
                 className="row-input checkbox"
                 type="checkbox"
                 id="tasks"
+                checked={printTasks}
               />
               <label htmlFor="tasks" className="row-label">
                 Tasks
@@ -52,12 +78,7 @@ class PrintDialogGroupBox extends React.Component {
               </label>
             </div>
             <div className="row row-label-expanded">
-              <input
-                className="row-input checkbox"
-                type="radio"
-                name="to-print"
-                id="selected"
-              />
+              <input className="row-input checkbox" type="radio" name="to-print" id="selected" />
               <label htmlFor="selected" className="row-label">
                 Selected events/tasks
               </label>
@@ -89,10 +110,11 @@ class PrintDialogGroupBox extends React.Component {
               <input
                 className="row-input checkbox"
                 type="checkbox"
-                id="task-with-no-due-date"
+                id="tasks-with-no-due-date"
+                checked={showTasksWithNoDueDate}
               />
-              <label htmlFor="task-with-no-due-date" className="row-label">
-                Task with no due date
+              <label htmlFor="tasks-with-no-due-date" className="row-label">
+                Tasks with no due date
               </label>
             </div>
             <div className="row row-label-expanded">
@@ -100,6 +122,7 @@ class PrintDialogGroupBox extends React.Component {
                 className="row-input checkbox"
                 type="checkbox"
                 id="completed-tasks"
+                checked={showCompletedTasks}
               />
               <label htmlFor="completed-tasks" className="row-label">
                 Completed tasks
@@ -112,4 +135,17 @@ class PrintDialogGroupBox extends React.Component {
   }
 }
 
-window.PrintDialogGroupBox = PrintDialogGroupBox;
+PrintDialogGroupBox.propTypes = {
+  actions: PropTypes.object.isRequired,
+  state: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({ state });
+
+const mapDispatchToProps = dispatch => {
+  return {
+    actions: bindActionCreators(window.redux_actions, dispatch)
+  };
+};
+
+window.PrintDialogGroupBox = connect(mapStateToProps, mapDispatchToProps)(PrintDialogGroupBox);
