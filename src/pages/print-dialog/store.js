@@ -1,8 +1,6 @@
 (function() {
   const { createStore, applyMiddleware, compose } = Redux;
 
-  const { createLogger } = window.reduxLogger;
-
   const initialState = {
     printSettings: {
       title: "Some title",
@@ -22,7 +20,7 @@
     iframe: ""
   };
 
-  const middlewares = [createLogger()];
+  const middlewares = [];
 
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // add support for Redux dev tools
 
