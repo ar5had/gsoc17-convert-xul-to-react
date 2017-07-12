@@ -103,10 +103,8 @@ WhatToPrint.propTypes = {
 
 const mapStateToProps = ({ whatToPrint }) => ({ state: whatToPrint });
 
-const mapDispatchToProps = dispatch => {
-  return {
-    actions: bindActionCreators(window.redux_actions, dispatch)
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(window.redux_actions, dispatch)
+});
 
 window.WhatToPrint = connect(mapStateToProps, mapDispatchToProps)(WhatToPrint);
