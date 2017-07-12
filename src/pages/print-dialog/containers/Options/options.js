@@ -3,6 +3,8 @@ const { bindActionCreators } = Redux;
 
 const Options = ({ state, actions }) => {
   const { showTasksWithNoDueDate, showCompletedTasks } = state;
+  const { toggleCompletedTasks, toggleTasksWithNoDueDate } = actions;
+
   return (
     <Fieldset title="Options" id="optionsGroup">
       <div className="fieldset-content-wrapper">
@@ -12,6 +14,7 @@ const Options = ({ state, actions }) => {
             type="checkbox"
             id="tasks-with-no-due-date"
             checked={showTasksWithNoDueDate}
+            onChange={toggleTasksWithNoDueDate}
           />
           <label htmlFor="tasks-with-no-due-date" className="row-label">
             Tasks with no due date
@@ -23,6 +26,7 @@ const Options = ({ state, actions }) => {
             type="checkbox"
             id="completed-tasks"
             checked={showCompletedTasks}
+            onChange={toggleCompletedTasks}
           />
           <label htmlFor="completed-tasks" className="row-label">
             Completed tasks
@@ -38,7 +42,7 @@ Options.propTypes = {
   actions: PropTypes.object.isRequired
 };
 
-const mapStateToProps = state => ({ state });
+const mapStateToProps = ({ options }) => ({ state: options });
 
 const mapDispatchToProps = dispatch => {
   return {

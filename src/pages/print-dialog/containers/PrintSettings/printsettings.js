@@ -3,7 +3,7 @@ const { bindActionCreators } = Redux;
 
 const PrintSettings = ({ state, actions }) => {
   const { title, layout } = state;
-  const { changeTitle } = actions;
+  const { changeTitle, changeLayout } = actions;
   return (
     <Fieldset title="Print Settings" id="settingsGroup">
       <div className="fieldset-content-wrapper">
@@ -21,7 +21,7 @@ const PrintSettings = ({ state, actions }) => {
           <label htmlFor="layout-field" className="row-label">
             Layout:
           </label>
-          <select className="row-input" id="layout-field" value={layout}>
+          <select className="row-input" id="layout-field" value={layout} onChange={changeLayout}>
             <option value="LIST">List</option>
             <option value="MONTHLY_GRID">Monthly Grid</option>
             <option value="WEEKLY_PLANNER">Weekly Planner</option>
@@ -37,7 +37,7 @@ PrintSettings.propTypes = {
   actions: PropTypes.object.isRequired
 };
 
-const mapStateToProps = state => ({ state });
+const mapStateToProps = ({ printSettings }) => ({ state: printSettings });
 
 const mapDispatchToProps = dispatch => {
   return {

@@ -14,60 +14,56 @@
 
   window.redux_actions = {};
 
-  const changeTitle = event => ({
+  const changeTitle = ({ currentTarget }) => ({
     type: CHANGE_TITLE,
-    payload: event.currentTarget.value
+    payload: currentTarget.value
   });
 
-  const changeView = text => ({
-    type: CHANGE_VIEW,
-    payload: text
-  });
-
-  const changeLayout = text => ({
+  const changeLayout = ({ currentTarget }) => ({
     type: CHANGE_LAYOUT,
-    payload: text
+    payload: currentTarget.value
   });
 
-  const changeFromDate = fromDate => ({
+  const changeView = ({ currentTarget }) => ({
+    type: CHANGE_VIEW,
+    payload: currentTarget.value
+  });
+
+  const changeFromDate = ({ currentTarget }) => ({
     type: CHANGE_FROM_DATE,
-    payload: fromDate
+    payload: currentTarget.value
   });
 
-  const changeToDate = toDate => ({
+  const changeToDate = ({ currentTarget }) => ({
     type: CHANGE_TO_DATE,
-    payload: toDate
+    payload: currentTarget.value
   });
 
-  const toggleEventsShow = flag => ({
-    type: TOGGLE_EVENTS_SHOW,
-    payload: flag
+  const toggleEventsShow = () => ({
+    type: TOGGLE_EVENTS_SHOW
   });
 
-  const toggleTasksShow = flag => ({
-    type: TOGGLE_TASKS_SHOW,
-    payload: flag
+  const toggleTasksShow = () => ({
+    type: TOGGLE_TASKS_SHOW
   });
 
-  const toggleTasksWithNoDueDate = flag => ({
-    type: TOGGLE_TASKS_WITH_NO_DUE_DATE,
-    payload: flag
+  const toggleTasksWithNoDueDate = () => ({
+    type: TOGGLE_TASKS_WITH_NO_DUE_DATE
   });
 
-  const toggleCompletedTasks = flag => ({
-    type: TOGGLE_COMPLETED_TASKS,
-    payload: flag
+  const toggleCompletedTasks = () => ({
+    type: TOGGLE_COMPLETED_TASKS
   });
 
   window.redux_actions = {
     changeTitle,
-    changeView,
     changeLayout,
+    toggleEventsShow,
+    toggleTasksShow,
+    changeView,
     changeFromDate,
     changeToDate,
     toggleCompletedTasks,
-    toggleEventsShow,
-    toggleTasksShow,
     toggleTasksWithNoDueDate
   };
 })();
