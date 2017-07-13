@@ -2,7 +2,8 @@ window.addEventListener("load", () => {
   let dialog;
   let postMessageInterval;
   const selectbox = document.getElementById("component-selector");
-  const container = document.querySelector(".container");
+  const pseudoWindow = document.querySelector(".pseudo-window");
+  const container = document.querySelector("#iframe-wrapper");
   const textarea = document.querySelector("#ta");
 
   const DIALOG_STATES = {
@@ -116,6 +117,10 @@ window.addEventListener("load", () => {
   handleFormSubmit = event => {
     const dialogName = selectbox.options[selectbox.selectedIndex].value;
     const object = textarea.value;
+
+    pseudoWindow.classList.remove("hide");
+    pseudoWindow.setAttribute("data-title", dialogName.replace(/-/g, " "));
+
     loadIframe(dialogName, JSON.parse(object));
     document.querySelector(".container").scrollIntoView({ behavior: "smooth" });
     return false;
