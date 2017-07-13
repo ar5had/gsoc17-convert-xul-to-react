@@ -103,12 +103,12 @@ class CalendarPropertiesDialog extends React.Component {
     const stateData = JSON.parse(JSON.stringify(this.state.tabs));
     stateData.source = "dialog-message";
     stateData.action = "ACCEPT";
-    this.postMessage(stateData, `${window.location.origin}`);
+    this.postMessage(stateData, `${window.location.origin}/iframe-testing-ground`);
   }
 
   cancelDialog() {
     const message = { source: "dialog-message", action: "CANCEL" };
-    this.postMessage(message, `${window.location.origin}`);
+    this.postMessage(message, `${window.location.origin}/iframe-testing-ground`);
   }
 
   render() {

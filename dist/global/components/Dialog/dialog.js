@@ -3,18 +3,7 @@
     constructor(props) {
       super(props);
       this.buttonOptions = ["accept", "cancel", "help", "disclosure", "extra1", "extra2"];
-      this.alignOptions = ["start", "center", "end", "baseline", "stretch"];
-      // this.buttondirOptions = ["normal", "reverse"];
-      // this.buttonOrientOptions = ["horizontal", "vertical"];
-      // this.buttonPackOptions = ["start", "center", "end"];
       this.addKeyListeners = this.addKeyListeners.bind(this);
-    }
-
-    getChildContext() {
-      return {
-        acceptDialog: this.acceptDialog.bind(this),
-        cancelDialog: this.cancelDialog.bind(this)
-      };
     }
 
     componentDidMount() {
@@ -28,10 +17,10 @@
     callDefaultButtonHandler(defaultButton) {
       switch (defaultButton) {
         case "accept":
-          this.acceptDialog();
+          this.props.ondialogaccept();
           break;
         case "cancel":
-          this.cancelDialog();
+          this.props.ondialogcancel();
           break;
         case "disclosure":
           this.props.ondialogdisclosure();
@@ -61,26 +50,12 @@
       }
     }
 
-    // centerWindowOnScreen and moveToAlertPosition
-    // can't be implmented without any parent xul wrapper help
-
-    acceptDialog() {
-      this.props.ondialogaccept();
-    }
-
-    cancelDialog() {
-      this.props.ondialogcancel();
-    }
-
-    // getButton(btn) {
-    // }
-
     assignClickHandler(btn) {
       switch (btn) {
         case "accept":
-          return this.acceptDialog.bind(this);
+          return this.props.ondialogaccept.bind(this);
         case "cancel":
-          return this.cancelDialog.bind(this);
+          return this.props.ondialogcancel.bind(this);
         case "disclosure":
           return this.props.ondialogdisclosure.bind(this);
         case "help":
@@ -96,7 +71,7 @@
 
     getAllButtons() {
       const props = this.props;
-      const buttonsList = this.props.buttons
+      const buttonsList = props.buttons
         .split(",")
         .map(btn => btn.trim())
         .filter(btn => this.buttonOptions.includes(btn));
@@ -138,8 +113,6 @@
     buttonaccesskeyextra1: PropTypes.string,
     buttonaccesskeyextra2: PropTypes.string,
     buttonaccesskeyhelp: PropTypes.string,
-    // buttonalign: PropTypes.string,
-    // buttondir: PropTypes.string,
     buttondisabledaccept: PropTypes.bool,
     buttonlabelaccept: PropTypes.string,
     buttonlabelcancel: PropTypes.string,
@@ -147,8 +120,6 @@
     buttonlabelextra1: PropTypes.string,
     buttonlabelextra2: PropTypes.string,
     buttonlabelhelp: PropTypes.string,
-    // buttonorient: PropTypes.string,
-    // buttonpack: PropTypes.string,
     buttons: PropTypes.string,
     defaultButton: PropTypes.string,
     ondialogaccept: PropTypes.func,
@@ -157,17 +128,10 @@
     ondialogextra1: PropTypes.func,
     ondialogextra2: PropTypes.func,
     ondialoghelp: PropTypes.func,
-    // title: PropTypes.string,
-    // activetitlebarcolor: PropTypes.string,
-    // inactivetitlebarcolor: PropTypes.string
     children: PropTypes.element
   };
 
   Dialog.defaultProps = {
-    // buttonalign: "right",
-    // buttondir: "normal",
-    // buttonorient: "horizontal",
-    // buttonpack: "end",
     buttondisabledaccept: false,
     buttonaccesskeyaccept: null,
     buttonaccesskeycancel: null,
@@ -189,15 +153,6 @@
     ondialogextra1: () => true,
     ondialogextra2: () => true,
     ondialoghelp: () => true
-    // title: "New Dialog",
-    // activetitlebarcolor: null,
-    // inactivetitlebarcolor: null
-  };
-
-  Dialog.childContextTypes = {
-    acceptDialog: PropTypes.func,
-    cancelDialog: PropTypes.func
-    // getButton: PropTypes.func
   };
 
   window.Dialog = Dialog;

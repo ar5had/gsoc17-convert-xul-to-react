@@ -82,6 +82,8 @@ iframe {
   border: solid 1px #bbb;
   border-top: none;
   margin-top: 28px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 #iframe-wrapper:empty {
@@ -116,15 +118,15 @@ iframe {
   overflow: hidden;
   position: relative;
   transform: scale(1);
-  -webkit-transition: all .25s ease-in-out 1s;
-  -moz-transition: all .25s ease-in-out 1s;
-  -o-transition: all .25s ease-in-out 1s;
-  transition: all .25s ease-in-out 1s;
+  -webkit-transition: visiblity .2s linear 1.25s ,transform .4s ease-in-out 1.25s;
+  -moz-transition: visiblity .2s linear 1.25s ,transform .4s ease-in-out 1.25s;
+  -o-transition: visiblity .2s linear 1.25s ,transform .4s ease-in-out 1.25s;
+  transition: visiblity .2s linear 1.25s ,transform .4s ease-in-out 1.25s;
 }
 
 .pseudo-window.hide {
   visibility: hidden;
-  transform: scale(.8)
+  transform: scale(.8);
 }
 
 .pseudo-window:before {

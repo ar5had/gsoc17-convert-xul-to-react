@@ -7,19 +7,19 @@
 
     const initialState = {
       printSettings: {
-        title: "Some title",
-        layout: "LIST"
+        title: "",
+        layout: ""
       },
       whatToPrint: {
-        printEvents: true,
-        printTasks: true,
-        view: "CURRENT_VIEW",
+        printEvents: false,
+        printTasks: false,
+        view: "",
         fromDate: "",
         toDate: ""
       },
       options: {
-        showTasksWithNoDueDate: true,
-        showCompletedTasks: true
+        showTasksWithNoDueDate: false,
+        showCompletedTasks: false
       },
       iframe: ""
     };

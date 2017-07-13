@@ -58,6 +58,14 @@
     type: TOGGLE_COMPLETED_TASKS
   });
 
+  const acceptDialog = () => {
+    window.acceptDialog();
+  };
+
+  const cancelDialog = () => {
+    window.cancelDialog();
+  };
+
   window.__print_settings_actions__ = {
     changeTitle,
     changeLayout
@@ -74,6 +82,11 @@
     changeView,
     changeFromDate,
     changeToDate
+  };
+
+  window.__dialog_actions__ = {
+    acceptDialog,
+    cancelDialog
   };
 
   window.__global_actions__ = {
