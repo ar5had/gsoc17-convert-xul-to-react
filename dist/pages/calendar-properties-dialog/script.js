@@ -71,7 +71,6 @@ class CalendarPropertiesDialog extends React.Component {
     // extentions talk via postMeessage api(same orgin)
     // so it is very important to filter those events
     if (e.origin !== window.location.origin || !e.data || e.data.source !== "dialog-message") {
-      console.log(`Blocked message event from ${e.origin} with data -`, e.data);
       return;
     }
 
