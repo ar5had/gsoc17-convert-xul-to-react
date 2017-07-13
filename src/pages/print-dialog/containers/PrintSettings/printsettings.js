@@ -41,7 +41,7 @@
   const mapStateToProps = ({ printSettings }) => ({ state: printSettings });
 
   const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators(window.redux_actions, dispatch)
+    actions: bindActionCreators(window.__print_settings_actions__, dispatch)
   });
 
   window.PrintSettings = connect(mapStateToProps, mapDispatchToProps)(PrintSettings);

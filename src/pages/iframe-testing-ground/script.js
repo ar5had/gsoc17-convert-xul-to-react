@@ -47,6 +47,25 @@ window.addEventListener("load", () => {
         ]
       },
       source: "dialog-message"
+    },
+    "print-dialog": {
+      printSettings: {
+        title: "no title",
+        layout: "LIST"
+      },
+      whatToPrint: {
+        printEvents: true,
+        printTasks: true,
+        view: "CURRENT_VIEW",
+        fromDate: "",
+        toDate: ""
+      },
+      options: {
+        showTasksWithNoDueDate: true,
+        showCompletedTasks: true
+      },
+      iframe: "",
+      source: "dialog-message"
     }
   };
 
@@ -81,11 +100,7 @@ window.addEventListener("load", () => {
   };
 
   const msgHandler = e => {
-    if (
-      e.origin !== window.location.origin ||
-      !e.data ||
-      e.data.source !== "dialog-message"
-    ) {
+    if (e.origin !== window.location.origin || !e.data || e.data.source !== "dialog-message") {
       return;
     }
 

@@ -46,7 +46,7 @@
   const mapStateToProps = ({ options }) => ({ state: options });
 
   const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators(window.redux_actions, dispatch)
+    actions: bindActionCreators(window.__options_actions__, dispatch)
   });
 
   window.Options = connect(mapStateToProps, mapDispatchToProps)(Options);

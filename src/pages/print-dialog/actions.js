@@ -1,4 +1,3 @@
-// Using IIFE to use private scope
 (function() {
   var {
     CHANGE_TITLE,
@@ -9,10 +8,14 @@
     TOGGLE_COMPLETED_TASKS,
     TOGGLE_EVENTS_SHOW,
     TOGGLE_TASKS_SHOW,
-    TOGGLE_TASKS_WITH_NO_DUE_DATE
-  } = window.action_constants;
+    TOGGLE_TASKS_WITH_NO_DUE_DATE,
+    LOAD_INITIAL_STATE
+  } = window.__action_constants__;
 
-  window.redux_actions = {};
+  const loadInitialState = data => ({
+    type: LOAD_INITIAL_STATE,
+    payload: data
+  });
 
   const changeTitle = ({ currentTarget }) => ({
     type: CHANGE_TITLE,
@@ -55,15 +58,25 @@
     type: TOGGLE_COMPLETED_TASKS
   });
 
-  window.redux_actions = {
+  window.__print_settings_actions__ = {
     changeTitle,
-    changeLayout,
+    changeLayout
+  };
+
+  window.__options_actions__ = {
+    toggleCompletedTasks,
+    toggleTasksWithNoDueDate
+  };
+
+  window.__what_to_print_actions__ = {
     toggleEventsShow,
     toggleTasksShow,
     changeView,
     changeFromDate,
-    changeToDate,
-    toggleCompletedTasks,
-    toggleTasksWithNoDueDate
+    changeToDate
+  };
+
+  window.__global_actions__ = {
+    loadInitialState
   };
 })();

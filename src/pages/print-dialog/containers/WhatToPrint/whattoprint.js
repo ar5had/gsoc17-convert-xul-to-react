@@ -105,7 +105,7 @@
   const mapStateToProps = ({ whatToPrint }) => ({ state: whatToPrint });
 
   const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators(window.redux_actions, dispatch)
+    actions: bindActionCreators(window.__what_to_print_actions__, dispatch)
   });
 
   window.WhatToPrint = connect(mapStateToProps, mapDispatchToProps)(WhatToPrint);

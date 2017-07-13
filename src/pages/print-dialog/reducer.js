@@ -8,11 +8,16 @@
     TOGGLE_COMPLETED_TASKS,
     TOGGLE_EVENTS_SHOW,
     TOGGLE_TASKS_SHOW,
-    TOGGLE_TASKS_WITH_NO_DUE_DATE
-  } = window.action_constants;
+    TOGGLE_TASKS_WITH_NO_DUE_DATE,
+    LOAD_INITIAL_STATE
+  } = window.__action_constants__;
 
-  const reducer = (state = {}, action) => {
+  window.__redux_reducer__ = (state = {}, action) => {
     switch (action.type) {
+      case LOAD_INITIAL_STATE: {
+        return Object.assign({}, state, action.payload);
+      }
+
       case CHANGE_TITLE: {
         const printSettings = Object.assign({}, state.printSettings, {
           title: action.payload
@@ -80,6 +85,4 @@
         return state;
     }
   };
-
-  window.redux_reducer = reducer;
 })();

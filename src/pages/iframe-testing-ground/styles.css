@@ -57,7 +57,10 @@ input[type="submit"] {
 
 .container {
   margin: auto;
-  padding-top: 50px;
+  /*margin-top: 50px;*/
+  padding: 50px 20px 0 20px;
+  text-align: center;
+  /*border-top: solid 1px #bbb;*/
 }
 
 .container > h3 {
@@ -71,4 +74,6 @@ input[type="submit"] {
 iframe {
   min-height: 95vh;
   width: 100%;
+  max-width: 1120px;
+  margin: auto;
 }
