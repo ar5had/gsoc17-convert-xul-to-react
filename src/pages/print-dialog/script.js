@@ -4,7 +4,7 @@
   // and message event listener by closure
   const redux_store = window.__configure_redux_store__();
 
-  const sendMessageToParentFrame = (msg, origin) => {
+  const sendMessageToParent = (msg, origin) => {
     // parent and window are same thing if the current page is not in any frame
     if (window !== parent) {
       parent.postMessage(msg, origin);
@@ -17,7 +17,7 @@
     if (e.origin !== window.location.origin || !e.data || e.data.source !== "dialog-message") {
       return;
     }
-    sendMessageToParentFrame(
+    sendMessageToParent(
       { messageRecieved: true, source: "dialog-message" },
       `${window.location.origin}/iframe-testing-ground`
     );
@@ -30,12 +30,12 @@
     const stateData = JSON.parse(JSON.stringify(redux_store.getState()));
     stateData.source = "dialog-message";
     stateData.action = "ACCEPT";
-    sendMessageToParentFrame(stateData, `${window.location.origin}/iframe-testing-ground`);
+    sendMessageToParent(stateData, `${window.location.origin}/iframe-testing-ground`);
   };
 
   window.cancelDialog = () => {
     const message = { source: "dialog-message", action: "CANCEL" };
-    sendMessageToParentFrame(message, `${window.location.origin}/iframe-testing-ground`);
+    sendMessageToParent(message, `${window.location.origin}/iframe-testing-ground`);
   };
 
   ReactDOM.render(
