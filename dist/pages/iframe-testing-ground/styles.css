@@ -105,7 +105,6 @@ iframe {
 }
 
 .pseudo-window {
-  visibility: visible;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box;
@@ -118,15 +117,15 @@ iframe {
   overflow: hidden;
   position: relative;
   transform: scale(1);
-  -webkit-transition: visiblity .2s linear 1.25s ,transform .4s ease-in-out 1.25s;
-  -moz-transition: visiblity .2s linear 1.25s ,transform .4s ease-in-out 1.25s;
-  -o-transition: visiblity .2s linear 1.25s ,transform .4s ease-in-out 1.25s;
-  transition: visiblity .2s linear 1.25s ,transform .4s ease-in-out 1.25s;
+  -webkit-transition: opacity .25s linear 1.25s ,transform .4s ease-in-out 1.25s;
+  -moz-transition: opacity .25s linear 1.25s ,transform .4s ease-in-out 1.25s;
+  -o-transition: opacity .25s linear 1.25s ,transform .4s ease-in-out 1.25s;
+  transition: opacity .25s linear 1.25s ,transform .4s ease-in-out 1.25s;
 }
 
 .pseudo-window.hide {
-  visibility: hidden;
-  transform: scale(.8);
+  opacity: 0;
+  transform: scale(.7);
 }
 
 .pseudo-window:before {
