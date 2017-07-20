@@ -1,5 +1,5 @@
 (function() {
-  const { LOAD_INITIAL_STATE } = window.__action_constants__;
+  const { LOAD_INITIAL_STATE, CHANGE_TITLE } = window.__action_constants__;
 
   const loadInitialState = data => ({
     type: LOAD_INITIAL_STATE,
@@ -14,7 +14,14 @@
     window.cancelDialog();
   };
 
-  window.__title_row_actions__ = {};
+  const changeTitle = ({ currentTarget }) => ({
+    type: CHANGE_TITLE,
+    payload: currentTarget.value
+  });
+
+  window.__basic_info_actions__ = {
+    changeTitle
+  };
 
   window.__dialog_actions__ = {
     acceptDialog,

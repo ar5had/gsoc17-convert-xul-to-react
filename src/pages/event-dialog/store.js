@@ -6,7 +6,9 @@
     const { createStore, applyMiddleware, compose } = Redux;
 
     const initialState = {
-      titleRow: {}
+      basicInfo: {
+        title: ""
+      }
     };
 
     const middlewares = [];
