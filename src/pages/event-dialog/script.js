@@ -40,7 +40,7 @@
 
   ReactDOM.render(
     <Provider store={redux_store}>
-      <PrintDialog />
+      <EventDialog />
     </Provider>,
     document.getElementById("root")
   );

@@ -6,22 +6,7 @@
     const { createStore, applyMiddleware, compose } = Redux;
 
     const initialState = {
-      printSettings: {
-        title: "",
-        layout: ""
-      },
-      whatToPrint: {
-        printEvents: false,
-        printTasks: false,
-        view: "",
-        fromDate: "",
-        toDate: ""
-      },
-      options: {
-        showTasksWithNoDueDate: false,
-        showCompletedTasks: false
-      },
-      iframe: ""
+      titleRow: {}
     };
 
     const middlewares = [];

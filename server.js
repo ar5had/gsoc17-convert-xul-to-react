@@ -91,12 +91,12 @@ app.get("/", (req, res) => {
         Calendar Alarm Dialog   
       </a>
     </h5>
-    <!-- <h5>
+    <h5>
       <a class="sl" href="/pages/event-dialog" data-status="in progress">
         Event Dialog   
       </a>
     </h5>
-    <h5>
+    <!-- <h5>
       <a class="sl" href="/pages/task-dialog" data-status="in progress">
         Task Dialog   
       </a>
