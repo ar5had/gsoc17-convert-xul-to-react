@@ -1,5 +1,5 @@
 (function() {
-  const { LOAD_INITIAL_STATE, CHANGE_TITLE } = window.__action_constants__;
+  const { LOAD_INITIAL_STATE, CHANGE_TITLE, CHANGE_LOCATION } = window.__action_constants__;
 
   const loadInitialState = data => ({
     type: LOAD_INITIAL_STATE,
@@ -16,6 +16,11 @@
 
   const changeTitle = ({ currentTarget }) => ({
     type: CHANGE_TITLE,
+    payload: currentTarget.value
+  });
+
+  const changeLocation = ({ currentTarget }) => ({
+    type: CHANGE_LOCATION,
     payload: currentTarget.value
   });
 

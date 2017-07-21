@@ -7,7 +7,8 @@
 
     const initialState = {
       basicInfo: {
-        title: ""
+        title: "New Event",
+        location: ""
       }
     };
 

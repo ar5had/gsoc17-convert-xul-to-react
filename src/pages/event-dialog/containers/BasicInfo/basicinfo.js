@@ -3,8 +3,8 @@
   const { bindActionCreators } = Redux;
 
   const BasicInfo = ({ state, actions }) => {
-    const { title } = state;
-    const { changeTitle } = actions;
+    const { title, location } = state;
+    const { changeTitle, changeLocation } = actions;
 
     return (
       <div id="basic-info-wrapper">
@@ -23,7 +23,21 @@
             onChange={changeTitle}
           />
         </div>
-        <div className="row event-grid-location-row" />
+        <div className="row event-grid-location-row">
+          <label
+            htmlFor="item-location"
+            className="row-label"
+            dangerouslySetInnerHTML={{ __html: underlineAccessKey("Location:", "L") }}
+          />
+          <input
+            accessKey="I"
+            type="text"
+            id="item-location"
+            className="row-input"
+            value={location}
+            onChange={changeLocation}
+          />
+        </div>
       </div>
     );
   };
