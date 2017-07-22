@@ -13,3 +13,11 @@
 }
 
 /*** Above styles are just to make the dialogs look good ***/
+
+.same-row {
+  display: flex;
+}
+
+.same-row > .row {
+  flex: 1;
+}

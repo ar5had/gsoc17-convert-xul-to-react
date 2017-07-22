@@ -38,6 +38,27 @@
             onChange={changeLocation}
           />
         </div>
+        <div id="event-grid-category-color-row" className="row same-row">
+          <div id="event-grid-category" className="row">
+            <label
+              htmlFor="item-categories"
+              className="row-label"
+              id="event-grid-category-labels-box"
+              dangerouslySetInnerHTML={{ __html: underlineAccessKey("Category:", "y") }}
+            />
+            <select name="item-categories" id="item-categories" className="row-input" />
+          </div>
+          <div id="item-calendar-row" className="row">
+            <label
+              htmlFor="item-calendar"
+              className="row-label"
+              dangerouslySetInnerHTML={{ __html: underlineAccessKey("Calendar:", "C") }}
+            />
+            <select name="item-calendar" id="item-calendar" className="row-input">
+              <option value="HOME">HOME</option>
+            </select>
+          </div>
+        </div>
       </div>
     );
   };
