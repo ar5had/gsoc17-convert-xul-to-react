@@ -47,6 +47,12 @@
     changeItemCategory
   };
 
+  window.__time_info_actions__ = {};
+
+  window.__alarm_reminder_info_actions__ = {};
+
+  window.__other_info_actions__ = {};
+
   window.__dialog_actions__ = {
     acceptDialog,
     cancelDialog

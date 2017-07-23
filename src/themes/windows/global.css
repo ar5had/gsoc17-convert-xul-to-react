@@ -40,7 +40,7 @@
   align-items: flex-start;
 }
 
-.row label, .row input[type="checkbox"], .row input[type="radio"] {
+.row label, .row input[type="checkbox"], .row input[type="radio"], .row .label-spacer {
   margin: auto 5px auto 0;
 }
 

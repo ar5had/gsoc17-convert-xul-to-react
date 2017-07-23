@@ -11,7 +11,12 @@
         location: "",
         itemCategory: "",
         itemCalendar: "HOME"
-      }
+      },
+      timeInfo: {
+        allDayEvent: false
+      },
+      alarmReminderInfo: {},
+      otherInfo: {}
     };
 
     const middlewares = [];

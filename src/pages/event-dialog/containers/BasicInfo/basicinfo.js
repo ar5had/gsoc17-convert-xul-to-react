@@ -54,6 +54,7 @@
               onChange={changeItemCategory}
               value={itemCategory}
             />
+
           </div>
           <div id="item-calendar-row" className="row">
             <label

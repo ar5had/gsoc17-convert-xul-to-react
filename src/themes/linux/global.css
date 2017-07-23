@@ -32,7 +32,7 @@
   align-items: flex-start;
 }
 
-.row label, .row input[type="checkbox"], .row input[type="radio"] {
+.row label, .row input[type="checkbox"], .row input[type="radio"], .row .label-spacer {
   margin: auto 5px auto 0;
 }
 
@@ -118,7 +118,7 @@ legend {
 
 .separator.thin:not(.vertical) {
   height: 0.5em;
-}  
+}
 .separator.thin.vertical {
   width: 0.5em;
 }
