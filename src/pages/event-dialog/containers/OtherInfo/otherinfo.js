@@ -5,8 +5,15 @@
   const OtherInfo = ({ state, actions }) => {
     const {} = state;
     const {} = actions;
+    // <TabStrip tabs={allTabsName} handleTabChange={handleTabChange} activeTab={activeTab} />
 
-    return <div id="other-info-wrapper" />;
+    return (
+      <div id="other-info-wrapper">
+        <TabBox>
+          <TabStrip tabs={["Description", "Attachment", "Attendees"]} />
+        </TabBox>
+      </div>
+    );
   };
 
   OtherInfo.propTypes = {

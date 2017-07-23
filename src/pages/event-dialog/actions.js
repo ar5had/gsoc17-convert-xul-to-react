@@ -4,7 +4,12 @@
     CHANGE_TITLE,
     CHANGE_LOCATION,
     CHANGE_ITEM_CATEGORY,
-    CHANGE_ITEM_CALENDAR
+    CHANGE_ITEM_CALENDAR,
+    TOGGLE_ALL_DAY_EVENT,
+    CHANGE_START_TIME,
+    CHANGE_END_TIME,
+    CHANGE_REPEAT_SETTING,
+    CHANGE_REMINDER_SETTING
   } = window.__action_constants__;
 
   const loadInitialState = data => ({
@@ -40,6 +45,31 @@
     payload: currentTarget.value
   });
 
+  const toggleAllDayEvent = ({ currentTarget }) => ({
+    type: TOGGLE_ALL_DAY_EVENT,
+    payload: currentTarget.checked
+  });
+
+  const changeStartTime = ({ currentTarget }) => ({
+    type: CHANGE_START_TIME,
+    payload: currentTarget.value
+  });
+
+  const changeEndTime = ({ currentTarget }) => ({
+    type: CHANGE_END_TIME,
+    payload: currentTarget.value
+  });
+
+  const changeRepeatSetting = ({ currentTarget }) => ({
+    type: CHANGE_REPEAT_SETTING,
+    payload: currentTarget.value
+  });
+
+  const changeReminderSetting = ({ currentTarget }) => ({
+    type: CHANGE_REMINDER_SETTING,
+    payload: currentTarget.value
+  });
+
   window.__basic_info_actions__ = {
     changeTitle,
     changeLocation,
@@ -47,9 +77,16 @@
     changeItemCategory
   };
 
-  window.__time_info_actions__ = {};
+  window.__time_info_actions__ = {
+    toggleAllDayEvent,
+    changeEndTime,
+    changeStartTime
+  };
 
-  window.__alarm_reminder_info_actions__ = {};
+  window.__alarm_reminder_info_actions__ = {
+    changeReminderSetting,
+    changeRepeatSetting
+  };
 
   window.__other_info_actions__ = {};
 

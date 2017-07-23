@@ -13,9 +13,14 @@
         itemCalendar: "HOME"
       },
       timeInfo: {
-        allDayEvent: false
+        allDayEvent: false,
+        startTime: "",
+        endTime: ""
       },
-      alarmReminderInfo: {},
+      alarmReminderInfo: {
+        repeatSetting: "NOT_REPEAT",
+        reminderSetting: "NO_REMINDER"
+      },
       otherInfo: {}
     };
 

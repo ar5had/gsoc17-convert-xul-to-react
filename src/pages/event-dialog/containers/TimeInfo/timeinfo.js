@@ -3,8 +3,8 @@
   const { bindActionCreators } = Redux;
 
   const TimeInfo = ({ state, actions }) => {
-    const { allDayEvent } = state;
-    const { toggleAllDayEvent } = actions;
+    const { allDayEvent, startTime, endTime } = state;
+    const { toggleAllDayEvent, changeEndTime, changeStartTime } = actions;
 
     return (
       <div id="time-info-wrapper">
@@ -22,6 +22,36 @@
             htmlFor="event-all-day"
             className="row-label"
             dangerouslySetInnerHTML={{ __html: underlineAccessKey("All day event", "d") }}
+          />
+        </div>
+        <div className="row event-grid-startdate-row">
+          <label
+            htmlFor="event-starttime"
+            className="row-label event-only"
+            dangerouslySetInnerHTML={{ __html: underlineAccessKey("Start:", "S") }}
+          />
+          <input
+            accessKey="S"
+            type="date"
+            id="event-starttime"
+            className="row-input no-flex"
+            value={startTime}
+            onChange={changeStartTime}
+          />
+        </div>
+        <div className="row event-grid-enddate-row">
+          <label
+            htmlFor="event-endtime"
+            className="row-label event-only"
+            dangerouslySetInnerHTML={{ __html: underlineAccessKey("End:", "U") }}
+          />
+          <input
+            accessKey="U"
+            type="date"
+            id="event-endtime"
+            className="row-input no-flex"
+            value={endTime}
+            onChange={changeEndTime}
           />
         </div>
         <div className="separator groove" />
