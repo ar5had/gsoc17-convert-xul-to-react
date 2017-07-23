@@ -12,27 +12,24 @@ var _extends =
     return target;
   };
 
-class Input extends React.Component {
-  componentDidMount() {
-    this.props.onLoad(this.input);
+(function() {
+  class Input extends React.Component {
+    componentDidMount() {
+      this.props.onLoad(this.input);
+    }
+
+    render() {
+      return React.createElement(
+        "input",
+        _extends({ ref: node => (this.input = node) }, this.props.inputProps)
+      );
+    }
   }
 
-  render() {
-    return React.createElement(
-      "input",
-      _extends(
-        {
-          ref: node => (this.input = node)
-        },
-        this.props.inputProps
-      )
-    );
-  }
-}
+  Input.propTypes = {
+    onLoad: PropTypes.func.isRequired,
+    inputProps: PropTypes.object
+  };
 
-Input.propTypes = {
-  onLoad: PropTypes.func.isRequired,
-  inputProps: PropTypes.object
-};
-
-window.Input = Input;
+  window.Input = Input;
+})();

@@ -1,9 +1,11 @@
-const TabBox = ({ children }) => {
-  return React.createElement("div", { className: "tabbox" }, children);
-};
+(function() {
+  const TabBox = ({ children }) => {
+    return React.createElement("div", { className: "tabbox" }, children);
+  };
 
-TabBox.propTypes = {
-  children: PropTypes.array.isRequired
-};
+  TabBox.propTypes = {
+    children: PropTypes.array.isRequired
+  };
 
-window.TabBox = TabBox;
+  window.TabBox = TabBox;
+})();

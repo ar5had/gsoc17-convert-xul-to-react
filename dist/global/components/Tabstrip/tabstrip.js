@@ -1,20 +1,22 @@
-const TabStrip = ({ tabs, handleTabChange, activeTab }) => {
-  const tabStripContent = tabs.map(tabName =>
-    React.createElement(Tab, {
-      active: tabName === activeTab,
-      tabName: tabName,
-      key: tabName,
-      handleTabChange: handleTabChange
-    })
-  );
+(function() {
+  const TabStrip = ({ tabs, handleTabChange, activeTab }) => {
+    const tabStripContent = tabs.map(tabName =>
+      React.createElement(Tab, {
+        active: tabName === activeTab,
+        tabName: tabName,
+        key: tabName,
+        handleTabChange: handleTabChange
+      })
+    );
 
-  return React.createElement("div", { className: "tabstrip" }, tabStripContent);
-};
+    return React.createElement("div", { className: "tabstrip" }, tabStripContent);
+  };
 
-TabStrip.propTypes = {
-  handleTabChange: PropTypes.func.isRequired,
-  activeTab: PropTypes.string.isRequired,
-  tabs: PropTypes.array.isRequired
-};
+  TabStrip.propTypes = {
+    handleTabChange: PropTypes.func.isRequired,
+    activeTab: PropTypes.string.isRequired,
+    tabs: PropTypes.array.isRequired
+  };
 
-window.TabStrip = TabStrip;
+  window.TabStrip = TabStrip;
+})();
