@@ -20,4 +20,18 @@
 
 .same-row > .row {
   flex: 1;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.same-row > .row:first-child {
+  margin-left: 0;
+}
+
+.same-row > .row:last-child {
+  margin-right: 0;
+}
+
+.row > .row-label {
+  min-width: 60px;
 }

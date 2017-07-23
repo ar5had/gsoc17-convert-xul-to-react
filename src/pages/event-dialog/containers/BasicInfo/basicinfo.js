@@ -3,8 +3,8 @@
   const { bindActionCreators } = Redux;
 
   const BasicInfo = ({ state, actions }) => {
-    const { title, location } = state;
-    const { changeTitle, changeLocation } = actions;
+    const { title, location, itemCalendar, itemCategory } = state;
+    const { changeTitle, changeLocation, changeItemCategory, changeItemCalendar } = actions;
 
     return (
       <div id="basic-info-wrapper">
@@ -30,7 +30,7 @@
             dangerouslySetInnerHTML={{ __html: underlineAccessKey("Location:", "L") }}
           />
           <input
-            accessKey="I"
+            accessKey="L"
             type="text"
             id="item-location"
             className="row-input"
@@ -46,7 +46,14 @@
               id="event-grid-category-labels-box"
               dangerouslySetInnerHTML={{ __html: underlineAccessKey("Category:", "y") }}
             />
-            <select name="item-categories" id="item-categories" className="row-input" />
+            <select
+              name="item-categories"
+              id="item-categories"
+              className="row-input"
+              accessKey="y"
+              onChange={changeItemCategory}
+              value={itemCategory}
+            />
           </div>
           <div id="item-calendar-row" className="row">
             <label
@@ -54,11 +61,19 @@
               className="row-label"
               dangerouslySetInnerHTML={{ __html: underlineAccessKey("Calendar:", "C") }}
             />
-            <select name="item-calendar" id="item-calendar" className="row-input">
-              <option value="HOME">HOME</option>
+            <select
+              name="item-calendar"
+              id="item-calendar"
+              className="row-input"
+              accessKey="C"
+              onChange={changeItemCalendar}
+              value={itemCalendar}
+            >
+              <option value="HOME">Home</option>
             </select>
           </div>
         </div>
+        <div className="separator groove" />
       </div>
     );
   };

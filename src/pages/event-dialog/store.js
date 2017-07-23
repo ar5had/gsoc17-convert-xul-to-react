@@ -8,7 +8,9 @@
     const initialState = {
       basicInfo: {
         title: "New Event",
-        location: ""
+        location: "",
+        itemCategory: "",
+        itemCalendar: "HOME"
       }
     };
 
