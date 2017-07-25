@@ -38,3 +38,7 @@
 .no-flex {
   flex: none !important;
 }
+
+#other-info-wrapper {
+  margin-top: 10px;
+}

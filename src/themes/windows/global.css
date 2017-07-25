@@ -148,14 +148,14 @@ input[type="radio"]:focus + label, input[type="checkbox"]:focus + label {
   border-top: 1px solid ThreeDShadow;
   border-bottom: 1px solid ThreeDHighlight;
   height: 0;
-  margin-top: 2px;
-  margin-bottom: 2px;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 
 .separator.groove.vertical {
   border-left: 1px solid ThreeDShadow;
   border-right: 1px solid ThreeDHighlight;
   width: 0;
-  margin-left: 2px;
-  margin-right: 2px;
+  margin-left: 4px;
+  margin-right: 4px;
 }
