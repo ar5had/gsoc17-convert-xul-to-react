@@ -114,7 +114,9 @@
 
     render() {
       const activeTabData = this.state.tabs[this.state.activeTab];
-      const allTabsName = Object.keys(this.state.tabs).filter(elem => elem !== "source");
+      const allTabsName = Object.keys(this.state.tabs)
+        .filter(elem => elem !== "source")
+        .map(text => ({ text, id: text.toLowerCase() }));
       const handleTabChange = this.changeTab.bind(this);
       const activeTab = this.state.activeTab;
       const showTabStrip = allTabsName.length > 1;

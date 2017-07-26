@@ -2,10 +2,14 @@
   const EventDialog = () =>
     <div id="event-grid" className="wrapper window">
       <div className="grid-rows">
-        <BasicInfo />
-        <TimeInfo />
-        <AlarmReminderInfo />
-        <OtherInfo />
+        <div className="vblock">
+          <BasicInfo />
+          <TimeInfo />
+          <AlarmReminderInfo />
+        </div>
+        <div className="vblock flex1">
+          <OtherInfo />
+        </div>
       </div>
     </div>;
   window.EventDialog = EventDialog;

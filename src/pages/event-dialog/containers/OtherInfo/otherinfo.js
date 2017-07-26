@@ -6,12 +6,32 @@
     constructor(props) {
       super(props);
       this.state = {
-        activeTab: "Description"
+        activeTab: "description"
       };
     }
 
-    changeTab(tabName) {
-      this.setState({ activeTab: tabName });
+    changeTab(tabId) {
+      this.setState({ activeTab: tabId });
+    }
+
+    getTabList() {
+      return [
+        {
+          text: "Description:",
+          accessKey: "p",
+          id: "description"
+        },
+        {
+          text: "Attachment:",
+          accessKey: "h",
+          id: "attachment"
+        },
+        {
+          text: "Attendees:",
+          accessKey: "n",
+          id: "attendees"
+        }
+      ];
     }
 
     render() {
@@ -25,7 +45,7 @@
         <div id="other-info-wrapper">
           <TabBox>
             <TabStrip
-              tabs={["Description", "Attachment", "Attendees"]}
+              tabs={this.getTabList()}
               activeTab={this.state.activeTab}
               handleTabChange={handleTabChange}
             />

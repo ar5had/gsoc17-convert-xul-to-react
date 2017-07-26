@@ -42,3 +42,17 @@
 #other-info-wrapper {
   margin-top: 10px;
 }
+
+.grid-rows {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.vblock {
+  flex: none;
+}
+
+.vblock.flex1 {
+  flex: 1;
+}

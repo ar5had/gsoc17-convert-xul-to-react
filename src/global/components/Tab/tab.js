@@ -23,14 +23,15 @@
       node.removeAttribute("selected");
     }
 
-    handleTabClick(event) {
-      const { handleTabChange, tabName } = this.props;
-      handleTabChange(tabName);
+    handleTabClick() {
+      const { handleTabChange, tabId } = this.props;
+      handleTabChange(tabId);
     }
 
     render() {
+      const { tabName, active, accessKey } = this.props;
       const handleTabClick = this.handleTabClick.bind(this);
-      const { tabName, active } = this.props;
+
       return (
         <div
           onClick={handleTabClick}
@@ -38,9 +39,8 @@
           id={`${tabName}tab`}
           key={tabName}
           ref={node => (this.tab = node)}
-        >
-          {tabName}
-        </div>
+          dangerouslySetInnerHTML={{ __html: underlineAccessKey(tabName, accessKey) }}
+        />
       );
     }
   }
@@ -48,7 +48,13 @@
   Tab.propTypes = {
     handleTabChange: PropTypes.func.isRequired,
     active: PropTypes.bool.isRequired,
-    tabName: PropTypes.string.isRequired
+    tabName: PropTypes.string.isRequired,
+    tabId: PropTypes.string.isRequired,
+    accessKey: PropTypes.string
+  };
+
+  Tab.defaultProps = {
+    accessKey: ""
   };
 
   window.Tab = Tab;
