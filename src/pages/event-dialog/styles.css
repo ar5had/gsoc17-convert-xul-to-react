@@ -8,7 +8,7 @@
   margin: 10vh auto 0;
   width: calc(100% - 50px);
   padding: 15px;
-  height: 600px;
+  height: 550px;
 }
 
 /*** Above styles are just to make the dialogs look good ***/
@@ -40,7 +40,18 @@
 }
 
 #other-info-wrapper {
-  margin-top: 10px;
+  padding-top: 8px;
+  height: 100%;
+}
+
+#other-info-wrapper .tabbox {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#other-info-wrapper .tabbox > .tabpanel {
+  flex: 1;
 }
 
 .grid-rows {
@@ -55,4 +66,20 @@
 
 .vblock.flex1 {
   flex: 1;
+}
+
+textarea#item-description {
+  height: 100%;
+  width: 100%;
+  resize: none;
+}
+
+.event-grid-tabpanel {
+  height: 100%;
+}
+
+.listbox {
+  -moz-appearance: listbox;
+  overflow-y: auto;
+  height: 100%;
 }

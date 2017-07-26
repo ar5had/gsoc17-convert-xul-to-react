@@ -8,7 +8,7 @@
   };
 
   TabBox.propTypes = {
-    children: PropTypes.array.isRequired
+    children: PropTypes.node.isRequired
   };
 
   window.TabBox = TabBox;

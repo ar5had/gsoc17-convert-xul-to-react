@@ -34,8 +34,37 @@
       ];
     }
 
+    getActiveTabPanelContent() {
+      switch (this.state.activeTab) {
+        case "description": {
+          return (
+            <div className="event-grid-tabpanel" id="event-grid-tabpanel-description">
+              <textarea id="item-description" className="textarea" />
+            </div>
+          );
+        }
+        case "attachment": {
+          return (
+            <div id="event-grid-tabpanel-attachment" className="event-grid-tabpanel">
+              <div id="attachment-link" className="listbox" />
+            </div>
+          );
+        }
+        case "attendees": {
+          return (
+            <div id="event-grid-tabpanel-attendees" className="event-grid-tabpanel">
+              <div id="item-attendees-box" className="listbox" />
+            </div>
+          );
+        }
+        default:
+          return "";
+      }
+    }
+
     render() {
       const handleTabChange = this.changeTab.bind(this);
+      const activeTabPanelContent = this.getActiveTabPanelContent();
 
       const {} = this.props.state;
       const {} = this.props.actions;
@@ -49,6 +78,9 @@
               activeTab={this.state.activeTab}
               handleTabChange={handleTabChange}
             />
+            <TabPanel>
+              {activeTabPanelContent}
+            </TabPanel>
           </TabBox>
         </div>
       );
