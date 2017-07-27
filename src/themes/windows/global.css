@@ -79,7 +79,7 @@ input[type="text"], .row input[type="date"] {
   padding-left: 19px;
 }
 
-label.disabled {
+label.disabled, label.disabled * {
   color: GrayText;
 }
 

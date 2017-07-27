@@ -35,6 +35,7 @@
     }
 
     getActiveTabPanelContent() {
+      const disabled = true;
       switch (this.state.activeTab) {
         case "description": {
           return (
@@ -54,6 +55,48 @@
           return (
             <div id="event-grid-tabpanel-attendees" className="event-grid-tabpanel">
               <div id="item-attendees-box" className="listbox" />
+              <div id="notify-options" className="row">
+                <input
+                  type="checkbox"
+                  id="notify-attendees-checkbox"
+                  accessKey="f"
+                  disabled="true"
+                  className="checkbox disabled"
+                />
+                <label
+                  htmlFor="notify-attendees-checkbox"
+                  className={`row-label ${disabled ? "disabled" : ""}`}
+                  dangerouslySetInnerHTML={{ __html: underlineAccessKey("Notify attendees", "f") }}
+                />
+                <input
+                  type="checkbox"
+                  id="undisclose-attendees-checkbox"
+                  accessKey="X"
+                  disabled="true"
+                  className="checkbox disabled"
+                />
+                <label
+                  htmlFor="undisclose-attendees-checkbox"
+                  className={`row-label ${disabled ? "disabled" : ""}`}
+                  dangerouslySetInnerHTML={{
+                    __html: underlineAccessKey("Separate invitation per attendee", "X")
+                  }}
+                />
+                <input
+                  type="checkbox"
+                  id="disallow-counter-checkbox"
+                  accessKey="a"
+                  disabled="false"
+                  className="checkbox"
+                />
+                <label
+                  htmlFor="undisclose-attendees-checkbox"
+                  className={`row-label ${disabled ? "disabled" : ""}`}
+                  dangerouslySetInnerHTML={{
+                    __html: underlineAccessKey("Disallow counter", "a")
+                  }}
+                />
+              </div>
             </div>
           );
         }
