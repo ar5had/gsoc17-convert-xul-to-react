@@ -92,7 +92,7 @@ app.get("/", (req, res) => {
       </a>
     </h5>
     <h5>
-      <a class="sl" href="/pages/event-dialog" data-status="in progress">
+      <a class="sl" href="/pages/event-dialog" data-status="UI done">
         Event Dialog   
       </a>
     </h5>
