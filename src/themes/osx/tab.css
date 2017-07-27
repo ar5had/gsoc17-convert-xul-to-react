@@ -6,7 +6,12 @@
   color: #FFF;
   text-shadow: rgba(0, 0, 0, 0.4) 0 1px;
 }
- 
+
+.tab.selected u {
+  color: #FFF;
+  text-shadow: rgba(0, 0, 0, 0.4) 0 1px;
+}
+
 .tab {
   padding: 2px 15px 4px 15px;
   font: -moz-dialog;
@@ -23,7 +28,6 @@
   position: relative;
 }
 
-
 /*
 * Confirm when to use these styles
 .tab:first-of-type {
@@ -37,7 +41,8 @@
 .tabstrip {
   display: flex;
   justify-content: center;
-  margin-bottom: -12px;
+  transform: translateY(12px);
+
 }
 
 .tabbox {
@@ -47,10 +52,10 @@
   color: -moz-DialogText;
   font: message-box;
 }
- 
+
 .tabpanel:not(.single-tab) {
   -moz-appearance: tabpanels;
-  padding: 10px 10px 10px;
+  padding: 18px 10px 10px;
 }
 
 .tab-middle {
