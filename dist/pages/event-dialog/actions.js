@@ -9,7 +9,11 @@
     CHANGE_START_TIME,
     CHANGE_END_TIME,
     CHANGE_REPEAT_SETTING,
-    CHANGE_REMINDER_SETTING
+    CHANGE_REMINDER_SETTING,
+    CHANGE_DESCRIPTION,
+    TOGGLE_NOTIFY_ATTENDEES,
+    TOGGLE_SEPARATE_INVITATION,
+    TOGGLE_DISALLOW_COUNTER
   } = window.__action_constants__;
 
   const loadInitialState = data => ({
@@ -70,6 +74,26 @@
     payload: currentTarget.value
   });
 
+  const changeDescription = ({ currentTarget }) => ({
+    type: CHANGE_DESCRIPTION,
+    payload: currentTarget.value
+  });
+
+  const toggleNotifyAttendees = ({ currentTarget }) => ({
+    type: TOGGLE_NOTIFY_ATTENDEES,
+    payload: currentTarget.checked
+  });
+
+  const toggleSeparateInvitation = ({ currentTarget }) => ({
+    type: TOGGLE_SEPARATE_INVITATION,
+    payload: currentTarget.checked
+  });
+
+  const toggleDisallowCounter = ({ currentTarget }) => ({
+    type: TOGGLE_DISALLOW_COUNTER,
+    payload: currentTarget.checked
+  });
+
   window.__basic_info_actions__ = {
     changeTitle,
     changeLocation,
@@ -88,7 +112,12 @@
     changeRepeatSetting
   };
 
-  window.__other_info_actions__ = {};
+  window.__other_info_actions__ = {
+    changeDescription,
+    toggleNotifyAttendees,
+    toggleSeparateInvitation,
+    toggleDisallowCounter
+  };
 
   window.__dialog_actions__ = {
     acceptDialog,

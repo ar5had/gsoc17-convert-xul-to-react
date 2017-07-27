@@ -23,32 +23,36 @@
       node.removeAttribute("selected");
     }
 
-    handleTabClick(event) {
-      const { handleTabChange, tabName } = this.props;
-      handleTabChange(tabName);
+    handleTabClick() {
+      const { handleTabChange, tabId } = this.props;
+      handleTabChange(tabId);
     }
 
     render() {
+      const { tabName, active, tabId, accessKey } = this.props;
       const handleTabClick = this.handleTabClick.bind(this);
-      const { tabName, active } = this.props;
-      return React.createElement(
-        "div",
-        {
-          onClick: handleTabClick,
-          className: `tab ${active ? "selected" : ""}`,
-          id: `${tabName}tab`,
-          key: tabName,
-          ref: node => (this.tab = node)
-        },
-        tabName
-      );
+
+      return React.createElement("div", {
+        onClick: handleTabClick,
+        className: `tab ${active ? "selected" : ""}`,
+        id: `${tabId}-tab`,
+        key: tabName,
+        ref: node => (this.tab = node),
+        dangerouslySetInnerHTML: { __html: underlineAccessKey(tabName, accessKey) }
+      });
     }
   }
 
   Tab.propTypes = {
     handleTabChange: PropTypes.func.isRequired,
     active: PropTypes.bool.isRequired,
-    tabName: PropTypes.string.isRequired
+    tabName: PropTypes.string.isRequired,
+    tabId: PropTypes.string.isRequired,
+    accessKey: PropTypes.string
+  };
+
+  Tab.defaultProps = {
+    accessKey: ""
   };
 
   window.Tab = Tab;

@@ -9,7 +9,11 @@
     CHANGE_END_TIME,
     CHANGE_START_TIME,
     CHANGE_REPEAT_SETTING,
-    CHANGE_REMINDER_SETTING
+    CHANGE_REMINDER_SETTING,
+    CHANGE_DESCRIPTION,
+    TOGGLE_NOTIFY_ATTENDEES,
+    TOGGLE_SEPARATE_INVITATION,
+    TOGGLE_DISALLOW_COUNTER
   } = window.__action_constants__;
 
   window.__redux_reducer__ = (state = {}, action) => {
@@ -79,6 +83,34 @@
           reminderOption: action.payload
         });
         return Object.assign({}, state, { alarmReminderInfo });
+      }
+
+      case CHANGE_DESCRIPTION: {
+        const otherInfo = Object.assign({}, state.otherInfo, {
+          description: action.payload
+        });
+        return Object.assign({}, state, { otherInfo });
+      }
+
+      case TOGGLE_NOTIFY_ATTENDEES: {
+        const otherInfo = Object.assign({}, state.otherInfo, {
+          notifyAttendees: action.payload
+        });
+        return Object.assign({}, state, { otherInfo });
+      }
+
+      case TOGGLE_SEPARATE_INVITATION: {
+        const otherInfo = Object.assign({}, state.otherInfo, {
+          separateInvitationPerAttendee: action.payload
+        });
+        return Object.assign({}, state, { otherInfo });
+      }
+
+      case TOGGLE_DISALLOW_COUNTER: {
+        const otherInfo = Object.assign({}, state.otherInfo, {
+          disallowCounter: action.payload
+        });
+        return Object.assign({}, state, { otherInfo });
       }
 
       default:

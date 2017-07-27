@@ -1,10 +1,12 @@
 (function() {
   const TabStrip = ({ tabs, handleTabChange, activeTab }) => {
-    const tabStripContent = tabs.map(tabName =>
+    const tabStripContent = tabs.map(tab =>
       React.createElement(Tab, {
-        active: tabName === activeTab,
-        tabName: tabName,
-        key: tabName,
+        active: tab.id === activeTab,
+        tabName: tab.text,
+        accessKey: tab.accessKey,
+        key: tab.id,
+        tabId: tab.id,
         handleTabChange: handleTabChange
       })
     );

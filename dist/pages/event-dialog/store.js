@@ -21,7 +21,14 @@
         repeatSetting: "NOT_REPEAT",
         reminderSetting: "NO_REMINDER"
       },
-      otherInfo: {}
+      otherInfo: {
+        description: "",
+        attachment: [],
+        attendees: [],
+        notifyAttendees: false,
+        separateInvitationPerAttendee: false,
+        disallowCounter: false
+      }
     };
 
     const middlewares = [];
