@@ -80,9 +80,19 @@ textarea#item-description {
   flex-direction: column;
 }
 
-.listbox {
-  -moz-appearance: listbox;
-  overflow-y: auto;
-  flex: 1;
+#item-organiser-row {
+  padding-bottom: 3px;
 }
 
+.itip-icon {
+  display: inline-block;
+  --itip-icon-partstat: -16px -16px; /* default: NEEDS-ACTION */
+  --itip-icon-role: 0px; /* default: REQ-PARTICIPANT */
+  --itip-icon-usertype: -32px; /* default: INDIVIDUAL */
+  width: 16px;
+  height: 16px;
+  max-height: 16px;
+  background-image: url(chrome://calendar-common/skin/calendar-itip-icons.svg),
+    url(chrome://calendar-common/skin/calendar-itip-icons.svg);
+  background-position: var(--itip-icon-partstat), var(--itip-icon-usertype) var(--itip-icon-role);
+}

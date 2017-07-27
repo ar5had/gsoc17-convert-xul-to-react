@@ -35,12 +35,29 @@
     }
 
     getActiveTabPanelContent() {
-      const disabled = true;
+      const {
+        description,
+        notifyAttendees,
+        separateInvitationPerAttendee,
+        disallowCounter
+      } = this.props.state;
+      const {
+        changeDescription,
+        toggleNotifyAttendees,
+        toggleSeparateInvitation,
+        toggleDisallowCounter
+      } = this.props.actions;
+
       switch (this.state.activeTab) {
         case "description": {
           return (
             <div className="event-grid-tabpanel" id="event-grid-tabpanel-description">
-              <textarea id="item-description" className="textarea" />
+              <textarea
+                id="item-description"
+                className="textarea"
+                onChange={changeDescription}
+                value={description}
+              />
             </div>
           );
         }
@@ -54,30 +71,36 @@
         case "attendees": {
           return (
             <div id="event-grid-tabpanel-attendees" className="event-grid-tabpanel">
+              <div id="item-organiser-row" className="item-attendees-row collapsed">
+                <label>Organizer:</label>
+                <div className="itip-icon" />
+              </div>
               <div id="item-attendees-box" className="listbox" />
               <div id="notify-options" className="row">
                 <input
                   type="checkbox"
                   id="notify-attendees-checkbox"
                   accessKey="f"
-                  disabled="true"
-                  className="checkbox disabled"
+                  className="checkbox"
+                  checked={notifyAttendees}
+                  onChange={toggleNotifyAttendees}
                 />
                 <label
                   htmlFor="notify-attendees-checkbox"
-                  className={`row-label ${disabled ? "disabled" : ""}`}
+                  className="row-label"
                   dangerouslySetInnerHTML={{ __html: underlineAccessKey("Notify attendees", "f") }}
                 />
                 <input
                   type="checkbox"
                   id="undisclose-attendees-checkbox"
                   accessKey="X"
-                  disabled="true"
-                  className="checkbox disabled"
+                  className="checkbox"
+                  checked={separateInvitationPerAttendee}
+                  onChange={toggleSeparateInvitation}
                 />
                 <label
                   htmlFor="undisclose-attendees-checkbox"
-                  className={`row-label ${disabled ? "disabled" : ""}`}
+                  className="row-label"
                   dangerouslySetInnerHTML={{
                     __html: underlineAccessKey("Separate invitation per attendee", "X")
                   }}
@@ -86,12 +109,13 @@
                   type="checkbox"
                   id="disallow-counter-checkbox"
                   accessKey="a"
-                  disabled="false"
                   className="checkbox"
+                  checked={disallowCounter}
+                  onChange={toggleDisallowCounter}
                 />
                 <label
-                  htmlFor="undisclose-attendees-checkbox"
-                  className={`row-label ${disabled ? "disabled" : ""}`}
+                  htmlFor="disallow-counter-checkbox"
+                  className="row-label"
                   dangerouslySetInnerHTML={{
                     __html: underlineAccessKey("Disallow counter", "a")
                   }}
@@ -108,10 +132,6 @@
     render() {
       const handleTabChange = this.changeTab.bind(this);
       const activeTabPanelContent = this.getActiveTabPanelContent();
-
-      const {} = this.props.state;
-      const {} = this.props.actions;
-      // <TabStrip tabs={allTabsName} handleTabChange={handleTabChange} activeTab={activeTab} />
 
       return (
         <div id="other-info-wrapper">

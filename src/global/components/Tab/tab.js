@@ -29,14 +29,14 @@
     }
 
     render() {
-      const { tabName, active, accessKey } = this.props;
+      const { tabName, active, tabId, accessKey } = this.props;
       const handleTabClick = this.handleTabClick.bind(this);
 
       return (
         <div
           onClick={handleTabClick}
           className={`tab ${active ? "selected" : ""}`}
-          id={`${tabName}tab`}
+          id={`${tabId}-tab`}
           key={tabName}
           ref={node => (this.tab = node)}
           dangerouslySetInnerHTML={{ __html: underlineAccessKey(tabName, accessKey) }}

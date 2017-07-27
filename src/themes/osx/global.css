@@ -142,3 +142,13 @@ legend {
   margin-left: 4px;
   margin-right: 4px;
 }
+
+.collapsed {
+  display: none;
+}
+
+.listbox {
+  -moz-appearance: listbox;
+  overflow-y: auto;
+  flex: 1;
+}

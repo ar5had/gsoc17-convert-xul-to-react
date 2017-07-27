@@ -4,6 +4,6 @@ textarea {
   /* margin: 2px 4px; */
   padding: 2px 2px 3px;
   padding-inline-start: 4px;
-  background-color: -moz-Field;
+  /* background-color: -moz-Field; */
   color: -moz-FieldText;
 }
