@@ -4,10 +4,13 @@
 <head>
   <title>Iframe Testing Ground</title>
   <link rel="stylesheet" href="./styles.css">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="-1">
+  <meta charset="utf-8">
 </head>
 
 <body>
-  <form class="controls" onsubmit="return handleFormSubmit()">
+  <form autocomplete="off" class="controls" onsubmit="return handleFormSubmit()">
     <h2>Iframe Testing Ground</h2>
     <div class="wrapper">
       <label for="component-selector">Dialog:</label>
@@ -21,28 +24,17 @@
         <option value="print-dialog">
           Print Dialog
         </option>
+        <option value="event-dialog">
+          Event Dialog
+        </option>
+        <option value="task-dialog">
+          Task Dialog
+        </option>
       </select>
-    </div>
-    <!--<div class="wrapper">
-      <label for="os-selector">OS:</label>      
-      <select name="os-dialog" id="os-selector" required>
-        <option value="">
-          Select OS...
-        </option>
-        <option value="linux">
-          Linux
-        </option>
-        <option value="osx">
-          Mac
-        </option>
-        <option value="windows">
-          Windows
-        </option>
-      </select>-->
     </div>
     <div class="wrapper">
       <label for="ta">State Object:</label>
-      <textarea spellcheck="false" name="state" id="ta" placeholder="Select Dialog first!" required></textarea>
+      <textarea autocomplete="off" spellcheck="false" name="state" id="ta" placeholder="Select Dialog first!" required></textarea>
     </div>
     <input type="submit" value="Load Dialog" />
     <a href="/">
