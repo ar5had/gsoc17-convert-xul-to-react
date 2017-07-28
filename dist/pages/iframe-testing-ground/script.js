@@ -140,7 +140,6 @@ window.addEventListener("load", () => {
 
   const componentFramer = e => {
     const component = selectbox.options[selectbox.selectedIndex].value;
-    console.log(component, textarea.innerHTML);
     if (component) {
       textarea.value = JSON.stringify(DIALOG_STATES[component], null, 2);
     } else {
