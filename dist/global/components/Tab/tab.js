@@ -1,4 +1,4 @@
-(function() {
+(function () {
   class Tab extends React.Component {
     componentDidMount() {
       if (this.props.active) {
@@ -37,7 +37,7 @@
         className: `tab ${active ? "selected" : ""}`,
         id: `${tabId}-tab`,
         key: tabName,
-        ref: node => (this.tab = node),
+        ref: node => this.tab = node,
         dangerouslySetInnerHTML: { __html: underlineAccessKey(tabName, accessKey) }
       });
     }

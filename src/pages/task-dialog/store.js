@@ -17,7 +17,10 @@
         startTime: "",
         dueTime: "",
         isStartTimeActive: false,
-        isDueTimeActive: false
+        isDueTimeActive: false,
+        todoStatus: "NOT_SPECIFIED",
+        completionDate: "",
+        completionStatus: 0
       },
       alarmReminderInfo: {
         repeatSetting: "NOT_REPEAT",

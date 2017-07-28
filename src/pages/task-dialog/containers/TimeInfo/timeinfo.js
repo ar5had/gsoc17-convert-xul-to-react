@@ -22,10 +22,15 @@
       changeCompletionDate
     } = actions;
 
-    const isCompletionDatePickerActive = completionStatus !== "COMPLETED";
+    const validateCompletionStatus = e => {
+      let value = e.currentTarget.value.toString();
+      changeCompletionStatus(parseInt(value, 10));
+    };
 
-    const isCompletionStatusTextboxActive =
-      completionStatus !== "CACNCELED" && completionStatus !== "NOT_SPECIFIED";
+    const isCompletionDatePickerDisabled = todoStatus !== "COMPLETED";
+
+    const isCompletionStatusTextboxDisabled =
+      todoStatus === "CANCELED" || todoStatus === "NOT_SPECIFIED";
 
     return (
       <div id="time-info-wrapper">
@@ -102,18 +107,21 @@
             className="row-input no-flex"
             value={completionDate}
             onChange={changeCompletionDate}
-            disabled={isCompletionDatePickerActive}
+            disabled={isCompletionDatePickerDisabled}
           />
           <input
-            type="date"
+            type="number"
             id="percent-complete-textbox"
             className="row-input no-flex"
             min={0}
             max={100}
             value={completionStatus}
-            onChange={changeCompletionStatus}
-            disabled={isCompletionStatusTextboxActive}
+            onChange={validateCompletionStatus}
+            disabled={isCompletionStatusTextboxDisabled}
           />
+          <label className={isCompletionStatusTextboxDisabled ? "row-label disabled" : "row-label"}>
+            % complete
+          </label>
         </div>
         <div className="separator groove" />
       </div>

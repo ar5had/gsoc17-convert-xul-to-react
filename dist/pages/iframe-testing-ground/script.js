@@ -36,16 +36,13 @@ window.addEventListener("load", () => {
             selected: "key1"
           }
         },
-        identities: [
-          {
-            name: "Arshad <arshad@exmaple.com>",
-            key: "key2"
-          },
-          {
-            name: "Philipp <kewisch@exmaple.com>",
-            key: "key1"
-          }
-        ]
+        identities: [{
+          name: "Arshad <arshad@exmaple.com>",
+          key: "key2"
+        }, {
+          name: "Philipp <kewisch@exmaple.com>",
+          key: "key1"
+        }]
       },
       source: "dialog-message"
     },

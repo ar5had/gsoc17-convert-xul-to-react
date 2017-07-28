@@ -9,6 +9,9 @@
     TOGGLE_START_TIME,
     CHANGE_START_TIME,
     CHANGE_DUE_TIME,
+    CHANGE_TODO_STATUS,
+    CHANGE_COMPLETION_DATE,
+    CHANGE_COMPLETION_STATUS,
     CHANGE_REPEAT_SETTING,
     CHANGE_REMINDER_SETTING,
     CHANGE_DESCRIPTION
@@ -82,6 +85,21 @@
     payload: currentTarget.value
   });
 
+  const changeTodoStatus = ({ currentTarget }) => ({
+    type: CHANGE_TODO_STATUS,
+    payload: currentTarget.value
+  });
+
+  const changeCompletionDate = ({ currentTarget }) => ({
+    type: CHANGE_COMPLETION_DATE,
+    payload: currentTarget.value
+  });
+
+  const changeCompletionStatus = payload => ({
+    type: CHANGE_COMPLETION_STATUS,
+    payload
+  });
+
   window.__basic_info_actions__ = {
     changeTitle,
     changeLocation,
@@ -93,7 +111,10 @@
     toggleStartTime,
     toggleDueTime,
     changeDueTime,
-    changeStartTime
+    changeStartTime,
+    changeCompletionDate,
+    changeCompletionStatus,
+    changeTodoStatus
   };
 
   window.__alarm_reminder_info_actions__ = {

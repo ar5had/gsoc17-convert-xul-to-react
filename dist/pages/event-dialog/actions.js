@@ -1,4 +1,4 @@
-(function() {
+(function () {
   const {
     LOAD_INITIAL_STATE,
     CHANGE_TITLE,

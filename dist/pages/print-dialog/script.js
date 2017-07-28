@@ -1,4 +1,4 @@
-(function() {
+(function () {
   const { Provider } = ReactRedux;
   // redux_store will be available to acceptDialog
   // and message event listener by closure
@@ -17,10 +17,7 @@
     if (e.origin !== window.location.origin || !e.data || e.data.source !== "dialog-message") {
       return;
     }
-    sendMessageToParent(
-      { messageRecieved: true, source: "dialog-message" },
-      `${window.location.origin}/iframe-testing-ground`
-    );
+    sendMessageToParent({ messageRecieved: true, source: "dialog-message" }, `${window.location.origin}/iframe-testing-ground`);
     const state = Object.assign({}, e.data);
     // updating state with data sent via message event
     redux_store.dispatch(window.__global_actions__.loadInitialState(state));
@@ -38,8 +35,9 @@
     sendMessageToParent(message, `${window.location.origin}/iframe-testing-ground`);
   };
 
-  ReactDOM.render(
-    React.createElement(Provider, { store: redux_store }, React.createElement(PrintDialog, null)),
-    document.getElementById("root")
-  );
+  ReactDOM.render(React.createElement(
+    Provider,
+    { store: redux_store },
+    React.createElement(PrintDialog, null)
+  ), document.getElementById("root"));
 })();

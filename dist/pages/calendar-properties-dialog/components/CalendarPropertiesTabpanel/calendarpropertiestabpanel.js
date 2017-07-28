@@ -1,4 +1,4 @@
-(function() {
+(function () {
   class CalendarPropertiesTabPanel extends React.Component {
     componentDidMount() {
       this.applyComponentChanges(this.props.activeTabData);
@@ -27,9 +27,11 @@
 
     getSelectOptions(arr) {
       arr = arr ? arr : ["NONE"];
-      const options = arr.map((e, i) =>
-        React.createElement("option", { value: e.key, key: i }, e.name)
-      );
+      const options = arr.map((e, i) => React.createElement(
+        "option",
+        { value: e.key, key: i },
+        e.name
+      ));
       return options;
     }
 
@@ -133,7 +135,7 @@
         cacheDisabled = true;
       }
 
-      cacheBoxChecked = alwaysCache || (canCache && cache.enabled);
+      cacheBoxChecked = alwaysCache || canCache && cache.enabled;
 
       // Set up the show alarms row and checkbox
       const showSuppressAlarmsRow = capabilities.alarms.popup.supported === true;
@@ -155,12 +157,11 @@
       return React.createElement(
         "div",
         { className: `tabpanel ${this.props.isSingleTab ? "single-tab" : ""}` },
-        forceDisabled &&
-          React.createElement(
-            "p",
-            { id: "force-disabled-description" },
-            "The provider for this calendar could not be found. This often happens if you have disabled or uninstalled certain addons."
-          ),
+        forceDisabled && React.createElement(
+          "p",
+          { id: "force-disabled-description" },
+          "The provider for this calendar could not be found. This often happens if you have disabled or uninstalled certain addons."
+        ),
         React.createElement(
           "div",
           { id: "calendar-enabler-container" },
@@ -170,7 +171,7 @@
             id: "calendar-enabled-checkbox",
             checked: !disabled,
             onChange: calendarToggleChange,
-            ref: node => (this.calendarEnablerCheckbox = node)
+            ref: node => this.calendarEnablerCheckbox = node
           }),
           React.createElement(
             "label",
@@ -199,7 +200,7 @@
               value: name,
               onChange: calendarNameChange,
               disabled: disabled,
-              ref: node => (this.calendarNameInput = node)
+              ref: node => this.calendarNameInput = node
             })
           ),
           React.createElement(
@@ -259,30 +260,29 @@
               emailOptions
             )
           ),
-          canRefresh &&
+          canRefresh && React.createElement(
+            "div",
+            { id: "calendar-refreshInterval-row", className: "row" },
             React.createElement(
-              "div",
-              { id: "calendar-refreshInterval-row", className: "row" },
-              React.createElement(
-                "label",
-                {
-                  htmlFor: "calendar-refreshInterval-menulist",
-                  className: `row-label ${disabled ? "disabled" : ""}`
-                },
-                "Refresh Calendar:"
-              ),
-              React.createElement(
-                "select",
-                {
-                  id: "calendar-refreshInterval-menulist",
-                  className: "row-input",
-                  disabled: disabled,
-                  onChange: refreshIntervalChange,
-                  value: refreshInterval
-                },
-                refreshIntervalOptions
-              )
+              "label",
+              {
+                htmlFor: "calendar-refreshInterval-menulist",
+                className: `row-label ${disabled ? "disabled" : ""}`
+              },
+              "Refresh Calendar:"
             ),
+            React.createElement(
+              "select",
+              {
+                id: "calendar-refreshInterval-menulist",
+                className: "row-input",
+                disabled: disabled,
+                onChange: refreshIntervalChange,
+                value: refreshInterval
+              },
+              refreshIntervalOptions
+            )
+          ),
           React.createElement(
             "div",
             { id: "calendar-readOnly-row", className: "row" },
@@ -304,56 +304,54 @@
               )
             )
           ),
-          showSuppressAlarmsRow &&
+          showSuppressAlarmsRow && React.createElement(
+            "div",
+            { id: "calendar-suppressAlarms-row", className: "row" },
             React.createElement(
               "div",
-              { id: "calendar-suppressAlarms-row", className: "row" },
+              null,
+              React.createElement("input", {
+                type: "checkbox",
+                className: "checkbox",
+                id: "fire-alarms",
+                checked: supressAlarms,
+                onChange: suppressAlarmsChange,
+                disabled: disabled
+              }),
               React.createElement(
-                "div",
-                null,
-                React.createElement("input", {
-                  type: "checkbox",
-                  className: "checkbox",
-                  id: "fire-alarms",
-                  checked: supressAlarms,
-                  onChange: suppressAlarmsChange,
-                  disabled: disabled
-                }),
-                React.createElement(
-                  "label",
-                  {
-                    htmlFor: "fire-alarms",
-                    className: `row-label ${disabled ? "disabled" : ""}`
-                  },
-                  "Show Reminders"
-                )
-              )
-            ),
-          showCacheBox &&
-            React.createElement(
-              "div",
-              { id: "calendar-cache-row", className: "row" },
-              React.createElement(
-                "div",
-                null,
-                React.createElement("input", {
-                  type: "checkbox",
-                  className: "checkbox",
-                  id: "cache",
-                  checked: cacheBoxChecked,
-                  onChange: cacheOptionsChange,
-                  disabled: cacheDisabled || disabled
-                }),
-                React.createElement(
-                  "label",
-                  {
-                    htmlFor: "cache",
-                    className: `row-label ${cacheDisabled || disabled ? "disabled" : ""}`
-                  },
-                  "Offline Support"
-                )
+                "label",
+                {
+                  htmlFor: "fire-alarms",
+                  className: `row-label ${disabled ? "disabled" : ""}`
+                },
+                "Show Reminders"
               )
             )
+          ),
+          showCacheBox && React.createElement(
+            "div",
+            { id: "calendar-cache-row", className: "row" },
+            React.createElement(
+              "div",
+              null,
+              React.createElement("input", {
+                type: "checkbox",
+                className: "checkbox",
+                id: "cache",
+                checked: cacheBoxChecked,
+                onChange: cacheOptionsChange,
+                disabled: cacheDisabled || disabled
+              }),
+              React.createElement(
+                "label",
+                {
+                  htmlFor: "cache",
+                  className: `row-label ${cacheDisabled || disabled ? "disabled" : ""}`
+                },
+                "Offline Support"
+              )
+            )
+          )
         )
       );
     }

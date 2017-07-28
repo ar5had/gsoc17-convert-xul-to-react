@@ -1,6 +1,10 @@
-(function() {
+(function () {
   const TabPanel = ({ children }) => {
-    return React.createElement("div", { className: "tabpanel" }, children);
+    return React.createElement(
+      "div",
+      { className: "tabpanel" },
+      children
+    );
   };
 
   TabPanel.propTypes = {

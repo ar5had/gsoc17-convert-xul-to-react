@@ -19,15 +19,24 @@ input[type="color"]#calendar-color {
 
 /* ..... readonly state ..... */
 
-input[type="text"][readonly] {
+input[readonly] {
   /*background-color: -moz-Dialog;*/
   color: -moz-DialogText;
 }
 
 /* ..... disabled state ..... */
 
-input[type="text"][disabled] {
+input[disabled] {
   cursor: default;
   /*background-color: -moz-Dialog;*/
   color: GrayText;
+}
+
+input[type="number"] {
+  padding: 2px 0 2px 2px !important;
+  cursor: default;
+}
+
+*.numberbox-input {
+  text-align: right;
 }

@@ -1,4 +1,4 @@
-(function() {
+(function () {
   class HSplitter extends React.Component {
     constructor(props) {
       super(props);
@@ -9,10 +9,7 @@
       this.box = document.getElementById(this.props.boxId);
       this.boxWindow = document.getElementById(this.props.boxWindowId);
 
-      this.boxDefaultWidth = +window
-        .getComputedStyle(this.box)
-        .getPropertyValue("width")
-        .slice(0, -2);
+      this.boxDefaultWidth = +window.getComputedStyle(this.box).getPropertyValue("width").slice(0, -2);
 
       this.splitter.addEventListener("mousedown", e => {
         if (e.which === 1) {
@@ -26,9 +23,7 @@
 
     componentWillUnmount() {
       document.body.classList.remove("splitter-cursor");
-      document
-        .getElementById("dialog-content-box")
-        .removeEventListener("mousemove", this.splitterDrag);
+      document.getElementById("dialog-content-box").removeEventListener("mousemove", this.splitterDrag);
     }
 
     isMouseButtonDown(e) {
@@ -44,10 +39,7 @@
         const disp = e.clientX - this.prevX;
         const newWidth = Math.max(this.boxDefaultWidth, this.box.offsetWidth + disp);
         this.box.style.width = `${newWidth}px`;
-        this.prevX = Math.max(
-          this.box.getBoundingClientRect().left + this.boxDefaultWidth,
-          e.clientX
-        );
+        this.prevX = Math.max(this.box.getBoundingClientRect().left + this.boxDefaultWidth, e.clientX);
       } else {
         this.boxWindow.removeEventListener("mousemove", this.splitterDrag);
         document.body.classList.remove("splitter-cursor");
@@ -55,10 +47,7 @@
     }
 
     render() {
-      return React.createElement("div", {
-        className: "splitter vertical",
-        ref: node => (this.splitter = node)
-      });
+      return React.createElement("div", { className: "splitter vertical", ref: node => this.splitter = node });
     }
   }
 

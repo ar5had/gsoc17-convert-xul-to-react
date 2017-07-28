@@ -1,4 +1,4 @@
-(function() {
+(function () {
   class RichListBox extends React.Component {
     constructor(props) {
       super(props);
@@ -12,15 +12,13 @@
     }
 
     getAllCalendarWidgets() {
-      return this.props.widgetData.map((widget, i) =>
-        React.createElement(CalendarAlarmWidget, {
-          key: i,
-          isSelected: i === this.state.selectedWidget,
-          onClick: () => {
-            this.changeSelectedWidget(i);
-          }
-        })
-      );
+      return this.props.widgetData.map((widget, i) => React.createElement(CalendarAlarmWidget, {
+        key: i,
+        isSelected: i === this.state.selectedWidget,
+        onClick: () => {
+          this.changeSelectedWidget(i);
+        }
+      }));
     }
 
     render() {

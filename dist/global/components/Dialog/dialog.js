@@ -1,4 +1,4 @@
-(function() {
+(function () {
   class Dialog extends React.Component {
     constructor(props) {
       super(props);
@@ -71,24 +71,17 @@
 
     getAllButtons() {
       const props = this.props;
-      const buttonsList = props.buttons
-        .split(",")
-        .map(btn => btn.trim())
-        .filter(btn => this.buttonOptions.includes(btn));
+      const buttonsList = props.buttons.split(",").map(btn => btn.trim()).filter(btn => this.buttonOptions.includes(btn));
 
-      return buttonsList
-        .map((btn, i) =>
-          React.createElement(DialogButton, {
-            className: `${btn}-btn dialog-button`,
-            key: i,
-            isDefaultButton: this.props.defaultButton.toLowerCase() === btn,
-            accessKey: props[`buttonaccesskey${btn}`],
-            dlgtype: btn,
-            onClick: this.assignClickHandler(btn),
-            html: underlineAccessKey(props[`buttonlabel${btn}`], props[`buttonaccesskey${btn}`])
-          })
-        )
-        .concat([React.createElement("div", { className: "dialog-button-spacer", key: "spacer" })]);
+      return buttonsList.map((btn, i) => React.createElement(DialogButton, {
+        className: `${btn}-btn dialog-button`,
+        key: i,
+        isDefaultButton: this.props.defaultButton.toLowerCase() === btn,
+        accessKey: props[`buttonaccesskey${btn}`],
+        dlgtype: btn,
+        onClick: this.assignClickHandler(btn),
+        html: underlineAccessKey(props[`buttonlabel${btn}`], props[`buttonaccesskey${btn}`])
+      })).concat([React.createElement("div", { className: "dialog-button-spacer", key: "spacer" })]);
     }
 
     render() {
@@ -100,7 +93,11 @@
           { className: "wrapper", id: "dialog-content-box" },
           this.props.children
         ),
-        React.createElement("div", { className: "dialog-button-box" }, this.getAllButtons())
+        React.createElement(
+          "div",
+          { className: "dialog-button-box" },
+          this.getAllButtons()
+        )
       );
     }
   }

@@ -17,7 +17,7 @@ input[type="color"]#calendar-color {
   -moz-appearance: button;
 }
 
-input[type="text"][disabled] {
+input[disabled] {
   cursor: default;
   /*background-color: -moz-Dialog;*/
   color: GrayText;
@@ -26,4 +26,18 @@ input[type="text"][disabled] {
 input[readonly] {
   /*background-color: -moz-Dialog;*/
   color: -moz-DialogText;
+}
+
+input[type="number"] {
+  -moz-appearance: none;
+  padding: 4px 0 4px 4px !important;
+  border: none;
+  cursor: default;
+  -moz-appearance: spinner-textfield;
+  background-color: transparent;
+  margin-right: -1px;
+}
+
+*.numberbox-input {
+  text-align: right;
 }

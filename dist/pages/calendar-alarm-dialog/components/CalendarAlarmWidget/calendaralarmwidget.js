@@ -1,4 +1,4 @@
-(function() {
+(function () {
   class CalendarAlarmWidget extends React.Component {
     componentDidMount() {
       this.addAttributes(this.props.isSelected);
@@ -25,7 +25,7 @@
         "div",
         {
           className: "calendar-alarm-widget",
-          ref: node => (this.widget = node),
+          ref: node => this.widget = node,
           onClick: this.props.onClick
         },
         React.createElement(
@@ -36,22 +36,46 @@
         React.createElement(
           "div",
           { className: "alarm-description" },
-          React.createElement("p", { className: "alarm-title-label" }, "new alarm"),
+          React.createElement(
+            "p",
+            { className: "alarm-title-label" },
+            "new alarm"
+          ),
           React.createElement(
             "div",
             { className: "additional-information-box" },
-            React.createElement("p", { className: "alarm-date-label" }, "23 apr,2017")
+            React.createElement(
+              "p",
+              { className: "alarm-date-label" },
+              "23 apr,2017"
+            )
           ),
           React.createElement("p", { className: "location-label" }),
           React.createElement("p", { className: "alarm-location-description" }),
-          React.createElement("p", { className: "text-link alarm-details-label" }, "Details...")
+          React.createElement(
+            "p",
+            { className: "text-link alarm-details-label" },
+            "Details..."
+          )
         ),
-        React.createElement("p", { className: "alarm-relative-date-label" }, "22 Jun, 2am , 2015"),
+        React.createElement(
+          "p",
+          { className: "alarm-relative-date-label" },
+          "22 Jun, 2am , 2015"
+        ),
         React.createElement(
           "div",
           { className: "alarm-action-buttons" },
-          React.createElement("button", { className: "alarm-snooze-button" }, "Snooze for"),
-          React.createElement("button", { className: "alarm-dismiss-button" }, "Dismiss")
+          React.createElement(
+            "button",
+            { className: "alarm-snooze-button" },
+            "Snooze for"
+          ),
+          React.createElement(
+            "button",
+            { className: "alarm-dismiss-button" },
+            "Dismiss"
+          )
         )
       );
     }

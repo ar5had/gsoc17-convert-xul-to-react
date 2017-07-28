@@ -1,4 +1,4 @@
-(function() {
+(function () {
   const { connect } = ReactRedux;
   const { bindActionCreators } = Redux;
 
@@ -15,10 +15,7 @@
         "div",
         { className: "vgrid" },
         React.createElement(PrintDialogGroupBox, null),
-        React.createElement(HSplitter, {
-          boxId: "groupboxVbox",
-          boxWindowId: "dialog-content-box"
-        }),
+        React.createElement(HSplitter, { boxId: "groupboxVbox", boxWindowId: "dialog-content-box" }),
         React.createElement("iframe", { src: "about:blank", frameBorder: "0", id: "content" })
       )
     );

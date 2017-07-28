@@ -48,12 +48,12 @@
   margin-right: 0;
 }
 
-input[type="text"], .row input[type="date"] {
+input[type="text"], input[type="date"], input[type="number"] {
   /* 
     input of type text has a default min-width
     which breaks layout on small width 
   */
-  min-width: 10px;
+  min-width: 10px !important;
 }
 
 .row > input[type="text"].row-input {

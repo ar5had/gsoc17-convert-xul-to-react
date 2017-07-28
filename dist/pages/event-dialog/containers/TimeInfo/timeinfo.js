@@ -1,4 +1,4 @@
-(function() {
+(function () {
   const { connect } = ReactRedux;
   const { bindActionCreators } = Redux;
 

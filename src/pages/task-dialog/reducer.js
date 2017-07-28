@@ -11,7 +11,10 @@
     CHANGE_START_TIME,
     CHANGE_REPEAT_SETTING,
     CHANGE_REMINDER_SETTING,
-    CHANGE_DESCRIPTION
+    CHANGE_DESCRIPTION,
+    CHANGE_TODO_STATUS,
+    CHANGE_COMPLETION_DATE,
+    CHANGE_COMPLETION_STATUS
   } = window.__action_constants__;
 
   window.__redux_reducer__ = (state = {}, action) => {
@@ -95,6 +98,68 @@
           description: action.payload
         });
         return Object.assign({}, state, { otherInfo });
+      }
+
+      case CHANGE_COMPLETION_DATE: {
+        const timeInfo = Object.assign({}, state.timeInfo, {
+          completionDate: action.payload
+        });
+        return Object.assign({}, state, { timeInfo });
+      }
+
+      case CHANGE_TODO_STATUS: {
+        let otherChanges = {};
+
+        if (action.payload === "NOT_SPECIFIED") {
+          otherChanges.completionStatus = 0;
+        } else if (action.payload === "COMPLETED") {
+          otherChanges.completionStatus = 100;
+        }
+
+        const timeInfo = Object.assign(
+          {},
+          state.timeInfo,
+          {
+            todoStatus: action.payload
+          },
+          otherChanges
+        );
+        return Object.assign({}, state, { timeInfo });
+      }
+
+      case CHANGE_COMPLETION_STATUS: {
+        let completionStatus;
+
+        if (action.payload === null) {
+          completionStatus = 0;
+        } else {
+          completionStatus = action.payload;
+        }
+
+        const otherChanges = {};
+        const oldTodoStatus = state.timeInfo.todoStatus;
+        if (isNaN(completionStatus)) {
+          return state;
+        } else if (completionStatus >= 100) {
+          completionStatus = 100;
+          otherChanges.todoStatus = "COMPLETED";
+        } else if (completionStatus <= 0 && oldTodoStatus !== "NEED_ACTION") {
+          completionStatus = 0;
+          otherChanges.todoStatus = "IN_PROCESS";
+        } else if (oldTodoStatus !== "NEED_ACTION") {
+          otherChanges.todoStatus = "IN_PROCESS";
+        }
+
+        const timeInfo = Object.assign(
+          {},
+          state.timeInfo,
+          {
+            completionStatus
+          },
+          otherChanges
+        );
+
+        return Object.assign({}, state, { timeInfo });
       }
 
       default:

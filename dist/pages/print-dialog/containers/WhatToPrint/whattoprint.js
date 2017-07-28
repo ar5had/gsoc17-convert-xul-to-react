@@ -1,4 +1,4 @@
-(function() {
+(function () {
   const { connect } = ReactRedux;
   const { bindActionCreators } = Redux;
 
@@ -33,7 +33,11 @@
             checked: printTasks,
             onChange: toggleTasksShow
           }),
-          React.createElement("label", { htmlFor: "tasks", className: "row-label" }, "Tasks")
+          React.createElement(
+            "label",
+            { htmlFor: "tasks", className: "row-label" },
+            "Tasks"
+          )
         ),
         React.createElement(
           "div",
