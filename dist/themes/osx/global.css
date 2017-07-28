@@ -152,3 +152,7 @@ legend {
   overflow-y: auto;
   flex: 1;
 }
+
+#percent-complete-textbox {
+  max-width: 40px !important;
+}
