@@ -15,7 +15,9 @@
       timeInfo: {
         allDayEvent: false,
         startTime: "",
-        endTime: ""
+        dueTime: "",
+        isStartTimeActive: false,
+        isDueTimeActive: false
       },
       alarmReminderInfo: {
         repeatSetting: "NOT_REPEAT",

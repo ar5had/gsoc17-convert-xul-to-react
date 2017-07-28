@@ -96,3 +96,7 @@ textarea#item-description {
     url(chrome://calendar-common/skin/calendar-itip-icons.svg);
   background-position: var(--itip-icon-partstat), var(--itip-icon-usertype) var(--itip-icon-role);
 }
+
+#todo-status, #completed-date-picker {
+  margin-right: 10px;
+}

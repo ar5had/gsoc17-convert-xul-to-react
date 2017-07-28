@@ -4,9 +4,10 @@
     CHANGE_LOCATION,
     CHANGE_ITEM_CATEGORY,
     CHANGE_ITEM_CALENDAR,
-    TOGGLE_ALL_DAY_EVENT,
+    TOGGLE_START_TIME,
+    TOGGLE_DUE_TIME,
     LOAD_INITIAL_STATE,
-    CHANGE_END_TIME,
+    CHANGE_DUE_TIME,
     CHANGE_START_TIME,
     CHANGE_REPEAT_SETTING,
     CHANGE_REMINDER_SETTING,
@@ -47,9 +48,16 @@
         return Object.assign({}, state, { basicInfo });
       }
 
-      case TOGGLE_ALL_DAY_EVENT: {
+      case TOGGLE_START_TIME: {
         const timeInfo = Object.assign({}, state.timeInfo, {
-          allDayEvent: action.payload
+          isStartTimeActive: action.payload
+        });
+        return Object.assign({}, state, { timeInfo });
+      }
+
+      case TOGGLE_DUE_TIME: {
+        const timeInfo = Object.assign({}, state.timeInfo, {
+          isDueTimeActive: action.payload
         });
         return Object.assign({}, state, { timeInfo });
       }
@@ -61,9 +69,9 @@
         return Object.assign({}, state, { timeInfo });
       }
 
-      case CHANGE_END_TIME: {
+      case CHANGE_DUE_TIME: {
         const timeInfo = Object.assign({}, state.timeInfo, {
-          endTime: action.payload
+          dueTime: action.payload
         });
         return Object.assign({}, state, { timeInfo });
       }

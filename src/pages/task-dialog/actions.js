@@ -5,12 +5,13 @@
     CHANGE_LOCATION,
     CHANGE_ITEM_CATEGORY,
     CHANGE_ITEM_CALENDAR,
-    TOGGLE_ALL_DAY_EVENT,
+    TOGGLE_DUE_TIME,
+    TOGGLE_START_TIME,
     CHANGE_START_TIME,
-    CHANGE_END_TIME,
+    CHANGE_DUE_TIME,
     CHANGE_REPEAT_SETTING,
     CHANGE_REMINDER_SETTING,
-    CHANGE_DESCRIPTION,
+    CHANGE_DESCRIPTION
   } = window.__action_constants__;
 
   const loadInitialState = data => ({
@@ -46,8 +47,13 @@
     payload: currentTarget.value
   });
 
-  const toggleAllDayEvent = ({ currentTarget }) => ({
-    type: TOGGLE_ALL_DAY_EVENT,
+  const toggleStartTime = ({ currentTarget }) => ({
+    type: TOGGLE_START_TIME,
+    payload: currentTarget.checked
+  });
+
+  const toggleDueTime = ({ currentTarget }) => ({
+    type: TOGGLE_DUE_TIME,
     payload: currentTarget.checked
   });
 
@@ -56,8 +62,8 @@
     payload: currentTarget.value
   });
 
-  const changeEndTime = ({ currentTarget }) => ({
-    type: CHANGE_END_TIME,
+  const changeDueTime = ({ currentTarget }) => ({
+    type: CHANGE_DUE_TIME,
     payload: currentTarget.value
   });
 
@@ -84,8 +90,9 @@
   };
 
   window.__time_info_actions__ = {
-    toggleAllDayEvent,
-    changeEndTime,
+    toggleStartTime,
+    toggleDueTime,
+    changeDueTime,
     changeStartTime
   };
 

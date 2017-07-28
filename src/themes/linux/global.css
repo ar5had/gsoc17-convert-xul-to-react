@@ -33,7 +33,7 @@
 }
 
 .row label, .row input[type="checkbox"], .row input[type="radio"], .row .label-spacer {
-  margin: auto 5px auto 0;
+  margin: auto 10px auto 0;
 }
 
 .row > .row-input {
