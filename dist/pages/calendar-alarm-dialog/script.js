@@ -33,7 +33,10 @@ class CalendarAlarmDialog extends React.Component {
       return;
     }
 
-    this.postMessage({ messageRecieved: true, source: "dialog-message" }, `${window.location.origin}/iframe-testing-ground`);
+    this.postMessage(
+      { messageRecieved: true, source: "dialog-message" },
+      `${window.location.origin}/iframe-testing-ground`
+    );
 
     console.log("%c Data from Parent: Starts", "color: #333; font-size: 20px; font-weight: bold");
     console.log(e.data);
@@ -62,7 +65,10 @@ class CalendarAlarmDialog extends React.Component {
     return React.createElement(
       "div",
       { id: "alarm-dialog-content-box", className: "wrapper window" },
-      React.createElement(RichListBox, { cssClasses: "alarm-dialog-richlistbox", widgetData: this.state.widgetData }),
+      React.createElement(RichListBox, {
+        cssClasses: "alarm-dialog-richlistbox",
+        widgetData: this.state.widgetData
+      }),
       React.createElement(AlarmDialogButtonBox, {
         cssClasses: "alarm-dialog-buttonbox",
         snoozeAll: snoozeAll,

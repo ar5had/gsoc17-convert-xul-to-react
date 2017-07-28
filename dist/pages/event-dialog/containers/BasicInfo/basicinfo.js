@@ -1,4 +1,4 @@
-(function () {
+(function() {
   const { connect } = ReactRedux;
   const { bindActionCreators } = Redux;
 
@@ -82,11 +82,7 @@
               onChange: changeItemCalendar,
               value: itemCalendar
             },
-            React.createElement(
-              "option",
-              { value: "HOME" },
-              "Home"
-            )
+            React.createElement("option", { value: "HOME" }, "Home")
           )
         )
       ),

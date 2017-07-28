@@ -1,4 +1,4 @@
-(function () {
+(function() {
   const AlarmDialogButtonBox = ({ snoozeAll, dismissAll, cssClasses }) => {
     return React.createElement(
       "div",
@@ -8,11 +8,7 @@
         { id: "alarm-snooze-all", onClick: snoozeAll },
         "Snooze All for"
       ),
-      React.createElement(
-        "button",
-        { id: "dismiss-all", onClick: dismissAll },
-        "Dismiss All"
-      )
+      React.createElement("button", { id: "dismiss-all", onClick: dismissAll }, "Dismiss All")
     );
   };
 

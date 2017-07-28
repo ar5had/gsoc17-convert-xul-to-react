@@ -1,4 +1,4 @@
-(function () {
+(function() {
   const { connect } = ReactRedux;
   const { bindActionCreators } = Redux;
 
@@ -29,7 +29,8 @@
 
     const isCompletionDatePickerDisabled = todoStatus !== "COMPLETED";
 
-    const isCompletionStatusTextboxDisabled = todoStatus === "CANCELED" || todoStatus === "NOT_SPECIFIED";
+    const isCompletionStatusTextboxDisabled =
+      todoStatus === "CANCELED" || todoStatus === "NOT_SPECIFIED";
 
     return React.createElement(
       "div",
@@ -103,31 +104,11 @@
             onChange: changeTodoStatus,
             accessKey: "a"
           },
-          React.createElement(
-            "option",
-            { value: "NOT_SPECIFIED" },
-            "Not specified"
-          ),
-          React.createElement(
-            "option",
-            { value: "NEED_ACTION" },
-            "Need Action"
-          ),
-          React.createElement(
-            "option",
-            { value: "IN_PROCESS" },
-            "In Process"
-          ),
-          React.createElement(
-            "option",
-            { value: "COMPLETED" },
-            "Completed on"
-          ),
-          React.createElement(
-            "option",
-            { value: "CANCELED" },
-            "Canceled"
-          )
+          React.createElement("option", { value: "NOT_SPECIFIED" }, "Not specified"),
+          React.createElement("option", { value: "NEED_ACTION" }, "Need Action"),
+          React.createElement("option", { value: "IN_PROCESS" }, "In Process"),
+          React.createElement("option", { value: "COMPLETED" }, "Completed on"),
+          React.createElement("option", { value: "CANCELED" }, "Canceled")
         ),
         React.createElement("input", {
           type: "date",

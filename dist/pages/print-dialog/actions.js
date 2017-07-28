@@ -1,4 +1,4 @@
-(function () {
+(function() {
   var {
     CHANGE_TITLE,
     CHANGE_TO_DATE,

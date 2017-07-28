@@ -1,4 +1,4 @@
-(function () {
+(function() {
   const { connect } = ReactRedux;
   const { bindActionCreators } = Redux;
 
@@ -27,46 +27,14 @@
             onChange: changeRepeatSetting,
             value: repeatOption
           },
-          React.createElement(
-            "option",
-            { value: "NOT_REPEAT" },
-            "Does not repeat"
-          ),
-          React.createElement(
-            "option",
-            { value: "DAILY" },
-            "Daily"
-          ),
-          React.createElement(
-            "option",
-            { value: "WEEKLY" },
-            "Weekly"
-          ),
-          React.createElement(
-            "option",
-            { value: "EVERY_WEEKDAY" },
-            "Every Weekday"
-          ),
-          React.createElement(
-            "option",
-            { value: "BIWEEKLY" },
-            "Bi-weekly"
-          ),
-          React.createElement(
-            "option",
-            { value: "MONTHLY" },
-            "Monthly"
-          ),
-          React.createElement(
-            "option",
-            { value: "YEARLY" },
-            "Yearly"
-          ),
-          React.createElement(
-            "option",
-            { value: "CUSTOM" },
-            "Custom"
-          )
+          React.createElement("option", { value: "NOT_REPEAT" }, "Does not repeat"),
+          React.createElement("option", { value: "DAILY" }, "Daily"),
+          React.createElement("option", { value: "WEEKLY" }, "Weekly"),
+          React.createElement("option", { value: "EVERY_WEEKDAY" }, "Every Weekday"),
+          React.createElement("option", { value: "BIWEEKLY" }, "Bi-weekly"),
+          React.createElement("option", { value: "MONTHLY" }, "Monthly"),
+          React.createElement("option", { value: "YEARLY" }, "Yearly"),
+          React.createElement("option", { value: "CUSTOM" }, "Custom")
         )
       ),
       React.createElement("div", { className: "separator groove" }),
@@ -88,66 +56,18 @@
             onChange: changeReminderSetting,
             value: reminderOption
           },
-          React.createElement(
-            "option",
-            { value: "NO_REMINDER" },
-            "No reminder"
-          ),
-          React.createElement(
-            "option",
-            { value: "0_MINUTES" },
-            "0 minutes before"
-          ),
-          React.createElement(
-            "option",
-            { value: "5_MINUTES" },
-            "5 minutes before"
-          ),
-          React.createElement(
-            "option",
-            { value: "15_MINUTES" },
-            "15 minutes before"
-          ),
-          React.createElement(
-            "option",
-            { value: "30_MINUTES" },
-            "30 minutes before"
-          ),
-          React.createElement(
-            "option",
-            { value: "1_HOUR" },
-            "1 hour before"
-          ),
-          React.createElement(
-            "option",
-            { value: "2_HOURS" },
-            "2 hours before"
-          ),
-          React.createElement(
-            "option",
-            { value: "12_HOURS" },
-            "12 hours before"
-          ),
-          React.createElement(
-            "option",
-            { value: "1_DAY" },
-            "1 day before"
-          ),
-          React.createElement(
-            "option",
-            { value: "2_DAYS" },
-            "2 days before"
-          ),
-          React.createElement(
-            "option",
-            { value: "1_WEEK" },
-            "1 week before"
-          ),
-          React.createElement(
-            "option",
-            { value: "CUSTOM" },
-            "Custom"
-          )
+          React.createElement("option", { value: "NO_REMINDER" }, "No reminder"),
+          React.createElement("option", { value: "0_MINUTES" }, "0 minutes before"),
+          React.createElement("option", { value: "5_MINUTES" }, "5 minutes before"),
+          React.createElement("option", { value: "15_MINUTES" }, "15 minutes before"),
+          React.createElement("option", { value: "30_MINUTES" }, "30 minutes before"),
+          React.createElement("option", { value: "1_HOUR" }, "1 hour before"),
+          React.createElement("option", { value: "2_HOURS" }, "2 hours before"),
+          React.createElement("option", { value: "12_HOURS" }, "12 hours before"),
+          React.createElement("option", { value: "1_DAY" }, "1 day before"),
+          React.createElement("option", { value: "2_DAYS" }, "2 days before"),
+          React.createElement("option", { value: "1_WEEK" }, "1 week before"),
+          React.createElement("option", { value: "CUSTOM" }, "Custom")
         )
       ),
       React.createElement("div", { className: "separator groove" })

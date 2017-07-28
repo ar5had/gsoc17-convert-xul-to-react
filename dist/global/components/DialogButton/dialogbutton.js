@@ -1,4 +1,4 @@
-(function () {
+(function() {
   class DialogButton extends React.Component {
     componentDidMount() {
       this.addAttributes(this.props);
@@ -19,7 +19,7 @@
     render() {
       const { html, className, onClick, accessKey } = this.props;
       return React.createElement("button", {
-        ref: node => this.button = node,
+        ref: node => (this.button = node),
         dangerouslySetInnerHTML: {
           __html: html
         },

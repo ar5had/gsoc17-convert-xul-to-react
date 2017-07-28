@@ -1,4 +1,4 @@
-(function () {
+(function() {
   window.underlineAccessKey = (str, key) => {
     const index = str.indexOf(key);
     if (key === null) {

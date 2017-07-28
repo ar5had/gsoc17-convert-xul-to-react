@@ -1,4 +1,4 @@
-(function () {
+(function() {
   const { connect } = ReactRedux;
   const { bindActionCreators } = Redux;
 
@@ -38,21 +38,9 @@
           React.createElement(
             "select",
             { className: "row-input", id: "layout-field", value: layout, onChange: changeLayout },
-            React.createElement(
-              "option",
-              { value: "LIST" },
-              "List"
-            ),
-            React.createElement(
-              "option",
-              { value: "MONTHLY_GRID" },
-              "Monthly Grid"
-            ),
-            React.createElement(
-              "option",
-              { value: "WEEKLY_PLANNER" },
-              "Weekly Planner"
-            )
+            React.createElement("option", { value: "LIST" }, "List"),
+            React.createElement("option", { value: "MONTHLY_GRID" }, "Monthly Grid"),
+            React.createElement("option", { value: "WEEKLY_PLANNER" }, "Weekly Planner")
           )
         )
       )

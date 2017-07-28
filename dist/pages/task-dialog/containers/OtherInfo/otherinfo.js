@@ -1,4 +1,4 @@
-(function () {
+(function() {
   const { connect } = ReactRedux;
   const { bindActionCreators } = Redux;
 
@@ -15,15 +15,18 @@
     }
 
     getTabList() {
-      return [{
-        text: "Description:",
-        accessKey: "p",
-        id: "description"
-      }, {
-        text: "Attachment:",
-        accessKey: "h",
-        id: "attachment"
-      }];
+      return [
+        {
+          text: "Description:",
+          accessKey: "p",
+          id: "description"
+        },
+        {
+          text: "Attachment:",
+          accessKey: "h",
+          id: "attachment"
+        }
+      ];
     }
 
     getActiveTabPanelContent() {
@@ -31,27 +34,25 @@
       const { changeDescription } = this.props.actions;
 
       switch (this.state.activeTab) {
-        case "description":
-          {
-            return React.createElement(
-              "div",
-              { className: "event-grid-tabpanel", id: "event-grid-tabpanel-description" },
-              React.createElement("textarea", {
-                id: "item-description",
-                className: "textarea",
-                onChange: changeDescription,
-                value: description
-              })
-            );
-          }
-        case "attachment":
-          {
-            return React.createElement(
-              "div",
-              { id: "event-grid-tabpanel-attachment", className: "event-grid-tabpanel" },
-              React.createElement("div", { id: "attachment-link", className: "listbox" })
-            );
-          }
+        case "description": {
+          return React.createElement(
+            "div",
+            { className: "event-grid-tabpanel", id: "event-grid-tabpanel-description" },
+            React.createElement("textarea", {
+              id: "item-description",
+              className: "textarea",
+              onChange: changeDescription,
+              value: description
+            })
+          );
+        }
+        case "attachment": {
+          return React.createElement(
+            "div",
+            { id: "event-grid-tabpanel-attachment", className: "event-grid-tabpanel" },
+            React.createElement("div", { id: "attachment-link", className: "listbox" })
+          );
+        }
         default:
           return "";
       }
@@ -72,11 +73,7 @@
             activeTab: this.state.activeTab,
             handleTabChange: handleTabChange
           }),
-          React.createElement(
-            TabPanel,
-            null,
-            activeTabPanelContent
-          )
+          React.createElement(TabPanel, null, activeTabPanelContent)
         )
       );
     }

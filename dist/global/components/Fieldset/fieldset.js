@@ -1,13 +1,9 @@
-(function () {
+(function() {
   const Fieldset = ({ title, id, children }) => {
     return React.createElement(
       "fieldset",
       { className: "fieldset", id: id },
-      React.createElement(
-        "legend",
-        null,
-        title
-      ),
+      React.createElement("legend", null, title),
       children
     );
   };

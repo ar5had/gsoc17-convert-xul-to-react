@@ -1,4 +1,4 @@
-(function () {
+(function() {
   class CalendarPropertiesDialog extends React.Component {
     constructor() {
       super();
@@ -33,13 +33,16 @@
                 selected: "key1"
               }
             },
-            identities: [{
-              name: "Arshad <kewisch@exmaple.com>",
-              key: "key2"
-            }, {
-              name: "Philipp <kewisch@exmaple.com>",
-              key: "key1"
-            }]
+            identities: [
+              {
+                name: "Arshad <kewisch@exmaple.com>",
+                key: "key2"
+              },
+              {
+                name: "Philipp <kewisch@exmaple.com>",
+                key: "key1"
+              }
+            ]
           }
         }
       };
@@ -72,7 +75,10 @@
         return;
       }
 
-      this.postMessage({ messageRecieved: true, source: "dialog-message" }, `${window.location.origin}/iframe-testing-ground`);
+      this.postMessage(
+        { messageRecieved: true, source: "dialog-message" },
+        `${window.location.origin}/iframe-testing-ground`
+      );
 
       console.log("%c Data from Parent: Starts", "color: #333; font-size: 20px; font-weight: bold");
       console.log(e.data);
@@ -108,7 +114,9 @@
 
     render() {
       const activeTabData = this.state.tabs[this.state.activeTab];
-      const allTabsName = Object.keys(this.state.tabs).filter(elem => elem !== "source").map(text => ({ text, id: text.toLowerCase() }));
+      const allTabsName = Object.keys(this.state.tabs)
+        .filter(elem => elem !== "source")
+        .map(text => ({ text, id: text.toLowerCase() }));
       const handleTabChange = this.changeTab.bind(this);
       const activeTab = this.state.activeTab;
       const showTabStrip = allTabsName.length > 1;
@@ -122,11 +130,12 @@
         React.createElement(
           TabBox,
           null,
-          showTabStrip && React.createElement(TabStrip, {
-            tabs: allTabsName,
-            handleTabChange: handleTabChange,
-            activeTab: activeTab
-          }),
+          showTabStrip &&
+            React.createElement(TabStrip, {
+              tabs: allTabsName,
+              handleTabChange: handleTabChange,
+              activeTab: activeTab
+            }),
           React.createElement(CalendarPropertiesTabPanel, {
             isSingleTab: !showTabStrip,
             activeTabData: activeTabData,
