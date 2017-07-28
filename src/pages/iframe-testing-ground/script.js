@@ -67,6 +67,60 @@ window.addEventListener("load", () => {
       },
       iframe: "",
       source: "dialog-message"
+    },
+    "event-dialog": {
+      basicInfo: {
+        title: "New Event",
+        location: "",
+        itemCategory: "",
+        itemCalendar: "HOME"
+      },
+      timeInfo: {
+        allDayEvent: false,
+        startTime: "",
+        endTime: ""
+      },
+      alarmReminderInfo: {
+        repeatSetting: "NOT_REPEAT",
+        reminderSetting: "NO_REMINDER"
+      },
+      otherInfo: {
+        description: "",
+        attachment: [],
+        attendees: [],
+        notifyAttendees: false,
+        separateInvitationPerAttendee: false,
+        disallowCounter: false
+      },
+      source: "dialog-message"
+    },
+    "task-dialog": {
+      basicInfo: {
+        title: "New Task",
+        location: "",
+        itemCategory: "",
+        itemCalendar: "HOME"
+      },
+      timeInfo: {
+        allDayEvent: false,
+        startTime: "",
+        dueTime: "",
+        isStartTimeActive: false,
+        isDueTimeActive: false,
+        todoStatus: "NOT_SPECIFIED",
+        completionDate: "",
+        completionStatus: 0
+      },
+      alarmReminderInfo: {
+        repeatSetting: "NOT_REPEAT",
+        reminderSetting: "NO_REMINDER"
+      },
+      otherInfo: {
+        description: "",
+        attachment: [],
+        attendees: []
+      },
+      source: "dialog-message"
     }
   };
 
@@ -86,11 +140,11 @@ window.addEventListener("load", () => {
 
   const componentFramer = e => {
     const component = selectbox.options[selectbox.selectedIndex].value;
-
+    console.log(component, textarea.innerHTML);
     if (component) {
-      textarea.innerHTML = JSON.stringify(DIALOG_STATES[component], null, 2);
+      textarea.value = JSON.stringify(DIALOG_STATES[component], null, 2);
     } else {
-      textarea.innerHTML = "";
+      textarea.value = "";
     }
   };
 
