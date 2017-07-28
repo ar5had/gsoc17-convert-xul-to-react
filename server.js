@@ -71,18 +71,13 @@ app.get("/", (req, res) => {
       }
 
     </style>
-    <!-- <h5>
-      <a class="sl" href="/pages/react-dialog" data-status="done">
-        React Dialog Element   
-      </a>
-    </h5> -->
     <h5>
       <a class="sl" href="/pages/calendar-properties-dialog" data-status="done">
         calendar properties dialog
       </a>
     </h5>
     <h5>
-      <a class="sl" href="/pages/print-dialog"  data-status="ui done">
+      <a class="sl" href="/pages/print-dialog"  data-status="UI done, Redux Added">
         Print Dialog   
       </a>
     </h5>
@@ -92,15 +87,15 @@ app.get("/", (req, res) => {
       </a>
     </h5>
     <h5>
-      <a class="sl" href="/pages/event-dialog" data-status="UI done">
+      <a class="sl" href="/pages/event-dialog" data-status="UI done, Redux Added">
         Event Dialog   
       </a>
     </h5>
-    <!-- <h5>
-      <a class="sl" href="/pages/task-dialog" data-status="in progress">
+    <h5>
+      <a class="sl" href="/pages/task-dialog" data-status="UI done, Redux Added">
         Task Dialog   
       </a>
-    </h5> -->
+    </h5>
     <h5 class="iframe-btn-wrapper">
       <a href="/pages/iframe-testing-ground">
         <button>
