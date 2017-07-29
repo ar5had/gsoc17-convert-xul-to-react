@@ -1,0 +1,58 @@
+html {
+  font: message-box;
+  letter-spacing: 2px;
+  word-spacing: 7px;
+  height: 100%;
+  color: -moz-DialogText;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+h5 {
+  font-size: 14px;
+  text-align: center;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  margin: 10px 0;
+}
+
+h5 > a {
+  transition: opacity .1s;
+  text-decoration: none;
+  color: -moz-DialogText;
+}
+
+h5 > a:hover, button:hover {
+  opacity: .75;
+  cursor: pointer;
+}
+
+.iframe-btn-wrapper {
+  padding-top: 35px;
+  border-top: solid 1px #bbb;
+  width: 80%;
+  max-width: 500px;
+  margin-top: 25px;
+}
+
+button {
+  padding: 10px;
+}
+
+.sl:after {
+  content: attr(data-status);
+  border: solid 1px;
+  border-radius: 5px;
+  font-size: 10px;
+  white-space: nowrap;
+  padding: 2px 5px;
+  color: #999;
+  font-weight: 400;
+}
