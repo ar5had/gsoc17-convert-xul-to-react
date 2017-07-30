@@ -7,11 +7,22 @@ html {
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin: 0;
   min-height: 100%;
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#dialogslist {
+  display: flex;
+  border: solid 1px #aaa;
+  border-radius: 5px;
+  margin:auto;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
   flex-direction: column;
 }
 
