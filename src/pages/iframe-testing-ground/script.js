@@ -171,7 +171,7 @@ window.addEventListener("load", () => {
     const dialogName = selectbox.options[selectbox.selectedIndex].value;
     const object = textarea.value;
 
-    pseudoWindow.classList.remove("hide");
+    pseudoWindow.classList.add("show");
     pseudoWindow.setAttribute("data-title", dialogName.replace(/-/g, " "));
 
     loadIframe(dialogName, JSON.parse(object));
