@@ -18,6 +18,9 @@ Lightning(Thunderbird calendar addon) has traditionally been using XUL for its u
 All the components within `src` directory structure will be present in `dist` directory. These components will be in vanilla js instead of jsx.
 6. **Write/Change Code:** Install prettier and eslint extentions in your code editor to make sure you don't have lint errors. The `build` command runs a bash shell file so also make sure you are running `build` command on a bash shell.
 
+## Problems and Issues
+Feel free to open an issue to get info about any component or anything else.
+
 ## Thanks
 
 Thanks to [BrowserStack](https://www.browserstack.com/) for providing free open source plans.
