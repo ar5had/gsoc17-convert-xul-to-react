@@ -15,7 +15,7 @@ Lightning(Thunderbird calendar addon) has traditionally been using XUL for its u
 3. **Install dependencies:** `yarn install`
 4. **Start server:** `yarn start`
 5. **Convert components to vanilla js(no-jsx):** `yarn build`. 
-All the components following `src` directory structure will be present in `dist` directory. These components will be using vanilla js instead of jsx.
+All the components within `src` directory structure will be present in `dist` directory. These components will be in vanilla js instead of jsx.
 6. **Write/Change Code:** Install prettier and eslint extentions in your code editor to make sure you don't have lint errors. The `build` command runs a bash shell file so also make sure you are running `build` command on a bash shell.
 
 ## Thanks
