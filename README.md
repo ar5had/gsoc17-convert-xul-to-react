@@ -8,7 +8,7 @@ http://gsoc17.iamarshad.com/
 Lightning(Thunderbird calendar addon) has traditionally been using XUL for its user interface. To modernize, **I will be converting User Interface of some dialogs into React.** The new components will be using web standards as much as possible, avoiding extensive use of third party libraries. I will be using React.js for developing HTML. React.js is very good for making reusable web components and it is quite efficient as well. Unlike XUL, debugging is very easy with react.js. More about this project can be found in my [proposal](https://goo.gl/Eothqj).
 
 ## Get Started
-**NOTE:** This project is **ONLY FOR FIREFOX BROWSER** because it uses firefox platform css.
+**NOTE:** This project should be viewed **ONLY IN FIREFOX BROWSER** because it uses firefox platform css.
 
 1. **Clone the repository:** `https://github.com/arshdkhn1/gsoc17-convert-xul-to-html.git`
 2. **Install Yarn globally:** `npm install -g yarn`
