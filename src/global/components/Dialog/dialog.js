@@ -69,11 +69,14 @@
       }
     }
 
+    // Getting all the dialogs buttons by parsing the buttons prop
     getAllButtons() {
       const props = this.props;
       const buttonsList = props.buttons
         .split(",")
+        // remove extra whitespace
         .map(btn => btn.trim())
+        // filter only valid buttons
         .filter(btn => this.buttonOptions.includes(btn));
 
       return buttonsList
@@ -88,6 +91,7 @@
             html={underlineAccessKey(props[`buttonlabel${btn}`], props[`buttonaccesskey${btn}`])}
           />
         )
+        // adding a spacer, which helps in maintaining the dialog button layout of dialog
         .concat([<div className="dialog-button-spacer" key="spacer" />]);
     }
 

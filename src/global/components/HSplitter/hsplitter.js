@@ -1,4 +1,5 @@
 (function() {
+  // HSplitter(horizontal splitter), divides the components horizonatally.
   class HSplitter extends React.Component {
     constructor(props) {
       super(props);

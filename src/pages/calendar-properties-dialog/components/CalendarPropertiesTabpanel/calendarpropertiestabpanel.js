@@ -1,11 +1,20 @@
 (function() {
+  // This tabpaanel componet has all the input,select and checkbox elements.
+  // This component is fairly simple enough, so refactorization is not done.
+
   class CalendarPropertiesTabPanel extends React.Component {
     componentDidMount() {
       this.applyComponentChanges(this.props.activeTabData);
     }
 
     componentWillReceiveProps(nextProps) {
-      // this ensures that applyComponentChanges is called only once when data from iframe is sent.
+      // This ensures that applyComponentChanges is called only once when data from iframe is sent.
+
+      // NOTE: message event is being sent by an interval on every 100ms so there is possibility
+      // that two message event are accepted so to avoid extra rerendering we are checking
+      // source value. Before recieving message event , source is undefined but after receiving
+      // message event, source is "dialog-message".
+
       if (this.props.source !== nextProps.source) {
         this.applyComponentChanges(nextProps.activeTabData);
       }
