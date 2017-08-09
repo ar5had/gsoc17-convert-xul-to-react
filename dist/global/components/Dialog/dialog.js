@@ -69,24 +69,33 @@
       }
     }
 
+    // Getting all the dialogs buttons by parsing the buttons prop
     getAllButtons() {
       const props = this.props;
       const buttonsList = props.buttons
-        .split(",")
-        .map(btn => btn.trim())
+        .split(
+          ","
+          // remove extra whitespace
+        )
+        .map(
+          btn => btn.trim()
+          // filter only valid buttons
+        )
         .filter(btn => this.buttonOptions.includes(btn));
 
       return buttonsList
-        .map((btn, i) =>
-          React.createElement(DialogButton, {
-            className: `${btn}-btn dialog-button`,
-            key: i,
-            isDefaultButton: this.props.defaultButton.toLowerCase() === btn,
-            accessKey: props[`buttonaccesskey${btn}`],
-            dlgtype: btn,
-            onClick: this.assignClickHandler(btn),
-            html: underlineAccessKey(props[`buttonlabel${btn}`], props[`buttonaccesskey${btn}`])
-          })
+        .map(
+          (btn, i) =>
+            React.createElement(DialogButton, {
+              className: `${btn}-btn dialog-button`,
+              key: i,
+              isDefaultButton: this.props.defaultButton.toLowerCase() === btn,
+              accessKey: props[`buttonaccesskey${btn}`],
+              dlgtype: btn,
+              onClick: this.assignClickHandler(btn),
+              html: underlineAccessKey(props[`buttonlabel${btn}`], props[`buttonaccesskey${btn}`])
+            })
+          // adding a spacer, which helps in maintaining the dialog button layout of dialog
         )
         .concat([React.createElement("div", { className: "dialog-button-spacer", key: "spacer" })]);
     }

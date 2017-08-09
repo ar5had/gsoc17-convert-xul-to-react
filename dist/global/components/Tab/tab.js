@@ -1,23 +1,28 @@
 (function() {
   class Tab extends React.Component {
     componentDidMount() {
+      // if tab is active, then visually select the tab
       if (this.props.active) {
         this.selectTabVisually(this.tab);
       }
     }
 
     componentWillReceiveProps(nextProps) {
+      // First removing all the attributes, because html supports attribute minimization so changing
+      // attribute value to falsy value is not enough. Removing them is necessary.
       this.deselectTabVisually(this.tab);
       if (nextProps.active) {
         this.selectTabVisually(this.tab);
       }
     }
 
+    // Add selected and visuallySelected attributes to node.
     selectTabVisually(node) {
       node.setAttribute("visuallyselected", "true");
       node.setAttribute("selected", "true");
     }
 
+    // Remove selected and visuallySelected attributes to node.
     deselectTabVisually(node) {
       node.removeAttribute("visuallyselected");
       node.removeAttribute("selected");

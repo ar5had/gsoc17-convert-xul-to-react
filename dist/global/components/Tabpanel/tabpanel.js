@@ -1,4 +1,5 @@
 (function() {
+  // Just a wrapper
   const TabPanel = ({ children }) => {
     return React.createElement("div", { className: "tabpanel" }, children);
   };
