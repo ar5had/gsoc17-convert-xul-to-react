@@ -22,12 +22,12 @@
 }
 
 .row > .row-label {
-  width: 110px;
+  width: 120px;
 }
 
 #calendar-readOnly-row > div, #calendar-suppressAlarms-row > div, #calendar-cache-row > div {
   /** label width + label margin **/
-  margin-left: 120px;
+  margin-left: 130px;
   display: flex;
 }
 
