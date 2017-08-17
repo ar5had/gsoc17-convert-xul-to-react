@@ -10,6 +10,8 @@
 
 .dialog {
   padding: 15px;
+  display: flex;
+  flex-direction: column;
 }
 
 /* ::::: dialog buttons ::::: */
@@ -72,6 +74,7 @@
   display: flex;
   margin-right: -5px;
   margin-left: -5px;
+  margin-top: auto;
 }
 
 .dialog-button {
