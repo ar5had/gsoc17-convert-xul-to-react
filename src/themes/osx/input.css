@@ -32,6 +32,10 @@ input[readonly] {
   color: -moz-DialogText;
 }
 
+input[readonly][disabled] {
+  color: GrayText;
+}
+
 input[type="number"] {
   padding: 2px 0 2px 2px !important;
   border: none;

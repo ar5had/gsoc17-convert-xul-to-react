@@ -37,6 +37,10 @@ input[type="number"] {
   cursor: default;
 }
 
+input[readonly][disabled] {
+  color: GrayText;
+}
+
 *.numberbox-input {
   text-align: right;
 }

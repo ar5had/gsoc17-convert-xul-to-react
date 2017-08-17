@@ -13,7 +13,7 @@
 
 .dialog {
   -moz-appearance: dialog;
-  padding: 15px;
+  padding: 15px 15px 0 15px;
   display: flex;
   flex-direction: column;
 }
@@ -70,6 +70,7 @@ dialogheader {
   margin-right: -5px;
   margin-left: -5px;
   margin-top: auto;
+  padding-bottom: 15px;
 }
 
 .dialog-button {
