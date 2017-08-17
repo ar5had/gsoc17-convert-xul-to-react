@@ -9,6 +9,10 @@
   box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+}
+
 .dialog, .window {
   -moz-appearance: dialog;
   background-color: #FFFFFF;
@@ -61,7 +65,7 @@ input[type="text"], input[type="date"], input[type="number"] {
 }
 
 #calendar-properties-grid {
-  padding-left: 19px;
+  padding-left: 24px;
 }
 
 label.disabled, label.disabled * {
@@ -155,4 +159,13 @@ legend {
 
 #percent-complete-textbox {
   max-width: 40px !important;
+}
+
+.row > .row-label {
+  width: 110px !important;
+}
+
+#calendar-readOnly-row > div, #calendar-suppressAlarms-row > div, #calendar-cache-row > div {
+  /** label width + label margin **/
+  margin-left: 120px !important;
 }
