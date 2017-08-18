@@ -59,7 +59,7 @@ input[type="text"], input[type="date"], input[type="number"] {
   min-width: 10px;
 }
 
-.row > input.row-input {
+input:not([type="number"]):not([type="color"]).row-input {
   padding: 0px 2px;
 }
 

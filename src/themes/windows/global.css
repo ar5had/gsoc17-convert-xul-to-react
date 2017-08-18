@@ -65,7 +65,7 @@ body {
   margin-right: 0;
 }
 
-input.row-input {
+input:not([type="number"]):not([type="color"]).row-input {
   /* 
     input of type text has a default min-width
     which breaks layout on small width 

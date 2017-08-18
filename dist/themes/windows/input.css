@@ -10,13 +10,6 @@ input[type="text"] {
   user-select: text;
 }
 
-input[type="color"]#calendar-color {
-  flex: none;
-  width: 45px;
-  padding: 2px;
-  -moz-appearance: textfield;
-}
-
 /* ..... readonly state ..... */
 
 input[readonly] {

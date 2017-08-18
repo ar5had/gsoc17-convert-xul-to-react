@@ -42,7 +42,6 @@ body {
 
 .row > .row-input {
   flex: 1;
-  padding: 0px 4px;
 }
 
 .row > select.row-input {
@@ -58,21 +57,20 @@ body {
   margin-right: 0;
 }
 
-input[type="text"], input[type="date"]{
+input.row-input {
   /* 
     input of type text has a default min-width
     which breaks layout on small width 
   */
   min-width: 10px !important;
-  padding: 2px !important;
+  padding: 2px;
 }
 
-input[type="number"] {
-  min-width: 10px !important;
-}
-
-.row > input[type="text"].row-input {
-  padding: 2px 4px;
+input[type="color"]#calendar-color {
+  padding: 2px;
+  flex: none;
+  width: 45px;
+  -moz-appearance: button;
 }
 
 #calendar-properties-grid {
