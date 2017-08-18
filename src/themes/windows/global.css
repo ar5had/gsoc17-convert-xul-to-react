@@ -74,6 +74,13 @@ input.row-input {
   padding: 2px;
 }
 
+input[type="color"]#calendar-color {
+  flex: none;
+  width: 45px;
+  padding: 2px;
+  -moz-appearance: textfield;
+}
+
 #calendar-properties-grid {
   padding-left: 24px;
 }

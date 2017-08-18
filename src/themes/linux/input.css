@@ -10,13 +10,6 @@ input[type="text"] {
   user-select: text;
 }
 
-input[type="color"]#calendar-color {
-  padding: 2px;
-  flex: none;
-  width: 45px;
-  -moz-appearance: button;
-}
-
 input[disabled] {
   cursor: default;
   /*background-color: -moz-Dialog;*/
