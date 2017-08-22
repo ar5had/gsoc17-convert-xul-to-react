@@ -95,7 +95,7 @@ button:hover {
 
 .bugs {
     display: block;
-    margin-top: 20px;
+     margin-top: 10px;
 }
 
 .bug {
@@ -105,9 +105,9 @@ button:hover {
     border: none;
     opacity: .9;
     transition: opacity 100ms linear;
-    border-radius: 40px;
     font-size: 12px;
     padding: 4px 25px;
+    border-radius: 40px;
 }
 
 .bug:hover {
