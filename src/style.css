@@ -53,15 +53,15 @@ h5 {
 .sl {
     text-align: center;
 }
-
+/*
 .sl:hover {
     cursor: pointer;
-}
+} */
 
 h5>a {
     transition: opacity .1s;
     text-decoration: none;
-    color: -moz-DialogText;
+    /* color: -moz-DialogText; */
 }
 
 h5>a:hover,
@@ -89,6 +89,10 @@ button:hover {
     text-transform: uppercase;
 }
 
+.tag:hover {
+    cursor: default;
+}
+
 .bugs {
     display: block;
     margin-top: 20px;
@@ -97,16 +101,21 @@ button:hover {
 .bug {
     background: rgba(51,51,51);
     color: #fff;
-    font-weight: 800;
-    border: 1px solid rgba(51,51,51);
-    opacity: .6;
-    transition: opacity 200ms linear;
-    border-radius: 0;
+    font-weight: 700;
+    border: none;
+    opacity: .9;
+    transition: opacity 100ms linear;
+    border-radius: 40px;
     font-size: 12px;
+    padding: 4px 25px;
 }
 
 .bug:hover {
-    opacity: .9;
+    opacity: .75;
+}
+
+a {
+    color: inherit;
 }
 
 .count {
