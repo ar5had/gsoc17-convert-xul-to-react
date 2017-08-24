@@ -36,8 +36,8 @@
               name="to-print"
               type="radio"
               id="printCurrentView"
-              value="CURRENT_VIEW"
-              checked={view === "CURRENT_VIEW"}
+              value="currentView"
+              checked={view === "currentView"}
               onChange={changeView}
             />
             <label htmlFor="printCurrentView" className="row-label">
@@ -50,8 +50,8 @@
               type="radio"
               name="to-print"
               id="selected"
-              value="SELECTED_EVENTS/TASKS"
-              checked={view === "SELECTED_EVENTS/TASKS"}
+              value="selected"
+              checked={view === "selected"}
               onChange={changeView}
             />
             <label htmlFor="selected" className="row-label">
@@ -64,8 +64,8 @@
               type="radio"
               name="to-print"
               id="custom-range"
-              value="CUSTOM_DATE_RANGE"
-              checked={view === "CUSTOM_DATE_RANGE"}
+              value="custom"
+              checked={view === "custom"}
               onChange={changeView}
             />
             <label htmlFor="custom-range" className="row-label">
