@@ -106,8 +106,7 @@ button:hover {
     opacity: .9;
     transition: opacity 100ms linear;
     font-size: 12px;
-    padding: 4px 25px;
-    border-radius: 40px;
+    padding: 6px 9px;
 }
 
 .bug:hover {
