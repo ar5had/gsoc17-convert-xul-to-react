@@ -3,8 +3,12 @@
   const { bindActionCreators } = Redux;
 
   const PrintSettings = ({ state, actions }) => {
-    const { title, layout } = state;
+    const { title, selectedLayoutIndex, layoutList } = state;
     const { changeTitle, changeLayout } = actions;
+
+    const getLayoutOptions = options =>
+      options.map((option, i) => React.createElement("option", { value: i, key: i }, option.value));
+
     return React.createElement(
       Fieldset,
       { title: "Print Settings", id: "settingsGroup" },
@@ -37,10 +41,13 @@
           ),
           React.createElement(
             "select",
-            { className: "row-input", id: "layout-field", value: layout, onChange: changeLayout },
-            React.createElement("option", { value: "LIST" }, "List"),
-            React.createElement("option", { value: "MONTHLY_GRID" }, "Monthly Grid"),
-            React.createElement("option", { value: "WEEKLY_PLANNER" }, "Weekly Planner")
+            {
+              className: "row-input",
+              id: "layout-field",
+              value: selectedLayoutIndex,
+              onChange: changeLayout
+            },
+            getLayoutOptions(layoutList)
           )
         )
       )

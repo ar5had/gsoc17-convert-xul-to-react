@@ -8,7 +8,8 @@
     const initialState = {
       printSettings: {
         title: "",
-        layout: ""
+        selectedLayoutIndex: 0,
+        layoutList: [{ value: "List" }, { value: "Monthly Grid" }, { value: "Weekly Planner" }]
       },
       whatToPrint: {
         printEvents: false,
@@ -23,7 +24,8 @@
       },
       iframe: {
         title: "demo",
-        html: "<!DOCTYPE html><html><body><h1>MyFirstHeading</h1><p>Myfirstparagraph.</p></body></html>"
+        html:
+          "<!DOCTYPE html><html><body><h1>MyFirstHeading</h1><p>Myfirstparagraph.</p></body></html>"
       }
     };
 

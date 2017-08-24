@@ -27,7 +27,7 @@
 
       case CHANGE_LAYOUT: {
         const printSettings = Object.assign({}, state.printSettings, {
-          layout: action.payload
+          selectedLayoutIndex: action.payload
         });
         return Object.assign({}, state, { printSettings });
       }

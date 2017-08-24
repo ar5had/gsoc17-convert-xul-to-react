@@ -3,8 +3,16 @@
   const { bindActionCreators } = Redux;
 
   const PrintSettings = ({ state, actions }) => {
-    const { title, layout } = state;
+    const { title, selectedLayoutIndex, layoutList } = state;
     const { changeTitle, changeLayout } = actions;
+
+    const getLayoutOptions = options =>
+      options.map((option, i) =>
+        <option value={i} key={i}>
+          {option.value}
+        </option>
+      );
+
     return (
       <Fieldset title="Print Settings" id="settingsGroup">
         <div className="fieldset-content-wrapper">
@@ -22,10 +30,13 @@
             <label htmlFor="layout-field" className="row-label">
               Layout:
             </label>
-            <select className="row-input" id="layout-field" value={layout} onChange={changeLayout}>
-              <option value="LIST">List</option>
-              <option value="MONTHLY_GRID">Monthly Grid</option>
-              <option value="WEEKLY_PLANNER">Weekly Planner</option>
+            <select
+              className="row-input"
+              id="layout-field"
+              value={selectedLayoutIndex}
+              onChange={changeLayout}
+            >
+              {getLayoutOptions(layoutList)}
             </select>
           </div>
         </div>
