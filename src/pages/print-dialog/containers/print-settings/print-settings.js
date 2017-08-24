@@ -1,48 +1,56 @@
 (function() {
+  /* global React, Redux, ReactRedux */
   const { connect } = ReactRedux;
   const { bindActionCreators } = Redux;
 
-  const PrintSettings = ({ state, actions }) => {
-    const { title, selectedLayoutIndex, layoutList } = state;
-    const { changeTitle, changeLayout } = actions;
+  class PrintSettings extends React.Component {
+    componentDidMount() {
+      this.titleInput.select();
+    }
 
-    const getLayoutOptions = options =>
-      options.map((option, i) =>
+    getLayoutOptions(options) {
+      return options.map((option, i) =>
         <option value={i} key={i}>
           {option.value}
         </option>
       );
+    }
 
-    return (
-      <Fieldset title="Print Settings" id="settingsGroup">
-        <div className="fieldset-content-wrapper">
-          <div className="row">
-            <label htmlFor="title-field" className="row-label">Title:</label>
-            <input
-              className="row-input"
-              type="text"
-              id="title-field"
-              value={title}
-              onChange={changeTitle}
-            />
+    render() {
+      const { title, selectedLayoutIndex, layoutList } = this.props.state;
+      const { changeTitle, changeLayout } = this.props.actions;
+      return (
+        <Fieldset title="Print Settings" id="settingsGroup">
+          <div className="fieldset-content-wrapper">
+            <div className="row">
+              <label htmlFor="title-field" className="row-label">Title:</label>
+              <input
+                className="row-input"
+                type="text"
+                id="title-field"
+                value={title}
+                onChange={changeTitle}
+                ref={node => (this.titleInput = node)}
+              />
+            </div>
+            <div className="row">
+              <label htmlFor="layout-field" className="row-label">
+                Layout:
+              </label>
+              <select
+                className="row-input"
+                id="layout-field"
+                value={selectedLayoutIndex}
+                onChange={changeLayout}
+              >
+                {this.getLayoutOptions(layoutList)}
+              </select>
+            </div>
           </div>
-          <div className="row">
-            <label htmlFor="layout-field" className="row-label">
-              Layout:
-            </label>
-            <select
-              className="row-input"
-              id="layout-field"
-              value={selectedLayoutIndex}
-              onChange={changeLayout}
-            >
-              {getLayoutOptions(layoutList)}
-            </select>
-          </div>
-        </div>
-      </Fieldset>
-    );
-  };
+        </Fieldset>
+      );
+    }
+  }
 
   PrintSettings.propTypes = {
     state: PropTypes.object.isRequired,
