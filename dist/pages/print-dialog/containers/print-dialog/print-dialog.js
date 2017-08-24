@@ -19,7 +19,7 @@
           boxId: "groupboxVbox",
           boxWindowId: "dialog-content-box"
         }),
-        React.createElement("iframe", { src: "about:blank", frameBorder: "0", id: "content" })
+        React.createElement(PreviewIframe, null)
       )
     );
   };

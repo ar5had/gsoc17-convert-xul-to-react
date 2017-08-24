@@ -21,7 +21,11 @@
         showTasksWithNoDueDate: false,
         showCompletedTasks: false
       },
-      iframe: ""
+      iframe: {
+        title: "demo",
+        html:
+          "<!DOCTYPE html><html><body><h1>MyFirstHeading</h1><p>Myfirstparagraph.</p></body></html>"
+      }
     };
 
     const middlewares = [];
