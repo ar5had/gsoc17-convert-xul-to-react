@@ -66,9 +66,9 @@ body {
 }
 
 input:not([type="number"]):not([type="color"]).row-input {
-  /* 
+  /*
     input of type text has a default min-width
-    which breaks layout on small width 
+    which breaks layout on small width
   */
   min-width: 10px;
   padding: 2px;
@@ -174,10 +174,6 @@ input[type="radio"]:focus + label, input[type="checkbox"]:focus + label {
   -moz-appearance: listbox;
   overflow-y: auto;
   flex: 1;
-}
-
-.row > .row-label {
-  width: 110px !important;
 }
 
 #calendar-readOnly-row > div, #calendar-suppressAlarms-row > div, #calendar-cache-row > div {
