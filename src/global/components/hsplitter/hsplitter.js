@@ -17,6 +17,7 @@
 
       this.splitter.addEventListener("mousedown", e => {
         if (e.which === 1) {
+          document.getElementById("content").style.pointerEvents = "none";
           this.prevX = e.clientX;
           this.boxWindow.addEventListener("mousemove", this.splitterDrag);
           document.body.classList.add("splitter-cursor");
@@ -26,6 +27,7 @@
     }
 
     componentWillUnmount() {
+      document.getElementById("content").style.pointerEvents = "all";
       document.body.classList.remove("splitter-cursor");
       document
         .getElementById("dialog-content-box")
@@ -50,6 +52,7 @@
           e.clientX
         );
       } else {
+        document.getElementById("content").style.pointerEvents = "all";
         this.boxWindow.removeEventListener("mousemove", this.splitterDrag);
         document.body.classList.remove("splitter-cursor");
       }
