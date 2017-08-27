@@ -70,6 +70,7 @@ body {
 .intro h2 {
   font-size: 18px;
   color: #333;
+  margin-top: 50px;
 }
 
 .introDesc blockquote {
