@@ -12,7 +12,7 @@
 /*** Above styles are just to make the dialogs look good ***/
 
 #groupboxVbox {
-  width: 200px;
+  width: 220px;
   max-width: calc(100% - 20px);
   display: flex;
   flex-wrap: wrap;
