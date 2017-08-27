@@ -13,7 +13,7 @@
 <body>
     <div class="warning">Please open this project in Firefox browser only because react-dialogs uses firefox platform CSS!</div>
     <script>
-        const rx = /(Mozilla|Firefox)/gi
+        const rx = /Firefox/gi
         if(!rx.test(navigator.userAgent)) {
             document.querySelector("warning").classList.add("active");
         }

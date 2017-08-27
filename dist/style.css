@@ -104,7 +104,7 @@ body {
   flex-direction: column;
   overflow: hidden;
   flex: 0 1 325px;
-  max-height: 70vh;
+  max-height: 75vh;
 }
 
 .footer {
@@ -116,6 +116,7 @@ body {
 
 .footer p {
   margin: 0;
+  font-size: 12px;
 }
 
 .footer a {
