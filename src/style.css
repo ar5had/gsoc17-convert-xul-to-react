@@ -77,15 +77,20 @@ body {
 }
 
 .intro a {
-  color: #333;
+  color: rgba(3, 102, 214, 0.7);
   border-bottom: solid 2px;
   border-color: transparent;
   transition: border-color 100ms linear;
   font-weight: bold;
 }
 
+.intro i {
+    color: #333;
+    font-weight: 600;
+}
+
 .intro a:hover {
-  border-color: #333;
+  border-color: rgba(3, 102, 214, 0.7);
 }
 
 .introHeader {
@@ -104,7 +109,8 @@ body {
   flex-direction: column;
   overflow: hidden;
   flex: 0 1 325px;
-  max-height: 75vh;
+  align-self: flex-start;
+  max-height: 73vh;
 }
 
 .footer {

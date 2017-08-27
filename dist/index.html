@@ -14,7 +14,7 @@
     <div class="warning">Please open this project in Firefox browser only because react dialogs uses firefox platform CSS!</div>
     <script>
         const rx = /Firefox/gi
-        if(!rx.test(navigator.userAgent)) {
+        if (!rx.test(navigator.userAgent)) {
             document.querySelector(".warning").classList.add("active");
         }
     </script>
@@ -31,12 +31,35 @@
                     possible, avoiding extensive use of third party libraries.
                 </blockquote>
                 <p>
-                    More info about this project can be found in my <a href="https://docs.google.com/document/d/1GMlUx1fjhYh8uO8IoormrsBXKXMVA2Vbs0Rd9ppZ9_g/">proposal</a>                    and <a href="https://github.com/arshdkhn1/gsoc17-convert-xul-to-html/wiki">wiki</a>.
+                    I have been using React and Redux for making dialogs. I think React is really a very good choice for rapidly making user
+                    interfaces. Redux is also used for state management in all dialogs except the very simple ones. CSS file
+                    for dialogs have been modified to work with HTML.
+                    <br/>
+                    <br/> You can check out <a href="https://docs.google.com/document/d/1GMlUx1fjhYh8uO8IoormrsBXKXMVA2Vbs0Rd9ppZ9_g/">my proposal</a>,
+                    <a href="https://medium.com/@arshdkhn1/first-steps-convert-xul-to-html-gsoc17-9692d2bab0b">blogs</a>,
+                    and <a href="https://github.com/arshdkhn1/gsoc17-convert-xul-to-html/wiki">wiki</a> to get detailed overview
+                    of project.
                 </p>
-
                 <h2>Project status:</h2>
-                <h2>How to use this webapp:</h2>
+                <p>
+                    I have converted 5 dialogs into their React equivalent so far. I have also submitted patches for <i>Calendar Properties Dialog</i>                    and <i>Calendar Print Dialog</i>. The third patch for <i>Calendar Alarm Dialog</i> is on the way.
+
+                </p>
+                <h2>What is this webapp for:</h2>
+                <p>
+                    The idea is to first create and test dialogs using this webapp and then integrate it into Thunderbird. Working on dialog separately outside Thunderbird helps in making dialogs faster.
+                    On this webapp, you can see how dialogs will look in Thunderbird on your OS, by opening dialog links given on
+                    <a href="#dialogslist">sidebar</a> in Firefox browser. There is also an <a href="http://localhost:8000/pages/iframe-testing-ground">Iframe Testing Ground</a>                    where you can experiment with the state of dialogs and see how dialog's UI changes depending upon the
+                    state.
+                    <br/>
+                    <br/> To see patches submitted on Bugzilla, you can click on the Bug buttons given on <a href="#dialogslist">sidebar</a>.
+                </p>
                 <h2>How to start:</h2>
+                <p>
+                    If you are interested in working on this project the please read <a href="https://github.com/arshdkhn1/gsoc17-convert-xul-to-html/blob/master/README.md">README.md</a>                    for setting up development environment locally.
+                    Also read the code and <a href="https://github.com/arshdkhn1/gsoc17-convert-xul-to-html/wiki">wiki</a>                    to learn about the component's architecture.
+                    You can contact <i>me(IRC nickname: arshad)</i> or my mentor <i>Philipp Kewisch(IRC nickname: fallen)</i> on <i>#calendar</i> channel of <a href="https://wiki.mozilla.org/IRC">Mozilla IRC Server</a> for more.
+                    </p>
             </div>
         </div>
         <div id="dialogslist">
