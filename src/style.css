@@ -61,6 +61,11 @@ body {
   letter-spacing: 0;
 }
 
+.intro h1 {
+  font-size: 24px;
+  color: #333;
+}
+
 .intro h2 {
   font-size: 18px;
   color: #333;
