@@ -10,6 +10,7 @@
       this.box = document.getElementById(this.props.boxId);
       this.boxWindow = document.getElementById(this.props.boxWindowId);
 
+      // slice removes "px" from width
       this.boxDefaultWidth = +window
         .getComputedStyle(this.box)
         .getPropertyValue("width")

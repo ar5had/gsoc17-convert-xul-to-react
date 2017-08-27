@@ -37,13 +37,14 @@ body {
   visibility: visible;
   padding: 10px 15px;
   margin-bottom: 50px;
+  line-height: 2;
 }
 
 .container {
-  padding: 0 15px;
+  padding: 0 35px;
   display: flex;
   justify-content: center;
-  width: 980px;
+  max-width: 980px;
   margin: auto;
   flex-wrap: wrap;
 }
@@ -338,4 +339,46 @@ a {
 .otherLinks a:hover {
   border-color: inherit;
   color: inherit;
+}
+
+@media screen and (max-width: 750px) {
+    .container {
+      padding: 0 25px;
+      flex-direction: column;
+    }
+    #dialogslist {
+      order: 1;
+      align-self: center;
+      margin-bottom: 50px;
+      flex-basis:400px;
+      width: 100%;
+    }
+
+    .otherLinks> div:first-child {text-align: right;}
+    .otherLinks> div:last-child {text-align: left;}
+
+    .otherLinks {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .intro {
+      order: 2;
+      margin: 0;
+      padding: 0;
+    }
+    .footer {
+      order: 3;
+    }
+
+    .footer p {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      text-align: center;
+    }
+
+    .footer p span {
+      margin-bottom: 15px;
+    }
 }
