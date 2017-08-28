@@ -1,0 +1,22 @@
+.richlistbox {
+  -moz-appearance: listbox;
+  margin: 2px 4px;
+  background-color: -moz-Field;
+  color: -moz-FieldText;
+  border: solid 1px ThreeDShadow;
+  overflow: auto;
+}
+
+.richlistbox > *[disabled] {
+  color: GrayText;
+}
+
+.richlistbox > *[selected="true"] {
+  background-color: -moz-Dialog;
+  color: -moz-DialogText;
+}
+/*
+.richlistbox:focus > .richlistbox > *[selected="true"] {
+  background-color: Highlight;
+  color: HighlightText;
+}*/

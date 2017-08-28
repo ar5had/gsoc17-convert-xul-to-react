@@ -1,0 +1,36 @@
+input[type="text"] {
+  -moz-appearance: textfield;
+  cursor: text;
+  padding: 0px;
+  color: -moz-FieldText;
+  -moz-user-select: text;
+  user-select: text;
+}
+
+input[disabled] {
+  cursor: default;
+  /*background-color: -moz-Dialog;*/
+  color: GrayText;
+}
+
+input[readonly] {
+  /*background-color: -moz-Dialog;*/
+  color: -moz-DialogText;
+}
+
+input[readonly][disabled] {
+  color: GrayText;
+}
+
+input[type="number"] {
+  padding: 2px 0 2px 2px !important;
+  border: none;
+  background-color: #fff;
+  cursor: default;
+}
+
+*.numberbox-input {
+  text-align: right;
+  padding: 0 1px !important;
+}
+

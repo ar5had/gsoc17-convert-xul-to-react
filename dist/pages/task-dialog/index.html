@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>task-dialog</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script></script>
+  <script src="/scripts/react.js"></script>
+  <script src="/scripts/react-dom.js"></script>
+  <script src="/scripts/proptypes.js"></script>
+  <script src="/scripts/redux.js"></script>
+  <script src="/scripts/react-redux.js"></script>
+  <script src="/scripts/discuss.js"></script>
+</head>
+
+<body>
+  <script>
+    (function () {
+      const styles = [
+        "global",
+        "dialog",
+        "button",
+        "input",
+        "checkbox",
+        "label",
+        "select",
+        "textarea",
+        "tab"
+      ];
+      const os = navigator.appVersion;
+      const addStyles = (os) => {
+        styles.forEach(file => {
+          const link = document.createElement("link");
+          link.rel = "stylesheet";
+          link.href = `/themes/${os}/${file}.css`;
+          document.head.appendChild(link);
+        });
+      }
+      if (os.includes("Win")) {
+        addStyles('windows');
+      } else if (os.includes("Mac")) {
+        addStyles('osx');
+      } else {
+        addStyles('linux');
+      }
+    })();
+  </script>
+  <h3 align="center" style="margin: 50px auto;">
+    <!-- window.location and anchor will send iframe back to root -->
+    <button onclick="parent.location='/'" style="
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 1px;
+      word-spacing: 2px;
+      text-transform: uppercase;
+    ">
+      <span style="vertical-align:top;display:inline-block;-moz-appearance: button-arrow-previous;"></span>
+      Back to home
+    </button>
+  </h3>
+  <div id="root">
+    <p align="center">
+      If you can see this, React is still loading or is not working right.
+    </p>
+  </div>
+  <div id="disqus_thread" style="max-width: 720px; margin: 100px auto 20px auto"></div>
+  <script src="/utils/utils.js"></script>
+  <script src="./constants.js"></script>
+  <script src="./reducer.js"></script>
+  <script src="./actions.js"></script>
+  <script src="./store.js"></script>
+  <script src="/global/components/dialog-button/dialog-button.js"></script>
+  <script src="/global/components/dialog/dialog.js"></script>
+  <script src="./containers/basic-info/basic-info.js"></script>
+  <script src="./containers/time-info/time-info.js"></script>
+  <script src="./containers/alarm-reminder-info/alarm-reminder-info.js"></script>
+  <script src="/global/components/tab/tab.js"></script>
+  <script src="/global/components/tabstrip/tabstrip.js"></script>
+  <script src="/global/components/tabpanel/tabpanel.js"></script>  
+  <script src="/global/components/tabbox/tabbox.js"></script>
+  <script src="./containers/other-info/other-info.js"></script>
+  <script src="./components/task-dialog/task-dialog.js"></script>
+  <script src="./script.js"></script>
+</body>
+
+</html>
