@@ -41,7 +41,7 @@
           </div>
           <p className="alarm-relative-date-label">22 Jun, 2am , 2015</p>
           <div className="alarm-action-buttons">
-            <button className="alarm-snooze-button">Snooze for</button>
+            <SnoozeButton />
             <button className="alarm-dismiss-button">Dismiss</button>
           </div>
         </div>
