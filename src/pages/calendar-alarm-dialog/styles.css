@@ -1,108 +1,112 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
 .wrapper {
-  box-shadow: 0 10px 30px 0 rgba(46, 61, 73, .35);
-  max-width: 500px;
-  margin: 10vh auto 0;
-  width: calc(100% - 50px);
-  padding: 15px;
-  height: 300px;
+    box-shadow: 0 10px 30px 0 rgba(46, 61, 73, .35);
+    max-width: 500px;
+    margin: 10vh auto 0;
+    width: calc(100% - 50px);
+    padding: 15px;
+    height: 300px;
 }
 
 /*** Above styles are just to make the dialogs look good ***/
 
 #alarm-dialog-content-box {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 #alarm-action-box {
-  padding-top: 15px;
-  display: flex;
-  justify-content: flex-end;
+    padding-top: 15px;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .alarm-dialog-richlistbox {
-  flex: 1;
+    flex: 1;
 }
 
 .calendar-alarm-widget {
-  display: flex;
+    display: flex;
 }
 
 .alarm-calendar-image {
-  width: 40px;
-  height: 40px;
+    width: 40px;
+    height: 40px;
 }
 
 .alarm-description {
-  flex: 1;
+    flex: 1;
 }
 
 .calendar-alarm-widget p {
-  line-height: 1;
-  margin: 5px 2px;
+    line-height: 1;
+    margin: 5px 2px;
 }
 
 .alarm-action-buttons {
-  display: flex;
-  flex-direction: column;
-  align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
 }
-
 
 /* Alarm widget specific styles */
 .calendar-alarm-widget {
-  border-bottom: 1px dotted ThreeDShadow;
-  padding: 6px 7px;
+    border-bottom: 1px dotted ThreeDShadow;
+    padding: 6px 7px;
 }
 
 .calendar-alarm-widget[selected="true"] {
-  background-color: Highlight;
-  padding: 0 5px;
+    background-color: Highlight;
+    padding: 0 5px;
 }
 
 .calendar-alarm-widget[selected="true"] p {
-  color: HighlightText;
+    color: HighlightText;
 }
 
 .calendar-alarm-widget[selected="true"] .alarm-title-label {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 .calendar-alarm-widget[selected="true"] .alarm-action-buttons {
-  display: flex;
+    display: flex;
 }
 
 .calendar-alarm-widget[selected="true"] > hbox {
-  margin: 5px;
+    margin: 5px;
 }
 
 .calendar-alarm-widget[selected="true"] .alarm-relative-date-label,
 .additional-information-box,
-.alarm-action-buttons, .alarm-calendar-image-wrapper {
-  display: none;
+.alarm-action-buttons,
+.alarm-calendar-image-wrapper {
+    display: none;
 }
 
 .calendar-alarm-widget[selected="true"] .alarm-calendar-image-wrapper {
-  display: block;
+    display: block;
 }
 
 .calendar-alarm-widget[selected="true"] .additional-information-box {
-  display: block;
+    display: block;
 }
 
 .calendar-alarm-widget[selected="true"] .action-buttons-box {
-  display: flex;
+    display: flex;
 }
 
 .alarm-details-label {
-  color: HighlightText;
-  text-decoration: underline;
+    color: HighlightText;
+    text-decoration: underline;
 }
 
 .calendar-alarm-widget .alarm-details-label {
-  display: none
+    display: none;
 }
 
 .calendar-alarm-widget p:empty {
-  display: none
+    display: none;
 }
