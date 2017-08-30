@@ -1,98 +1,102 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
 #root {
-  max-width: 750px;
-  margin: auto;
+    max-width: 750px;
+    margin: auto;
 }
 
 .window {
-  box-shadow: 0 10px 30px 0 rgba(46, 61, 73, .35);
-  margin: 10vh auto 0;
-  width: calc(100% - 50px);
-  padding: 15px;
-  height: 550px;
+    box-shadow: 0 10px 30px 0 rgba(46, 61, 73, .35);
+    margin: 10vh auto 0;
+    width: calc(100% - 50px);
+    padding: 15px;
+    height: 550px;
 }
 
 /*** Above styles are just to make the dialogs look good ***/
 
 .same-row {
-  display: flex;
+    display: flex;
 }
 
 .same-row > .row {
-  flex: 1;
-  margin-left: 5px;
-  margin-right: 5px;
+    flex: 1;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .same-row > .row:first-child {
-  margin-left: 0;
+    margin-left: 0;
 }
 
 .same-row > .row:last-child {
-  margin-right: 0;
+    margin-right: 0;
 }
 
 .row > .row-label, .row > .label-spacer {
-  min-width: 60px;
+    min-width: 60px;
 }
 
 .no-flex {
-  flex: none !important;
+    flex: none !important;
 }
 
 #other-info-wrapper {
-  padding-top: 8px;
-  height: 100%;
+    padding-top: 8px;
+    height: 100%;
 }
 
 #other-info-wrapper .tabbox {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 #other-info-wrapper .tabbox > .tabpanel {
-  flex: 1;
+    flex: 1;
 }
 
 .grid-rows {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .vblock {
-  flex: none;
+    flex: none;
 }
 
 .vblock.flex1 {
-  flex: 1;
+    flex: 1;
 }
 
 textarea#item-description {
-  height: 100%;
-  width: 100%;
-  resize: none;
+    height: 100%;
+    width: 100%;
+    resize: none;
 }
 
 .event-grid-tabpanel {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 #item-organiser-row {
-  padding-bottom: 3px;
+    padding-bottom: 3px;
 }
 
 .itip-icon {
-  display: inline-block;
-  --itip-icon-partstat: -16px -16px; /* default: NEEDS-ACTION */
-  --itip-icon-role: 0px; /* default: REQ-PARTICIPANT */
-  --itip-icon-usertype: -32px; /* default: INDIVIDUAL */
-  width: 16px;
-  height: 16px;
-  max-height: 16px;
-  background-image: url(chrome://calendar-common/skin/calendar-itip-icons.svg),
-    url(chrome://calendar-common/skin/calendar-itip-icons.svg);
-  background-position: var(--itip-icon-partstat), var(--itip-icon-usertype) var(--itip-icon-role);
+    display: inline-block;
+    --itip-icon-partstat: -16px -16px; /* default: NEEDS-ACTION */
+    --itip-icon-role: 0px; /* default: REQ-PARTICIPANT */
+    --itip-icon-usertype: -32px; /* default: INDIVIDUAL */
+    width: 16px;
+    height: 16px;
+    max-height: 16px;
+    background-image: url(chrome://calendar-common/skin/calendar-itip-icons.svg),
+        url(chrome://calendar-common/skin/calendar-itip-icons.svg);
+    background-position: var(--itip-icon-partstat), var(--itip-icon-usertype) var(--itip-icon-role);
 }
