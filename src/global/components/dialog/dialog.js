@@ -1,3 +1,7 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
 (function() {
   class Dialog extends React.Component {
     constructor(props) {
@@ -79,20 +83,22 @@
         // filter only valid buttons
         .filter(btn => this.buttonOptions.includes(btn));
 
-      return buttonsList
-        .map((btn, i) =>
-          <DialogButton
-            className={`${btn}-btn dialog-button`}
-            key={i}
-            isDefaultButton={this.props.defaultButton.toLowerCase() === btn}
-            accessKey={props[`buttonaccesskey${btn}`]}
-            dlgtype={btn}
-            onClick={this.assignClickHandler(btn)}
-            html={underlineAccessKey(props[`buttonlabel${btn}`], props[`buttonaccesskey${btn}`])}
-          />
-        )
-        // adding a spacer, which helps in maintaining the dialog button layout of dialog
-        .concat([<div className="dialog-button-spacer" key="spacer" />]);
+      return (
+        buttonsList
+          .map((btn, i) =>
+            <DialogButton
+              className={`${btn}-btn dialog-button`}
+              key={i}
+              isDefaultButton={this.props.defaultButton.toLowerCase() === btn}
+              accessKey={props[`buttonaccesskey${btn}`]}
+              dlgtype={btn}
+              onClick={this.assignClickHandler(btn)}
+              html={underlineAccessKey(props[`buttonlabel${btn}`], props[`buttonaccesskey${btn}`])}
+            />
+          )
+          // adding a spacer, which helps in maintaining the dialog button layout of dialog
+          .concat([<div className="dialog-button-spacer" key="spacer" />])
+      );
     }
 
     render() {
