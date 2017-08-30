@@ -1,70 +1,74 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
 /* ::::: splitter (vertical) ::::: */
 
 .splitter {
-  cursor: ew-resize;
-  border-width: 0 2px;
-  border-style: solid;
-  -moz-border-left-colors: transparent;
-  -moz-border-right-colors: transparent;
-  min-width: 6px;
-  background-color: ThreeDFace;
+    cursor: ew-resize;
+    border-width: 0 2px;
+    border-style: solid;
+    -moz-border-left-colors: transparent;
+    -moz-border-right-colors: transparent;
+    min-width: 6px;
+    background-color: ThreeDFace;
 }
 
 .splitter.vertical {
-  margin-left: 5px;
+    margin-left: 5px;
 }
 
 .splitter-cursor:hover {
-  cursor: ew-resize !important;
+    cursor: ew-resize !important;
 }
 
 .splitter-cursor * {
-  cursor: ew-resize !important;
+    cursor: ew-resize !important;
 }
 
 .splitter[state="collapsed"][collapse="before"],
 .splitter[state="collapsed"][substate="before"],
 .splitter[state="collapsed"][collapse="after"]:-moz-locale-dir(rtl),
 .splitter[state="collapsed"][substate="after"]:-moz-locale-dir(rtl) {
-  cursor: e-resize;
+    cursor: e-resize;
 }
 
 .splitter[state="collapsed"][collapse="after"],
 .splitter[state="collapsed"][substate="after"],
 .splitter[state="collapsed"][collapse="before"]:-moz-locale-dir(rtl),
 .splitter[state="collapsed"][substate="before"]:-moz-locale-dir(rtl) {
-  cursor: w-resize;
+    cursor: w-resize;
 }
 
 /* ::::: splitter (horizontal) ::::: */
 
 .splitter[orient="vertical"] {
-  cursor: ns-resize;
+    cursor: ns-resize;
 }
 
 .splitter[orient="vertical"][state="collapsed"][collapse="before"],
 .splitter[orient="vertical"][state="collapsed"][substate="before"] {
-  cursor: s-resize;
+    cursor: s-resize;
 }
 
 .splitter[orient="vertical"][state="collapsed"][collapse="after"],
 .splitter[orient="vertical"][state="collapsed"][substate="after"] {
-  cursor: n-resize;
+    cursor: n-resize;
 }
 
 .splitter[disabled="true"] {
-  cursor: default !important;
+    cursor: default !important;
 }
 
 /* ::::: splitter grippy ::::: */
 
 .grippy {
-  cursor: pointer;
-  min-width: 4px;
-  min-height: 115px;
+    cursor: pointer;
+    min-width: 4px;
+    min-height: 115px;
 }
 
 .splitter[orient="vertical"] > .grippy {
-  min-width: 115px;
-  min-height: 4px;
+    min-width: 115px;
+    min-height: 4px;
 }

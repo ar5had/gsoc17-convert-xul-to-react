@@ -9,51 +9,50 @@
 /* :::::::::: button :::::::::: */
 
 button {
-  -moz-appearance: button;
-  margin: 1px 5px 2px;
-  min-width: 6.3em;
-  color: ButtonText;
-  text-align: center;
-  text-shadow: none;
+    -moz-appearance: button;
+    margin: 1px 5px 2px;
+    min-width: 6.3em;
+    color: ButtonText;
+    text-align: center;
+    text-shadow: none;
 }
 
 button > u {
-  color: inherit;
-  font: inherit;
+    color: inherit;
+    font: inherit;
 }
 
 .button-box {
-  -moz-appearance: button-focus;
+    -moz-appearance: button-focus;
 }
-
 
 /* .......... hover state .......... */
 
 button:hover:not(:-moz-any(:active, [disabled], [open], [checked])) {
-  color: -moz-buttonhovertext;
+    color: -moz-buttonhovertext;
 }
 
 /* .......... disabled state .......... */
 
 button[disabled="true"] {
-  color: GrayText;
+    color: GrayText;
 }
 
 /* ::::: menu/menu-button buttons ::::: */
 
 button[type="menu-button"] {
-  -moz-appearance: dualbutton;
+    -moz-appearance: dualbutton;
 }
 
 /* ::::: plain buttons ::::: */
 
 button[type="disclosure"] {
-  margin: 0;
-  -moz-appearance: none;
-  list-style-image: url("chrome://global/skin/tree/twisty-clsd.png");
-  min-width: 0;
+    margin: 0;
+    -moz-appearance: none;
+    list-style-image: url("chrome://global/skin/tree/twisty-clsd.png");
+    min-width: 0;
 }
 
 button[type="disclosure"][open="true"] {
-  list-style-image: url("chrome://global/skin/tree/twisty-open.png"); 
+    list-style-image: url("chrome://global/skin/tree/twisty-open.png");
 }
