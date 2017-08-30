@@ -1,36 +1,39 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
 input[type="text"] {
-  -moz-appearance: textfield;
-  cursor: text;
-  padding: 0px;
-  color: -moz-FieldText;
-  -moz-user-select: text;
-  user-select: text;
+    -moz-appearance: textfield;
+    cursor: text;
+    padding: 0px;
+    color: -moz-FieldText;
+    -moz-user-select: text;
+    user-select: text;
 }
 
 input[disabled] {
-  cursor: default;
-  /*background-color: -moz-Dialog;*/
-  color: GrayText;
+    cursor: default;
+    /*background-color: -moz-Dialog;*/
+    color: GrayText;
 }
 
 input[readonly] {
-  /*background-color: -moz-Dialog;*/
-  color: -moz-DialogText;
+    /*background-color: -moz-Dialog;*/
+    color: -moz-DialogText;
 }
 
 input[readonly][disabled] {
-  color: GrayText;
+    color: GrayText;
 }
 
 input[type="number"] {
-  padding: 2px 0 2px 2px !important;
-  border: none;
-  background-color: #fff;
-  cursor: default;
+    padding: 2px 0 2px 2px !important;
+    border: none;
+    background-color: #fff;
+    cursor: default;
 }
 
 *.numberbox-input {
-  text-align: right;
-  padding: 0 1px !important;
+    text-align: right;
+    padding: 0 1px !important;
 }
-

@@ -12,6 +12,10 @@ var _extends =
     return target;
   };
 
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
 (function() {
   // Input element is a plain input elements having non-standard html attributes.
   // React ignores such attributes that's why a function i.e., onLoad prop is called with DOM

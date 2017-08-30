@@ -1,5 +1,8 @@
-html,
-body {
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+html, body {
     height: 100%;
     font: message-box;
     overflow-x: hidden;
@@ -14,7 +17,7 @@ body {
 
 h2 {
     margin: 10px auto 30px auto;
-     font-size: 14px; 
+    font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 3px;
     word-spacing: 3px;
@@ -29,9 +32,9 @@ label {
     width: 95px;
     font-size: 12px;
     display: block;
-      /* text-transform: uppercase;   */
-       font-weight: 500;  
-      /* letter-spacing: 1px;  */
+    /* text-transform: uppercase;   */
+    font-weight: 500;
+    /* letter-spacing: 1px;  */
 }
 
 form.controls {
@@ -57,12 +60,11 @@ input[type="submit"] {
     display: flex;
 }
 
-.wrapper>textarea,
-.wrapper>select {
+.wrapper > textarea, .wrapper > select {
     flex: 1;
 }
 
-.wrapper>textarea {
+.wrapper > textarea {
     padding: 10px;
     height: 300px;
     min-width: 100px;
@@ -75,11 +77,11 @@ input[type="submit"] {
     font: message-box;
 }
 
-.wrapper>textarea:placeholder {
+.wrapper > textarea:placeholder {
     letter-spacing: 1px;
 }
 
-.wrapper>textarea:focus {
+.wrapper > textarea:focus {
     border-color: rgba(32, 123, 225, 0.7);
 }
 
@@ -90,7 +92,7 @@ input[type="submit"] {
     max-width: 980px;
 }
 
-.container>h3 {
+.container > h3 {
     font-size: 20px;
     color: #bbb;
     font-weight: 300;
@@ -117,9 +119,7 @@ iframe {
     border: none;
 }
 
-.pseudo-window:before,
-.pseudo-window span.control:before,
-.pseudo-window span.after:after {
+.pseudo-window:before, .pseudo-window span.control:before, .pseudo-window span.after:after {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -o-box-sizing: border-box;
@@ -129,7 +129,7 @@ iframe {
     z-index: 1;
 }
 
-.pseudo-window+.control+#iframe-wrapper {
+.pseudo-window + .control + #iframe-wrapper {
     display: none;
 }
 

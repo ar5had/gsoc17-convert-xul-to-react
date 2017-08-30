@@ -1,20 +1,23 @@
-select[disabled] {
-  cursor: default;
-  color: GrayText;
-}
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+select[disabled] {
+    cursor: default;
+    color: GrayText;
+}
 
 select {
-  -moz-appearance: menulist;
-  -moz-border-top-colors: ThreeDShadow ThreeDDarkShadow;
-  -moz-border-right-colors: ThreeDHighlight ThreeDLightShadow;
-  -moz-border-bottom-colors: ThreeDHighlight ThreeDLightShadow;
-  -moz-border-left-colors: ThreeDShadow ThreeDDarkShadow;
-  color: -moz-FieldText;
-  text-shadow: none;
+    -moz-appearance: menulist;
+    -moz-border-top-colors: ThreeDShadow ThreeDDarkShadow;
+    -moz-border-right-colors: ThreeDHighlight ThreeDLightShadow;
+    -moz-border-bottom-colors: ThreeDHighlight ThreeDLightShadow;
+    -moz-border-left-colors: ThreeDShadow ThreeDDarkShadow;
+    color: -moz-FieldText;
+    text-shadow: none;
 }
 
 select[disabled] {
-  /*background-color: -moz-Dialog;*/
-  color: GrayText;
+    /*background-color: -moz-Dialog;*/
+    color: GrayText;
 }

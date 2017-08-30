@@ -1,40 +1,44 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
 input[type="text"] {
-  -moz-appearance: textfield;
-  cursor: text;
-  -moz-border-top-colors: ThreeDShadow ThreeDDarkShadow;
-  -moz-border-right-colors: ThreeDHighlight ThreeDLightShadow;
-  -moz-border-bottom-colors: ThreeDHighlight ThreeDLightShadow;
-  -moz-border-left-colors: ThreeDShadow ThreeDDarkShadow;
-  color: -moz-FieldText;
-  -moz-user-select: text;
-  user-select: text;
+    -moz-appearance: textfield;
+    cursor: text;
+    -moz-border-top-colors: ThreeDShadow ThreeDDarkShadow;
+    -moz-border-right-colors: ThreeDHighlight ThreeDLightShadow;
+    -moz-border-bottom-colors: ThreeDHighlight ThreeDLightShadow;
+    -moz-border-left-colors: ThreeDShadow ThreeDDarkShadow;
+    color: -moz-FieldText;
+    -moz-user-select: text;
+    user-select: text;
 }
 
 input[disabled] {
-  cursor: default;
-  /*background-color: -moz-Dialog;*/
-  color: GrayText;
+    cursor: default;
+    /*background-color: -moz-Dialog;*/
+    color: GrayText;
 }
 
 input[readonly] {
-  /*background-color: -moz-Dialog;*/
-  color: -moz-DialogText;
+    /*background-color: -moz-Dialog;*/
+    color: -moz-DialogText;
 }
 
 input[readonly][disabled] {
-  color: GrayText;
+    color: GrayText;
 }
 
 input[type="number"] {
-  -moz-appearance: none;
-  padding: 4px 0 4px 4px !important;
-  border: none;
-  cursor: default;
-  -moz-appearance: spinner-textfield;
-  background-color: transparent;
-  margin-right: -1px;
+    -moz-appearance: none;
+    padding: 4px 0 4px 4px !important;
+    border: none;
+    cursor: default;
+    -moz-appearance: spinner-textfield;
+    background-color: transparent;
+    margin-right: -1px;
 }
 
 *.numberbox-input {
-  text-align: right;
+    text-align: right;
 }

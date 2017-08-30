@@ -1,35 +1,39 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
 .tab.selected {
-  padding: 2px 15px 4px 15px;
-  z-index: 1;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-  color: #FFF;
-  text-shadow: rgba(0, 0, 0, 0.4) 0 1px;
+    padding: 2px 15px 4px 15px;
+    z-index: 1;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    color: #FFF;
+    text-shadow: rgba(0, 0, 0, 0.4) 0 1px;
 }
 
 .tab.selected u {
-  color: #FFF;  
-  text-shadow: rgba(0, 0, 0, 0.4) 0 1px;
+    color: #FFF;
+    text-shadow: rgba(0, 0, 0, 0.4) 0 1px;
 }
 
 .tab u {
-  font: -moz-dialog;
+    font: -moz-dialog;
 }
 
 .tab {
-  padding: 2px 15px 4px 15px;
-  font: -moz-dialog;
-  -moz-appearance: tab;
-  cursor: default;
-  -moz-user-select: none;
-  user-select: none;
-  text-transform: capitalize;
-  text-align: center;
+    padding: 2px 15px 4px 15px;
+    font: -moz-dialog;
+    -moz-appearance: tab;
+    cursor: default;
+    -moz-user-select: none;
+    user-select: none;
+    text-transform: capitalize;
+    text-align: center;
 }
 
 .tab:-moz-focusring {
-  /* Tab focus rings need to overlay adjacent tabs. */
-  position: relative;
+    /* Tab focus rings need to overlay adjacent tabs. */
+    position: relative;
 }
 
 /*
@@ -43,24 +47,24 @@
 }*/
 
 .tabstrip {
-  display: flex;
-  justify-content: center;
-  margin-bottom: -12px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: -12px;
 }
 
 .tabbox {
-  /*padding: 15px;*/
-  -moz-appearance: dialog;
-  background-color: -moz-Dialog;
-  color: -moz-DialogText;
-  font: message-box;
+    /*padding: 15px;*/
+    -moz-appearance: dialog;
+    background-color: -moz-Dialog;
+    color: -moz-DialogText;
+    font: message-box;
 }
 
 .tabpanel:not(.single-tab) {
-  -moz-appearance: tabpanels;
-  padding: 18px 10px 10px;
+    -moz-appearance: tabpanels;
+    padding: 18px 10px 10px;
 }
 
 .tab-middle {
-  padding: 1px 6px 2px;
+    padding: 1px 6px 2px;
 }

@@ -1,14 +1,18 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
 input[type="checkbox"] {
-  -moz-box-align: center;
-  -moz-appearance: checkbox;
-  -moz-user-focus: normal;
+    -moz-box-align: center;
+    -moz-appearance: checkbox;
+    -moz-user-focus: normal;
 }
 
 input[type="checkbox"]:hover:not([disabled="true"]) {
-  color: -moz-buttonhovertext;
-  text-shadow: none;
+    color: -moz-buttonhovertext;
+    text-shadow: none;
 }
 
 input[type="checkbox"] + label {
-  vertical-align: text-bottom;
+    vertical-align: text-bottom;
 }

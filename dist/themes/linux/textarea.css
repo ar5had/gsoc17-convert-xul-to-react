@@ -1,9 +1,13 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
 textarea {
-  -moz-appearance: textfield;
-  cursor: text;
-  /* margin: 2px 4px; */
-  padding: 2px 2px 3px;
-  padding-inline-start: 4px;
-  /* background-color: -moz-Field; */
-  color: -moz-FieldText;
+    -moz-appearance: textfield;
+    cursor: text;
+    /* margin: 2px 4px; */
+    padding: 2px 2px 3px;
+    padding-inline-start: 4px;
+    /* background-color: -moz-Field; */
+    color: -moz-FieldText;
 }

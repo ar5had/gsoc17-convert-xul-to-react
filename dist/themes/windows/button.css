@@ -7,44 +7,44 @@
   ======================================================================= */
 
 button {
-  -moz-appearance: button;
-  margin: 1px 5px 2px;
-  min-width: 6.3em;
-  color: ButtonText;
-  text-shadow: none;
-  text-align: center;
-  padding-top: 2px;
-  padding-bottom: 3px;
-  padding-inline-start: 3px;
-  padding-inline-end: 4px;
+    -moz-appearance: button;
+    margin: 1px 5px 2px;
+    min-width: 6.3em;
+    color: ButtonText;
+    text-shadow: none;
+    text-align: center;
+    padding-top: 2px;
+    padding-bottom: 3px;
+    padding-inline-start: 3px;
+    padding-inline-end: 4px;
 }
 
 button > u {
-  color: inherit;
-  font: inherit;
+    color: inherit;
+    font: inherit;
 }
 
 /* .......... focused state .......... */
 
 button:-moz-focusring {
-  outline: 1px dotted;
-  outline-offset: -3px;
+    outline: 1px dotted;
+    outline-offset: -3px;
 }
 
 /* .......... default/hover/focused state .......... */
 
 @media (-moz-windows-default-theme: 0) {
-  @media (-moz-windows-compositor) {
-    /* This is for high-contrast black and white themes on Windows 8 and later,
+    @media (-moz-windows-compositor) {
+        /* This is for high-contrast black and white themes on Windows 8 and later,
        where the native appearance renders a different background (which
        appears to be equivalent to the Highlight color) if the button is in the
        default, hovered or focused state. However, if these states overlap with
        the active, disabled, open or checked state, the appearance reverts back
        to the default background. */
-    /*button:-moz-any([default],:hover,:focus):not(:-moz-any(:active,[disabled],[checked])) {
+        /*button:-moz-any([default],:hover,:focus):not(:-moz-any(:active,[disabled],[checked])) {
       color: HighlightText;
     }*/
-  }
+    }
 }
 
 /* .......... active/open/checked state .......... */
@@ -61,27 +61,27 @@ button:-moz-focusring {
 /* .......... disabled state .......... */
 
 button[disabled="true"] {
-  color: GrayText;
+    color: GrayText;
 }
 
 @media (-moz-windows-classic) {
-  button[disabled] {
-    color: ThreeDShadow;
-    text-shadow: 1px 1px ThreeDHighlight;
-  }
+    button[disabled] {
+        color: ThreeDShadow;
+        text-shadow: 1px 1px ThreeDHighlight;
+    }
 }
 
 /* ::::: menu/menu-button buttons ::::: */
 
 button[type="menu-button"] {
-  margin: 0;
+    margin: 0;
 }
 
 button[type="disclosure"] {
-  margin: 0;
-  -moz-appearance: none;
-  /*list-style-image: url("chrome://global/skin/tree/twisty.svg#clsd");*/
-  min-width: 0;
+    margin: 0;
+    -moz-appearance: none;
+    /*list-style-image: url("chrome://global/skin/tree/twisty.svg#clsd");*/
+    min-width: 0;
 }
 
 /*button[type="disclosure"][open] {

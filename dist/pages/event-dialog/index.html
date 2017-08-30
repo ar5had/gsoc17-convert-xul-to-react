@@ -1,3 +1,7 @@
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+     License, v. 2.0. If a copy of the MPL was not distributed with this
+     file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+
 <!DOCTYPE html>
 <html>
 
@@ -41,7 +45,7 @@
       if (os.includes("Win")) {
         addStyles('windows');
       } else if (os.includes("Mac")) {
-        addStyles('osx'); 
+        addStyles('osx');
       } else {
         addStyles('linux');
       }
@@ -49,7 +53,7 @@
   </script>
   <h3 align="center" style="margin: 50px auto;">
     <!-- window.location and anchor will send iframe back to root -->
-    <button onclick="parent.location='/'" 
+    <button onclick="parent.location='/'"
     style="
       font-weight: 700;
       font-size: 10px;
@@ -80,7 +84,7 @@
   <script src="./containers/alarm-reminder-info/alarm-reminder-info.js"></script>
   <script src="/global/components/tab/tab.js"></script>
   <script src="/global/components/tabstrip/tabstrip.js"></script>
-  <script src="/global/components/tabpanel/tabpanel.js"></script>  
+  <script src="/global/components/tabpanel/tabpanel.js"></script>
   <script src="/global/components/tabbox/tabbox.js"></script>
   <script src="./containers/other-info/other-info.js"></script>
   <script src="./components/event-dialog/event-dialog.js"></script>

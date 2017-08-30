@@ -1,36 +1,39 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
 #root {
-  max-width: 600px;
-  margin: auto;
+    max-width: 600px;
+    margin: auto;
 }
 
 .dialog {
-  box-shadow: 0 10px 30px 0 rgba(46, 61, 73, .35);
-  margin: 10vh 25px 0;
-  min-width: calc(100% - 50px);
+    box-shadow: 0 10px 30px 0 rgba(46, 61, 73, .35);
+    margin: 10vh 25px 0;
+    min-width: calc(100% - 50px);
 }
 
 /*** Above styles are just to make the dialogs look good ***/
 
-#calendar-enabler-container > input,
-#calendar-enabler-container > label {
-  margin: auto 10px auto 0;
+#calendar-enabler-container > input, #calendar-enabler-container > label {
+    margin: auto 10px auto 0;
 }
 
 #calendar-enabler-container {
-  display: flex;
-  padding-bottom: 3px;
+    display: flex;
+    padding-bottom: 3px;
 }
 
 .row > .row-label {
-  width: 120px;
+    width: 120px;
 }
 
 #calendar-readOnly-row > div, #calendar-suppressAlarms-row > div, #calendar-cache-row > div {
-  /** label width + label margin **/
-  margin-left: 130px;
-  display: flex;
+    /** label width + label margin **/
+    margin-left: 130px;
+    display: flex;
 }
 
 p#force-disabled-description {
-  margin: 0 0 10px;
+    margin: 0 0 10px;
 }

@@ -1,17 +1,21 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
 .richlistbox {
-  -moz-appearance: listbox;
-  margin: 2px 4px;
-  background-color: -moz-Field;
-  color: -moz-FieldText;
+    -moz-appearance: listbox;
+    margin: 2px 4px;
+    background-color: -moz-Field;
+    color: -moz-FieldText;
 }
 
 .richlistbox[disabled="true"] {
-  color: GrayText;
+    color: GrayText;
 }
 
 .richlistbox > *[selected="true"] {
-  background-color: -moz-cellhighlight;
-  color: -moz-cellhighlighttext;
+    background-color: -moz-cellhighlight;
+    color: -moz-cellhighlighttext;
 }
 /*
 .richlistbox:focus > .richlistbox > *[selected="true"] {
