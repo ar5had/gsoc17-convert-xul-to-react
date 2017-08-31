@@ -6,7 +6,7 @@
   const AlarmDialogButtonBox = ({ snoozeAll, dismissAll, cssClasses }) => {
     return (
       <div id="alarm-action-box" className={cssClasses}>
-        <SnoozeButton onClick={snoozeAll} />
+        <SnoozeButton onClick={snoozeAll} type="all"/>
         <button id="dismiss-all" onClick={dismissAll}>Dismiss All</button>
       </div>
     );

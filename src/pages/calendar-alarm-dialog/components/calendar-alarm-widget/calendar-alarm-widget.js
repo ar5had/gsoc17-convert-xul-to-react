@@ -45,7 +45,7 @@
           </div>
           <p className="alarm-relative-date-label">22 Jun, 2am , 2015</p>
           <div className="alarm-action-buttons">
-            <SnoozeButton />
+            <SnoozeButton onClick={() => {}} type="single" />
             <button className="alarm-dismiss-button">Dismiss</button>
           </div>
         </div>

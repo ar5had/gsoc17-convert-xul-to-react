@@ -110,3 +110,7 @@
 .calendar-alarm-widget p:empty {
     display: none;
 }
+
+.alarm-snooze-button {
+    -moz-appearance: menulist;
+}
