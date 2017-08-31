@@ -114,3 +114,20 @@
 .alarm-snooze-button {
     -moz-appearance: menulist;
 }
+
+#dismiss-all {
+    align-self: flex-start;
+}
+
+.snooze-button-wrapper {
+    position: relative;
+}
+
+.snooze-button-dropdown {
+    -moz-appearance: menupopup;
+    position: absolute;
+}
+
+.dropdown-item {
+    -moz-appearance: menuitem;
+}
