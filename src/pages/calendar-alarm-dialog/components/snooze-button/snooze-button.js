@@ -20,6 +20,16 @@
             <div className="dropdown-item" data-value="1" data-unit="H">1 Hour</div>
             <div className="dropdown-item" data-value="2" data-unit="H">2 Hours</div>
             <div className="dropdown-item" data-value="2" data-unit="H">1 Day</div>
+            <div className="dropdown-item manual-time-setter" data-value="2" data-unit="H">
+              <input type="number" min="0" />
+              <select id="manual-time-unit">
+                <option value="M">minutes</option>
+                <option value="H">hours</option>
+                <option value="D">days</option>
+              </select>
+              <button>Ok</button>
+              <button>Cancel</button>
+            </div>
           </div>
         </div>
       );
