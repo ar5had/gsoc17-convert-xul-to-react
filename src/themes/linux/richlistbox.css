@@ -8,7 +8,7 @@
     background-color: -moz-Field;
     color: -moz-FieldText;
     border: solid 1px ThreeDShadow;
-    overflow: auto;
+    overflow: visible;
 }
 
 .richlistbox > *[disabled] {
