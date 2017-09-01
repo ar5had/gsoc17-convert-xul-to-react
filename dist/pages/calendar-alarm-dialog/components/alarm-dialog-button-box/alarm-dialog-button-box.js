@@ -7,7 +7,7 @@
     return React.createElement(
       "div",
       { id: "alarm-action-box", className: cssClasses },
-      React.createElement(SnoozeButton, { onClick: snoozeAll }),
+      React.createElement(SnoozeButton, { onClick: snoozeAll, type: "all" }),
       React.createElement("button", { id: "dismiss-all", onClick: dismissAll }, "Dismiss All")
     );
   };

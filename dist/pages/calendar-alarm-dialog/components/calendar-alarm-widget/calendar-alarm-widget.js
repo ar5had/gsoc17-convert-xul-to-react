@@ -54,7 +54,7 @@
         React.createElement(
           "div",
           { className: "alarm-action-buttons" },
-          React.createElement(SnoozeButton, null),
+          React.createElement(SnoozeButton, { onClick: () => {}, type: "single" }),
           React.createElement("button", { className: "alarm-dismiss-button" }, "Dismiss")
         )
       );

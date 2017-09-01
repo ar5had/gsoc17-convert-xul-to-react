@@ -51,7 +51,7 @@ class CalendarAlarmDialog extends React.Component {
   }
 
   snoozeAll() {
-    const stateData = JSON.parse(JSON.stringify(this.state.tabs));
+    const stateData = JSON.parse(JSON.stringify(this.state));
     stateData.source = "dialog-message";
     stateData.action = "SNOOZE_ALL";
     this.postMessage(stateData, `${window.location.origin}`);

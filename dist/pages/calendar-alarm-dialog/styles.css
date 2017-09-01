@@ -110,3 +110,38 @@
 .calendar-alarm-widget p:empty {
     display: none;
 }
+
+.alarm-snooze-button {
+    -moz-appearance: menulist;
+}
+
+#dismiss-all {
+    align-self: flex-start;
+}
+
+.snooze-button-wrapper {
+    position: relative;
+}
+
+.snooze-button-dropdown {
+    -moz-appearance: menupopup;
+    position: absolute;
+    left: 5px;
+    z-index: 99999;
+}
+
+.dropdown-item {
+    -moz-appearance: menuitem;
+}
+
+.dropdown-item.manual-time-setter {
+    display: flex;
+    -moz-appearance: none;
+    padding: 6px;
+}
+
+.dropdown-item.manual-time-setter input[type="number"] {
+    width: 60px;
+    text-align: right;
+    margin-right: 5px;
+}
