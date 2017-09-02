@@ -111,31 +111,10 @@
     display: none;
 }
 
-.alarm-snooze-button {
-    -moz-appearance: menulist;
-}
-
 #dismiss-all {
     align-self: flex-start;
 }
 
 .snooze-button-wrapper {
     position: relative;
-}
-
-.snooze-button-dropdown {
-    position: absolute;
-    left: 5px;
-    z-index: 10;
-}
-
-.dropdown-item.manual-time-setter {
-    display: flex;
-    padding: 6px;
-}
-
-.dropdown-item.manual-time-setter input[type="number"] {
-    width: 60px;
-    text-align: right;
-    margin-right: 5px;
 }
