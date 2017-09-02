@@ -124,20 +124,13 @@
 }
 
 .snooze-button-dropdown {
-    -moz-appearance: menupopup;
     position: absolute;
     left: 5px;
     z-index: 10;
-    visibility: hidden;
-}
-
-.dropdown-item {
-    -moz-appearance: menuitem;
 }
 
 .dropdown-item.manual-time-setter {
     display: flex;
-    -moz-appearance: none;
     padding: 6px;
 }
 

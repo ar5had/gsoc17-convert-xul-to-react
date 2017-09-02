@@ -11,26 +11,16 @@
           <button className="alarm-snooze-button" onClick={this.props.onClick.bind(this)}>
             {text}
           </button>
-          <div className="snooze-button-dropdown">
-            <div className="dropdown-item" data-value="5" data-unit="M">5 Minutes</div>
-            <div className="dropdown-item" data-value="10" data-unit="M">10 Minutes</div>
-            <div className="dropdown-item" data-value="15" data-unit="M">15 Minutes</div>
-            <div className="dropdown-item" data-value="30" data-unit="M">20 Minutes</div>
-            <div className="dropdown-item" data-value="45" data-unit="M">45 Minutes</div>
-            <div className="dropdown-item" data-value="1" data-unit="H">1 Hour</div>
-            <div className="dropdown-item" data-value="2" data-unit="H">2 Hours</div>
-            <div className="dropdown-item" data-value="2" data-unit="H">1 Day</div>
-            <div className="dropdown-item manual-time-setter" data-value="2" data-unit="H">
-              <input type="number" min="0" />
-              <select id="manual-time-unit">
-                <option value="M">minutes</option>
-                <option value="H">hours</option>
-                <option value="D">days</option>
-              </select>
-              <button>Ok</button>
-              <button>Cancel</button>
-            </div>
-          </div>
+          <select className="snooze-button-dropdown">
+            <option className="dropdown-item" value="5" data-unit="M">5 Minutes</option>
+            <option className="dropdown-item" value="10" data-unit="M">10 Minutes</option>
+            <option className="dropdown-item" value="15" data-unit="M">15 Minutes</option>
+            <option className="dropdown-item" value="30" data-unit="M">20 Minutes</option>
+            <option className="dropdown-item" value="45" data-unit="M">45 Minutes</option>
+            <option className="dropdown-item" value="1" data-unit="H">1 Hour</option>
+            <option className="dropdown-item" value="2" data-unit="H">2 Hours</option>
+            <option className="dropdown-item" value="2" data-unit="H">1 Day</option>
+          </select>
         </div>
       );
     }
