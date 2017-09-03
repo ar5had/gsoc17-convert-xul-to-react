@@ -9,7 +9,7 @@
       return (
         <div className="snooze-button-wrapper">
           <select className="alarm-snooze-button" value="0">
-            <option class="disabled" value="0" disabled="disabled">{text}</option>
+            <option value="NULL" disabled="disabled">{text}</option>
             <option value="5" data-unit="M">5 Minutes</option>
             <option value="10" data-unit="M">10 Minutes</option>
             <option value="15" data-unit="M">15 Minutes</option>
