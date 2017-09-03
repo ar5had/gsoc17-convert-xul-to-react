@@ -114,3 +114,7 @@
 #dismiss-all {
     align-self: flex-start;
 }
+
+option[disabled="disabled"] {
+    color: GrayText;
+}
