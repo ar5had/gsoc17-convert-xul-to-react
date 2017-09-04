@@ -5,12 +5,22 @@
 (function() {
   class SnoozeTimerPopup extends React.Component {
     render() {
-      return ();
+      return (
+        <div class="snooze-timer-popup">
+          <input type="number" />
+          <select name="time-unit">
+            <option value="MINUTES">minutes</option>
+            <option value="HOURS">hours</option>
+            <option value="DAYS">days</option>
+          </select>
+          <button>Ok</button>
+          <button>Cancel</button>
+        </div>
+      );
     }
   }
 
-  SnoozeTimerPopup.propTypes = {
-  };
+  SnoozeTimerPopup.propTypes = {};
 
   window.SnoozeTimerPopup = SnoozeTimerPopup;
 })();
