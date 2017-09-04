@@ -6,7 +6,7 @@
   class SnoozeTimerPopup extends React.Component {
     render() {
       return (
-        <div class="snooze-timer-popup">
+        <div className="snooze-timer-popup">
           <input type="number" />
           <select name="time-unit">
             <option value="MINUTES">minutes</option>
