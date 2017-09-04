@@ -115,6 +115,26 @@
     align-self: flex-start;
 }
 
-option[disabled="disabled"] {
+option[disabled] {
     color: GrayText;
+}
+
+.snooze-timer-popup {
+    position: fixed;
+    padding: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: -moz-Dialog;
+    /* find better alternatives */
+    box-shadow: 0 10px 30px 0 rgba(46, 61, 73, .35);
+}
+
+.snooze-timer-popup input[type="number"] {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.snooze-timer-popup select {
+    margin-right: 5px;
 }

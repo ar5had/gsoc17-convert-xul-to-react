@@ -4,14 +4,33 @@
 
 (function() {
   class SnoozeButton extends React.Component {
+    constructor() {
+      super();
+      this.state = {
+        showCustomTimer: false
+      };
+    }
+    changeSnoozeTime(event) {
+      const selection = event.currentTarget.value;
+      if (selection === "NULL") {
+        return;
+      } else if (selection === "CUSTOM") {
+        this.setState({ showCustomTimer: true });
+        return;
+      }
+    }
+
     render() {
       const text = this.props.type === "all" ? "Snooze All for" : "Snooze for";
+      const changeSnoozeTime = this.changeSnoozeTime.bind(this);
+      const showCustomTimer = this.state.showCustomTimer;
       return React.createElement(
         "div",
         { className: "snooze-button-wrapper" },
+        showCustomTimer && React.createElement(SnoozeTimerPopup, null),
         React.createElement(
           "select",
-          { className: "alarm-snooze-button", value: "0" },
+          { className: "alarm-snooze-button", value: "NULL", onChange: changeSnoozeTime },
           React.createElement("option", { value: "NULL", disabled: "disabled" }, text),
           React.createElement("option", { "value": "5", "data-unit": "M" }, "5 Minutes"),
           React.createElement("option", { "value": "10", "data-unit": "M" }, "10 Minutes"),
