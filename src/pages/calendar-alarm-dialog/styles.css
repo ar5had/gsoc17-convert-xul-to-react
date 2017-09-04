@@ -115,6 +115,6 @@
     align-self: flex-start;
 }
 
-option[disabled="disabled"] {
+option[disabled] {
     color: GrayText;
 }

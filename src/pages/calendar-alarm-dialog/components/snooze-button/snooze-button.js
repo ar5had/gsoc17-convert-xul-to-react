@@ -8,7 +8,7 @@
       const text = this.props.type === "all" ? "Snooze All for" : "Snooze for";
       return (
         <div className="snooze-button-wrapper">
-          <select className="alarm-snooze-button" value="0">
+          <select className="alarm-snooze-button" value="NULL">
             <option value="NULL" disabled="disabled">{text}</option>
             <option value="5" data-unit="M">5 Minutes</option>
             <option value="10" data-unit="M">10 Minutes</option>
