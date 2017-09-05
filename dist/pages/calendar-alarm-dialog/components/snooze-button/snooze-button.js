@@ -10,24 +10,34 @@
         showCustomTimer: false
       };
     }
+
     changeSnoozeTime(event) {
       const selection = event.currentTarget.value;
       if (selection === "NULL") {
         return;
       } else if (selection === "CUSTOM") {
-        this.setState({ showCustomTimer: true });
+        this.showCustomTimer();
         return;
       }
+    }
+
+    showCustomTimer() {
+      this.setState({ showCustomTimer: true });
+    }
+
+    hideCustomTimerPopup() {
+      this.setState({ showCustomTimer: false });
     }
 
     render() {
       const text = this.props.type === "all" ? "Snooze All for" : "Snooze for";
       const changeSnoozeTime = this.changeSnoozeTime.bind(this);
       const showCustomTimer = this.state.showCustomTimer;
+      const hideCustomTimer = this.hideCustomTimerPopup.bind(this);
       return React.createElement(
         "div",
         { className: "snooze-button-wrapper" },
-        showCustomTimer && React.createElement(SnoozeTimerPopup, null),
+        showCustomTimer && React.createElement(SnoozeTimerPopup, { hidePopup: hideCustomTimer }),
         React.createElement(
           "select",
           { className: "alarm-snooze-button", value: "NULL", onChange: changeSnoozeTime },

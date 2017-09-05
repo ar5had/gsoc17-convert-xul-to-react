@@ -1,0 +1,42 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+.snooze-timer-popup {
+    position: fixed;
+    padding: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: -moz-Dialog;
+    /* find better alternatives */
+    box-shadow: 0 10px 30px 0 rgba(46, 61, 73, .35);
+    display: flex;
+    align-items: center;
+}
+
+.snooze-timer-popup input[type="number"] {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.snooze-timer-popup select {
+    margin-right: 5px;
+}
+
+.snooze-ok-btn {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    background: url(../common/images/ok-cancel.png);
+    margin: 0 5px;
+}
+
+.snooze-cancel-btn {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    background: url(../common/images/ok-cancel.png);
+    background-position: 14px 0;
+    margin: 0 5px;
+}
