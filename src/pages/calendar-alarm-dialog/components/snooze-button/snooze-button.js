@@ -10,23 +10,33 @@
         showCustomTimer: false
       };
     }
+
     changeSnoozeTime(event) {
       const selection = event.currentTarget.value;
       if (selection === "NULL") {
         return;
       } else if (selection === "CUSTOM") {
-        this.setState({ showCustomTimer: true });
+        this.showCustomTimer();
         return;
       }
+    }
+
+    showCustomTimer() {
+      this.setState({ showCustomTimer: true });
+    }
+
+    hideCustomTimerPopup() {
+      this.setState({ showCustomTimer: false });
     }
 
     render() {
       const text = this.props.type === "all" ? "Snooze All for" : "Snooze for";
       const changeSnoozeTime = this.changeSnoozeTime.bind(this);
       const showCustomTimer = this.state.showCustomTimer;
+      const hideCustomTimer = this.hideCustomTimerPopup.bind(this);
       return (
         <div className="snooze-button-wrapper">
-          {showCustomTimer && <SnoozeTimerPopup />}
+          {showCustomTimer && <SnoozeTimerPopup hidePopup={hideCustomTimer} />}
           <select className="alarm-snooze-button" value="NULL" onChange={changeSnoozeTime}>
             <option value="NULL" disabled="disabled">{text}</option>
             <option value="5" data-unit="M">5 Minutes</option>

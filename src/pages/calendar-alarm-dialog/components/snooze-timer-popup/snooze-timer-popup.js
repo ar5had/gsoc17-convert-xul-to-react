@@ -5,6 +5,7 @@
 (function() {
   class SnoozeTimerPopup extends React.Component {
     render() {
+      const hidePopup = this.props.hidePopup.bind(this);
       return (
         <div className="snooze-timer-popup">
           {/* add validation for no < 0  */}
@@ -15,13 +16,15 @@
             <option value="DAYS">days</option>
           </select>
           <span className="snooze-ok-btn" />
-          <span className="snooze-cancel-btn" />
+          <span className="snooze-cancel-btn" onClick={hidePopup}/>
         </div>
       );
     }
   }
 
-  SnoozeTimerPopup.propTypes = {};
+  SnoozeTimerPopup.propTypes = {
+    hidePopup: PropTypes.func.isRequired
+  };
 
   window.SnoozeTimerPopup = SnoozeTimerPopup;
 })();
