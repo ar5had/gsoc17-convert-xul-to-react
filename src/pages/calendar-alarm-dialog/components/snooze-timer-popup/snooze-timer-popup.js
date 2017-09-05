@@ -7,14 +7,15 @@
     render() {
       return (
         <div className="snooze-timer-popup">
-          <input type="number" />
+          {/* add validation for no < 0  */}
+          <input type="number" min="0" />
           <select name="time-unit">
             <option value="MINUTES">minutes</option>
             <option value="HOURS">hours</option>
             <option value="DAYS">days</option>
           </select>
-          <button>Ok</button>
-          <button>Cancel</button>
+          <span className="snooze-ok-btn" />
+          <span className="snooze-cancel-btn" />
         </div>
       );
     }
