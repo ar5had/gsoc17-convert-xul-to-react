@@ -32,7 +32,7 @@
           onClick={this.props.onClick}
         >
           <div className="alarm-calendar-image-wrapper">
-            <img src="" alt="" className="alarm-calendar-image" />
+            <div className="alarm-calendar-image" />
           </div>
           <div className="alarm-description">
             <p className="alarm-title-label">new alarm</p>
