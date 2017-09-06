@@ -35,7 +35,7 @@
         React.createElement(
           "div",
           { className: "alarm-calendar-image-wrapper" },
-          React.createElement("img", { src: "", alt: "", className: "alarm-calendar-image" })
+          React.createElement("div", { className: "alarm-calendar-image" })
         ),
         React.createElement(
           "div",

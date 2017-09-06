@@ -11,13 +11,22 @@
       };
     }
 
+    submitSnoozeTime(value, unit) {
+      console.log(value, unit);
+    }
+
     changeSnoozeTime(event) {
-      const selection = event.currentTarget.value;
-      if (selection === "NULL") {
+      let value = event.currentTarget.value;
+      if (value === "NULL") {
         return;
-      } else if (selection === "CUSTOM") {
+      } else if (value === "CUSTOM") {
         this.showCustomTimer();
         return;
+      } else {
+        value = parseInt(value, 10);
+        const selectedIndex = event.currentTarget.selectedIndex;
+        const unit = event.currentTarget.options[selectedIndex].getAttribute("data-unit");
+        this.submitSnoozeTime(value, unit);
       }
     }
 
@@ -25,19 +34,32 @@
       this.setState({ showCustomTimer: true });
     }
 
-    hideCustomTimerPopup() {
+    closeCustomTimerPopup() {
       this.setState({ showCustomTimer: false });
+    }
+
+    // gets time value and unit from custom time popup
+    acceptCustomTimerPopup(value, unit) {
+      this.submitSnoozeTime(value, unit);
+      // close popup after getting the custom time value and unit
+      this.closeCustomTimerPopup();
     }
 
     render() {
       const text = this.props.type === "all" ? "Snooze All for" : "Snooze for";
       const changeSnoozeTime = this.changeSnoozeTime.bind(this);
       const showCustomTimer = this.state.showCustomTimer;
-      const hideCustomTimer = this.hideCustomTimerPopup.bind(this);
+      const closeCustomTimer = this.closeCustomTimerPopup.bind(this);
+      const acceptCustomTimer = this.acceptCustomTimerPopup.bind(this);
+
       return React.createElement(
         "div",
         { className: "snooze-button-wrapper" },
-        showCustomTimer && React.createElement(SnoozeTimerPopup, { hidePopup: hideCustomTimer }),
+        showCustomTimer &&
+          React.createElement(SnoozeTimerPopup, {
+            closePopup: closeCustomTimer,
+            acceptPopup: acceptCustomTimer
+          }),
         React.createElement(
           "select",
           { className: "alarm-snooze-button", value: "NULL", onChange: changeSnoozeTime },
@@ -45,11 +67,11 @@
           React.createElement("option", { "value": "5", "data-unit": "M" }, "5 Minutes"),
           React.createElement("option", { "value": "10", "data-unit": "M" }, "10 Minutes"),
           React.createElement("option", { "value": "15", "data-unit": "M" }, "15 Minutes"),
-          React.createElement("option", { "value": "30", "data-unit": "M" }, "20 Minutes"),
+          React.createElement("option", { "value": "30", "data-unit": "M" }, "30 Minutes"),
           React.createElement("option", { "value": "45", "data-unit": "M" }, "45 Minutes"),
           React.createElement("option", { "value": "1", "data-unit": "H" }, "1 Hour"),
           React.createElement("option", { "value": "2", "data-unit": "H" }, "2 Hours"),
-          React.createElement("option", { "value": "2", "data-unit": "H" }, "1 Day"),
+          React.createElement("option", { "value": "2", "data-unit": "D" }, "1 Day"),
           React.createElement("option", { value: "CUSTOM" }, "Custom")
         )
       );
@@ -58,7 +80,7 @@
 
   SnoozeButton.propTypes = {
     // add isRequired
-    onClick: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
     type: PropTypes.string.isRequired
   };
 

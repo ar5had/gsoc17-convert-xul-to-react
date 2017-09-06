@@ -4,27 +4,66 @@
 
 (function() {
   class SnoozeTimerPopup extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        value: 0,
+        unit: "M"
+      };
+    }
+
+    changeInputValue(event) {
+      const inputValue = parseInt(event.currentTarget.value, 10) || 0;
+      this.setState({
+        value: inputValue
+      });
+    }
+
+    changeTimeUnit(event) {
+      const timeUnit = event.currentTarget.value;
+      this.setState({
+        unit: timeUnit
+      });
+    }
+
+    acceptPopup() {
+      const { value, unit } = this.state;
+      this.props.acceptPopup(value, unit);
+    }
+
     render() {
-      const hidePopup = this.props.hidePopup.bind(this);
+      const closePopup = this.props.closePopup.bind(this);
+      const acceptPopup = this.acceptPopup.bind(this);
+      const changeTimeUnit = this.changeTimeUnit.bind(this);
+      const changeInputValue = this.changeInputValue.bind(this);
+      const inputValue = this.state.value;
+      const timeUnit = this.state.unit;
+
       return React.createElement(
         "div",
         { className: "snooze-timer-popup" },
-        React.createElement("input", { type: "number", min: "0" }),
+        React.createElement("input", {
+          type: "number",
+          min: "0",
+          value: inputValue,
+          onChange: changeInputValue
+        }),
         React.createElement(
           "select",
-          { name: "time-unit" },
-          React.createElement("option", { value: "MINUTES" }, "minutes"),
-          React.createElement("option", { value: "HOURS" }, "hours"),
-          React.createElement("option", { value: "DAYS" }, "days")
+          { name: "time-unit", value: timeUnit, onChange: changeTimeUnit },
+          React.createElement("option", { value: "M" }, "minutes"),
+          React.createElement("option", { value: "H" }, "hours"),
+          React.createElement("option", { value: "D" }, "days")
         ),
-        React.createElement("span", { className: "snooze-ok-btn" }),
-        React.createElement("span", { className: "snooze-cancel-btn", onClick: hidePopup })
+        React.createElement("span", { className: "snooze-ok-btn", onClick: acceptPopup }),
+        React.createElement("span", { className: "snooze-cancel-btn", onClick: closePopup })
       );
     }
   }
 
   SnoozeTimerPopup.propTypes = {
-    hidePopup: PropTypes.func.isRequired
+    closePopup: PropTypes.func.isRequired,
+    acceptPopup: PropTypes.func.isRequired
   };
 
   window.SnoozeTimerPopup = SnoozeTimerPopup;

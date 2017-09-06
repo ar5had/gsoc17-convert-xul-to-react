@@ -7,7 +7,7 @@
     margin: 2px 4px;
     background-color: -moz-Field;
     color: -moz-FieldText;
-    overflow: visible;
+    overflow: auto;
 }
 
 .richlistbox[disabled="true"] {
