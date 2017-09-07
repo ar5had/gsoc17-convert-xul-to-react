@@ -27,6 +27,7 @@
         const selectedIndex = event.currentTarget.selectedIndex;
         const unit = event.currentTarget.options[selectedIndex].getAttribute("data-unit");
         this.submitSnoozeTime(value, unit);
+        this.props.onSubmit();
       }
     }
 
