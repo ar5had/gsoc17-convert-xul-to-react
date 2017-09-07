@@ -24,7 +24,14 @@
       this.widget.removeAttribute("selected");
     }
 
+    snoozeAlarm() {}
+
+    dismissAlarm() {}
+
     render() {
+      const dismissAlarm = this.dismissAlarm.bind(this);
+      const snoozeAlarm = this.snoozeAlarm.bind(this);
+
       return (
         <div
           className="calendar-alarm-widget"
@@ -45,8 +52,8 @@
           </div>
           <p className="alarm-relative-date-label">22 Jun, 2am , 2015</p>
           <div className="alarm-action-buttons">
-            <SnoozeButton onSubmit={() => {}} type="single" />
-            <button className="alarm-dismiss-button">Dismiss</button>
+            <SnoozeButton onClick={snoozeAlarm} type="single" />
+            <button className="alarm-dismiss-button" onClick={dismissAlarm}>Dismiss</button>
           </div>
         </div>
       );
