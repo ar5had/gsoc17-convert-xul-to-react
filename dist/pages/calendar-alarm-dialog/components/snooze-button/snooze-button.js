@@ -27,7 +27,7 @@
         const selectedIndex = event.currentTarget.selectedIndex;
         const unit = event.currentTarget.options[selectedIndex].getAttribute("data-unit");
         this.submitSnoozeTime(value, unit);
-        this.props.onSubmit();
+        this.props.onClick();
       }
     }
 
@@ -80,8 +80,7 @@
   }
 
   SnoozeButton.propTypes = {
-    // add isRequired
-    onSubmit: PropTypes.func.isRequired,
+    onClick: PropTypes.func.isRequired,
     type: PropTypes.string.isRequired
   };
 

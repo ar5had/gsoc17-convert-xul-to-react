@@ -24,7 +24,14 @@
       this.widget.removeAttribute("selected");
     }
 
+    snoozeAlarm() {}
+
+    dismissAlarm() {}
+
     render() {
+      const dismissAlarm = this.dismissAlarm.bind(this);
+      const snoozeAlarm = this.snoozeAlarm.bind(this);
+
       return React.createElement(
         "div",
         {
@@ -54,8 +61,12 @@
         React.createElement(
           "div",
           { className: "alarm-action-buttons" },
-          React.createElement(SnoozeButton, { onSubmit: () => {}, type: "single" }),
-          React.createElement("button", { className: "alarm-dismiss-button" }, "Dismiss")
+          React.createElement(SnoozeButton, { onClick: snoozeAlarm, type: "single" }),
+          React.createElement(
+            "button",
+            { className: "alarm-dismiss-button", onClick: dismissAlarm },
+            "Dismiss"
+          )
         )
       );
     }
