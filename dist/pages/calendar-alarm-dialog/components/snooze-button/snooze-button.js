@@ -72,7 +72,7 @@
           React.createElement("option", { "value": "45", "data-unit": "M" }, "45 Minutes"),
           React.createElement("option", { "value": "1", "data-unit": "H" }, "1 Hour"),
           React.createElement("option", { "value": "2", "data-unit": "H" }, "2 Hours"),
-          React.createElement("option", { "value": "2", "data-unit": "D" }, "1 Day"),
+          React.createElement("option", { "value": "1", "data-unit": "D" }, "1 Day"),
           React.createElement("option", { value: "CUSTOM" }, "Custom")
         )
       );
