@@ -66,7 +66,7 @@
             <option value="45" data-unit="M">45 Minutes</option>
             <option value="1" data-unit="H">1 Hour</option>
             <option value="2" data-unit="H">2 Hours</option>
-            <option value="2" data-unit="D">1 Day</option>
+            <option value="1" data-unit="D">1 Day</option>
             <option value="CUSTOM">Custom</option>
           </select>
         </div>
