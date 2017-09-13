@@ -5,7 +5,9 @@
   window.__configure_redux_store__ = () => {
     const { createStore, applyMiddleware, compose } = Redux;
 
-    const initialState = {};
+    const initialState = {
+      items: []
+    };
 
     const middlewares = [];
 

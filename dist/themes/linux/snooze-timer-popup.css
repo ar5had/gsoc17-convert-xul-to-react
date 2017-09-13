@@ -8,11 +8,11 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: -moz-Dialog;
     /* find better alternatives */
     box-shadow: 0 10px 30px 0 rgba(46, 61, 73, .35);
     display: flex;
     align-items: center;
+    -moz-appearance: menupopup;
 }
 
 .snooze-timer-popup input[type="number"] {
