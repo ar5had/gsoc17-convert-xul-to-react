@@ -175,7 +175,13 @@ h5 {
 h5 > a {
     transition: opacity .1s;
     text-decoration: none;
-    /* color: -moz-DialogText; */
+    display: block;
+    width: 100%;
+    padding: 5px 0;
+}
+
+h5 > a:focus {
+    outline: 1px dotted;
 }
 
 h5 > a:hover, button:hover {
