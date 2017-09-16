@@ -2,6 +2,20 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+
+.snooze-button-wrapper {
+    display: flex;
+    align-items: flex-start;
+}
+
+.alarm-snooze-button {
+    padding: 4px 0;
+}
+#dismiss-all {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 .snooze-timer-popup {
     position: fixed;
     padding: 10px;

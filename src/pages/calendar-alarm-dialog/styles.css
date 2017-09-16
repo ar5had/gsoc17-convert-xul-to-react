@@ -118,3 +118,8 @@
 option[disabled] {
     color: GrayText;
 }
+
+.snooze-button-wrapper {
+    display: flex;
+    align-items: center;
+}
