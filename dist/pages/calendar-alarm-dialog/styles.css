@@ -98,13 +98,19 @@
     display: flex;
 }
 
+.calendar-alarm-widget[selected="true"] .alarm-details-label {
+    display: inline-block;
+}
+
 .alarm-details-label {
     color: HighlightText;
     text-decoration: underline;
+    display: none;
 }
 
-.calendar-alarm-widget .alarm-details-label {
-    display: none;
+.alarm-details-label:hover {
+    outline: 1px dotted;
+    cursor: pointer;
 }
 
 .calendar-alarm-widget p:empty {
