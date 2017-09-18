@@ -6,7 +6,7 @@
     const { createStore, applyMiddleware, compose } = Redux;
 
     const initialState = {
-      items: []
+      items: [{ name: "one", time: "23, apr, 2017" }, { name: "two", time: "23, apr, 2017" }]
     };
 
     const middlewares = [];
