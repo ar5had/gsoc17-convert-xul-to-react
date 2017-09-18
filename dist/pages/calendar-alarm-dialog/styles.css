@@ -60,7 +60,7 @@
 
 .calendar-alarm-widget[selected="true"] {
     background-color: Highlight;
-    padding: 0 5px;
+    padding: 3px 5px;
 }
 
 .calendar-alarm-widget[selected="true"] p {
@@ -73,6 +73,7 @@
 
 .calendar-alarm-widget[selected="true"] .alarm-action-buttons {
     display: flex;
+    align-self: flex-start;
 }
 
 .calendar-alarm-widget[selected="true"] > hbox {
