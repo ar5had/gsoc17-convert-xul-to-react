@@ -50,7 +50,7 @@
   const mapStateToProps = ({ options }) => ({ state: options });
 
   const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators(window.__options_actions__, dispatch)
+    actions: bindActionCreators(() => {}, dispatch)
   });
 
   window.RichListBox = connect(mapStateToProps, mapDispatchToProps)(RichListBox);

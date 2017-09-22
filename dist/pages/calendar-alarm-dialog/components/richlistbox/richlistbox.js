@@ -3,6 +3,9 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 (function() {
+  const { connect } = ReactRedux;
+  const { bindActionCreators } = Redux;
+
   class RichListBox extends React.Component {
     constructor(props) {
       super(props);
@@ -44,5 +47,11 @@
     widgetData: PropTypes.array
   };
 
-  window.RichListBox = RichListBox;
+  const mapStateToProps = ({ options }) => ({ state: options });
+
+  const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators(() => {}, dispatch)
+  });
+
+  window.RichListBox = connect(mapStateToProps, mapDispatchToProps)(RichListBox);
 })();
