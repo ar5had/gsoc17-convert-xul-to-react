@@ -3,20 +3,16 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 (function() {
-  const AlarmDialogButtonBox = ({ snoozeAll, dismissAll, cssClasses }) => {
+  const AlarmDialogButtonBox = () => {
     return (
-      <div id="alarm-action-box" className={cssClasses}>
-        <SnoozeButton onClick={snoozeAll} type="all"/>
-        <button id="dismiss-all" onClick={dismissAll}>Dismiss All</button>
+      <div id="alarm-action-box" className="alarm-dialog-buttonbox">
+        <SnoozeButton onClick={() => {}} type="all" />
+        <button id="dismiss-all" onClick={() => {}}>Dismiss All</button>
       </div>
     );
   };
 
-  AlarmDialogButtonBox.propTypes = {
-    snoozeAll: PropTypes.func.isRequired,
-    dismissAll: PropTypes.func.isRequired,
-    cssClasses: PropTypes.string
-  };
+  AlarmDialogButtonBox.propTypes = {};
 
   window.AlarmDialogButtonBox = AlarmDialogButtonBox;
 })();

@@ -24,13 +24,8 @@
       this.widget.removeAttribute("selected");
     }
 
-    snoozeAlarm() {}
-
-    dismissAlarm() {}
-
     render() {
-      const dismissAlarm = this.dismissAlarm.bind(this);
-      const snoozeAlarm = this.snoozeAlarm.bind(this);
+      const { time, name } = this.props;
 
       return (
         <div
@@ -42,18 +37,18 @@
             <div className="alarm-calendar-image" />
           </div>
           <div className="alarm-description">
-            <p className="alarm-title-label">new alarm</p>
+            <p className="alarm-title-label">{name}</p>
             <div className="additional-information-box">
-              <p className="alarm-date-label">23 apr,2017</p>
+              <p className="alarm-date-label">{time}</p>
             </div>
             <p className="location-label" />
             <p className="alarm-location-description" />
             <p className="text-link alarm-details-label">Details...</p>
           </div>
-          <p className="alarm-relative-date-label">22 Jun, 2am , 2015</p>
+          <p className="alarm-relative-date-label">{time}</p>
           <div className="alarm-action-buttons">
-            <SnoozeButton onClick={snoozeAlarm} type="single" />
-            <button className="alarm-dismiss-button" onClick={dismissAlarm}>Dismiss</button>
+            <SnoozeButton onClick={() => {}} type="single" />
+            <button className="alarm-dismiss-button" onClick={() => {}}>Dismiss</button>
           </div>
         </div>
       );
@@ -62,7 +57,9 @@
 
   CalendarAlarmWidget.propTypes = {
     isSelected: PropTypes.bool.isRequired,
-    onClick: PropTypes.func.isRequired
+    onClick: PropTypes.func.isRequired,
+    name: PropTypes.string.isRequired,
+    time: PropTypes.string.isRequired
   };
 
   window.CalendarAlarmWidget = CalendarAlarmWidget;
