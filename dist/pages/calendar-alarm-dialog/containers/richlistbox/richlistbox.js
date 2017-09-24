@@ -19,9 +19,11 @@
     }
 
     getAllCalendarWidgets() {
-      return this.props.widgetData.map((widget, i) =>
+      return this.props.state.map((widget, i) =>
         React.createElement(CalendarAlarmWidget, {
           key: i,
+          time: widget.time,
+          name: widget.name,
           isSelected: i === this.state.selectedWidget,
           onClick: () => {
             this.changeSelectedWidget(i);
@@ -32,22 +34,20 @@
 
     render() {
       const allCalendarWidgets = this.getAllCalendarWidgets();
-      const cssClasses = this.props.cssClasses;
 
       return React.createElement(
         "div",
-        { className: `richlistbox ${cssClasses}` },
+        { className: "richlistbox alarm-dialog-richlistbox" },
         allCalendarWidgets
       );
     }
   }
 
   RichListBox.propTypes = {
-    cssClasses: PropTypes.string,
-    widgetData: PropTypes.array
+    state: PropTypes.array.isRequired
   };
 
-  const mapStateToProps = ({ options }) => ({ state: options });
+  const mapStateToProps = ({ items }) => ({ state: items });
 
   const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators(() => {}, dispatch)

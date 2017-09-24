@@ -24,13 +24,8 @@
       this.widget.removeAttribute("selected");
     }
 
-    snoozeAlarm() {}
-
-    dismissAlarm() {}
-
     render() {
-      const dismissAlarm = this.dismissAlarm.bind(this);
-      const snoozeAlarm = this.snoozeAlarm.bind(this);
+      const { time, name } = this.props;
 
       return React.createElement(
         "div",
@@ -47,24 +42,24 @@
         React.createElement(
           "div",
           { className: "alarm-description" },
-          React.createElement("p", { className: "alarm-title-label" }, "new alarm"),
+          React.createElement("p", { className: "alarm-title-label" }, name),
           React.createElement(
             "div",
             { className: "additional-information-box" },
-            React.createElement("p", { className: "alarm-date-label" }, "23 apr,2017")
+            React.createElement("p", { className: "alarm-date-label" }, time)
           ),
           React.createElement("p", { className: "location-label" }),
           React.createElement("p", { className: "alarm-location-description" }),
           React.createElement("p", { className: "text-link alarm-details-label" }, "Details...")
         ),
-        React.createElement("p", { className: "alarm-relative-date-label" }, "22 Jun, 2am , 2015"),
+        React.createElement("p", { className: "alarm-relative-date-label" }, time),
         React.createElement(
           "div",
           { className: "alarm-action-buttons" },
-          React.createElement(SnoozeButton, { onClick: snoozeAlarm, type: "single" }),
+          React.createElement(SnoozeButton, { onClick: () => {}, type: "single" }),
           React.createElement(
             "button",
-            { className: "alarm-dismiss-button", onClick: dismissAlarm },
+            { className: "alarm-dismiss-button", onClick: () => {} },
             "Dismiss"
           )
         )
@@ -74,7 +69,9 @@
 
   CalendarAlarmWidget.propTypes = {
     isSelected: PropTypes.bool.isRequired,
-    onClick: PropTypes.func.isRequired
+    onClick: PropTypes.func.isRequired,
+    name: PropTypes.string.isRequired,
+    time: PropTypes.string.isRequired
   };
 
   window.CalendarAlarmWidget = CalendarAlarmWidget;
