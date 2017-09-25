@@ -3,6 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 (function() {
+  /* global React */
   class CalendarAlarmWidget extends React.Component {
     componentDidMount() {
       this.addAttributes(this.props.isSelected);
@@ -25,7 +26,9 @@
     }
 
     render() {
-      const { time, name } = this.props;
+      const { time, name, snoozeAlarm, dismissAlarm } = this.props;
+      // replace this function while integrating
+      const showDetails = () => {};
 
       return (
         <div
@@ -43,12 +46,12 @@
             </div>
             <p className="location-label" />
             <p className="alarm-location-description" />
-            <p className="text-link alarm-details-label">Details...</p>
+            <p className="text-link alarm-details-label" onClick={showDetails}>Details...</p>
           </div>
           <p className="alarm-relative-date-label">{time}</p>
           <div className="alarm-action-buttons">
-            <SnoozeButton onClick={() => {}} type="single" />
-            <button className="alarm-dismiss-button" onClick={() => {}}>Dismiss</button>
+            <SnoozeButton onClick={snoozeAlarm} type="single" />
+            <button className="alarm-dismiss-button" onClick={dismissAlarm}>Dismiss</button>
           </div>
         </div>
       );
@@ -59,7 +62,9 @@
     isSelected: PropTypes.bool.isRequired,
     onClick: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired,
-    time: PropTypes.string.isRequired
+    time: PropTypes.string.isRequired,
+    snoozeAlarm: PropTypes.func.isRequired,
+    dismissAlarm: PropTypes.func.isRequired
   };
 
   window.CalendarAlarmWidget = CalendarAlarmWidget;

@@ -3,6 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 (function() {
+  /* global React */
   class SnoozeButton extends React.Component {
     constructor() {
       super();

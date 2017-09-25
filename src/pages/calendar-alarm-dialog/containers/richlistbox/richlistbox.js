@@ -3,6 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 (function() {
+  /* global React, Redux, ReactRedux */
   const { connect } = ReactRedux;
   const { bindActionCreators } = Redux;
 
@@ -19,6 +20,7 @@
     }
 
     getAllCalendarWidgets() {
+      const { snoozeAlarm, dismissAlarm } = this.props.actions;
       return this.props.state.map((widget, i) =>
         <CalendarAlarmWidget
           key={i}
@@ -28,6 +30,8 @@
           onClick={() => {
             this.changeSelectedWidget(i);
           }}
+          snoozeAlarm={snoozeAlarm}
+          dismissAlarm={dismissAlarm}
         />
       );
     }
@@ -44,13 +48,14 @@
   }
 
   RichListBox.propTypes = {
-    state: PropTypes.array.isRequired
+    state: PropTypes.array.isRequired,
+    actions: PropTypes.object.isRequired
   };
 
   const mapStateToProps = ({ items }) => ({ state: items });
 
   const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators(() => {}, dispatch)
+    actions: bindActionCreators(window.__single_alarm_actions__, dispatch)
   });
 
   window.RichListBox = connect(mapStateToProps, mapDispatchToProps)(RichListBox);
