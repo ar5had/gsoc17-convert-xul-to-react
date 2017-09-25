@@ -72,6 +72,10 @@ window.addEventListener("load", () => {
       iframe: "",
       source: "dialog-message"
     },
+    "calendar-alarm-dialog": {
+      items: [{ name: "one", time: "23, apr, 2017" }, { name: "two", time: "23, apr, 2017" }],
+      source: "dialog-message"
+    },
     "event-dialog": {
       basicInfo: {
         title: "New Event",
@@ -152,6 +156,7 @@ window.addEventListener("load", () => {
   };
 
   const passDataToIframe = (name, obj) => {
+    console.log("object", obj);
     postMessageInterval = setInterval(() => {
       dialog.postMessage(obj, `${window.location.origin}`);
     }, 250);
