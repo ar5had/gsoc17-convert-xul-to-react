@@ -24,9 +24,12 @@
     type: DISMISS_ALL_ALARM
   });
 
-  window.__alarm_actions__ = {
+  window.__single_alarm_actions__ = {
     snoozeAlarm,
-    dismissAlarm,
+    dismissAlarm
+  };
+
+  window.__all_alarms_actions__ = {
     snoozeAllAlarm,
     dismissAllAlarm
   };

@@ -3,6 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 (function() {
+  /* global React */
   class CalendarAlarmWidget extends React.Component {
     componentDidMount() {
       this.addAttributes(this.props.isSelected);
@@ -25,7 +26,9 @@
     }
 
     render() {
-      const { time, name } = this.props;
+      const { time, name, snoozeAlarm, dismissAlarm } = this.props;
+      // replace this function while integrating
+      const showDetails = () => {};
 
       return React.createElement(
         "div",
@@ -50,16 +53,20 @@
           ),
           React.createElement("p", { className: "location-label" }),
           React.createElement("p", { className: "alarm-location-description" }),
-          React.createElement("p", { className: "text-link alarm-details-label" }, "Details...")
+          React.createElement(
+            "p",
+            { className: "text-link alarm-details-label", onClick: showDetails },
+            "Details..."
+          )
         ),
         React.createElement("p", { className: "alarm-relative-date-label" }, time),
         React.createElement(
           "div",
           { className: "alarm-action-buttons" },
-          React.createElement(SnoozeButton, { onClick: () => {}, type: "single" }),
+          React.createElement(SnoozeButton, { onClick: snoozeAlarm, type: "single" }),
           React.createElement(
             "button",
-            { className: "alarm-dismiss-button", onClick: () => {} },
+            { className: "alarm-dismiss-button", onClick: dismissAlarm },
             "Dismiss"
           )
         )
@@ -71,7 +78,9 @@
     isSelected: PropTypes.bool.isRequired,
     onClick: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired,
-    time: PropTypes.string.isRequired
+    time: PropTypes.string.isRequired,
+    snoozeAlarm: PropTypes.func.isRequired,
+    dismissAlarm: PropTypes.func.isRequired
   };
 
   window.CalendarAlarmWidget = CalendarAlarmWidget;
