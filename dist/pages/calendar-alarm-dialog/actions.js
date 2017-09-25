@@ -3,8 +3,14 @@
     SNOOZE_ALARM,
     DISMISS_ALARM,
     SNOOZE_ALL_ALARM,
-    DISMISS_ALL_ALARM
+    DISMISS_ALL_ALARM,
+    UPDATE_ITEMS
   } = window.__action_constants__;
+
+  const updateItems = items => ({
+    type: UPDATE_ITEMS,
+    payload: items
+  });
 
   const snoozeAlarm = time => ({
     type: SNOOZE_ALARM,
@@ -32,5 +38,9 @@
   window.__all_alarms_actions__ = {
     snoozeAllAlarm,
     dismissAllAlarm
+  };
+
+  window.__global_actions__ = {
+    updateItems
   };
 })();
