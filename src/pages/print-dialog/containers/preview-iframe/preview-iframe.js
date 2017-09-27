@@ -4,9 +4,14 @@
 
 (function() {
   /* global React, ReactRedux */
+  const { PropTypes } = React;
   const { connect } = ReactRedux;
 
   class PreviewIframe extends React.Component {
+    componentDidUpdate() {
+      this.insertIframeContent();
+    }
+
     insertIframeContent() {
       const { title, html } = this.props.state;
       let iframeDoc = this.iframe.contentDocument;
@@ -15,14 +20,12 @@
     }
 
     render() {
-      return (
-        <iframe
-          onLoad={this.insertIframeContent.bind(this)}
-          src="about:blank"
-          id="content"
-          ref={node => (this.iframe = node)}
-        />
-      );
+      return React.createElement("iframe", {
+        onLoad: this.insertIframeContent.bind(this),
+        src: "about:blank",
+        id: "content",
+        ref: node => (this.iframe = node)
+      });
     }
   }
 
