@@ -55,21 +55,26 @@ window.addEventListener("load", () => {
     },
     "print-dialog": {
       printSettings: {
-        title: "no title",
-        layout: "LIST"
+        title: "",
+        selectedLayoutIndex: 0,
+        layoutList: [{ value: "List" }, { value: "Monthly Grid" }, { value: "Weekly Planner" }]
       },
       whatToPrint: {
-        printEvents: true,
-        printTasks: true,
-        view: "CURRENT_VIEW",
+        printEvents: false,
+        printTasks: false,
+        view: "",
         fromDate: "",
         toDate: ""
       },
       options: {
-        showTasksWithNoDueDate: true,
-        showCompletedTasks: true
+        showTasksWithNoDueDate: false,
+        showCompletedTasks: false
       },
-      iframe: "",
+      iframe: {
+        title: "demo",
+        html:
+          "<!DOCTYPE html><html><body><h1>MyFirstHeading</h1><p>Myfirstparagraph.</p></body></html>"
+      },
       source: "dialog-message"
     },
     "calendar-alarm-dialog": {

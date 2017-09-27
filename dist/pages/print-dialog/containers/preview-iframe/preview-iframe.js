@@ -4,9 +4,14 @@
 
 (function() {
   /* global React, ReactRedux */
+  const { PropTypes } = React;
   const { connect } = ReactRedux;
 
   class PreviewIframe extends React.Component {
+    componentDidUpdate() {
+      this.insertIframeContent();
+    }
+
     insertIframeContent() {
       const { title, html } = this.props.state;
       let iframeDoc = this.iframe.contentDocument;
