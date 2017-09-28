@@ -14,6 +14,7 @@
 
     submitSnoozeTime(value, unit) {
       console.log(value, unit);
+      this.props.onClick();
     }
 
     changeSnoozeTime(event) {
