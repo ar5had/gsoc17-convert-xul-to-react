@@ -14,7 +14,9 @@
     }
 
     changeInputValue(event) {
-      const inputValue = parseInt(event.currentTarget.value, 10) || 0;
+      let inputValue = parseInt(event.currentTarget.value, 10) || 0;
+      // making sure negative values are not used for inputValue
+      inputValue = inputValue < 0 ? 0 : inputValue;
       this.setState({
         value: inputValue
       });
