@@ -14,7 +14,9 @@
     }
 
     changeInputValue(event) {
-      const inputValue = parseInt(event.currentTarget.value, 10) || 0;
+      let inputValue = parseInt(event.currentTarget.value, 10) || 0;
+      // making sure negative values are not used for inputValue
+      inputValue = inputValue < 0 ? 0 : inputValue;
       this.setState({
         value: inputValue
       });
@@ -42,7 +44,6 @@
 
       return (
         <div className="snooze-timer-popup">
-          {/* add validation for no < 0  */}
           <input type="number" min="0" value={inputValue} onChange={changeInputValue} />
           <select name="time-unit" value={timeUnit} onChange={changeTimeUnit}>
             <option value="M">minutes</option>
