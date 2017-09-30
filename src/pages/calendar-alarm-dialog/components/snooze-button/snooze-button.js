@@ -57,8 +57,11 @@
 
       return (
         <div className="snooze-button-wrapper">
-          {showCustomTimer &&
-            <SnoozeTimerPopup closePopup={closeCustomTimer} acceptPopup={acceptCustomTimer} />}
+          <SnoozeTimerPopup
+            showPopup={showCustomTimer}
+            closePopup={closeCustomTimer}
+            acceptPopup={acceptCustomTimer}
+          />
           <select className="alarm-snooze-button" value="NULL" onChange={changeSnoozeTime}>
             <option value="NULL" disabled="disabled">{text}</option>
             <option value="5" data-unit="M">5 Minutes</option>
