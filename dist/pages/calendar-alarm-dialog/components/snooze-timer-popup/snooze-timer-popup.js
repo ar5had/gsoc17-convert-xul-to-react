@@ -41,11 +41,11 @@
       const changeInputValue = this.changeInputValue.bind(this);
       const inputValue = this.state.value;
       const timeUnit = this.state.unit;
-      const showPopup = this.props.showPopup;
+      const popupClass = `snooze-timer-popup ${this.props.showPopup ? " visible" : ""}`;
 
       return React.createElement(
         "div",
-        { "className": "snooze-timer-popup", "data-visibility": showPopup },
+        { className: popupClass },
         React.createElement("input", {
           type: "number",
           min: "0",
