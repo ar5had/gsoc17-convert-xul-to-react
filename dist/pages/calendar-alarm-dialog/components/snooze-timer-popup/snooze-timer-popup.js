@@ -41,10 +41,11 @@
       const changeInputValue = this.changeInputValue.bind(this);
       const inputValue = this.state.value;
       const timeUnit = this.state.unit;
+      const showPopup = this.props.showPopup;
 
       return React.createElement(
         "div",
-        { className: "snooze-timer-popup" },
+        { "className": "snooze-timer-popup", "data-visibility": showPopup },
         React.createElement("input", {
           type: "number",
           min: "0",
@@ -66,7 +67,8 @@
 
   SnoozeTimerPopup.propTypes = {
     closePopup: PropTypes.func.isRequired,
-    acceptPopup: PropTypes.func.isRequired
+    acceptPopup: PropTypes.func.isRequired,
+    showPopup: PropTypes.func.isRequired
   };
 
   window.SnoozeTimerPopup = SnoozeTimerPopup;

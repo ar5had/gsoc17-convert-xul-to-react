@@ -130,3 +130,7 @@ option[disabled] {
     display: flex;
     align-items: center;
 }
+
+.snooze-timer-popup[data-visiblity] {
+    visibility: hidden;
+}

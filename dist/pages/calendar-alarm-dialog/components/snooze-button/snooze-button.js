@@ -58,11 +58,11 @@
       return React.createElement(
         "div",
         { className: "snooze-button-wrapper" },
-        showCustomTimer &&
-          React.createElement(SnoozeTimerPopup, {
-            closePopup: closeCustomTimer,
-            acceptPopup: acceptCustomTimer
-          }),
+        React.createElement(SnoozeTimerPopup, {
+          showPopup: showCustomTimer,
+          closePopup: closeCustomTimer,
+          acceptPopup: acceptCustomTimer
+        }),
         React.createElement(
           "select",
           { className: "alarm-snooze-button", value: "NULL", onChange: changeSnoozeTime },
