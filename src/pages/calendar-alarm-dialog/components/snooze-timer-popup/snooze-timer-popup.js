@@ -41,10 +41,10 @@
       const changeInputValue = this.changeInputValue.bind(this);
       const inputValue = this.state.value;
       const timeUnit = this.state.unit;
-      const showPopup = this.props.showPopup;
+      const popupClass = `snooze-timer-popup ${this.props.showPopup ? " visible" : ""}`;
 
       return (
-        <div className="snooze-timer-popup" data-visibility={showPopup}>
+        <div className={popupClass}>
           <input type="number" min="0" value={inputValue} onChange={changeInputValue} />
           <select name="time-unit" value={timeUnit} onChange={changeTimeUnit}>
             <option value="M">minutes</option>
