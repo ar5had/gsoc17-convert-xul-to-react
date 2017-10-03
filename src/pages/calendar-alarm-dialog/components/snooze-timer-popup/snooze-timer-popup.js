@@ -2,7 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-(function() {
+(function () {
   /* global React */
   class SnoozeTimerPopup extends React.Component {
     constructor(props) {
@@ -41,18 +41,20 @@
       const changeInputValue = this.changeInputValue.bind(this);
       const inputValue = this.state.value;
       const timeUnit = this.state.unit;
-      const popupClass = `snooze-timer-popup ${this.props.showPopup ? " visible" : ""}`;
+      const popupClass = `popup-wrapper ${this.props.showPopup ? " visible" : ""}`;
 
       return (
         <div className={popupClass}>
-          <input type="number" min="0" value={inputValue} onChange={changeInputValue} />
-          <select name="time-unit" value={timeUnit} onChange={changeTimeUnit}>
-            <option value="M">minutes</option>
-            <option value="H">hours</option>
-            <option value="D">days</option>
-          </select>
-          <span className="snooze-ok-btn" onClick={acceptPopup} />
-          <span className="snooze-cancel-btn" onClick={closePopup} />
+          <div className="snooze-timer-popup">
+            <input type="number" min="0" value={inputValue} onChange={changeInputValue} />
+            <select name="time-unit" value={timeUnit} onChange={changeTimeUnit}>
+              <option value="M">minutes</option>
+              <option value="H">hours</option>
+              <option value="D">days</option>
+            </select>
+            <span className="snooze-ok-btn" onClick={acceptPopup} />
+            <span className="snooze-cancel-btn" onClick={closePopup} />
+          </div>
         </div>
       );
     }
