@@ -41,26 +41,30 @@
       const changeInputValue = this.changeInputValue.bind(this);
       const inputValue = this.state.value;
       const timeUnit = this.state.unit;
-      const popupClass = `snooze-timer-popup ${this.props.showPopup ? " visible" : ""}`;
+      const popupClass = `popup-wrapper ${this.props.showPopup ? " visible" : ""}`;
 
       return React.createElement(
         "div",
         { className: popupClass },
-        React.createElement("input", {
-          type: "number",
-          min: "0",
-          value: inputValue,
-          onChange: changeInputValue
-        }),
         React.createElement(
-          "select",
-          { name: "time-unit", value: timeUnit, onChange: changeTimeUnit },
-          React.createElement("option", { value: "M" }, "minutes"),
-          React.createElement("option", { value: "H" }, "hours"),
-          React.createElement("option", { value: "D" }, "days")
-        ),
-        React.createElement("span", { className: "snooze-ok-btn", onClick: acceptPopup }),
-        React.createElement("span", { className: "snooze-cancel-btn", onClick: closePopup })
+          "div",
+          { className: "snooze-timer-popup" },
+          React.createElement("input", {
+            type: "number",
+            min: "0",
+            value: inputValue,
+            onChange: changeInputValue
+          }),
+          React.createElement(
+            "select",
+            { name: "time-unit", value: timeUnit, onChange: changeTimeUnit },
+            React.createElement("option", { value: "M" }, "minutes"),
+            React.createElement("option", { value: "H" }, "hours"),
+            React.createElement("option", { value: "D" }, "days")
+          ),
+          React.createElement("span", { className: "snooze-ok-btn", onClick: acceptPopup }),
+          React.createElement("span", { className: "snooze-cancel-btn", onClick: closePopup })
+        )
       );
     }
   }

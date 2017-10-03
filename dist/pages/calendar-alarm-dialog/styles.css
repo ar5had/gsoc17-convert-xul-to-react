@@ -16,6 +16,7 @@
 #alarm-dialog-content-box {
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 #alarm-action-box {
