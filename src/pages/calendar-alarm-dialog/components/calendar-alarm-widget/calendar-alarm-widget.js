@@ -1,9 +1,11 @@
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+(function () {
+  /* global React, Redux, ReactRedux */
+  const { connect } = ReactRedux;
+  const { bindActionCreators } = Redux;
 
-(function() {
-  /* global React */
   class CalendarAlarmWidget extends React.Component {
     componentDidMount() {
       this.addAttributes(this.props.isSelected);
@@ -28,7 +30,7 @@
     render() {
       const { time, name, snoozeAlarm, dismissAlarm } = this.props;
       // replace this function while integrating
-      const showDetails = () => {};
+      const showDetails = () => { };
 
       return (
         <div
@@ -64,8 +66,14 @@
     name: PropTypes.string.isRequired,
     time: PropTypes.string.isRequired,
     snoozeAlarm: PropTypes.func.isRequired,
-    dismissAlarm: PropTypes.func.isRequired
+    dismissAlarm: PropTypes.func.isRequired,
+    actions: PropTypes.func.isRequired
   };
 
-  window.CalendarAlarmWidget = CalendarAlarmWidget;
+
+  const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators(window.__single_alarm_actions__, dispatch)
+  });
+
+  window.CalendarAlarmWidget = connect(undefined, mapDispatchToProps)(CalendarAlarmWidget);
 })();
