@@ -53,7 +53,7 @@ window.addEventListener("load", () => {
       },
       source: "dialog-message"
     },
-    "print-dialog": {
+    "calendar-print-dialog": {
       printSettings: {
         title: "",
         selectedLayoutIndex: 0,
