@@ -73,7 +73,7 @@ window.addEventListener("load", () => {
       iframe: {
         title: "demo",
         html:
-          "<!DOCTYPE html><html><body><h1>MyFirstHeading</h1><p>Myfirstparagraph.</p></body></html>"
+        "<!DOCTYPE html><html><body><h1>MyFirstHeading</h1><p>Myfirstparagraph.</p></body></html>"
       },
       source: "dialog-message"
     },

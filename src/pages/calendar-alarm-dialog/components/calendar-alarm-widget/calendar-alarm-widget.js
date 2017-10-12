@@ -2,9 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 (function () {
-  /* global React, Redux, ReactRedux */
-  const { connect } = ReactRedux;
-  const { bindActionCreators } = Redux;
+  /* global React*/
 
   class CalendarAlarmWidget extends React.Component {
     componentDidMount() {
@@ -67,13 +65,7 @@
     time: PropTypes.string.isRequired,
     snoozeAlarm: PropTypes.func.isRequired,
     dismissAlarm: PropTypes.func.isRequired,
-    actions: PropTypes.func.isRequired
   };
 
-
-  const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators(window.__single_alarm_actions__, dispatch)
-  });
-
-  window.CalendarAlarmWidget = connect(undefined, mapDispatchToProps)(CalendarAlarmWidget);
+  window.CalendarAlarmWidget = CalendarAlarmWidget;
 })();
